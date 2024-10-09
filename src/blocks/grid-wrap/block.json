@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "post-grid/grid-wrap",
+  "title": "Grid Maker",
+  "textdomain": "post-grid",
+  "category": "post-grid-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-grid-wrap"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "grid"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "gridTemplateColumns": {
+            "Desktop": "1fr"
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-grid-wrap-item"
+        },
+        "styles": {}
+      }
+    },
+    "nthItemStyle": {
+      "type": "array",
+      "default": [
+        {
+          "styles": {}
+        }
+      ]
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "front_script",
+  "keywords": [
+    "grid builder",
+    "grid css",
+    "grid content",
+    "Custom grid ",
+    "grid wrapper for wordpress",
+    "Custom grid block"
+  ],
+  "description": "A grid wrap block is a layout tool used to arrange content in a grid pattern, enhancing design and structure."
+}

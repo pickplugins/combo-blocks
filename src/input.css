@@ -1,0 +1,585 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+/* 
+@layer base {
+    img {
+        @apply inline-block;
+    }
+} */
+
+
+
+/* .circle-wrap {
+    width: 300px;
+    height: 300px;
+    background: #fefcff;
+    border-radius: 50%;
+    border: 1px solid #cdcbd0;
+    position: relative;
+} */
+
+/* .circle-wrap .mask,
+.circle-wrap .fill {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    border-radius: 50%;
+} */
+
+.circle-wrap .mask {
+  clip: rect(0px, 300px, 300px, 150px);
+}
+
+/* .circle-wrap .inside-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: #7f1d64;
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+/* color animation */
+
+/* 3rd progress bar */
+.mask .fill {
+  clip: rect(0px, 150px, 300px, 0px);
+  background-color: #227ded;
+}
+
+.mask.full,
+.circle-wrap .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(135deg);
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+
+
+/* custom CSS  */
+
+
+
+
+
+.block-editor-block-inspector .components-base-control {
+  margin-bottom: 0;
+}
+
+.block-editor-block-inspector .components-base-control:last-child {
+  margin-bottom: 0;
+}
+
+.item {}
+
+
+
+.text-color {
+  color: #393b41 !important;
+}
+
+.pg-overview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.pg-overview a {
+  color: inherit !important;
+}
+
+.pg-overview .button {
+  color: white !important;
+}
+
+.pg-overview button {
+  outline: none;
+  border: none;
+}
+
+.pg-overview p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* .pg-overview h1 , .pg-overview h2,.pg-overview h3,.pg-overview h4,.pg-overview h5,.pg-overview h6 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+} */
+
+.post-grid input[type="radio"] {
+  height: 16px !important;
+  width: 16px !important;
+  border: 1px solid rgb(107 114 128) !important;
+}
+
+.post-grid input[type="radio"]:disabled {
+  /* border: 1px solid rgb(229 231 235) !important; */
+  border: 1px solid red !important;
+  cursor: not-allowed;
+}
+
+.pg-setting-input-textarea .components-textarea-control__input {
+  min-height: 75px !important;
+  resize: vertical;
+  border-radius: 0;
+  padding: 4px;
+  font-weight: 500;
+  font-size: 13px;
+  background-color: rgb(224 231 255);
+  border: 2px solid rgb(199 210 254);
+
+}
+
+.pg-setting-input-text .components-textarea-control__input {
+  min-height: 75px !important;
+  resize: vertical;
+  border-radius: 0;
+  padding: 4px;
+  font-weight: 500;
+  font-size: 13px;
+  background-color: rgb(224 231 255);
+  border: 2px solid rgb(199 210 254);
+
+}
+
+
+
+
+.pg-setting-input-text .panel-body-padding.is-opened {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.pg-setting-input-text .panel-body-padding.is-opened>.components-panel__body-title {
+  padding-right: 8px !important;
+}
+
+.pg-setting-input-text .panel-body-padding.is-opened>div {
+  padding: 0;
+  margin: 0 -16px;
+}
+
+/* .pg-setting-input-text .panel-body-padding .components-panel__body-title {
+  padding: 8px !important;
+} */
+.pg-setting-input-text .components-input-control__input {
+  height: 32px !important;
+  padding: 1px;
+  font-weight: 500;
+  font-size: 14px !important;
+  background-color: rgb(224 231 255) !important;
+  border: 2px solid rgb(199 210 254) !important;
+}
+
+.pg-setting-input-text .components-select-control__input {
+  font-weight: 500;
+  font-size: 13px;
+  background-color: rgb(224 231 255) !important;
+  border: 2px solid rgb(199 210 254) !important;
+}
+
+.pg-setting-input-text {
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+
+
+.pg-post-type>.components-base-control.components-toggle-control {
+  margin-bottom: 0 !important;
+}
+
+#pg-excerpt>#excerpt {
+  display: inline-block;
+  margin: 0;
+  height: 1rem;
+  width: 1rem;
+}
+
+.pg-font {}
+
+.pg-setting-input-text .components-panel__body {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.pg-setting-input-text .components-panel__body-title {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.pg-setting-input-text .components-base-control__field label {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.pg-setting-input-text .components-base-control__help {
+  /* font-weight: 500; */
+  /* font-size: 13px; */
+}
+
+/* toggle control  */
+.pg-setting-input-text .components-form-toggle.is-checked .components-form-toggle__input:focus {
+  border-color: #1f2937 !important;
+  outline: 2px solid #1f2937 !important;
+  box-shadow: 0 0 0 1px #1f2937 !important;
+}
+
+.pg-setting-input-text .components-form-toggle .components-form-toggle__input:focus {
+  border-color: #1f2937 !important;
+  outline: 2px solid #1f2937 !important;
+  box-shadow: 0 0 0 1px #1f2937 !important;
+}
+
+.pg-setting-input-text .components-form-toggle .components-form-toggle__input:focus+.components-form-toggle__track {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px * 2) #1f2937;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.pg-setting-input-text .components-form-toggle.is-checked .components-form-toggle__track {
+  background-color: rgb(129 140 248);
+  border: 2px solid rgb(199 210 254);
+}
+
+.pg-setting-input-text .components-form-toggle .components-form-toggle__track {
+  background-color: rgb(224 231 255);
+  border: 2px solid rgb(199 210 254);
+}
+
+
+
+.pg-setting-input-text .components-form-toggle.is-checked .components-form-toggle__thumb {
+  background-color: #ffffff;
+}
+
+/* toggle control  */
+
+.pg-setting-input-text button {
+  border: 0;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+
+/* masonry width  */
+.masonry-width {
+  width: 25%;
+}
+
+.variation-item {
+  width: calc(25% - 15px);
+}
+
+
+/* css library  */
+.pg-span-hidden>span {
+  display: none;
+}
+
+
+/* blur */
+
+.pg-blur {
+  filter: blur(3px);
+}
+
+
+/* gradient color  */
+
+.pg-text-color {
+  background-image: linear-gradient(90deg, #FC7F64 0%, #FF9D42 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+
+
+
+/* gradient picker edit  */
+
+.pg-setting-input-gradient .components-custom-gradient-picker__ui-line {
+  gap: 5px;
+}
+
+
+
+
+/* gradient picker edit  */
+
+
+
+
+/* .pg-setting-css-components .components-button {
+	
+	display: flex;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	gap: 0.5rem;
+	justify-content: center;
+	border-radius: 0.25rem;
+	font-weight: 500;
+	letter-spacing: 0.025em;
+	color: #ffffff;
+	text-transform: capitalize;
+	background-color: #1f2937;
+	cursor: pointer;
+}
+
+.pg-setting-css-components .components-button:hover {
+	color: #ffffff;
+	background-color: #374151;
+} */
+
+.custom-scrollbar {
+  max-height: 300px;
+  height: auto;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #1f2937;
+  border-radius: 10px;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #e5e7eb;
+}
+
+.pg-icon-picker button:focus:not(:disabled) {
+  outline: 0;
+  box-shadow: 0 0 0 0 #000;
+}
+
+
+/* dashnoard */
+.pg-dashboard {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.pg-dashboard h2 {
+  margin: 0;
+}
+
+.pg-dashboard h2>button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.pg-dashboard h2>button[aria-expanded="true"] {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+  You want a simple and fancy tooltip?
+  Just copy all [data-tooltip] blocks:
+*/
+[data-pgTooltip] {
+  --arrow-size: 5px;
+  position: relative;
+  z-index: 100;
+}
+
+/* Positioning and visibility settings of the pgTooltip */
+[data-pgTooltip]:before,
+[data-pgTooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + var(--arrow-size));
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+/* The actual pgTooltip with a dynamic width */
+[data-pgTooltip]:before {
+  content: attr(data-pgTooltip);
+  padding: 10px 18px;
+  min-width: 50px;
+  max-width: 150px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 6px;
+  font-size: 10px;
+  background-color: rgba(59, 72, 80, 0.9);
+  background-image: linear-gradient(30deg,
+      rgba(59, 72, 80, 0.44),
+      rgba(59, 68, 75, 0.44),
+      rgba(60, 82, 88, 0.44));
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, calc(0px - var(--arrow-size))) scale(0.5);
+}
+
+/* pgTooltip arrow */
+[data-pgTooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: var(--arrow-size) var(--arrow-size) 0px var(--arrow-size);
+  /* CSS triangle */
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s;
+  /* If the mouse leaves the element, 
+                              the transition effects for the 
+                              pgTooltip arrow are "turned off" */
+  transform-origin: top;
+  /* Orientation setting for the
+                              slide-down effect */
+  transform: translateX(-50%) scaleY(0);
+}
+
+/* pgTooltip becomes visible at hover */
+[data-pgTooltip]:hover:before,
+[data-pgTooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Scales from 0.5 to 1 -> grow effect */
+[data-pgTooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, calc(0px - var(--arrow-size))) scale(1);
+}
+
+/* 
+  Arrow slide down effect only on mouseenter (NOT on mouseleave)
+*/
+[data-pgTooltip]:hover:after {
+  transition-delay: 0.5s;
+  /* Starting after the grow effect */
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+
+/*
+  That's it for the basic pgTooltip.
+
+  If you want some adjustability
+  here are some orientation settings you can use:
+*/
+
+/* LEFT */
+/* pgTooltip + arrow */
+[data-pgTooltip-location="left"]:before,
+[data-pgTooltip-location="left"]:after {
+  left: auto;
+  right: calc(100% + var(--arrow-size));
+  bottom: 50%;
+}
+
+/* pgTooltip */
+[data-pgTooltip-location="left"]:before {
+  transform: translate(calc(0px - var(--arrow-size)), 50%) scale(0.5);
+}
+
+[data-pgTooltip-location="left"]:hover:before {
+  transform: translate(calc(0px - var(--arrow-size)), 50%) scale(1);
+}
+
+/* Arrow */
+[data-pgTooltip-location="left"]:after {
+  border-width: var(--arrow-size) 0px var(--arrow-size) var(--arrow-size);
+  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+  transform-origin: left;
+  transform: translateY(50%) scaleX(0);
+}
+
+[data-pgTooltip-location="left"]:hover:after {
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* RIGHT */
+[data-pgTooltip-location="right"]:before,
+[data-pgTooltip-location="right"]:after {
+  left: calc(100% + var(--arrow-size));
+  bottom: 50%;
+}
+
+[data-pgTooltip-location="right"]:before {
+  transform: translate(var(--arrow-size), 50%) scale(0.5);
+}
+
+[data-pgTooltip-location="right"]:hover:before {
+  transform: translate(var(--arrow-size), 50%) scale(1);
+}
+
+[data-pgTooltip-location="right"]:after {
+  border-width: var(--arrow-size) var(--arrow-size) var(--arrow-size) 0px;
+  border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+  transform-origin: right;
+  transform: translateY(50%) scaleX(0);
+}
+
+[data-pgTooltip-location="right"]:hover:after {
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* BOTTOM */
+[data-pgTooltip-location="bottom"]:before,
+[data-pgTooltip-location="bottom"]:after {
+  top: calc(100% + var(--arrow-size));
+  bottom: auto;
+}
+
+[data-pgTooltip-location="bottom"]:before {
+  transform: translate(-50%, var(--arrow-size)) scale(0.5);
+}
+
+[data-pgTooltip-location="bottom"]:hover:before {
+  transform: translate(-50%, var(--arrow-size)) scale(1);
+}
+
+[data-pgTooltip-location="bottom"]:after {
+  border-width: 0px var(--arrow-size) var(--arrow-size) var(--arrow-size);
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
+}

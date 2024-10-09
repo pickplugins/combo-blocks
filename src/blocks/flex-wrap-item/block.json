@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "post-grid/flex-wrap-item",
+  "title": "Flex Maker Item",
+  "textdomain": "post-grid",
+  "category": "post-grid-tools",
+  "parent": [
+    "post-grid/flex-wrap"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flex-wrap-item",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {
+          "backgroundColor": {
+            "Desktop": ""
+          },
+          "flexBasis": {
+            "Desktop": "0"
+          },
+          "flexGrow": {
+            "Desktop": "1"
+          }
+        }
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "front_script",
+  "keywords": [
+    "flex wrapper",
+    "flex layout",
+    "flex wordpress",
+    "flex block for wordpress"
+  ],
+  "description": "This block is the inner block of flex wrap block"
+}

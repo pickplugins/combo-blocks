@@ -1,0 +1,1249 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Combo Blocks\n"
+"POT-Creation-Date: 2024-08-23 07:06+0600\n"
+"PO-Revision-Date: 2024-08-23 07:07+0600\n"
+"Last-Translator: \n"
+"Language-Team: pickplugins <support@pickplugins.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ../includes\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: blocks/functions-blocks.php:911
+msgid "Combo Blocks - Post Element"
+msgstr ""
+
+#: blocks/functions-blocks.php:915
+msgid "Combo Blocks - Tools"
+msgstr ""
+
+#: blocks/functions-blocks.php:919
+msgid "Combo Blocks - WooCommerce"
+msgstr ""
+
+#: blocks/functions-blocks.php:923
+msgid "Combo Blocks - Archive"
+msgstr ""
+
+#: blocks/functions-blocks.php:1998 blocks/functions-blocks.php:2276
+msgid "Afghanistan"
+msgstr ""
+
+#: blocks/functions-blocks.php:1999 blocks/functions-blocks.php:2277
+msgid "Albania"
+msgstr ""
+
+#: blocks/functions-blocks.php:2000 blocks/functions-blocks.php:2278
+msgid "Algeria"
+msgstr ""
+
+#: blocks/functions-blocks.php:2001 blocks/functions-blocks.php:2279
+msgid "American Samoa"
+msgstr ""
+
+#: blocks/functions-blocks.php:2002 blocks/functions-blocks.php:2280
+msgid "Andorra"
+msgstr ""
+
+#: blocks/functions-blocks.php:2003 blocks/functions-blocks.php:2281
+msgid "Angola"
+msgstr ""
+
+#: blocks/functions-blocks.php:2004 blocks/functions-blocks.php:2282
+msgid "Anguilla"
+msgstr ""
+
+#: blocks/functions-blocks.php:2005 blocks/functions-blocks.php:2283
+msgid "Antarctica"
+msgstr ""
+
+#: blocks/functions-blocks.php:2006 blocks/functions-blocks.php:2284
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: blocks/functions-blocks.php:2007 blocks/functions-blocks.php:2285
+msgid "Argentina"
+msgstr ""
+
+#: blocks/functions-blocks.php:2008 blocks/functions-blocks.php:2286
+msgid "Armenia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2009 blocks/functions-blocks.php:2287
+msgid "Aruba"
+msgstr ""
+
+#: blocks/functions-blocks.php:2010 blocks/functions-blocks.php:2288
+msgid "Australia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2011 blocks/functions-blocks.php:2289
+msgid "Austria"
+msgstr ""
+
+#: blocks/functions-blocks.php:2012 blocks/functions-blocks.php:2290
+msgid "Azerbaijan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2013 blocks/functions-blocks.php:2291
+msgid "Bahamas"
+msgstr ""
+
+#: blocks/functions-blocks.php:2014 blocks/functions-blocks.php:2292
+msgid "Bahrain"
+msgstr ""
+
+#: blocks/functions-blocks.php:2015 blocks/functions-blocks.php:2293
+msgid "Bangladesh"
+msgstr ""
+
+#: blocks/functions-blocks.php:2016 blocks/functions-blocks.php:2294
+msgid "Barbados"
+msgstr ""
+
+#: blocks/functions-blocks.php:2017 blocks/functions-blocks.php:2295
+msgid "Belarus"
+msgstr ""
+
+#: blocks/functions-blocks.php:2018 blocks/functions-blocks.php:2296
+msgid "Belgium"
+msgstr ""
+
+#: blocks/functions-blocks.php:2019 blocks/functions-blocks.php:2297
+msgid "Belize"
+msgstr ""
+
+#: blocks/functions-blocks.php:2020 blocks/functions-blocks.php:2298
+msgid "Benin"
+msgstr ""
+
+#: blocks/functions-blocks.php:2021 blocks/functions-blocks.php:2299
+msgid "Bermuda"
+msgstr ""
+
+#: blocks/functions-blocks.php:2022 blocks/functions-blocks.php:2300
+msgid "Bhutan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2023 blocks/functions-blocks.php:2301
+msgid "Bolivia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2024 blocks/functions-blocks.php:2302
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: blocks/functions-blocks.php:2025 blocks/functions-blocks.php:2303
+msgid "Botswana"
+msgstr ""
+
+#: blocks/functions-blocks.php:2026 blocks/functions-blocks.php:2304
+msgid "Bouvet Island"
+msgstr ""
+
+#: blocks/functions-blocks.php:2027 blocks/functions-blocks.php:2305
+msgid "Brazil"
+msgstr ""
+
+#: blocks/functions-blocks.php:2028 blocks/functions-blocks.php:2306
+msgid "British Antarctic Territory"
+msgstr ""
+
+#: blocks/functions-blocks.php:2029 blocks/functions-blocks.php:2307
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: blocks/functions-blocks.php:2030 blocks/functions-blocks.php:2308
+msgid "British Virgin Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2031 blocks/functions-blocks.php:2309
+msgid "Brunei"
+msgstr ""
+
+#: blocks/functions-blocks.php:2032 blocks/functions-blocks.php:2310
+msgid "Bulgaria"
+msgstr ""
+
+#: blocks/functions-blocks.php:2033 blocks/functions-blocks.php:2311
+msgid "Burkina Faso"
+msgstr ""
+
+#: blocks/functions-blocks.php:2034 blocks/functions-blocks.php:2312
+msgid "Burundi"
+msgstr ""
+
+#: blocks/functions-blocks.php:2035 blocks/functions-blocks.php:2313
+msgid "Cambodia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2036 blocks/functions-blocks.php:2314
+msgid "Cameroon"
+msgstr ""
+
+#: blocks/functions-blocks.php:2037 blocks/functions-blocks.php:2315
+msgid "Canada"
+msgstr ""
+
+#: blocks/functions-blocks.php:2038 blocks/functions-blocks.php:2316
+msgid "Canton and Enderbury Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2039 blocks/functions-blocks.php:2317
+msgid "Cape Verde"
+msgstr ""
+
+#: blocks/functions-blocks.php:2040 blocks/functions-blocks.php:2318
+msgid "Cayman Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2041 blocks/functions-blocks.php:2319
+msgid "Central African Republic"
+msgstr ""
+
+#: blocks/functions-blocks.php:2042 blocks/functions-blocks.php:2320
+msgid "Chad"
+msgstr ""
+
+#: blocks/functions-blocks.php:2043 blocks/functions-blocks.php:2321
+msgid "Chile"
+msgstr ""
+
+#: blocks/functions-blocks.php:2044 blocks/functions-blocks.php:2322
+msgid "China"
+msgstr ""
+
+#: blocks/functions-blocks.php:2045 blocks/functions-blocks.php:2323
+msgid "Christmas Island"
+msgstr ""
+
+#: blocks/functions-blocks.php:2046 blocks/functions-blocks.php:2324
+msgid "Cocos [Keeling] Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2047 blocks/functions-blocks.php:2325
+msgid "Colombia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2048 blocks/functions-blocks.php:2326
+msgid "Comoros"
+msgstr ""
+
+#: blocks/functions-blocks.php:2049 blocks/functions-blocks.php:2327
+msgid "Congo - Brazzaville"
+msgstr ""
+
+#: blocks/functions-blocks.php:2050 blocks/functions-blocks.php:2328
+msgid "Congo - Kinshasa"
+msgstr ""
+
+#: blocks/functions-blocks.php:2051 blocks/functions-blocks.php:2329
+msgid "Cook Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2052 blocks/functions-blocks.php:2330
+msgid "Costa Rica"
+msgstr ""
+
+#: blocks/functions-blocks.php:2053 blocks/functions-blocks.php:2331
+msgid "Croatia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2054 blocks/functions-blocks.php:2332
+msgid "Cuba"
+msgstr ""
+
+#: blocks/functions-blocks.php:2055 blocks/functions-blocks.php:2333
+msgid "Cyprus"
+msgstr ""
+
+#: blocks/functions-blocks.php:2056 blocks/functions-blocks.php:2334
+msgid "Czech Republic"
+msgstr ""
+
+#: blocks/functions-blocks.php:2057 blocks/functions-blocks.php:2335
+msgid "Côte d’Ivoire"
+msgstr ""
+
+#: blocks/functions-blocks.php:2058 blocks/functions-blocks.php:2336
+msgid "Denmark"
+msgstr ""
+
+#: blocks/functions-blocks.php:2059 blocks/functions-blocks.php:2337
+msgid "Djibouti"
+msgstr ""
+
+#: blocks/functions-blocks.php:2060 blocks/functions-blocks.php:2338
+msgid "Dominica"
+msgstr ""
+
+#: blocks/functions-blocks.php:2061 blocks/functions-blocks.php:2339
+msgid "Dominican Republic"
+msgstr ""
+
+#: blocks/functions-blocks.php:2062 blocks/functions-blocks.php:2340
+msgid "Dronning Maud Land"
+msgstr ""
+
+#: blocks/functions-blocks.php:2063 blocks/functions-blocks.php:2341
+msgid "East Germany"
+msgstr ""
+
+#: blocks/functions-blocks.php:2064 blocks/functions-blocks.php:2342
+msgid "Ecuador"
+msgstr ""
+
+#: blocks/functions-blocks.php:2065 blocks/functions-blocks.php:2343
+msgid "Egypt"
+msgstr ""
+
+#: blocks/functions-blocks.php:2066 blocks/functions-blocks.php:2344
+msgid "El Salvador"
+msgstr ""
+
+#: blocks/functions-blocks.php:2067 blocks/functions-blocks.php:2345
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: blocks/functions-blocks.php:2068 blocks/functions-blocks.php:2346
+msgid "Eritrea"
+msgstr ""
+
+#: blocks/functions-blocks.php:2069 blocks/functions-blocks.php:2347
+msgid "Estonia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2070 blocks/functions-blocks.php:2348
+msgid "Ethiopia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2071 blocks/functions-blocks.php:2349
+msgid "Falkland Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2072 blocks/functions-blocks.php:2350
+msgid "Faroe Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2073 blocks/functions-blocks.php:2351
+msgid "Fiji"
+msgstr ""
+
+#: blocks/functions-blocks.php:2074 blocks/functions-blocks.php:2352
+msgid "Finland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2075 blocks/functions-blocks.php:2353
+msgid "France"
+msgstr ""
+
+#: blocks/functions-blocks.php:2076 blocks/functions-blocks.php:2354
+msgid "French Guiana"
+msgstr ""
+
+#: blocks/functions-blocks.php:2077 blocks/functions-blocks.php:2355
+msgid "French Polynesia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2078 blocks/functions-blocks.php:2356
+msgid "French Southern Territories"
+msgstr ""
+
+#: blocks/functions-blocks.php:2079 blocks/functions-blocks.php:2357
+msgid "French Southern and Antarctic Territories"
+msgstr ""
+
+#: blocks/functions-blocks.php:2080 blocks/functions-blocks.php:2358
+msgid "Gabon"
+msgstr ""
+
+#: blocks/functions-blocks.php:2081 blocks/functions-blocks.php:2359
+msgid "Gambia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2082 blocks/functions-blocks.php:2360
+msgid "Georgia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2083 blocks/functions-blocks.php:2361
+msgid "Germany"
+msgstr ""
+
+#: blocks/functions-blocks.php:2084 blocks/functions-blocks.php:2362
+msgid "Ghana"
+msgstr ""
+
+#: blocks/functions-blocks.php:2085 blocks/functions-blocks.php:2363
+msgid "Gibraltar"
+msgstr ""
+
+#: blocks/functions-blocks.php:2086 blocks/functions-blocks.php:2364
+msgid "Greece"
+msgstr ""
+
+#: blocks/functions-blocks.php:2087 blocks/functions-blocks.php:2365
+msgid "Greenland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2088 blocks/functions-blocks.php:2366
+msgid "Grenada"
+msgstr ""
+
+#: blocks/functions-blocks.php:2089 blocks/functions-blocks.php:2367
+msgid "Guadeloupe"
+msgstr ""
+
+#: blocks/functions-blocks.php:2090 blocks/functions-blocks.php:2368
+msgid "Guam"
+msgstr ""
+
+#: blocks/functions-blocks.php:2091 blocks/functions-blocks.php:2369
+msgid "Guatemala"
+msgstr ""
+
+#: blocks/functions-blocks.php:2092 blocks/functions-blocks.php:2370
+msgid "Guernsey"
+msgstr ""
+
+#: blocks/functions-blocks.php:2093 blocks/functions-blocks.php:2371
+msgid "Guinea"
+msgstr ""
+
+#: blocks/functions-blocks.php:2094 blocks/functions-blocks.php:2372
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: blocks/functions-blocks.php:2095 blocks/functions-blocks.php:2373
+msgid "Guyana"
+msgstr ""
+
+#: blocks/functions-blocks.php:2096 blocks/functions-blocks.php:2374
+msgid "Haiti"
+msgstr ""
+
+#: blocks/functions-blocks.php:2097 blocks/functions-blocks.php:2375
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2098 blocks/functions-blocks.php:2376
+msgid "Honduras"
+msgstr ""
+
+#: blocks/functions-blocks.php:2099 blocks/functions-blocks.php:2377
+msgid "Hong Kong SAR China"
+msgstr ""
+
+#: blocks/functions-blocks.php:2100 blocks/functions-blocks.php:2378
+msgid "Hungary"
+msgstr ""
+
+#: blocks/functions-blocks.php:2101 blocks/functions-blocks.php:2379
+msgid "Iceland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2102 blocks/functions-blocks.php:2380
+msgid "India"
+msgstr ""
+
+#: blocks/functions-blocks.php:2103 blocks/functions-blocks.php:2381
+msgid "Indonesia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2104 blocks/functions-blocks.php:2382
+msgid "Iran"
+msgstr ""
+
+#: blocks/functions-blocks.php:2105 blocks/functions-blocks.php:2383
+msgid "Iraq"
+msgstr ""
+
+#: blocks/functions-blocks.php:2106 blocks/functions-blocks.php:2384
+msgid "Ireland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2107 blocks/functions-blocks.php:2385
+msgid "Isle of Man"
+msgstr ""
+
+#: blocks/functions-blocks.php:2108 blocks/functions-blocks.php:2386
+msgid "Israel"
+msgstr ""
+
+#: blocks/functions-blocks.php:2109 blocks/functions-blocks.php:2387
+msgid "Italy"
+msgstr ""
+
+#: blocks/functions-blocks.php:2110 blocks/functions-blocks.php:2388
+msgid "Jamaica"
+msgstr ""
+
+#: blocks/functions-blocks.php:2111 blocks/functions-blocks.php:2389
+msgid "Japan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2112 blocks/functions-blocks.php:2390
+msgid "Jersey"
+msgstr ""
+
+#: blocks/functions-blocks.php:2113 blocks/functions-blocks.php:2391
+msgid "Johnston Island"
+msgstr ""
+
+#: blocks/functions-blocks.php:2114 blocks/functions-blocks.php:2392
+msgid "Jordan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2115 blocks/functions-blocks.php:2393
+msgid "Kazakhstan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2116 blocks/functions-blocks.php:2394
+msgid "Kenya"
+msgstr ""
+
+#: blocks/functions-blocks.php:2117 blocks/functions-blocks.php:2395
+msgid "Kiribati"
+msgstr ""
+
+#: blocks/functions-blocks.php:2118 blocks/functions-blocks.php:2396
+msgid "Kuwait"
+msgstr ""
+
+#: blocks/functions-blocks.php:2119 blocks/functions-blocks.php:2397
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2120 blocks/functions-blocks.php:2398
+msgid "Laos"
+msgstr ""
+
+#: blocks/functions-blocks.php:2121 blocks/functions-blocks.php:2399
+msgid "Latvia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2122 blocks/functions-blocks.php:2400
+msgid "Lebanon"
+msgstr ""
+
+#: blocks/functions-blocks.php:2123 blocks/functions-blocks.php:2401
+msgid "Lesotho"
+msgstr ""
+
+#: blocks/functions-blocks.php:2124 blocks/functions-blocks.php:2402
+msgid "Liberia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2125 blocks/functions-blocks.php:2403
+msgid "Libya"
+msgstr ""
+
+#: blocks/functions-blocks.php:2126 blocks/functions-blocks.php:2404
+msgid "Liechtenstein"
+msgstr ""
+
+#: blocks/functions-blocks.php:2127 blocks/functions-blocks.php:2405
+msgid "Lithuania"
+msgstr ""
+
+#: blocks/functions-blocks.php:2128 blocks/functions-blocks.php:2406
+msgid "Luxembourg"
+msgstr ""
+
+#: blocks/functions-blocks.php:2129 blocks/functions-blocks.php:2407
+msgid "Macau SAR China"
+msgstr ""
+
+#: blocks/functions-blocks.php:2130 blocks/functions-blocks.php:2408
+msgid "Macedonia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2131 blocks/functions-blocks.php:2409
+msgid "Madagascar"
+msgstr ""
+
+#: blocks/functions-blocks.php:2132 blocks/functions-blocks.php:2410
+msgid "Malawi"
+msgstr ""
+
+#: blocks/functions-blocks.php:2133 blocks/functions-blocks.php:2411
+msgid "Malaysia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2134 blocks/functions-blocks.php:2412
+msgid "Maldives"
+msgstr ""
+
+#: blocks/functions-blocks.php:2135 blocks/functions-blocks.php:2413
+msgid "Mali"
+msgstr ""
+
+#: blocks/functions-blocks.php:2136 blocks/functions-blocks.php:2414
+msgid "Malta"
+msgstr ""
+
+#: blocks/functions-blocks.php:2137 blocks/functions-blocks.php:2415
+msgid "Marshall Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2138 blocks/functions-blocks.php:2416
+msgid "Martinique"
+msgstr ""
+
+#: blocks/functions-blocks.php:2139 blocks/functions-blocks.php:2417
+msgid "Mauritania"
+msgstr ""
+
+#: blocks/functions-blocks.php:2140 blocks/functions-blocks.php:2418
+msgid "Mauritius"
+msgstr ""
+
+#: blocks/functions-blocks.php:2141 blocks/functions-blocks.php:2419
+msgid "Mayotte"
+msgstr ""
+
+#: blocks/functions-blocks.php:2142 blocks/functions-blocks.php:2420
+msgid "Metropolitan France"
+msgstr ""
+
+#: blocks/functions-blocks.php:2143 blocks/functions-blocks.php:2421
+msgid "Mexico"
+msgstr ""
+
+#: blocks/functions-blocks.php:2144 blocks/functions-blocks.php:2422
+msgid "Micronesia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2145 blocks/functions-blocks.php:2423
+msgid "Midway Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2146 blocks/functions-blocks.php:2424
+msgid "Moldova"
+msgstr ""
+
+#: blocks/functions-blocks.php:2147 blocks/functions-blocks.php:2425
+msgid "Monaco"
+msgstr ""
+
+#: blocks/functions-blocks.php:2148 blocks/functions-blocks.php:2426
+msgid "Mongolia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2149 blocks/functions-blocks.php:2427
+msgid "Montenegro"
+msgstr ""
+
+#: blocks/functions-blocks.php:2150 blocks/functions-blocks.php:2428
+msgid "Montserrat"
+msgstr ""
+
+#: blocks/functions-blocks.php:2151 blocks/functions-blocks.php:2429
+msgid "Morocco"
+msgstr ""
+
+#: blocks/functions-blocks.php:2152 blocks/functions-blocks.php:2430
+msgid "Mozambique"
+msgstr ""
+
+#: blocks/functions-blocks.php:2153 blocks/functions-blocks.php:2431
+msgid "Myanmar [Burma]"
+msgstr ""
+
+#: blocks/functions-blocks.php:2154 blocks/functions-blocks.php:2432
+msgid "Namibia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2155 blocks/functions-blocks.php:2433
+msgid "Nauru"
+msgstr ""
+
+#: blocks/functions-blocks.php:2156 blocks/functions-blocks.php:2434
+msgid "Nepal"
+msgstr ""
+
+#: blocks/functions-blocks.php:2157 blocks/functions-blocks.php:2435
+msgid "Netherlands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2158 blocks/functions-blocks.php:2436
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: blocks/functions-blocks.php:2159 blocks/functions-blocks.php:2437
+msgid "Neutral Zone"
+msgstr ""
+
+#: blocks/functions-blocks.php:2160 blocks/functions-blocks.php:2438
+msgid "New Caledonia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2161 blocks/functions-blocks.php:2439
+msgid "New Zealand"
+msgstr ""
+
+#: blocks/functions-blocks.php:2162 blocks/functions-blocks.php:2440
+msgid "Nicaragua"
+msgstr ""
+
+#: blocks/functions-blocks.php:2163 blocks/functions-blocks.php:2441
+msgid "Niger"
+msgstr ""
+
+#: blocks/functions-blocks.php:2164 blocks/functions-blocks.php:2442
+msgid "Nigeria"
+msgstr ""
+
+#: blocks/functions-blocks.php:2165 blocks/functions-blocks.php:2443
+msgid "Niue"
+msgstr ""
+
+#: blocks/functions-blocks.php:2166 blocks/functions-blocks.php:2444
+msgid "Norfolk Island"
+msgstr ""
+
+#: blocks/functions-blocks.php:2167 blocks/functions-blocks.php:2445
+msgid "North Korea"
+msgstr ""
+
+#: blocks/functions-blocks.php:2168 blocks/functions-blocks.php:2446
+msgid "North Vietnam"
+msgstr ""
+
+#: blocks/functions-blocks.php:2169 blocks/functions-blocks.php:2447
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2170 blocks/functions-blocks.php:2448
+msgid "Norway"
+msgstr ""
+
+#: blocks/functions-blocks.php:2171 blocks/functions-blocks.php:2449
+msgid "Oman"
+msgstr ""
+
+#: blocks/functions-blocks.php:2172 blocks/functions-blocks.php:2450
+msgid "Pacific Islands Trust Territory"
+msgstr ""
+
+#: blocks/functions-blocks.php:2173 blocks/functions-blocks.php:2451
+msgid "Pakistan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2174 blocks/functions-blocks.php:2452
+msgid "Palau"
+msgstr ""
+
+#: blocks/functions-blocks.php:2175 blocks/functions-blocks.php:2453
+msgid "Palestinian Territories"
+msgstr ""
+
+#: blocks/functions-blocks.php:2176 blocks/functions-blocks.php:2454
+msgid "Panama"
+msgstr ""
+
+#: blocks/functions-blocks.php:2177 blocks/functions-blocks.php:2455
+msgid "Panama Canal Zone"
+msgstr ""
+
+#: blocks/functions-blocks.php:2178 blocks/functions-blocks.php:2456
+msgid "Papua New Guinea"
+msgstr ""
+
+#: blocks/functions-blocks.php:2179 blocks/functions-blocks.php:2457
+msgid "Paraguay"
+msgstr ""
+
+#: blocks/functions-blocks.php:2180 blocks/functions-blocks.php:2458
+msgid "People's Democratic Republic of Yemen"
+msgstr ""
+
+#: blocks/functions-blocks.php:2181 blocks/functions-blocks.php:2459
+msgid "Peru"
+msgstr ""
+
+#: blocks/functions-blocks.php:2182 blocks/functions-blocks.php:2460
+msgid "Philippines"
+msgstr ""
+
+#: blocks/functions-blocks.php:2183 blocks/functions-blocks.php:2461
+msgid "Pitcairn Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2184 blocks/functions-blocks.php:2462
+msgid "Poland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2185 blocks/functions-blocks.php:2463
+msgid "Portugal"
+msgstr ""
+
+#: blocks/functions-blocks.php:2186 blocks/functions-blocks.php:2464
+msgid "Puerto Rico"
+msgstr ""
+
+#: blocks/functions-blocks.php:2187 blocks/functions-blocks.php:2465
+msgid "Qatar"
+msgstr ""
+
+#: blocks/functions-blocks.php:2188 blocks/functions-blocks.php:2466
+msgid "Romania"
+msgstr ""
+
+#: blocks/functions-blocks.php:2189 blocks/functions-blocks.php:2467
+msgid "Russia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2190 blocks/functions-blocks.php:2468
+msgid "Rwanda"
+msgstr ""
+
+#: blocks/functions-blocks.php:2191 blocks/functions-blocks.php:2469
+msgid "Saint Barthélemy"
+msgstr ""
+
+#: blocks/functions-blocks.php:2192 blocks/functions-blocks.php:2470
+msgid "Saint Helena"
+msgstr ""
+
+#: blocks/functions-blocks.php:2193 blocks/functions-blocks.php:2471
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: blocks/functions-blocks.php:2194 blocks/functions-blocks.php:2472
+msgid "Saint Lucia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2195 blocks/functions-blocks.php:2473
+msgid "Saint Martin"
+msgstr ""
+
+#: blocks/functions-blocks.php:2196 blocks/functions-blocks.php:2474
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: blocks/functions-blocks.php:2197 blocks/functions-blocks.php:2475
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: blocks/functions-blocks.php:2198 blocks/functions-blocks.php:2476
+msgid "Samoa"
+msgstr ""
+
+#: blocks/functions-blocks.php:2199 blocks/functions-blocks.php:2477
+msgid "San Marino"
+msgstr ""
+
+#: blocks/functions-blocks.php:2200 blocks/functions-blocks.php:2478
+msgid "Saudi Arabia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2201 blocks/functions-blocks.php:2479
+msgid "Senegal"
+msgstr ""
+
+#: blocks/functions-blocks.php:2202 blocks/functions-blocks.php:2480
+msgid "Serbia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2203 blocks/functions-blocks.php:2481
+msgid "Serbia and Montenegro"
+msgstr ""
+
+#: blocks/functions-blocks.php:2204 blocks/functions-blocks.php:2482
+msgid "Seychelles"
+msgstr ""
+
+#: blocks/functions-blocks.php:2205 blocks/functions-blocks.php:2483
+msgid "Sierra Leone"
+msgstr ""
+
+#: blocks/functions-blocks.php:2206 blocks/functions-blocks.php:2484
+msgid "Singapore"
+msgstr ""
+
+#: blocks/functions-blocks.php:2207 blocks/functions-blocks.php:2485
+msgid "Slovakia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2208 blocks/functions-blocks.php:2486
+msgid "Slovenia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2209 blocks/functions-blocks.php:2487
+msgid "Solomon Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2210 blocks/functions-blocks.php:2488
+msgid "Somalia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2211 blocks/functions-blocks.php:2489
+msgid "South Africa"
+msgstr ""
+
+#: blocks/functions-blocks.php:2212 blocks/functions-blocks.php:2490
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2213 blocks/functions-blocks.php:2491
+msgid "South Korea"
+msgstr ""
+
+#: blocks/functions-blocks.php:2214 blocks/functions-blocks.php:2492
+msgid "Spain"
+msgstr ""
+
+#: blocks/functions-blocks.php:2215 blocks/functions-blocks.php:2493
+msgid "Sri Lanka"
+msgstr ""
+
+#: blocks/functions-blocks.php:2216 blocks/functions-blocks.php:2494
+msgid "Sudan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2217 blocks/functions-blocks.php:2495
+msgid "Suriname"
+msgstr ""
+
+#: blocks/functions-blocks.php:2218 blocks/functions-blocks.php:2496
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: blocks/functions-blocks.php:2219 blocks/functions-blocks.php:2497
+msgid "Swaziland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2220 blocks/functions-blocks.php:2498
+msgid "Sweden"
+msgstr ""
+
+#: blocks/functions-blocks.php:2221 blocks/functions-blocks.php:2499
+msgid "Switzerland"
+msgstr ""
+
+#: blocks/functions-blocks.php:2222 blocks/functions-blocks.php:2500
+msgid "Syria"
+msgstr ""
+
+#: blocks/functions-blocks.php:2223 blocks/functions-blocks.php:2501
+msgid "São Tomé and Príncipe"
+msgstr ""
+
+#: blocks/functions-blocks.php:2224 blocks/functions-blocks.php:2502
+msgid "Taiwan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2225 blocks/functions-blocks.php:2503
+msgid "Tajikistan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2226 blocks/functions-blocks.php:2504
+msgid "Tanzania"
+msgstr ""
+
+#: blocks/functions-blocks.php:2227 blocks/functions-blocks.php:2505
+msgid "Thailand"
+msgstr ""
+
+#: blocks/functions-blocks.php:2228 blocks/functions-blocks.php:2506
+msgid "Timor-Leste"
+msgstr ""
+
+#: blocks/functions-blocks.php:2229 blocks/functions-blocks.php:2507
+msgid "Togo"
+msgstr ""
+
+#: blocks/functions-blocks.php:2230 blocks/functions-blocks.php:2508
+msgid "Tokelau"
+msgstr ""
+
+#: blocks/functions-blocks.php:2231 blocks/functions-blocks.php:2509
+msgid "Tonga"
+msgstr ""
+
+#: blocks/functions-blocks.php:2232 blocks/functions-blocks.php:2510
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: blocks/functions-blocks.php:2233 blocks/functions-blocks.php:2511
+msgid "Tunisia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2234 blocks/functions-blocks.php:2512
+msgid "Turkey"
+msgstr ""
+
+#: blocks/functions-blocks.php:2235 blocks/functions-blocks.php:2513
+msgid "Turkmenistan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2236 blocks/functions-blocks.php:2514
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2237 blocks/functions-blocks.php:2515
+msgid "Tuvalu"
+msgstr ""
+
+#: blocks/functions-blocks.php:2238 blocks/functions-blocks.php:2516
+msgid "U.S. Minor Outlying Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2239 blocks/functions-blocks.php:2517
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2240 blocks/functions-blocks.php:2518
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:2241 blocks/functions-blocks.php:2519
+msgid "Uganda"
+msgstr ""
+
+#: blocks/functions-blocks.php:2242 blocks/functions-blocks.php:2520
+msgid "Ukraine"
+msgstr ""
+
+#: blocks/functions-blocks.php:2243 blocks/functions-blocks.php:2521
+msgid "Union of Soviet Socialist Republics"
+msgstr ""
+
+#: blocks/functions-blocks.php:2244 blocks/functions-blocks.php:2522
+msgid "United Arab Emirates"
+msgstr ""
+
+#: blocks/functions-blocks.php:2245 blocks/functions-blocks.php:2523
+msgid "United Kingdom"
+msgstr ""
+
+#: blocks/functions-blocks.php:2246 blocks/functions-blocks.php:2524
+msgid "United States"
+msgstr ""
+
+#: blocks/functions-blocks.php:2247 blocks/functions-blocks.php:2525
+msgid "Unknown or Invalid Region"
+msgstr ""
+
+#: blocks/functions-blocks.php:2248 blocks/functions-blocks.php:2526
+msgid "Uruguay"
+msgstr ""
+
+#: blocks/functions-blocks.php:2249 blocks/functions-blocks.php:2527
+msgid "Uzbekistan"
+msgstr ""
+
+#: blocks/functions-blocks.php:2250 blocks/functions-blocks.php:2528
+msgid "Vanuatu"
+msgstr ""
+
+#: blocks/functions-blocks.php:2251 blocks/functions-blocks.php:2529
+msgid "Vatican City"
+msgstr ""
+
+#: blocks/functions-blocks.php:2252 blocks/functions-blocks.php:2530
+msgid "Venezuela"
+msgstr ""
+
+#: blocks/functions-blocks.php:2253 blocks/functions-blocks.php:2531
+msgid "Vietnam"
+msgstr ""
+
+#: blocks/functions-blocks.php:2254 blocks/functions-blocks.php:2532
+msgid "Wake Island"
+msgstr ""
+
+#: blocks/functions-blocks.php:2255 blocks/functions-blocks.php:2533
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: blocks/functions-blocks.php:2256 blocks/functions-blocks.php:2534
+msgid "Western Sahara"
+msgstr ""
+
+#: blocks/functions-blocks.php:2257 blocks/functions-blocks.php:2535
+msgid "Yemen"
+msgstr ""
+
+#: blocks/functions-blocks.php:2258 blocks/functions-blocks.php:2536
+msgid "Zambia"
+msgstr ""
+
+#: blocks/functions-blocks.php:2259 blocks/functions-blocks.php:2537
+msgid "Zimbabwe"
+msgstr ""
+
+#: blocks/functions-blocks.php:2260 blocks/functions-blocks.php:2538
+msgid "Åland Islands"
+msgstr ""
+
+#: blocks/functions-blocks.php:4614
+msgid "Blog"
+msgstr ""
+
+#: blocks/functions-blocks.php:4681
+msgid "Post preview"
+msgstr ""
+
+#: blocks/functions-blocks.php:4763
+msgid "Archives"
+msgstr ""
+
+#: blocks/functions-blocks.php:5043
+msgid "Tag"
+msgstr ""
+
+#: blocks/functions-blocks.php:5062 classes/class-functions.php:49
+msgid "Author"
+msgstr ""
+
+#: blocks/functions-blocks.php:5082
+msgid "Search"
+msgstr ""
+
+#: blocks/functions-blocks.php:5100
+msgid "Year"
+msgstr ""
+
+#: blocks/functions-blocks.php:5116
+msgid "Month"
+msgstr ""
+
+#: blocks/functions-blocks.php:5134 classes/class-functions.php:53
+msgid "Date"
+msgstr ""
+
+#: blocks/functions-blocks.php:5151
+msgid "404"
+msgstr ""
+
+#: blocks/functions-rest.php:859
+msgid "Options updated"
+msgstr ""
+
+#: blocks/functions-rest.php:862
+msgid "Value should not empty"
+msgstr ""
+
+#: blocks/functions-rest.php:1001 blocks/functions-rest.php:1046
+#: blocks/functions-rest.php:1089 blocks/functions-rest.php:2968
+msgid "Unexpected Error! The query returned with an error."
+msgstr ""
+
+#: blocks/functions-rest.php:1299 blocks/functions-rest.php:1409
+msgid "Security Check Failed"
+msgstr ""
+
+#: classes/class-functions.php:21
+msgid "- Select -"
+msgstr ""
+
+#: classes/class-functions.php:48
+msgid "ID"
+msgstr ""
+
+#: classes/class-functions.php:50
+msgid "Title"
+msgstr ""
+
+#: classes/class-functions.php:51
+msgid "Name"
+msgstr ""
+
+#: classes/class-functions.php:52
+msgid "Type"
+msgstr ""
+
+#: classes/class-functions.php:54
+msgid "post_date"
+msgstr ""
+
+#: classes/class-functions.php:55
+msgid "modified"
+msgstr ""
+
+#: classes/class-functions.php:56
+msgid "Parent"
+msgstr ""
+
+#: classes/class-functions.php:57
+msgid "Random"
+msgstr ""
+
+#: classes/class-functions.php:58
+msgid "Comment count"
+msgstr ""
+
+#: classes/class-functions.php:59
+msgid "Menu order"
+msgstr ""
+
+#: classes/class-functions.php:60
+msgid "Meta value"
+msgstr ""
+
+#: classes/class-functions.php:61
+msgid "Meta Value(number)"
+msgstr ""
+
+#: classes/class-functions.php:62
+msgid "post__in"
+msgstr ""
+
+#: classes/class-functions.php:63
+msgid "post_name__in"
+msgstr ""
+
+#: classes/class-functions.php:72
+msgid "Publish"
+msgstr ""
+
+#: classes/class-functions.php:73
+msgid "Pending"
+msgstr ""
+
+#: classes/class-functions.php:74
+msgid "Draft"
+msgstr ""
+
+#: classes/class-functions.php:75
+msgid "Auto draft"
+msgstr ""
+
+#: classes/class-functions.php:76
+msgid "Future"
+msgstr ""
+
+#: classes/class-functions.php:77
+msgid "Private"
+msgstr ""
+
+#: classes/class-functions.php:78
+msgid "Inherit"
+msgstr ""
+
+#: classes/class-functions.php:79
+msgid "Trash"
+msgstr ""
+
+#: classes/class-functions.php:80
+msgid "Any"
+msgstr ""
+
+#: classes/class-functions.php:101
+msgid "Featured Image"
+msgstr ""
+
+#: classes/class-functions.php:102
+msgid "First images from content"
+msgstr ""
+
+#: classes/class-functions.php:103
+msgid "Empty thumbnail"
+msgstr ""

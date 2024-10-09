@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "post-grid/grid-wrap-item",
+  "title": "Grid Maker Item",
+  "textdomain": "post-grid",
+  "category": "post-grid-tools",
+  "parent": [
+    "post-grid/grid-wrap"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-grid-wrap-item"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "front_script",
+  "keywords": [
+    "grid builder",
+    "grid css",
+    "grid content",
+    "Custom grid ",
+    "grid wrapper for wordpress",
+    "Custom grid block"
+  ],
+  "description": "This block is the inner block of grid wrap block"
+}
