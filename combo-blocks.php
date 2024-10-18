@@ -3,7 +3,7 @@
 Plugin Name: Combo Blocks
 Plugin URI: https://comboblocks.com/
 Description: Combo Blocks is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 1.0.2
+Version: 1.0.3
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -28,7 +28,7 @@ if (!class_exists('ComboBlocks')) {
       define('combo_blocks_root_dir', plugin_dir_path(__FILE__));
       define('combo_blocks_basename', plugin_basename(__FILE__));
       define('combo_blocks_plugin_name', 'Combo Blocks');
-      define('combo_blocks_version', '1.0.2');
+      define('combo_blocks_version', '1.0.3');
 
 
 
