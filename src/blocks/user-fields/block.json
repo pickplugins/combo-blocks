@@ -1,0 +1,134 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/user-fields",
+  "title": "User Fields",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/user-query",
+    "combo-blocks/flex-wrap-item",
+    "combo-blocks/layers"
+  ],
+  "usesContext": [
+    "blockId",
+    "userId",
+    "loopIndex",
+    "userData",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-author-fields",
+          "tag": "div"
+        },
+        "styles": {}
+      }
+    },
+    "field": {
+      "type": "object",
+      "default": {
+        "options": {
+          "linkTo": "userLink",
+          "customField": "",
+          "linkToMeta": "",
+          "linkTarget": "",
+          "avatarSize": "",
+          "dateFormat": "",
+          "customUrl": "",
+          "limitBy": "word",
+          "limitCount": 25,
+          "prefix": "",
+          "postfix": "",
+          "linkAttr": []
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforePostDate",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "metaKey": {
+      "type": "string",
+      "default": "display_name"
+    },
+    "frontText": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post author fields",
+    "post author fields block",
+    "post author",
+    "author profile",
+    "author bio",
+    "author links",
+    "post author block",
+    "post author for wordpress",
+    "post author block for wordpress"
+  ],
+  "description": "A post author fields block is a section for inputting and displaying a specific author's details field on a blog post or article, such as name, bio, and contact information."
+}

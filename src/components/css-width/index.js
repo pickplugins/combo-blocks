@@ -1,5 +1,6 @@
 const { Component } = wp.element;
 import { __ } from "@wordpress/i18n";
+
 import { Button, Dropdown, ToggleControl } from "@wordpress/components";
 import { useState, useEffect } from "@wordpress/element";
 import {
@@ -8,19 +9,16 @@ import {
 	ColorPalette,
 	PanelRow,
 } from "@wordpress/components";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var unitArgs = {
 		px: { label: "PX", value: "px" },
 		em: { label: "EM", value: "em" },
 		rem: { label: "REM", value: "rem" },
 		auto: { label: "AUTO", value: "auto" },
 		"%": { label: "%", value: "%" },
-
 		cm: { label: "CM", value: "cm" },
 		mm: { label: "MM", value: "mm" },
 		in: { label: "IN", value: "in" },
@@ -33,7 +31,6 @@ function Html(props) {
 		vmin: { label: "VMIN", value: "vmin" },
 		vmax: { label: "VMAX", value: "vmax" },
 	};
-
 	if (typeof props.val == "object") {
 		var valZ = props.val.val + props.val.unit;
 	} else {
@@ -42,13 +39,10 @@ function Html(props) {
 				? "0px"
 				: props.val;
 	}
-
 	const [valArgs, setValArgs] = useState(valZ.split(" "));
-
 	const [isImportant, setImportant] = useState(
 		valArgs[1] == undefined ? false : true
 	);
-
 	var widthValX =
 		valArgs[0] == undefined || valArgs[0].match(/-?\d+/g) == null
 			? 0
@@ -57,10 +51,8 @@ function Html(props) {
 		valArgs[0] == undefined || valArgs[0].match(/[a-zA-Z%]+/g) == null
 			? "px"
 			: valArgs[0].match(/[a-zA-Z%]+/g)[0];
-
 	const [widthVal, setwidthVal] = useState(widthValX);
 	const [widthUnit, setwidthUnit] = useState(widthUnitX);
-
 	return (
 		<>
 			{(widthUnit != "max-content" ||
@@ -103,11 +95,9 @@ function Html(props) {
 										}
 										return;
 									}
-
 									setwidthVal(newVal);
 									if (widthUnit == "auto") {
 										// props.onChange(widthUnit, 'width');
-
 										if (isImportant) {
 											props.onChange(widthUnit + " !important", "width");
 										} else {
@@ -115,7 +105,6 @@ function Html(props) {
 										}
 									} else {
 										//props.onChange(newVal + widthUnit, 'width');
-
 										if (isImportant) {
 											props.onChange(newVal + widthUnit + " !important", "width");
 										} else {
@@ -125,7 +114,6 @@ function Html(props) {
 								}}
 							/>
 						)}
-
 						<div className={`${props.val.includes("calc") ? "hidden" : ""}`}>
 							<Dropdown
 								position="bottom left"
@@ -150,7 +138,6 @@ function Html(props) {
 													}
 													onClick={(ev) => {
 														setwidthUnit(x.value);
-
 														if (x.value == "auto") {
 															if (isImportant) {
 																props.onChange(x.value + " !important", "width");
@@ -176,17 +163,17 @@ function Html(props) {
 								)}
 							/>
 						</div>
-
 						<ToggleControl
-							help={isImportant ? "Important Enabled" : "Important?"}
+							help={
+								isImportant
+									? __("Important Enabled", "combo-blocks")
+									: __("Important?", "combo-blocks")
+							}
 							checked={isImportant}
 							onChange={(arg) => {
-
 								setImportant((isImportant) => !isImportant);
-
 								if (props.val.includes("calc")) {
 									// var valX  = props.val.replaceAll(" !important", "")
-
 									// props.onChange(newVal, "width");
 									if (isImportant) {
 										var valX = props.val.replaceAll(" !important", "");
@@ -199,7 +186,6 @@ function Html(props) {
 									}
 									return;
 								}
-
 								if (isImportant) {
 									if (widthUnit == "auto") {
 										props.onChange(widthUnit, "width");
@@ -217,16 +203,14 @@ function Html(props) {
 						/>
 					</div>
 				)}
-
 			<div className={`${props.val.includes("calc") ? "hidden" : ""}`}>
 				<PanelRow>
-					<label htmlFor="">Global Value </label>
+					<label htmlFor="">{__("Global Value", "combo-blocks")}</label>
 					<SelectControl
 						label=""
 						value={widthUnit}
 						options={[
-							{ label: __("Choose", "post-grid"), value: "px" },
-
+							{ label: __("Choose", "combo-blocks"), value: "px" },
 							{ label: "auto", value: "auto" },
 							{ label: "max-content", value: "max-content" },
 							{ label: "min-content", value: "min-content" },
@@ -238,7 +222,6 @@ function Html(props) {
 						]}
 						onChange={(newVal) => {
 							setwidthUnit(newVal);
-
 							if (
 								newVal == "auto" ||
 								newVal == "max-content" ||
@@ -251,18 +234,14 @@ function Html(props) {
 							) {
 								if (isImportant) {
 									props.onChange(newVal + " !important", "width");
-
 								} else {
 									props.onChange(newVal, "width");
-
 								}
 							} else {
 								if (isImportant) {
 									props.onChange(widthVal + newVal + " !important", "width");
-
 								} else {
 									props.onChange(widthVal + newVal, "width");
-
 								}
 							}
 						}}
@@ -272,26 +251,20 @@ function Html(props) {
 		</>
 	);
 }
-
 class PGcssWidth extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { val, onChange } = this.props;
-
 		return <Html val={val} onChange={onChange} warn={this.state.showWarning} />;
 	}
 }
-
 export default PGcssWidth;
-

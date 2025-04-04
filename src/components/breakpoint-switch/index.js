@@ -1,13 +1,8 @@
-
-
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown } from '@wordpress/components'
-
-
 class breakpointSwitch extends Component {
   render() {
-
-
     const {
       position,
       variant,
@@ -16,16 +11,9 @@ class breakpointSwitch extends Component {
       onChange,
       activeIcon,
       value,
-
-
     } = this.props;
-
-
-
-
     return (
       <div className='inline-block'>
-
         <Dropdown
           position={position}
           renderToggle={({ isOpen, onToggle }) => (
@@ -39,44 +27,24 @@ class breakpointSwitch extends Component {
             </div>
           )}
           renderContent={() => <div className=''>
-
             {iconList.map((x, index) => {
-
-
               return (
-
                 <div className={' text-lg px-2 font-bold border-b inline-block hover:bg-blue-400 hover:text-white cursor-pointer'} onClick={(ev) => {
-
-
                   onChange(x, index)
-
-
                 }}>
-
                   {!x.value && (
-
                     <div><span className="icon-close"></span></div>
-
                   )}
-
                   {x.value && (
-
                     <RawHTML>{x.icon}</RawHTML>
-
                   )}
-
                 </div>
-
               )
-
             })}
           </div>}
         />
       </div>
-
     )
   }
 }
-
-
 export default breakpointSwitch;

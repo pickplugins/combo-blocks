@@ -1,88 +1,37 @@
-import { registerBlockType, createBlock } from "@wordpress/blocks";
-import { __ } from "@wordpress/i18n";
-import { doAction } from "@wordpress/hooks";
-import { useSelect, select, useDispatch, dispatch } from "@wordpress/data";
-import { useEntityRecord } from "@wordpress/core-data";
 import {
-	createElement,
-	useCallback,
-	memo,
-	useMemo,
-	useState,
-	useEffect,
-} from "@wordpress/element";
-import {
-	PanelBody,
-	RangeControl,
-	Button,
-	Panel,
-	PanelRow,
-	Dropdown,
-	DropdownMenu,
-	SelectControl,
-	ColorPicker,
-	ColorPalette,
-	ToolsPanelItem,
-	ComboboxControl,
-	ToggleControl,
-	MenuGroup,
-	MenuItem,
-	TextareaControl,
-	Popover,
-	Spinner,
-	Tooltip,
-} from "@wordpress/components";
-import { __experimentalBoxControl as BoxControl } from "@wordpress/components";
-import { useEntityProp } from "@wordpress/core-data";
-import apiFetch from "@wordpress/api-fetch";
-import {
+	store as blockEditorStore,
 	InnerBlocks,
+	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
-	store as blockEditorStore,
 } from "@wordpress/block-editor";
-import { createBlocksFromInnerBlocksTemplate } from "@wordpress/blocks";
-
 import {
-	Icon,
-	styles,
-	settings,
-	link,
-	linkOff,
-	brush,
-	mediaAndText,
-} from "@wordpress/icons";
-import { __experimentalBlockVariationPicker as BlockVariationPicker } from "@wordpress/block-editor";
-
+	createBlock,
+	createBlocksFromInnerBlocksTemplate,
+	registerBlockType,
+} from "@wordpress/blocks";
 import {
-	InspectorControls,
-	BlockControls,
-	AlignmentToolbar,
-	RichText,
-	__experimentalLinkControl as LinkControl,
-} from "@wordpress/block-editor";
-import { __experimentalInputControl as InputControl } from "@wordpress/components";
-
-const { RawHTML } = wp.element;
-import { store } from "../../store";
-import { __experimentalScrollable as Scrollable } from "@wordpress/components";
-
-import PGtabs from "../../components/tabs";
-import PGtab from "../../components/tab";
-import PGStyles from "../../components/styles";
-import PGCssLibrary from "../../components/css-library";
-import PGtoggle from "../../components/toggle";
-
-import PGIconPicker from "../../components/icon-picker";
-import metadata from "./block.json";
-import PGLibraryBlockVariations from "../../components/library-block-variations";
+	__experimentalInputControl as InputControl,
+	PanelRow,
+	SelectControl,
+	Tooltip,
+} from "@wordpress/components";
+import { dispatch, select, useDispatch, useSelect } from "@wordpress/data";
+import { useEffect } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
+import { brush, settings } from "@wordpress/icons";
+import ComboBlocksVariationsPicker from "../../components/block-variations-picker";
 import PGcssClassPicker from "../../components/css-class-picker";
+import PGLibraryBlockVariations from "../../components/library-block-variations";
+import PGStyles from "../../components/styles";
+import PGtab from "../../components/tab";
+import PGtabs from "../../components/tabs";
+import PGtoggle from "../../components/toggle";
+import PGVisible from "../../components/visible";
 import customTags from "../../custom-tags";
+import metadata from "./block.json";
 
-import PGBlockVariationsPicker from "../../components/block-variations-picker";
-
-var myStore = wp.data.select("postgrid-shop");
-
+var myStore = wp.data.select("ComboBlocksStore");
 registerBlockType(metadata, {
 	icon: {
 		// Specifying a background color to appear with the icon e.g.: in the inserter.
@@ -144,7 +93,6 @@ registerBlockType(metadata, {
 			</svg>
 		),
 	},
-
 	transforms: {
 		from: [
 			{
@@ -154,12 +102,11 @@ registerBlockType(metadata, {
 					var innerBlockX = innerBlocks.map((item, index) => {
 						var widthX = item.attributes.width;
 						var backgroundColorX = item.attributes.backgroundColor;
-
 						return {
 							clientId: item.clientId,
 							name:
 								item.name == "core/column"
-									? "post-grid/flex-wrap-item"
+									? "combo-blocks/flex-wrap-item"
 									: item.name,
 							isValid: item.isValid,
 							originalContent: "",
@@ -190,9 +137,8 @@ registerBlockType(metadata, {
 							innerBlocks: item.innerBlocks,
 						};
 					});
-
 					return createBlock(
-						"post-grid/flex-wrap",
+						"combo-blocks/flex-wrap",
 						{
 							wrapper: {
 								options: {
@@ -230,9 +176,8 @@ registerBlockType(metadata, {
 				transform: (attributes, innerBlocks) => {
 					if (attributes.layout.type == "flex") {
 						var flexWrap = attributes.layout.flexWrap;
-
 						return createBlock(
-							"post-grid/flex-wrap",
+							"combo-blocks/flex-wrap",
 							{
 								wrapper: {
 									options: {
@@ -280,14 +225,14 @@ registerBlockType(metadata, {
 						return {
 							clientId: item.clientId,
 							name:
-								item.name == "post-grid/flex-wrap-item"
+								item.name == "combo-blocks/flex-wrap-item"
 									? "core/column"
 									: item.name,
 							isValid: item.isValid,
 							originalContent: "",
 							validationIssues: [],
 							attributes: {
-								// width: item.name == "post-grid/flex-wrap-item" ? widthX : "",
+								// width: item.name == "combo-blocks/flex-wrap-item" ? widthX : "",
 								blockId: "pgfaaa4b544973abc",
 								blockCssY: {
 									items: {},
@@ -333,7 +278,6 @@ registerBlockType(metadata, {
 			},
 		],
 	},
-
 	edit: function (props) {
 		var attributes = props.attributes;
 		var setAttributes = props.setAttributes;
@@ -341,93 +285,58 @@ registerBlockType(metadata, {
 		var clientId = props.clientId;
 		var blockName = props.name;
 		var blockNameLast = blockName.split("/")[1];
-
 		var blockId = attributes.blockId;
-
-		// console.log(blockId);
-
 		var blockIdX = attributes.blockId
 			? attributes.blockId
 			: "pg" + clientId.split("-").pop();
 		var blockClass = "." + blockIdX;
-
 		var wrapper = attributes.wrapper;
-		var item = attributes.item;
-
-		var blockCssY = attributes.blockCssY;
-
-		var postId = context["postId"];
-		var postType = context["postType"];
-
-		var breakPointX = myStore.getBreakPoint();
 		var visible = attributes.visible;
-
+		var item = attributes.item;
+		var blockCssY = attributes.blockCssY;
+		var breakPointX = myStore.getBreakPoint();
 		// Wrapper CSS Class Selectors
 		var wrapperSelector = blockClass;
-
 		var itemSelector = blockClass + " .pg-flex-wrap-item";
-
 		const { replaceInnerBlocks } = useDispatch(blockEditorStore);
-
 		const hasInnerBlocks = useSelect(
 			(select) => select(blockEditorStore).getBlocks(clientId).length > 0,
 			[clientId]
 		);
-
-		var icons = { bed: "", layout: "", smiley: "", columns: "", globe: "" };
-
 		useEffect(() => {
 			var blockIdX = "pg" + clientId.split("-").pop();
 			setAttributes({ blockId: blockIdX });
-
 			myStore.generateBlockCss(blockCssY.items, blockId);
-
 			// blockCssY.items[wrapperSelector] = { ...blockCssY.items[wrapperSelector], 'display': { "Desktop": "flex" } };
 			//blockCssY.items[wrapperSelector] = { ...blockCssY.items[wrapperSelector], 'gap': { "Desktop": "1em" } };
-
 			setAttributes({ blockCssY: { items: blockCssY.items } });
-
 			//setAttributes({ wrapper: { ...wrapper, styles: { display: { Desktop: 'flex' }, gap: { Desktop: '20px' } } } });
 		}, [clientId]);
-
 		useEffect(() => {
 			myStore.generateBlockCss(blockCssY.items, blockId);
 		}, [blockCssY]);
-
 		useEffect(() => {
 			var blockCssObj = {};
-
 			blockCssObj[wrapperSelector] = wrapper;
 			blockCssObj[itemSelector] = item;
-
 			var blockCssRules = myStore.getBlockCssRules(blockCssObj);
-
 			var items = blockCssRules;
 			setAttributes({ blockCssY: { items: items } });
 		}, [blockId]);
-
 		function onPickBlockVariation(content, action) {
 			const { parse } = wp.blockSerializationDefaultParser;
-
 			var blocks = content.length > 0 ? parse(content) : "";
-
 			const attributes = blocks[0].attrs;
-
 			wp.data
 				.dispatch("core/block-editor")
 				.replaceBlock(clientId, wp.blocks.parse(content));
 		}
-
 		const parentClientId =
 			select("core/block-editor").getBlockRootClientId(clientId);
-
 		function onPickBlockPatterns(content, action) {
 			const { parse } = wp.blockSerializationDefaultParser;
-
 			var blocks = content.length > 0 ? parse(content) : "";
-
 			const attributes = blocks[0].attrs;
-
 			if (action == "insert") {
 				const position =
 					select("core/editor").getBlockInsertionPoint(parentClientId);
@@ -441,19 +350,14 @@ registerBlockType(metadata, {
 			}
 			if (action == "applyStyle") {
 				var wrapperX = attributes.wrapper;
-
 				var blockCssY = attributes.blockCssY;
-
 				var blockCssObj = {};
-
 				if (wrapperX != undefined) {
 					var wrapperY = { ...wrapperX, options: wrapper.options };
 					setAttributes({ wrapper: wrapperY });
 					blockCssObj[wrapperSelector] = wrapperY;
 				}
-
 				var blockCssRules = myStore.getBlockCssRules(blockCssObj);
-
 				var items = blockCssRules;
 				setAttributes({ blockCssY: { items: items } });
 			}
@@ -466,265 +370,43 @@ registerBlockType(metadata, {
 			}
 		}
 
-		function handleLinkClick(ev) {
-			ev.stopPropagation();
-			ev.preventDefault();
-			return false;
-		}
-
 		function applyFlex(attr, newVal) {
 			onChangeStyleWrapper("styles", newVal, attr);
 		}
 
+
+
 		function onChangeStyleWrapper(sudoScource, newVal, attr) {
-			var path = [sudoScource, attr, breakPointX];
-			let obj = Object.assign({}, wrapper);
-			const object = myStore.updatePropertyDeep(obj, path, newVal);
-
-			setAttributes({ wrapper: object });
-
-			var elementSelector = myStore.getElementSelector(
+			myStore.onChangeStyleElement(
 				sudoScource,
-				wrapperSelector
+				newVal,
+				attr,
+				wrapper,
+				"wrapper",
+				wrapperSelector,
+				blockCssY,
+				setAttributes
 			);
-			var cssPropty = myStore.cssAttrParse(attr);
 
-			let itemsX = Object.assign({}, blockCssY.items);
-
-			if (itemsX[elementSelector] == undefined) {
-				itemsX[elementSelector] = {};
-			}
-
-			var cssPath = [elementSelector, cssPropty, breakPointX];
-			const cssItems = myStore.updatePropertyDeep(itemsX, cssPath, newVal);
-
-			setAttributes({ blockCssY: { items: cssItems } });
 		}
 
-		////////////////////
-		function onRemoveStyleWrapper(sudoScource, key) {
-			let obj = { ...wrapper };
-			var object = myStore.deletePropertyDeep(obj, [
-				sudoScource,
-				key,
-				breakPointX,
-			]);
-			var isEmpty =
-				Object.entries(object[sudoScource][key]).length == 0 ? true : false;
-			var objectX = isEmpty
-				? myStore.deletePropertyDeep(object, [sudoScource, key])
-				: object;
-			setAttributes({ wrapper: objectX });
 
-			var elementSelector = myStore.getElementSelector(
-				sudoScource,
-				wrapperSelector
-			);
-			var cssPropty = myStore.cssAttrParse(key);
-			var cssObject = myStore.deletePropertyDeep(blockCssY.items, [
-				elementSelector,
-				cssPropty,
-				breakPointX,
-			]);
-			var isEmptyX = cssObject[cssPropty] == undefined ? false : true;
-			var cssObjectX = isEmptyX
-				? myStore.deletePropertyDeep(cssObject, [cssPropty])
-				: cssObject;
-			setAttributes({ blockCssY: { items: cssObjectX } });
-		}
-		function onRemoveStyleItem(sudoScource, key) {
-			let obj = { ...item };
-			var object = myStore.deletePropertyDeep(obj, [
-				sudoScource,
-				key,
-				breakPointX,
-			]);
-			var isEmpty =
-				Object.entries(object[sudoScource][key]).length == 0 ? true : false;
-			var objectX = isEmpty
-				? myStore.deletePropertyDeep(object, [sudoScource, key])
-				: object;
-			setAttributes({ item: objectX });
 
-			var elementSelector = myStore.getElementSelector(
-				sudoScource,
-				itemSelector
-			);
-			var cssPropty = myStore.cssAttrParse(key);
-			var cssObject = myStore.deletePropertyDeep(blockCssY.items, [
-				elementSelector,
-				cssPropty,
-				breakPointX,
-			]);
-			var isEmptyX = cssObject[cssPropty] == undefined ? false : true;
-			var cssObjectX = isEmptyX
-				? myStore.deletePropertyDeep(cssObject, [cssPropty])
-				: cssObject;
-			setAttributes({ blockCssY: { items: cssObjectX } });
-		}
-		//////////////////////
 
-		//////////////////reset
-		function onResetWrapper(sudoSources) {
-			let obj = Object.assign({}, wrapper);
 
-			Object.entries(sudoSources).map((args) => {
-				var sudoScource = args[0];
-				if (obj[sudoScource] == undefined) {
-				} else {
-					obj[sudoScource] = {};
-					var elementSelector = myStore.getElementSelector(
-						sudoScource,
-						wrapperSelector
-					);
-
-					var cssObject = myStore.deletePropertyDeep(blockCssY.items, [
-						elementSelector,
-					]);
-					setAttributes({ blockCssY: { items: cssObject } });
-				}
-			});
-
-			setAttributes({ wrapper: obj });
-		}
-		function onResetItem(sudoSources) {
-			let obj = Object.assign({}, item);
-
-			Object.entries(sudoSources).map((args) => {
-				var sudoScource = args[0];
-				if (obj[sudoScource] == undefined) {
-				} else {
-					obj[sudoScource] = {};
-					var elementSelector = myStore.getElementSelector(
-						sudoScource,
-						itemSelector
-					);
-
-					var cssObject = myStore.deletePropertyDeep(blockCssY.items, [
-						elementSelector,
-					]);
-					setAttributes({ blockCssY: { items: cssObject } });
-				}
-			});
-
-			setAttributes({ item: obj });
-		}
-		//////////////////reset
-
-		function onAddStyleWrapper(sudoScource, key) {
-			var path = [sudoScource, key, breakPointX];
-			let obj = Object.assign({}, wrapper);
-			const object = myStore.addPropertyDeep(obj, path, "");
-			setAttributes({ wrapper: object });
-		}
-
-		function onBulkAddWrapper(sudoScource, cssObj) {
-			let obj = Object.assign({}, wrapper);
-			obj[sudoScource] = cssObj;
-
-			setAttributes({ wrapper: obj });
-
-			var selector = myStore.getElementSelector(sudoScource, wrapperSelector);
-			var stylesObj = {};
-
-			Object.entries(cssObj).map((args) => {
-				var attr = args[0];
-				var cssPropty = myStore.cssAttrParse(attr);
-
-				if (stylesObj[selector] == undefined) {
-					stylesObj[selector] = {};
-				}
-
-				if (stylesObj[selector][cssPropty] == undefined) {
-					stylesObj[selector][cssPropty] = {};
-				}
-
-				stylesObj[selector][cssPropty] = args[1];
-			});
-
-			var cssItems = { ...blockCssY.items };
-			var cssItemsX = { ...cssItems, ...stylesObj };
-
-			setAttributes({ blockCssY: { items: cssItemsX } });
-		}
-
-		function onChangeStyleItem(sudoScource, newVal, attr) {
-			var path = [sudoScource, attr, breakPointX];
-			let obj = Object.assign({}, item);
-			const object = myStore.updatePropertyDeep(obj, path, newVal);
-
-			setAttributes({ item: object });
-
-			var elementSelector = myStore.getElementSelector(
-				sudoScource,
-				itemSelector
-			);
-			var cssPropty = myStore.cssAttrParse(attr);
-
-			let itemsX = Object.assign({}, blockCssY.items);
-
-			if (itemsX[elementSelector] == undefined) {
-				itemsX[elementSelector] = {};
-			}
-
-			var cssPath = [elementSelector, cssPropty, breakPointX];
-			const cssItems = myStore.updatePropertyDeep(itemsX, cssPath, newVal);
-
-			setAttributes({ blockCssY: { items: cssItems } });
-		}
-
-		function onAddStyleItem(sudoScource, key) {
-			var path = [sudoScource, key, breakPointX];
-			let obj = Object.assign({}, item);
-			const object = myStore.addPropertyDeep(obj, path, "");
-			setAttributes({ item: object });
-		}
-
-		function onBulkAddItem(sudoScource, cssObj) {
-			let obj = Object.assign({}, item);
-			obj[sudoScource] = cssObj;
-
-			setAttributes({ item: obj });
-
-			var selector = myStore.getElementSelector(sudoScource, itemSelector);
-			var stylesObj = {};
-
-			Object.entries(cssObj).map((args) => {
-				var attr = args[0];
-				var cssPropty = myStore.cssAttrParse(attr);
-
-				if (stylesObj[selector] == undefined) {
-					stylesObj[selector] = {};
-				}
-
-				if (stylesObj[selector][cssPropty] == undefined) {
-					stylesObj[selector][cssPropty] = {};
-				}
-
-				stylesObj[selector][cssPropty] = args[1];
-			});
-
-			var cssItems = { ...blockCssY.items };
-			var cssItemsX = { ...cssItems, ...stylesObj };
-
-			setAttributes({ blockCssY: { items: cssItemsX } });
-		}
 
 		const ALLOWED_BLOCKS = [
-			"post-grid/flex-wrap-item",
-			"post-grid/terms-query",
+			"combo-blocks/flex-wrap-item",
+			"combo-blocks/terms-query",
 		];
-
 		const MY_TEMPLATE = [
-			["post-grid/flex-wrap-item", {}],
-			["post-grid/flex-wrap-item", {}],
-			["post-grid/flex-wrap-item", {}],
+			["combo-blocks/flex-wrap-item", {}],
+			["combo-blocks/flex-wrap-item", {}],
+			["combo-blocks/flex-wrap-item", {}],
 		];
-
 		const blockProps = useBlockProps({
 			className: ` ${blockId} ${wrapper.options.class} `,
 		});
-
 		const innerBlocksProps = useInnerBlocksProps(blockProps, {
 			allowedBlocks: ALLOWED_BLOCKS,
 			//template: MY_TEMPLATE,
@@ -732,40 +414,38 @@ registerBlockType(metadata, {
 			templateInsertUpdatesSelection: true,
 			//renderAppender: InnerBlocks.ButtonBlockAppender
 		});
-
 		const addChild = () => {
 			var childBlocks = wp.data.select(blockEditorStore).getBlocks(clientId);
-
-			const slide = createBlock("post-grid/flex-wrap-item");
+			const slide = createBlock("combo-blocks/flex-wrap-item");
 			const position = childBlocks.length;
 			dispatch("core/block-editor").insertBlock(slide, position, clientId);
-
 			wp.data.dispatch("core/block-editor").selectBlock(clientId);
 			//setActiveTab(slide.clientId);
 		};
-
 		return (
 			<>
 				<InspectorControls>
 					<div className="pg-setting-input-text">
 						<div
-							className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize tracking-wide bg-indigo-400 text-white font-medium rounded hover:bg-indigo-500 hover:text-white focus:outline-none focus:bg-gray-700 mx-3"
-							// className="bg-indigo-300 hover:bg-indigo-500 mx-3 my-2 cursor-pointer hover:text-white font-bold text-[16px] px-5 py-2 block text-center text-white rounded"
+							className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize tracking-wide bg-gray-700 text-white font-medium rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-700 mx-3"
+							// className="bg-gray-700 hover:bg-gray-600 mx-3 my-2 cursor-pointer hover:text-white font-bold text-[16px] px-5 py-2 block text-center text-white rounded"
 							onClick={(ev) => {
 								addChild();
 							}}>
-							{__("Add Item", "post-grid")}
+							{__("Add Item", "combo-blocks")}
 						</div>
 						<PGtoggle
 							className="font-medium text-slate-900 "
 							title="Flex Options"
 							initialOpen={true}>
-							<label htmlFor="" className="font-medium text-slate-900 block my-3">
-								{__("Justify Content", "post-grid")}
+							<label
+								htmlFor=""
+								className="font-medium text-slate-900 block my-3">
+								{__("Justify Content", "combo-blocks")}
 							</label>
 							<div className="!grid !grid-cols-4 place-items-center gap-3">
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px] ${wrapper.styles.justifyContent == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px] ${wrapper.styles?.justifyContent == undefined
 										? "bg-[#5655ff]"
 										: wrapper.styles.justifyContent[breakPointX] ==
 											"flex-start"
@@ -809,9 +489,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px] ${wrapper.styles.justifyContent == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px] ${wrapper.styles?.justifyContent == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.justifyContent[breakPointX] == "flex-end"
+										: wrapper.styles?.justifyContent[breakPointX] == "flex-end"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -852,9 +532,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.justifyContent == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.justifyContent == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.justifyContent[breakPointX] == "center"
+										: wrapper.styles?.justifyContent[breakPointX] == "center"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -895,9 +575,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.justifyContent == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.justifyContent == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.justifyContent[breakPointX] ==
+										: wrapper.styles?.justifyContent[breakPointX] ==
 											"space-between"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
@@ -939,9 +619,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.justifyContent == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.justifyContent == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.justifyContent[breakPointX] ==
+										: wrapper.styles?.justifyContent[breakPointX] ==
 											"space-around"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
@@ -983,9 +663,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.justifyContent == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.justifyContent == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.justifyContent[breakPointX] ==
+										: wrapper.styles?.justifyContent[breakPointX] ==
 											"space-evenly"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
@@ -1027,16 +707,16 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 							</div>
-
-							<label htmlFor="" className="font-medium text-slate-900 my-3 block">
-								{__("Align Items", "post-grid")}
+							<label
+								htmlFor=""
+								className="font-medium text-slate-900 my-3 block">
+								{__("Align Items", "combo-blocks")}
 							</label>
-
 							<div className="!grid !grid-cols-4 place-items-center gap-3">
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.alignItems == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.alignItems == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.alignItems[breakPointX] == "flex-start"
+										: wrapper.styles?.alignItems[breakPointX] == "flex-start"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1077,9 +757,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.alignItems == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.alignItems == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.alignItems[breakPointX] == "flex-end"
+										: wrapper.styles?.alignItems[breakPointX] == "flex-end"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1123,9 +803,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.alignItems == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.alignItems == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.alignItems[breakPointX] == "center"
+										: wrapper.styles?.alignItems[breakPointX] == "center"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1169,9 +849,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.alignItems == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.alignItems == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.alignItems[breakPointX] == "stretch"
+										: wrapper.styles?.alignItems[breakPointX] == "stretch"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1215,16 +895,16 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 							</div>
-
-							<label htmlFor="" className="font-medium text-slate-900 my-3 block">
-								{__("Flex Direction", "post-grid")}
+							<label
+								htmlFor=""
+								className="font-medium text-slate-900 my-3 block">
+								{__("Flex Direction", "combo-blocks")}
 							</label>
-
 							<div className="!grid !grid-cols-4 place-items-center gap-3">
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexDirection == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexDirection == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexDirection[breakPointX] == "row"
+										: wrapper.styles?.flexDirection[breakPointX] == "row"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1255,9 +935,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexDirection == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexDirection == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexDirection[breakPointX] ==
+										: wrapper.styles?.flexDirection[breakPointX] ==
 											"row-reverse"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
@@ -1290,9 +970,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexDirection == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexDirection == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexDirection[breakPointX] == "column"
+										: wrapper.styles?.flexDirection[breakPointX] == "column"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1324,9 +1004,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexDirection == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexDirection == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexDirection[breakPointX] ==
+										: wrapper.styles?.flexDirection[breakPointX] ==
 											"column-reverse"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
@@ -1359,16 +1039,16 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 							</div>
-
-							<label htmlFor="" className="font-medium text-slate-900 my-3 block">
-								{__("Flex Wrap", "post-grid")}
+							<label
+								htmlFor=""
+								className="font-medium text-slate-900 my-3 block">
+								{__("Flex Wrap", "combo-blocks")}
 							</label>
-
 							<div className="!grid !grid-cols-4 place-items-center gap-3">
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexWrap == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexWrap == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexWrap[breakPointX] == "wrap"
+										: wrapper.styles?.flexWrap[breakPointX] == "wrap"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1400,9 +1080,9 @@ registerBlockType(metadata, {
 									</Tooltip>
 								</div>
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexWrap == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexWrap == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexWrap[breakPointX] == "wrap-reverse"
+										: wrapper.styles?.flexWrap[breakPointX] == "wrap-reverse"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1433,11 +1113,10 @@ registerBlockType(metadata, {
 										</svg>
 									</Tooltip>
 								</div>
-
 								<div
-									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles.flexWrap == undefined
+									className={`hover:bg-[#3737c7] cursor-pointer h-[50px] w-[50px]  ${wrapper.styles?.flexWrap == undefined
 										? "bg-[#5655ff]"
-										: wrapper.styles.flexWrap[breakPointX] == "nowrap"
+										: wrapper.styles?.flexWrap[breakPointX] == "nowrap"
 											? "bg-[#1f1f8b]"
 											: "bg-[#5655ff]"
 										}`}
@@ -1466,10 +1145,9 @@ registerBlockType(metadata, {
 								</div>
 							</div>
 						</PGtoggle>
-
 						<PGtoggle
 							className="font-medium text-slate-900 "
-							title={__("Wrapper", "post-grid")}
+							title={__("Wrapper", "combo-blocks")}
 							initialOpen={false}>
 							<PGtabs
 								activeTab="options"
@@ -1503,10 +1181,9 @@ registerBlockType(metadata, {
 											});
 										}}
 									/>
-
 									<PanelRow>
 										<label htmlFor="" className="font-medium text-slate-900 ">
-											{__("Block ID", "post-grid")}
+											{__("Block ID", "combo-blocks")}
 										</label>
 										<InputControl
 											value={blockId}
@@ -1520,14 +1197,13 @@ registerBlockType(metadata, {
 									</PanelRow>
 									<PanelRow>
 										<label htmlFor="" className="font-medium text-slate-900 ">
-											{__("Wrapper Tag", "post-grid")}
+											{__("Wrapper Tag", "combo-blocks")}
 										</label>
-
 										<SelectControl
 											label=""
 											value={wrapper.options.tag}
 											options={[
-												{ label: __("Choose", "post-grid"), value: "" },
+												{ label: __("Choose", "combo-blocks"), value: "" },
 												{ label: "H1", value: "h1" },
 												{ label: "H2", value: "h2" },
 												{ label: "H3", value: "h3" },
@@ -1550,19 +1226,66 @@ registerBlockType(metadata, {
 								<PGtab name="styles">
 									<PGStyles
 										obj={wrapper}
-										onChange={onChangeStyleWrapper}
-										onAdd={onAddStyleWrapper}
-										onRemove={onRemoveStyleWrapper}
-										onBulkAdd={onBulkAddWrapper}
-										onReset={onResetWrapper}
+										onChange={(sudoScource, newVal, attr) => {
+											myStore.onChangeStyleElement(
+												sudoScource,
+												newVal,
+												attr,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onAdd={(sudoScource, key) => {
+											myStore.onAddStyleElement(
+												sudoScource,
+												key,
+												wrapper,
+												"wrapper",
+												setAttributes
+											);
+										}}
+										onRemove={(sudoScource, key) => {
+											myStore.onRemoveStyleElement(
+												sudoScource,
+												key,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onBulkAdd={(sudoScource, cssObj) => {
+											myStore.onBulkAddStyleElement(
+												sudoScource,
+												cssObj,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onReset={(sudoSources) => {
+											myStore.onResetElement(
+												sudoSources,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
 									/>
 								</PGtab>
 							</PGtabs>
 						</PGtoggle>
-
 						<PGtoggle
 							className="font-medium text-slate-900 "
-							title={__("Item", "post-grid")}
+							title={__("Item", "combo-blocks")}
 							initialOpen={false}>
 							<PGtabs
 								activeTab="options"
@@ -1587,11 +1310,59 @@ registerBlockType(metadata, {
 								<PGtab name="styles">
 									<PGStyles
 										obj={item}
-										onChange={onChangeStyleItem}
-										onAdd={onAddStyleItem}
-										onRemove={onRemoveStyleItem}
-										onBulkAdd={onBulkAddItem}
-										onReset={onResetItem}
+										onChange={(sudoScource, newVal, attr) => {
+											myStore.onChangeStyleElement(
+												sudoScource,
+												newVal,
+												attr,
+												item,
+												"item",
+												itemSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onAdd={(sudoScource, key) => {
+											myStore.onAddStyleElement(
+												sudoScource,
+												key,
+												item,
+												"item",
+												setAttributes
+											);
+										}}
+										onRemove={(sudoScource, key) => {
+											myStore.onRemoveStyleElement(
+												sudoScource,
+												key,
+												item,
+												"item",
+												itemSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onBulkAdd={(sudoScource, cssObj) => {
+											myStore.onBulkAddStyleElement(
+												sudoScource,
+												cssObj,
+												item,
+												"item",
+												itemSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onReset={(sudoSources) => {
+											myStore.onResetElement(
+												sudoSources,
+												item,
+												"item",
+												itemSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
 									/>
 								</PGtab>
 							</PGtabs>
@@ -1599,7 +1370,7 @@ registerBlockType(metadata, {
 
 						<PGtoggle
 							className="font-medium text-slate-900 "
-							title={__("Block Variations", "post-grid")}
+							title={__("Block Variations", "combo-blocks")}
 							initialOpen={false}>
 							<PGLibraryBlockVariations
 								blockName={blockNameLast}
@@ -1609,27 +1380,36 @@ registerBlockType(metadata, {
 							/>
 						</PGtoggle>
 
-
+						<PGtoggle
+							className="font-medium text-slate-900 "
+							title={__("Visibility", "combo-blocks")}
+							initialOpen={false}>
+							<PGVisible
+								visible={visible}
+								onChange={(prams) => {
+									setAttributes({ visible: prams });
+								}}
+							/>
+						</PGtoggle>
 					</div>
 				</InspectorControls>
-
 				<>
+
 					{!hasInnerBlocks && (
 						<div {...innerBlocksProps} className="flex justify-center my-4">
 							<div className="border border-solid border-gray-300 w-[95%] rounded-md p-5">
 								<div className="flex justify-between mb-5">
 									<div className="text-xl rounded-sm">
-										{__("Click to pick a variation", "post-grid")}
+										{__("Click to pick a variation", "combo-blocks")}
 									</div>
-
 									<div
-										className="bg-indigo-300 rounded-sm px-4 py-1 font-semibold text-lg text-white cursor-pointer"
+										className="bg-gray-700 rounded-sm px-4 py-1 font-semibold text-lg text-white cursor-pointer"
 										onClick={(ev) => {
 											replaceInnerBlocks(
 												clientId,
 												createBlocksFromInnerBlocksTemplate([
 													[
-														"post-grid/flex-wrap-item",
+														"combo-blocks/flex-wrap-item",
 														{
 															wrapper: {
 																options: {
@@ -1644,7 +1424,7 @@ registerBlockType(metadata, {
 														},
 													],
 													[
-														"post-grid/flex-wrap-item",
+														"combo-blocks/flex-wrap-item",
 														{
 															wrapper: {
 																options: {
@@ -1662,12 +1442,11 @@ registerBlockType(metadata, {
 												true
 											);
 										}}>
-										{__("Skip", "post-grid")}
+										{__("Skip", "combo-blocks")}
 									</div>
 								</div>
-
 								<div {...innerBlocksProps} className="">
-									<PGBlockVariationsPicker
+									<ComboBlocksVariationsPicker
 										blockName={"flex-wrap"}
 										blockId={blockId}
 										clientId={clientId}
@@ -1677,7 +1456,6 @@ registerBlockType(metadata, {
 							</div>
 						</div>
 					)}
-
 					{hasInnerBlocks && (
 						<div {...innerBlocksProps}>{innerBlocksProps.children}</div>
 					)}
@@ -1688,17 +1466,22 @@ registerBlockType(metadata, {
 	save: function (props) {
 		// to make a truly dynamic block, we're handling front end by render_callback under index.php file
 
+
 		var attributes = props.attributes;
+		var blockId = attributes.blockId;
 		var wrapper = attributes.wrapper;
 
-		var blockId = attributes.blockId;
+		// const blockProps = useBlockProps.save({
+		// 	className: ` ${blockId} ${wrapper.options.class}`,
+		// });
+		// const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-		const blockProps = useBlockProps.save({
-			className: ` ${blockId} ${wrapper.options.class} `,
-		});
+		// return (
+		// 	<div {...innerBlocksProps} />
+		// );
+
 
 		return <InnerBlocks.Content />;
-
 		//return null;
 	},
 });

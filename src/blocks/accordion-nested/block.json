@@ -1,0 +1,344 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/accordion-nested",
+  "title": "Accordion",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [],
+  "providesContext": {
+    "combo-blocks/accordionNestedIcon": "icon",
+    "combo-blocks/accordionNestedIconToggle": "iconToggle",
+    "combo-blocks/accordionNestedLabelIcon": "labelIcon",
+    "combo-blocks/accordionNestedContent": "content",
+    "combo-blocks/accordionNestedHeader": "header",
+    "combo-blocks/accordionNestedHeaderLabel": "headerLabel",
+    "combo-blocks/accordionNestedLabelCounter": "labelCounter"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-accordion-nested"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "block"
+          },
+          "width": {}
+        }
+      },
+      "content": {
+        "options": {
+          "tag": "div",
+          "class": "accordion-content"
+        },
+        "styles": {
+          "backgroundColor": {
+            "Desktop": "#f1f7f9"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "color": {
+            "Desktop": "#1f2e45"
+          },
+          "padding": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "borderRadius": {
+            "Desktop": "0px 0px 5px 5px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 10px 0px"
+          }
+        }
+      },
+      "header": {
+        "options": {
+          "tag": "div",
+          "class": "accordion-header"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "backgroundColor": {
+            "Desktop": "#F1F7F9"
+          },
+          "padding": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 10px 0px"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "border": {}
+        }
+      },
+      "headerActive": {
+        "options": {
+          "tag": "div",
+          "class": "accordion-header"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#ffffff !important"
+          },
+          "backgroundColor": {
+            "Desktop": "#1f2e45 !important"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px !important"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 0px 0px !important"
+          }
+        }
+      },
+      "labelCounter": {
+        "options": {
+          "enable": false,
+          "position": "",
+          "tag": "div",
+          "class": "label-counter"
+        },
+        "styles": {
+          "padding": {
+            "Desktop": "0px 10px 0px 0px"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-right",
+          "position": "left",
+          "class": "accordion-icon"
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "padding": {
+            "Desktop": "0px 10px 0px 10px"
+          }
+        }
+      },
+      "iconToggle": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-down",
+          "class": "accordion-icon-toggle"
+        },
+        "styles": []
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-accordion-nested"
+        },
+        "styles": {}
+      }
+    },
+    "searchWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false,
+          "contentSrc": [
+            "content",
+            "label"
+          ],
+          "tag": "div",
+          "class": "accordion-search-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "searchInput": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "input",
+          "type": "text",
+          "value": "",
+          "placeholder": "Search here...",
+          "class": "accordion-search-input"
+        },
+        "styles": {}
+      }
+    },
+    "content": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "accordion-content",
+          "overrideChild": true
+        },
+        "styles": {}
+      }
+    },
+    "header": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "accordion-header",
+          "overrideChild": true
+        },
+        "styles": {}
+      }
+    },
+    "headerActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "accordion-header-active"
+        },
+        "styles": {}
+      }
+    },
+    "headerLabel": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Accordion Header",
+          "tag": "div",
+          "class": "accordion-header-label",
+          "overrideChild": true
+        },
+        "styles": {}
+      }
+    },
+    "labelCounter": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false,
+          "position": "",
+          "tag": "div",
+          "class": "accordion-label-counter",
+          "overrideChild": true
+        },
+        "styles": {}
+      }
+    },
+    "labelIcon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "accordion-label-icon",
+          "overrideChild": true
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-down",
+          "position": "left",
+          "class": "accordion-icon",
+          "overrideChild": true
+        },
+        "styles": {}
+      }
+    },
+    "iconToggle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": " fas fa-angle-up",
+          "class": "accordion-icon-toggle"
+        },
+        "styles": {}
+      }
+    },
+    "accOptions": {
+      "type": "object",
+      "default": {
+        "active": "9999",
+        "collapsible": true,
+        "heightStyle": "content"
+      }
+    },
+    "schema": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true
+        }
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "accordion",
+    "accordion faq",
+    "accordions",
+    "faq",
+    "toggle",
+    "collapsible",
+    "accordion nested",
+    "accordion block",
+    "accordion plugin",
+    "question answer"
+  ],
+  "description": "Create collapsible container that organizes information by allowing users to expand or collapse sections."
+}

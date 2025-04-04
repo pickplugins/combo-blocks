@@ -1,18 +1,16 @@
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Button,
 	Dropdown,
 	ToggleControl,
 	__experimentalInputControl as InputControl,
 } from "@wordpress/components";
-
 import { useState } from "@wordpress/element";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var args = [
 		{ label: "left top", value: "left top" },
 		{ label: "left center", value: "left center" },
@@ -28,7 +26,6 @@ function Html(props) {
 		{ label: "revert", value: "revert" },
 		{ label: "unset", value: "unset" },
 	];
-
 	const [isCustom, setisCustom] = useState(
 		props.val.match(/-?\d+/g) == null ? false : true
 	);
@@ -57,24 +54,23 @@ function Html(props) {
 			? "px"
 			: valArgs[1].match(/[a-zA-Z%]+/g)[0]
 	);
-
 	// var ValX = (valArgs[0] == undefined || valArgs[0].match(/-?\d+/g) == null) ? 0 : valArgs[0].match(/-?\d+/g)[0];
 	// var valUnitX = (valArgs[0] == undefined || valArgs[0].match(/[a-zA-Z%]+/g) == null) ? 'px' : valArgs[0].match(/[a-zA-Z%]+/g)[0];
-
 	// var ValY = (valArgs[1] == undefined || valArgs[1].match(/-?\d+/g) == null) ? 0 : valArgs[1].match(/-?\d+/g)[0];
 	// var valUnitY = (valArgs[1] == undefined || valArgs[1].match(/[a-zA-Z%]+/g) == null) ? 'px' : valArgs[1].match(/[a-zA-Z%]+/g)[0];
-
 	return (
 		<div className="">
 			<ToggleControl
-				label={isCustom ? "Custom Value enabled?" : "Custom Value?"}
+				label={
+					isCustom
+						? __("Custom Value enabled?", "combo-blocks")
+						: __("Custom Value?", "combo-blocks")
+				}
 				checked={isCustom}
 				onChange={(arg) => {
-
 					setisCustom((isCustom) => !isCustom);
 				}}
 			/>
-
 			<div className="flex justify-between items-center my-3">
 				{!isCustom && (
 					<Dropdown
@@ -83,7 +79,9 @@ function Html(props) {
 							<Button title="" onClick={onToggle} aria-expanded={isOpen}>
 								{/* <div className=" ">{val ? val : 'Select...'}</div> */}
 								<div className=" ">
-									{position.length == 0 ? "Select..." : position}
+									{position.length == 0
+										? __("Select...", "combo-blocks")
+										: position}
 								</div>
 							</Button>
 						)}
@@ -97,9 +95,7 @@ function Html(props) {
 											}
 											onClick={(ev) => {
 												setisCustom(false);
-
 												setposition(x.value);
-
 												if (isImportant) {
 													props.onChange(
 														x.value + " !important",
@@ -109,8 +105,7 @@ function Html(props) {
 													props.onChange(x.value, "transformOrigin");
 												}
 											}}>
-											{!x.value && <div>Reset</div>}
-
+											{!x.value && <div>{__("Reset", "combo-blocks")}</div>}
 											{x.value && <>{x.label}</>}
 										</div>
 									);
@@ -120,7 +115,6 @@ function Html(props) {
 					/>
 				)}
 			</div>
-
 			{isCustom && (
 				<div className="flex mt-4">
 					<div>
@@ -128,10 +122,7 @@ function Html(props) {
 							value={ValX}
 							type="number"
 							onChange={(newVal) => {
-
-
 								setValX(newVal);
-
 								if (isImportant) {
 									props.onChange(
 										newVal +
@@ -152,17 +143,13 @@ function Html(props) {
 							}}
 						/>
 					</div>
-
 					<span className="mx-2"> / </span>
-
 					<div>
 						<InputControl
 							value={ValY}
 							type="number"
 							onChange={(newVal) => {
-
 								setValY(newVal);
-
 								if (isImportant) {
 									props.onChange(
 										ValX +
@@ -185,13 +172,15 @@ function Html(props) {
 					</div>
 				</div>
 			)}
-
 			<ToggleControl
-				label={isImportant ? "Important (Enabled)" : "Important?"}
+				label={
+					isImportant
+						? __("Important (Enabled)", "combo-blocks")
+						: __("Important?", "combo-blocks")
+				}
 				checked={isImportant}
 				onChange={(arg) => {
 					setImportant((isImportant) => !isImportant);
-
 					if (isImportant) {
 						if (isCustom) {
 							props.onChange(
@@ -216,25 +205,20 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGcssTransformOrigin extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const { val, onChange } = this.props;
-
 		return <Html val={val} onChange={onChange} warn={this.state.showWarning} />;
 	}
 }
-
 export default PGcssTransformOrigin;

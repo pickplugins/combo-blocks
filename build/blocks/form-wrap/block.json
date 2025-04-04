@@ -1,0 +1,338 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/form-wrap",
+  "title": "Form Maker",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "providesContext": {
+    "combo-blocks/formId": "blockId"
+  },
+  "usesContext": [
+    "combo-blocks/popupId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-form-wrap"
+        },
+        "styles": {
+          "gridTemplateColumns": [],
+          "gap": [],
+          "display": [],
+          "width": []
+        }
+      },
+      "form": {
+        "type": "optInForm",
+        "styles": {
+          "gridTemplateColumns": {
+            "Desktop": "1fr "
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "display": {
+            "Desktop": "grid"
+          }
+        },
+        "options": {
+          "type": "optInForm"
+        }
+      },
+      "errorWrap": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": "error-wrap"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "none"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/form-field-input",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": ""
+            }
+          },
+          "labelWrap": {
+            "options": {
+              "tag": "div",
+              "enable": true,
+              "class": ""
+            },
+            "styles": {
+              "marginBottom": {
+                "Desktop": "15px"
+              }
+            }
+          },
+          "label": {
+            "options": {
+              "tag": "label",
+              "for": "label",
+              "enable": true,
+              "text": "Your Email",
+              "class": "pg-form-field-label"
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#627cf5"
+              },
+              "fontSize": {
+                "Desktop": "14px"
+              }
+            }
+          },
+          "input": {
+            "options": {
+              "type": "text",
+              "placeholder": "",
+              "value": "",
+              "name": "email",
+              "required": false,
+              "disabled": false,
+              "size": false,
+              "minLength": null,
+              "maxLength": null,
+              "readonly": false,
+              "step": null,
+              "pattern": null,
+              "patternCustom": "",
+              "max": null,
+              "min": null,
+              "checked": false,
+              "autocomplete": false,
+              "id": "",
+              "class": "pg-form-field-input",
+              "position": "afterLabel"
+            },
+            "styles": {
+              "border": {
+                "Desktop": "1px solid #627df569"
+              },
+              "borderRadius": {
+                "Desktop": "0px 0px 0px 0px"
+              },
+              "padding": {
+                "Desktop": "5px 10px 5px 10px"
+              },
+              "backgroundColor": {
+                "Desktop": "#ffffff"
+              },
+              "width": {
+                "Desktop": "100%"
+              },
+              "maxWidth": {
+                "Desktop": "100%"
+              },
+              "borderBottom": {
+                "Desktop": "2px solid #627cf5"
+              }
+            }
+          },
+          "errorWrap": {
+            "options": {
+              "tag": "div",
+              "enable": true,
+              "text": "Email should not empty",
+              "position": "afterInput",
+              "class": ""
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#c02121"
+              },
+              "marginTop": {
+                "Desktop": "10px"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-form-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "form": {
+      "type": "object",
+      "default": {
+        "type": "contactForm",
+        "options": {
+          "class": "",
+          "type": "contactForm"
+        },
+        "styles": {}
+      }
+    },
+    "quiz": {
+      "type": "object",
+      "default": {
+        "options": {
+          "answers": {},
+          "grades": [
+            {
+              "label": "A",
+              "max": 90,
+              "min": 70
+            },
+            {
+              "label": "B",
+              "max": 69,
+              "min": 60
+            },
+            {
+              "label": "C",
+              "max": 59,
+              "min": 50
+            },
+            {
+              "label": "D",
+              "max": 49,
+              "min": 40
+            }
+          ],
+          "shuffle": false
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "onSubmit": {
+      "type": "object",
+      "default": {}
+    },
+    "onProcess": {
+      "type": "object",
+      "default": {}
+    },
+    "afterSubmit": {
+      "type": "object",
+      "default": {}
+    },
+    "submitTriggers": {
+      "type": "object",
+      "default": {}
+    },
+    "input": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-layer"
+        },
+        "styles": {}
+      }
+    },
+    "textarea": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-layer"
+        },
+        "styles": {}
+      }
+    },
+    "selectInput": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-layer"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-layer"
+        },
+        "styles": {}
+      }
+    },
+    "errorWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": "error-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "responsesMsgWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": "error-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "form block for wordpress",
+    "form block",
+    "form builder",
+    "form maker",
+    "dynamic form",
+    "Contact Form Plugin",
+    "opt-in form",
+    "login form",
+    "register form",
+    "custom form",
+    "wordpress form",
+    "wordpress form plugin",
+    "Subscription form",
+    "contact form block"
+  ],
+  "description": "The form block is an advanced tool for creating interactive online forms, enabling users to input and submit data, such as contact information or survey responses, on a website."
+}

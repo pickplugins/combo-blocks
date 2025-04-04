@@ -1,4 +1,5 @@
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import colorsPresets from "../../colors-presets";
 import {
 	__experimentalInputControl as InputControl,
@@ -12,25 +13,18 @@ import {
 } from "@wordpress/components";
 import PGColorPicker from "../../components/input-color-picker";
 import { Icon, close } from "@wordpress/icons";
-
 import { useState, useEffect } from "@wordpress/element";
 import { applyFilters } from "@wordpress/hooks";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	let isProFeature = applyFilters("isProFeature", true);
-
 	var valZ =
 		props.val == null || props.val == undefined || props.val.length == 0
 			? "0px 0px 10px 5px #50547d4f"
 			: props.val;
 	// var valZ = (props.val == null || props.val == undefined || props.val.length == 0) ? '0px' : props.val;
-
-
-
 	var colorNames = [
 		"AliceBlue",
 		"AntiqueWhite",
@@ -180,23 +174,16 @@ function Html(props) {
 		"Yellow",
 		"YellowGreen",
 	];
-
-
 	var isMulti = valZ.split(",").length > 1 ? true : false;
 	var shadows = isMulti ? valZ.split(", ") : [valZ];
-
-
-
 	const getBoxShadowObj = (boxshadow) => {
 		var sadhow_arr = [];
-
 		boxshadow.map((arg) => {
 			var inset = arg.includes("inset");
 			var color = "";
 			var re = /(rgba|rgb|#|hsla|hsl)/;
 			var colorMatch = arg.match(re);
 			var colorType = colorMatch != null ? colorMatch[0] : "";
-
 			if (colorType == "hsl") {
 				var regex = /hsl\(([^)]+)\)/;
 				var matches = arg.match(regex);
@@ -241,22 +228,14 @@ function Html(props) {
 					color = matches[0];
 				}
 			}
-
 			var placement = arg;
-
 			if (inset) {
 				placement = placement.replace("inset", "");
 			}
 			if (color) {
 				placement = placement.replace(color, "");
 			}
-
-
-
 			var placementArr = placement.trim().split(" ");
-
-
-
 			if (placementArr.length == 2) {
 				var h = placementArr[0];
 				var v = placementArr[1];
@@ -273,7 +252,6 @@ function Html(props) {
 				var blur = placementArr[2];
 				var spread = placementArr[3];
 			}
-
 			sadhow_arr.push({
 				h: h,
 				v: v,
@@ -283,20 +261,14 @@ function Html(props) {
 				color: color,
 			});
 		});
-
 		return sadhow_arr;
 	};
-
 	const [shadowObj, setShadowObj] = useState(getBoxShadowObj(shadows));
 	// const [shadowObj, setShadowObj] = useState(isProFeature ? shadows[0] :getBoxShadowObj(shadows));
-
 	const [isImportant, setImportant] = useState(
 		valZ.includes(" !important") ? true : false
 	);
-
 	useEffect(() => {
-
-
 		//props.onChange(newVal + 'px ' + v + 'px ' + blur + 'px ' + spread + 'px ' + color, 'boxShadow');
 		var stringArr = [];
 		shadowObj.map((shadow, index) => {
@@ -306,61 +278,48 @@ function Html(props) {
 			var spread = shadow.spread;
 			var inset = shadow.inset ? "inset" : "";
 			var color = shadow.color;
-
 			var item = [h, v, blur, spread, color, inset];
 			var filtered = item.filter(function (el) {
 				return el;
 			});
-
 			stringArr.push(filtered.join(" "));
 		});
-
 		stringArr = stringArr.join(",  ");
-
 		if (isImportant) {
 			stringArr = stringArr + " !important";
 		} else {
 			stringArr = stringArr;
 		}
-
-
-
 		props.onChange(stringArr, "boxShadow");
 	}, [shadowObj, isImportant]);
-
 	var unitArgs = [
 		{ label: "PX", value: "px" },
 		{ label: "EM", value: "em" },
 		{ label: "REM", value: "rem" },
 		{ label: "%", value: "%" },
-
 		{ label: "CM", value: "cm" },
 		{ label: "MM", value: "mm" },
 		{ label: "IN", value: "in" },
 		{ label: "PT", value: "pt" },
 		{ label: "PC", value: "pc" },
 		{ label: "EX", value: "ex" },
-
 		{ label: "CH", value: "ch" },
 		{ label: "VW", value: "vw" },
 		{ label: "VH", value: "vh" },
 		{ label: "VMIN", value: "vmin" },
 		{ label: "VMAX", value: "vmax" },
 	];
-
-	const [proText, setProText] = useState(false)
-
+	const [proText, setProText] = useState(false);
 	const handleClick = () => {
 		setProText(true);
 		setTimeout(() => {
 			setProText(false);
 		}, 5000);
 	};
-
 	return (
 		<div>
 			<button
-				className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize  bg-indigo-400 text-white font-medium rounded hover:bg-indigo-500 hover:text-white focus:outline-none focus:bg-gray-700"
+				className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize  bg-gray-700 text-white font-medium rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-700"
 				onClick={() => {
 					if (isProFeature) {
 						handleClick();
@@ -377,11 +336,13 @@ function Html(props) {
 					});
 					setShadowObj(shadowObjX);
 				}}>
-				Add
+				{__("Add", "combo-blocks")}
 			</button>
 			{proText && (
-				<a href="https://comboblocks.com/pricing/" className="pg-text-color block py-2 px-1">
-					Subscribe to add multiple shadows.
+				<a
+					href="https://comboblocks.com/pricing/"
+					className="pg-text-color block py-2 px-1">
+					{__("Subscribe to add multiple shadows.", "combo-blocks")}
 				</a>
 			)}
 			<>
@@ -392,29 +353,24 @@ function Html(props) {
 					var spread = shadow.spread;
 					var inset = shadow.inset;
 					var color = shadow.color;
-
 					var hVal = h.match(/-?\d+/g) == null ? 0 : h.match(/-?\d+/g)[0];
 					var hUnit =
 						h.match(/[a-zA-Z%]+/g) == null ? "px" : h.match(/[a-zA-Z%]+/g)[0];
-
 					var vVal = v.match(/-?\d+/g) == null ? 0 : v.match(/-?\d+/g)[0];
 					var vUnit =
 						v.match(/[a-zA-Z%]+/g) == null ? "px" : v.match(/[a-zA-Z%]+/g)[0];
-
 					var blurVal =
 						blur.match(/-?\d+/g) == null ? 0 : blur.match(/-?\d+/g)[0];
 					var blurUnit =
 						blur.match(/[a-zA-Z%]+/g) == null
 							? "px"
 							: blur.match(/[a-zA-Z%]+/g)[0];
-
 					var spreadVal =
 						spread.match(/-?\d+/g) == null ? 0 : spread.match(/-?\d+/g)[0];
 					var spreadUnit =
 						spread.match(/[a-zA-Z%]+/g) == null
 							? "px"
 							: spread.match(/[a-zA-Z%]+/g)[0];
-
 					return (
 						<PanelBody
 							className="font-medium text-slate-900 "
@@ -425,12 +381,10 @@ function Html(props) {
 										onClick={(ev) => {
 											var shadowObjX = [...shadowObj];
 											shadowObjX.splice(index, 1);
-
 											setShadowObj(shadowObjX);
 										}}>
 										<Icon icon={close} />
 									</span>
-
 									<span>
 										{h +
 											" " +
@@ -461,9 +415,8 @@ function Html(props) {
 							// }
 							initialOpen={false}>
 							<PanelRow>
-								<label htmlFor="">H-Offset</label>
+								<label htmlFor="">{__("H-Offset", "combo-blocks")}</label>
 							</PanelRow>
-
 							<PanelRow>
 								<InputControl
 									value={hVal}
@@ -474,7 +427,6 @@ function Html(props) {
 										setShadowObj(shadowObjX);
 									}}
 								/>
-
 								<SelectControl
 									label=""
 									value={hUnit}
@@ -486,11 +438,9 @@ function Html(props) {
 									}}
 								/>
 							</PanelRow>
-
 							<PanelRow>
-								<label htmlFor="">V-Offset</label>
+								<label htmlFor="">{__("V-Offset", "combo-blocks")}</label>
 							</PanelRow>
-
 							<PanelRow>
 								<InputControl
 									value={vVal}
@@ -501,7 +451,6 @@ function Html(props) {
 										setShadowObj(shadowObjX);
 									}}
 								/>
-
 								<SelectControl
 									label=""
 									value={vUnit}
@@ -513,11 +462,9 @@ function Html(props) {
 									}}
 								/>
 							</PanelRow>
-
 							<PanelRow>
-								<label htmlFor="">Blur</label>
+								<label htmlFor="">{__("Blur", "combo-blocks")}</label>
 							</PanelRow>
-
 							<PanelRow>
 								<InputControl
 									value={blurVal}
@@ -528,7 +475,6 @@ function Html(props) {
 										setShadowObj(shadowObjX);
 									}}
 								/>
-
 								<SelectControl
 									label=""
 									value={blurUnit}
@@ -540,11 +486,9 @@ function Html(props) {
 									}}
 								/>
 							</PanelRow>
-
 							<PanelRow>
-								<label htmlFor="">Spread</label>
+								<label htmlFor="">{__("Spread", "combo-blocks")}</label>
 							</PanelRow>
-
 							<PanelRow>
 								<InputControl
 									value={spreadVal}
@@ -555,7 +499,6 @@ function Html(props) {
 										setShadowObj(shadowObjX);
 									}}
 								/>
-
 								<SelectControl
 									label=""
 									value={spreadUnit}
@@ -567,11 +510,9 @@ function Html(props) {
 									}}
 								/>
 							</PanelRow>
-
 							<PanelRow>
-								<label htmlFor="">Color</label>
+								<label htmlFor="">{__("Color", "combo-blocks")}</label>
 							</PanelRow>
-
 							<PGColorPicker
 								value={color}
 								colors={colorsPresets}
@@ -582,28 +523,32 @@ function Html(props) {
 									setShadowObj(shadowObjX);
 								}}
 							/>
-
 							<ToggleControl
-								help={inset ? "Inset (Enabled)" : "Inset?"}
+								help={
+									inset
+										? __("Inset Enabled", "combo-blocks")
+										: __("Inset ?", "combo-blocks")
+								}
 								checked={inset}
 								onChange={(arg) => {
 									var shadowObjX = [...shadowObj];
-
 									if (inset) {
 										shadowObjX[index].inset = false;
 									} else {
 										shadowObjX[index].inset = true;
 									}
-
 									setShadowObj(shadowObjX);
 								}}
 							/>
 						</PanelBody>
 					);
 				})}
-
 				<ToggleControl
-					help={isImportant ? "Important (Enabled)" : "Important?"}
+					help={
+						isImportant
+							? __("Important (Enabled)", "combo-blocks")
+							: __("Important?", "combo-blocks")
+					}
 					checked={isImportant}
 					onChange={(arg) => {
 						setImportant((isImportant) => !isImportant);
@@ -619,16 +564,13 @@ class PGcssBoxShadow extends Component {
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const { val, onChange } = this.props;
-
 		return (
 			<div>
 				<Html val={val} onChange={onChange} warn={this.state.showWarning} />
@@ -636,19 +578,4 @@ class PGcssBoxShadow extends Component {
 		);
 	}
 }
-
 export default PGcssBoxShadow;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

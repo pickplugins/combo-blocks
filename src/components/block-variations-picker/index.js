@@ -1,4 +1,5 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Button,
 	Dropdown,
@@ -6,7 +7,7 @@ import {
 	SelectControl,
 	Spinner,
 } from "@wordpress/components";
-import { __ } from "@wordpress/i18n";
+
 import {
 	__experimentalInputControl as InputControl,
 	ColorPalette,
@@ -14,7 +15,6 @@ import {
 	Popover,
 } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
-
 import { memo, useMemo, useState, useEffect } from "@wordpress/element";
 import PGtabs from "../tabs";
 import PGtab from "../tab";
@@ -30,21 +30,16 @@ import {
 	replace,
 	download,
 } from "@wordpress/icons";
-
 import * as htmlToImage from "html-to-image";
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 import apiFetch from "@wordpress/api-fetch";
 import { applyFilters } from "@wordpress/hooks";
-
 import Masonry from "masonry-layout";
-
 import imagesLoaded from "imagesloaded";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	const [queryCss, setQueryCss] = useState({
 		keyword: "",
 		page: 1,
@@ -52,20 +47,15 @@ function Html(props) {
 		category: "",
 		isReset: true,
 	});
-
 	var [cssLibrary, setCssLibrary] = useState({ items: [] });
 	var [cssLibraryCats, setCssLibraryCats] = useState([]);
-
 	var [isLoading, setIsLoading] = useState(false);
 	var [debounce, setDebounce] = useState(null); // Using the hook.
 	var [sudoPicker, setsudoPicker] = useState(null); // Using the hook.
-
 	let isProFeature = applyFilters("isProFeature", true);
-
 	const selectedBlock = useSelect((select) =>
 		select("core/block-editor").getSelectedBlock()
 	);
-
 	var [cssSubmission, setCssSubmission] = useState({
 		enable: false,
 		title: "",
@@ -78,17 +68,14 @@ function Html(props) {
 		failedMessage: "Submission was failed!",
 		idleMessage: "Submit to CSS Library",
 		message: "",
-
 		timeout: 2,
 	});
-
 	useEffect(() => {
 		fetchCss();
 	}, [queryCss]);
-
 	useEffect(() => {
 		apiFetch({
-			path: "/post-grid/v2/get_site_details",
+			path: "/combo-blocks/v2/get_site_details",
 			method: "POST",
 			data: {},
 		}).then((res) => {
@@ -97,10 +84,8 @@ function Html(props) {
 			setCssSubmission({ ...cssSubmission, email: res.email });
 		});
 	}, []);
-
 	function fetchCss() {
 		setIsLoading(true);
-
 		var postData = {
 			keyword: queryCss.keyword,
 			page: queryCss.page,
@@ -108,8 +93,7 @@ function Html(props) {
 			blockName: queryCss.blockName,
 		};
 		postData = JSON.stringify(postData);
-
-		fetch("https://comboblocks.com/server/wp-json/post-grid/v2/get_block_patterns", {
+		fetch("https://comboblocks.com/server/wp-json/combo-blocks/v2/get_block_patterns", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
@@ -119,9 +103,7 @@ function Html(props) {
 			.then((response) => {
 				if (response.ok && response.status < 400) {
 					response.json().then((res) => {
-
 						// res.posts.map((e)=>{
-
 						// })
 						var isReset = queryCss.isReset;
 						if (isReset) {
@@ -130,14 +112,12 @@ function Html(props) {
 							res.posts.map((item) => {
 								cssLibrary.items.push(item);
 							});
-
 							var items = cssLibrary.items;
 						}
-
 						setCssLibrary({ items: items });
 						setCssLibraryCats(res.terms);
 						setTimeout(() => {
-							loadMasonry();
+							//loadMasonry();
 						}, 500);
 						setIsLoading(false);
 					});
@@ -148,9 +128,10 @@ function Html(props) {
 				// handle the error
 			});
 	}
-
 	function loadMasonry() {
 		var elem = document.querySelector("#" + props.blockName);
+
+
 
 		if (elem != null) {
 			imagesLoaded(elem, function () {
@@ -167,31 +148,9 @@ function Html(props) {
 		}
 	}
 
-	const htmlToImageCapt = () => {
-		var stylesheet = document.getElementById("pg-google-fonts-css");
-		if (stylesheet && !stylesheet.hasAttribute("disabled")) {
-			stylesheet.setAttribute("disabled", "disabled");
-			//setDisabled(true);
-		}
-
-		const elementToCapture = document.querySelector("." + props.blockId);
-
-		htmlToImage.toPng(elementToCapture).then(function (dataUrl) {
-			setCssSubmission({ ...cssSubmission, thumb: dataUrl });
-
-			setTimeout(() => {
-				if (stylesheet && stylesheet.hasAttribute("disabled")) {
-					stylesheet.removeAttribute("disabled");
-				}
-			}, 500);
-
-			//download(dataUrl, 'my-node.png');
-		});
-	};
-
 	return (
 		<div className=" mt-4">
-			<div className="m-auto  " id={props.blockName}>
+			<div className="m-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-1  gap-3 " id={props.blockName}>
 				{isLoading == true && (
 					<div className="text-center">
 						<Spinner
@@ -209,7 +168,7 @@ function Html(props) {
 					return (
 						<>
 							<div
-								className={`item-${index} group pb-[20px] variation-item border border-solid relative border-slate-400 rounded-md overflow-hidden hover:border-black hover:shadow-md hover:shadow-slate-300 transition-all duration-150 ease-in-out shadow-md py-2 pt-3 mb-4  `}
+								className={`item-${index} group p-3 border border-solid relative border-slate-400 rounded-md overflow-hidden hover:border-black hover:shadow-md hover:shadow-slate-300 transition-all duration-150 ease-in-out shadow-md   `}
 								onClick={(ev) => {
 									if (!x.is_pro) {
 										props.onChange(content, "replace");
@@ -222,26 +181,29 @@ function Html(props) {
 										alert("This feature is only available in Pro Version.");
 									}
 								}}>
+								<div
+									className="mx-auto mb-3 text-white bg-gray-600 text-lg truncate max-w-full text-center p-2  peer-hover:invisible"
+									dangerouslySetInnerHTML={{ __html: title }}
+								/>
 								<div className="flex justify-center  ">
 									<img src={x.thumb_url} alt="" className="w-[95%]" />
-									{/* <div className="absolute top-0 left-2"> */}
 
-									{/* </div> */}
 									{isProFeature && (
 										<div className="absolute top-1 right-3">
 											{!x.is_pro && (
 												<span className=" bg-lime-600 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-													{__("Free", "post-grid")}
+													{__("Free", "combo-blocks")}
 												</span>
 											)}
 											{x.is_pro && (
 												<span className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-													{__("Pro", "post-grid")}
+													{__("Pro", "combo-blocks")}
 												</span>
 											)}
 										</div>
 									)}
 								</div>
+
 								{x.is_pro && isProFeature && (
 									<div className="absolute bottom-0 w-full left-0 opacity-0 group-hover:opacity-100 flex justify-center pb-1 mt-4 peer">
 										<button
@@ -253,42 +215,35 @@ function Html(props) {
 												);
 											}}>
 											<Icon fill="#fff" icon={link} />
-											<span>{__("Subscribe to Import", "post-grid")}</span>
+											<span>{__("Subscribe to Import", "combo-blocks")}</span>
 										</button>
 									</div>
 								)}
-								<div
-									className="mx-auto truncate max-w-full text-center px-4 pt-2 pg-setting-input-text peer-hover:invisible"
-									dangerouslySetInnerHTML={{ __html: title }}
-								/>
+
 							</div>
 						</>
 					);
 				})}
 			</div>
 			{cssLibrary.items.length == 0 && !isLoading && (
-				<div>{__("No variation found.", "post-grid")}</div>
+				<div>{__("No variation found.", "combo-blocks")}</div>
 			)}
 		</div>
 	);
 }
-
-class PGBlockVariationsPicker extends Component {
+class ComboBlocksVariationsPicker extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { blockName, blockId, clientId, onChange } = this.props;
-
 		return (
 			<Html
 				blockId={blockId}
@@ -300,9 +255,4 @@ class PGBlockVariationsPicker extends Component {
 		);
 	}
 }
-
-export default PGBlockVariationsPicker;
-
-
-
-
+export default ComboBlocksVariationsPicker;

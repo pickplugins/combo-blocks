@@ -1,0 +1,285 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-categories",
+  "title": "Post Categories",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "class": "pg-post-categories",
+          "tag": "div"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "backgroundColor": {},
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "padding": [],
+          "borderRadius": [],
+          "flexWrap": {
+            "Tablet": "wrap !important",
+            "Desktop": "wrap"
+          }
+        }
+      },
+      "items": {
+        "options": {
+          "prefix": "",
+          "postfix": "",
+          "linkTo": "termUrl",
+          "linkToCustomMeta": "",
+          "linkToAuthorMeta": "",
+          "customUrl": "",
+          "maxCount": "5",
+          "postCount": false,
+          "class": " item ",
+          "linkTarget": "",
+          "linkAttr": []
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "500"
+          },
+          "display": [],
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px !important"
+          },
+          "backgroundColor": {
+            "Desktop": "#DFBB9D"
+          },
+          "padding": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          },
+          "margin": {
+            "Desktop": "8px 8px 8px 8px"
+          }
+        },
+        "first-child": {
+          "marginLeft": {
+            "Desktop": "0px"
+          }
+        },
+        "last-child": {
+          "marginRight": {
+            "Desktop": "0px"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "library": "",
+          "srcType": "class",
+          "iconSrc": "far fa-folder-open",
+          "position": "beforeItem",
+          "class": "icon"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 10px"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          }
+        }
+      },
+      "separator": {
+        "options": {
+          "class": "",
+          "text": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 10px"
+          }
+        }
+      },
+      "frontText": {
+        "options": {
+          "text": "",
+          "class": ""
+        },
+        "styles": {
+          "color": [],
+          "fontSize": [],
+          "fontStyle": [],
+          "fontWeight": {
+            "Desktop": "400"
+          }
+        }
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-post-categories",
+          "tag": "div"
+        },
+        "styles": {}
+      }
+    },
+    "items": {
+      "type": "object",
+      "default": {
+        "options": {
+          "prefix": "",
+          "postfix": "",
+          "linkTo": "termUrl",
+          "linkToCustomMeta": "",
+          "linkToAuthorMeta": "",
+          "customUrl": "",
+          "maxCount": 99,
+          "postCount": false,
+          "class": " item ",
+          "linkTarget": "",
+          "linkAttr": []
+        },
+        "styles": {
+          "textDecoration": {
+            "Desktop": "none #000000 solid 0px !important"
+          }
+        }
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeFronttext",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "termTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "postCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "frontText": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Categories: ",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "category",
+    "categories",
+    "post category",
+    "categories block",
+    "post categories",
+    "post categories block",
+    "post category block",
+    "post category for wordpress",
+    "post category block for wordpress"
+  ],
+  "description": "The post category block displays the categories or a list of categories associated with a blog post."
+}

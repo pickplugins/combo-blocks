@@ -1,0 +1,185 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/terms-list",
+  "title": "Terms List",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-archive",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "term_id",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-terms-list"
+        },
+        "styles": {}
+      }
+    },
+    "taxonomies": {
+      "type": "object",
+      "default": {
+        "options": {
+          "taxName": ""
+        }
+      }
+    },
+    "itemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "item",
+          "counterClass": true,
+          "termsClass": true,
+          "oddEvenClass": true
+        },
+        "styles": {}
+      }
+    },
+    "items": {
+      "type": "object",
+      "default": {
+        "options": {
+          "prefix": "",
+          "postfix": "",
+          "viewType": "list",
+          "hierarchicaly": false,
+          "queryPosts": false,
+          "accordionOpen": false,
+          "linkToTerm": false,
+          "linkTo": "termUrl",
+          "linkToCustomMeta": "",
+          "linkToAuthorMeta": "",
+          "customUrl": "",
+          "postCountPosition": "beforeTitle",
+          "postCountText": "Total Posts %s",
+          "gridColNumber": {},
+          "gridColGap": "15px",
+          "gridRowGap": "15px",
+          "hideEmpty": false,
+          "maxCount": 99,
+          "postCount": false,
+          "class": "item",
+          "linkTarget": "",
+          "linkAttr": []
+        },
+        "styles": {}
+      }
+    },
+    "queryArgs": {
+      "type": "object",
+      "default": {
+        "items": []
+      }
+    },
+    "termTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeFronttext",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "postCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "position": "",
+          "class": "inline-block",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "frontText": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Tags: ",
+          "class": "inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "terms list",
+    "term list",
+    "taxonomy term list",
+    "category list",
+    "categories list",
+    "tag list",
+    "tags list",
+    "taxonomy list",
+    "taxonomies list",
+    "terms list block",
+    "terms list for wordpress",
+    "terms list block for wordpress"
+  ],
+  "description": "The terms list block displays a list of specific terms, providing a quick reference for readers."
+}

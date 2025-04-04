@@ -1,0 +1,329 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/breadcrumb",
+  "title": "Breadcrumb",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-breadcrumb"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "padding": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "backgroundColor": {
+            "Desktop": "#dedddd"
+          },
+          "border": {
+            "Desktop": "1px solid #a6a0fb"
+          },
+          "lineHeight": [],
+          "maxWidth": [],
+          "width": [],
+          "height": [],
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          },
+          "gap": [],
+          "flexDirection": [],
+          "flexWrap": {
+            "Tablet": "wrap !important"
+          },
+          "overflow": {
+            "Mobile": "hidden"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "class": "icon",
+          "position": "afterLabel"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 10px"
+          }
+        }
+      },
+      "label": {
+        "options": {
+          "class": ""
+        },
+        "styles": {
+          "color": [],
+          "fontSize": [],
+          "fontStyle": [],
+          "fontWeight": [],
+          "listStyle": []
+        }
+      },
+      "separator": {
+        "options": {
+          "class": "",
+          "text": ""
+        },
+        "styles": {
+          "color": [],
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 10px"
+          }
+        }
+      },
+      "link": {
+        "options": [],
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": [],
+          "fontStyle": [],
+          "fontWeight": [],
+          "margin": {
+            "Desktop": "0px 10px 0px 10px"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px !important"
+          },
+          "padding": {
+            "Desktop": "5px 0px 5px 0px"
+          }
+        }
+      },
+      "elements": {
+        "options": {
+          "linkTarget": "_blank",
+          "showLabel": true,
+          "showSeparator": true,
+          "showIcon": true,
+          "iconPositon": "beforeLabel"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "fontStyle": [],
+          "fontWeight": [],
+          "display": [],
+          "padding": {
+            "Desktop": "0px 10px 0px 10px"
+          },
+          "backgroundColor": {
+            "Tablet": "#dddddd"
+          },
+          "border": {
+            "Tablet": "1px solid #a6a0fb"
+          },
+          "listStyle": {
+            "Desktop": "none inside url(\u0022\u0022)"
+          },
+          "lineHeight": {
+            "Desktop": "40px"
+          }
+        },
+        "items": [
+          {
+            "id": "text",
+            "label": "Text",
+            "customText": "You are here:",
+            "url": "",
+            "siteIcon": {
+              "srcType": "class",
+              "library": "fontAwesome",
+              "iconSrc": "fas fa-caret-right"
+            },
+            "options": {
+              "text": "You are here: ",
+              "showSeparator": true,
+              "isLink": false
+            },
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "homePage",
+            "label": "Home Page Link",
+            "customText": "",
+            "url": "",
+            "siteIcon": {
+              "srcType": "class",
+              "library": "iconFont",
+              "iconSrc": "fas fa-caret-right"
+            },
+            "options": {
+              "showSeparator": true,
+              "isLink": true
+            },
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "postTitle",
+            "label": "Post Title",
+            "customText": "",
+            "url": "",
+            "siteIcon": {
+              "srcType": "class",
+              "library": "fontAwesome",
+              "iconSrc": "fas fa-caret-right"
+            },
+            "options": {
+              "showSeparator": true,
+              "isLink": true
+            },
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          }
+        ]
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-breadcrumb"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "icon",
+          "position": "beforeLabel"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": "»"
+        },
+        "styles": {}
+      }
+    },
+    "link": {
+      "type": "object",
+      "default": {
+        "options": {},
+        "styles": {}
+      }
+    },
+    "elements": {
+      "type": "object",
+      "default": {
+        "options": {
+          "linkTarget": "_blank",
+          "showLabel": true,
+          "showSeparator": true,
+          "showIcon": false,
+          "elementSource": "",
+          "iconPosition": "beforeLabel"
+        },
+        "styles": {},
+        "items": []
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "schema": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true
+        }
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "breadcrumb",
+    "breadcrumb navs",
+    "breadcrumbs",
+    "breadcrumb block"
+  ],
+  "description": "Display custom breadcrumb for your website."
+}

@@ -22,91 +22,68 @@ import {
 	DateTimePicker,
 	DatePicker,
 } from "@wordpress/components";
-import { applyFilters } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
+
+import { applyFilters } from "@wordpress/hooks";
+
 import apiFetch from "@wordpress/api-fetch";
-
 import { __experimentalInputControl as InputControl } from "@wordpress/components";
-
 import {
 	useState,
 	useEffect,
 	Component,
 	RawHTML,
-
 	////
 	useRef,
-
 	////
 } from "@wordpress/element";
 import { Icon, close } from "@wordpress/icons";
 import PGDropdown from "../dropdown";
 import PGtoggle from "../toggle";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	const [visible, setVisible] = useState(props.visible);
-
 	var [rules, setrules] = useState(
 		visible?.rules == null || visible?.rules == undefined ? [] : visible.rules
 	);
-
-
 	const [userRoles, setuserRoles] = useState({});
 	const [taxonomies, settaxonomies] = useState({});
-
 	// useEffect(() => {
-
-
 	// 	props.onChange(visible);
 	// }, [visible]);
-
 	useEffect(() => {
 		var visibleX = { ...visible };
 		visibleX.rules = rules;
 		setVisible(visibleX);
 		props.onChange(visibleX);
 	}, [rules]);
-
 	useEffect(() => {
 		apiFetch({
-			path: "/post-grid/v2/get_site_data",
+			path: "/combo-blocks/v2/get_site_data",
 			method: "POST",
 			data: {},
 		}).then((res) => {
-
-
-
-
 			var userRolesList = [];
-
 			Object.entries(res.roles).map((args) => {
 				var id = args[0];
 				var label = args[1];
 				userRolesList.push({ label: label, value: id });
 			});
 			var taxonomiesList = {};
-
 			// Object.entries(res.taxonomies).map((args) => {
 			// 	var id = args[0];
 			// 	var label = args[1];
 			// 	taxonomiesList.push({ label: label, value: id });
 			// });
-
 			res?.taxonomies.forEach((tax, index) => {
 				taxonomiesList[tax.id] = { label: tax.label, value: tax.id };
 			});
-
-
-
 			setuserRoles(userRolesList);
 			settaxonomies(taxonomiesList);
 		});
 	}, []);
-
 	var pageTypes = {
 		homePage: { label: "Home", value: "homePage" },
 		frontPage: {
@@ -131,29 +108,17 @@ function Html(props) {
 			value: "searchPage",
 		},
 	};
-
 	const [postTypes, setpostTypes] = useState({});
-
 	var keyEventsX = {
 		Escape: { label: "Escape", value: "Escape" },
 		Enter: { label: "Enter", value: "Enter" },
 		" ": { label: "Space", value: " " },
 		Backspace: { label: "Backspace", value: "Backspace" },
 	};
-
 	var [keyEvents, setkeyEvents] = useState(keyEventsX);
-
-
-
-
-
-
-
-
-
 	useEffect(() => {
 		apiFetch({
-			path: "/post-grid/v2/post_types",
+			path: "/combo-blocks/v2/post_types",
 			method: "POST",
 			data: {},
 		}).then((res) => {
@@ -168,86 +133,81 @@ function Html(props) {
 			// 	var postTypeLabel = x[1];
 			// 	types.push({ label: postTypeLabel, value: postTypeId });
 			// });
-
 			setpostTypes(types);
 		});
 	}, []);
-
 	var visibleArgsBasic = {
 		initial: {
-			label: "Initial",
+			label: __("Initial", "combo-blocks"),
 			description: "Visble as soon as possible",
 			args: { id: "initial", value: 5 },
 		},
 		delay: {
-			label: "Delay",
+			label: __("Delay", "combo-blocks"),
 			description: "Delay certain amount of time after page load.",
 			args: { id: "delay", value: 1000 },
 		},
 		scrollPercent: {
-			label: "Scroll Percent",
+			label: __("Scroll Percent", "combo-blocks"),
 			description: "After certain amount(parcent) of scroll",
 			args: { id: "scrollPercent", min: "30", max: 50 },
-
-
 		},
 		scrollFixed: {
-			label: "Scroll Fixed",
+			label: __("Scroll Fixed", "combo-blocks"),
 			description: "After fixed amount of scroll",
 			args: { id: "scrollFixed", min: "30", max: 50 },
 			isPro: true,
 		},
 		scrollEnd: {
-			label: "Scroll End",
+			label: __("Scroll End", "combo-blocks"),
 			description: "Scroll to end of page",
 			args: { id: "scrollEnd", min: "30", max: 50 },
 			isPro: true,
 		},
 		scrollElement: {
-			label: "Scroll Element",
+			label: __("Scroll Element", "combo-blocks"),
 			description: "Scroll to certain element by class or id",
 			args: { id: "scrollElement", value: "" },
 			isPro: true,
 		},
 		clickFirst: {
-			label: "Click First",
+			label: __("Click First", "combo-blocks"),
 			description: "After first click on page",
 			args: { id: "clickFirst", value: 1 },
 			isPro: true,
 		},
 		clickCount: {
-			label: "Click Count",
+			label: __("Click Count", "combo-blocks"),
 			description: "After certain amount of click on page",
 			args: { id: "clickCount", value: 5 },
 			isPro: true,
 		},
 		clickRight: {
-			label: "Click Right",
+			label: __("Click Right", "combo-blocks"),
 			description: "on right click",
 			args: { id: "clickRight", value: 0 },
 			isPro: true,
 		},
 		onExit: {
-			label: "On Exit",
+			label: __("On Exit", "combo-blocks"),
 			description: "before close browser tab.",
 			args: { id: "onExit", value: 1 },
 			isPro: true,
 		},
 		clickElement: {
-			label: "Click Element",
+			label: __("Click Element", "combo-blocks"),
 			description: "After click an element by id or class",
 			args: { id: "clickElement", value: "" },
 			isPro: true,
 		},
 		dateCountdownExpired: {
-			label: "Date Countdown Expired",
+			label: __("Date Countdown Expired", "combo-blocks"),
 			description: "After expired from date countdown block",
 			args: { id: "dateCountdownExpired", value: "", once: false },
 			isPro: true,
 		},
-
 		keyPress: {
-			label: "Key Press",
+			label: __("Key Press", "combo-blocks"),
 			description: "Key Press to close.",
 			args: { id: "keyPress", value: "esc" },
 			isPro: true,
@@ -259,13 +219,13 @@ function Html(props) {
 		// 	isPro: true,
 		// },
 		mouseOutElement: {
-			label: "Mouse Out Element",
+			label: __("Mouse Out Element", "combo-blocks"),
 			description: "if visitor come from external website.",
 			args: { id: "mouseOutElement", value: "" },
 			isPro: true,
 		},
 		mouseOverElement: {
-			label: "Mouse Over Element",
+			label: __("Mouse Over Element", "combo-blocks"),
 			description: "if visitor come from external website.",
 			args: { id: "mouseOverElement", value: "" },
 			isPro: true,
@@ -276,7 +236,6 @@ function Html(props) {
 		// 	args: { id: "inactiveXSec", value: "" },
 		// 	isPro: true,
 		// },
-
 		// ADBlocker: {
 		// 	label: "Ad blocker Popup",
 		// 	description: "if visitor come from external website.",
@@ -284,9 +243,7 @@ function Html(props) {
 		// 	isPro: true,
 		// },
 	};
-
-	let visibleArgs = applyFilters("postGridPopupVisibleArgs", visibleArgsBasic);
-
+	let visibleArgs = applyFilters("comboBlocksPopupVisibleArgs", visibleArgsBasic);
 	var RemoveVisibleGroup = function ({ title, index }) {
 		return (
 			<>
@@ -295,19 +252,15 @@ function Html(props) {
 						icon={close}
 						onClick={(ev) => {
 							var rulesX = [...rules];
-
-
 							rulesX.splice(index, 1);
 							setrules(rulesX);
 						}}
 					/>
-
 					<span>{title}</span>
 				</div>
 			</>
 		);
 	};
-
 	var RemoveVisibleArg = function ({ title, index, groupIndex }) {
 		return (
 			<>
@@ -316,34 +269,26 @@ function Html(props) {
 					onClick={(ev) => {
 						var rulesX = [...rules];
 						rulesX[groupIndex].args.splice(index, 1);
-
 						setrules(rulesX);
 					}}
 				/>
-
 				<span>{title}</span>
 			</>
 		);
 	};
-
 	return (
 		<div className="relative">
 			<PanelRow className="my-3">
 				<div
-					// className="bg-indigo-300 hover:bg-indigo-500 p-2 px-4 text-white inline-block cursor-pointer rounded-sm"
-					className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize  bg-indigo-400 text-white font-medium rounded hover:bg-indigo-500 hover:text-white focus:outline-none focus:bg-gray-700"
+					// className="bg-gray-700 hover:bg-gray-600 p-2 px-4 text-white inline-block cursor-pointer rounded-sm"
+					className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize  bg-gray-700 text-white font-medium rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-700"
 					onClick={(ev) => {
 						var rulesX = [...rules];
-
 						rulesX.push({ relation: "OR", title: "", args: [] });
-
-
-
 						setrules(rulesX);
 					}}>
-					Add Group
+					{__("Add Group", "combo-blocks")}
 				</div>
-
 				{/* <PanelRow>
 					<PGDropdown
 						position="bottom right"
@@ -363,11 +308,8 @@ function Html(props) {
 						values=""></PGDropdown>
 				</PanelRow> */}
 			</PanelRow>
-
 			<div className="my-4">
 				{rules.map((group, groupIndex) => {
-
-
 					return (
 						<PGtoggle
 							title={
@@ -382,12 +324,10 @@ function Html(props) {
 									options={visibleArgs}
 									onChange={(option, index) => {
 										var rulesX = [...rules];
-
 										rulesX[groupIndex]["args"].push(option.args);
 										setrules(rulesX);
 									}}
 									values=""></PGDropdown>
-
 								{/* <PanelRow>
 									<label>Relation?</label>
 									<PGDropdown
@@ -395,7 +335,7 @@ function Html(props) {
 										variant="secondary"
 										buttonTitle={
 											group["relation"] == undefined
-												? "Choose"
+												? __("Choose","combo-blocks")
 												: group["relation"]
 										}
 										options={[
@@ -410,11 +350,9 @@ function Html(props) {
 										values=""></PGDropdown>
 								</PanelRow> */}
 							</PanelRow>
-
 							{rules[groupIndex]["args"] != undefined &&
 								rules[groupIndex]["args"].map((item, index) => {
 									var id = item.id;
-
 									return (
 										<>
 											<PGtoggle
@@ -431,15 +369,19 @@ function Html(props) {
 												}
 												initialOpen={false}>
 												{id == "initial" && (
-													<div>No Option available for this condition.</div>
+													<div>
+														{__(
+															"No Option available for this condition.",
+															"combo-blocks"
+														)}
+													</div>
 												)}
-
 												{id == "delay" && (
 													<PanelRow className="mb-4 flex-col items-start gap-2">
 														<label
 															for=""
 															className="font-medium text-slate-900 ">
-															Duration
+															{__("Duration", "combo-blocks")}
 														</label>
 														<InputControl
 															className="mr-2"
@@ -454,14 +396,13 @@ function Html(props) {
 														/>
 													</PanelRow>
 												)}
-
 												{id == "scrollPercent" && (
 													<>
 														<PanelRow className="mb-4">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Scroll Minimum
+																{__("Scroll Minimum", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -474,12 +415,11 @@ function Html(props) {
 																}}
 															/>
 														</PanelRow>
-
 														<PanelRow className="mb-4">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Scroll Max
+																{__("Scroll Max", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -494,14 +434,13 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "scrollFixed" && (
 													<>
 														<PanelRow className="mb-4">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Scroll Minimum
+																{__("Scroll Minimum", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -514,12 +453,11 @@ function Html(props) {
 																}}
 															/>
 														</PanelRow>
-
 														<PanelRow className="mb-4">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Scroll Max
+																{__("Scroll Max", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -534,20 +472,23 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "scrollEnd" && (
 													<>
-														<div>No Option available for this condition.</div>
+														<div>
+															{__(
+																"No Option available for this condition.",
+																"combo-blocks"
+															)}
+														</div>
 													</>
 												)}
-
 												{id == "scrollElement" && (
 													<>
 														<PanelRow className="mb-4">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Element Class/ID
+																{__("Element Class/ID", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -562,20 +503,23 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "clickFirst" && (
 													<>
-														<div>No Option available for this condition.</div>
+														<div>
+															{__(
+																"No Option available for this condition.",
+																"combo-blocks"
+															)}
+														</div>
 													</>
 												)}
-
 												{id == "clickCount" && (
 													<>
 														<PanelRow className="mb-4">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Click Count
+																{__("Click Count", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -590,7 +534,6 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "clickRight" && (
 													<>
 														<ToggleControl
@@ -610,25 +553,33 @@ function Html(props) {
 														/>
 													</>
 												)}
-
 												{id == "onExit" && (
 													<>
-														<div>No Option available for this condition.</div>
+														<div>
+															{__(
+																"No Option available for this condition.",
+																"combo-blocks"
+															)}
+														</div>
 													</>
 												)}
 												{id == "fluentformSubmission" && (
 													<>
-														<div>No Option available for this condition.</div>
+														<div>
+															{__(
+																"No Option available for this condition.",
+																"combo-blocks"
+															)}
+														</div>
 													</>
 												)}
-
 												{id == "wooAddToCart" && (
 													<>
 														<PanelRow>
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Compare
+																{__("Compare", "combo-blocks")}
 															</label>
 															<SelectControl
 																label=""
@@ -649,7 +600,7 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																Product IDs
+																{__("Product IDs", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -665,9 +616,6 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
-
-
 												{(id == "clickElement" ||
 													id == "mouseOutElement" ||
 													id == "mouseOverElement") && (
@@ -676,7 +624,7 @@ function Html(props) {
 																<label
 																	for=""
 																	className="font-medium text-slate-900 ">
-																	{__("Element ID/Class", "post-grid")}
+																	{__("Element ID/Class", "combo-blocks")}
 																</label>
 																<InputControl
 																	className="mr-2"
@@ -698,7 +646,7 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Inactive (sec)", "post-grid")}
+																{__("Inactive (sec)", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
@@ -720,11 +668,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Argument", "post-grid")}
+																{__("Argument", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -742,11 +689,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Query Arg Value", "post-grid")}
+																{__("Query Arg Value", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -764,11 +710,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Has review on X Products", "post-grid")}
+																{__("Has review on X Products", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -786,11 +731,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Page Ids", "post-grid")}
+																{__("Page Ids", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -808,11 +752,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Number of Comments", "post-grid")}
+																{__("Number of Comments", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -824,18 +767,16 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "postHasTerms" && (
 													<>
 														<PanelRow className="mb-4 flex-col items-start gap-2">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Term Slug", "post-grid")}
+																{__("Term Slug", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -853,11 +794,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Cookie Name", "post-grid")}
+																{__("Cookie Name", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -875,11 +815,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Cookie Name", "post-grid")}
+																{__("Cookie Name", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -891,18 +830,16 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "urlPrams" && (
 													<>
 														<PanelRow className="mb-4 flex-col items-start gap-2">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("URL Parameter", "post-grid")}
+																{__("URL Parameter", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -920,11 +857,10 @@ function Html(props) {
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("User IDs", "post-grid")}
+																{__("User IDs", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -936,18 +872,16 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "referrerExist" && (
 													<>
 														<PanelRow className="mb-4 flex-col items-start gap-2">
 															<label
 																for=""
 																className="font-medium text-slate-900 ">
-																{__("Referrer Domain", "post-grid")}
+																{__("Referrer Domain", "combo-blocks")}
 															</label>
 															<InputControl
 																className="mr-2"
-
 																value={item.value}
 																onChange={(newVal) => {
 																	var rulesX = [...rules];
@@ -959,7 +893,6 @@ function Html(props) {
 														</PanelRow>
 													</>
 												)}
-
 												{id == "dateCountdownExpired" && (
 													<>
 														<ToggleControl
@@ -967,8 +900,8 @@ function Html(props) {
 															className="my-4"
 															help={
 																item.once
-																	? "IsOnce is Enable"
-																	: "IsOnce is disabled."
+																	? __("IsOnce is Enable", "combo-blocks")
+																	: __("IsOnce is disabled.", "combo-blocks")
 															}
 															checked={item.once ? true : false}
 															onChange={(e) => {
@@ -980,25 +913,23 @@ function Html(props) {
 														/>
 													</>
 												)}
-
 												{(id == "userLogged" || id == "ADBlocker") && (
-													<div>No Option available for this condition.</div>
+													<div>
+														{__(
+															"No Option available for this condition.",
+															"combo-blocks"
+														)}
+													</div>
 												)}
-
-
-
 												{id == "keyPress" && (
 													<>
-
-
 														<PGDropdown
 															position="bottom right"
 															variant="secondary"
-															buttonTitle={"Choose"}
+															buttonTitle={__("Choose", "combo-blocks")}
 															options={keyEvents}
 															onChange={(option, optionIndex) => {
 																var rulesX = [...rules];
-
 																rulesX[groupIndex]["args"][index][
 																	"values"
 																].push(option.value);
@@ -1012,7 +943,6 @@ function Html(props) {
 																		{keyEvents != null && (
 																			<span>{keyEvents[x]?.label}</span>
 																		)}
-
 																		<span
 																			className="bg-red-500 text-white cursor-pointer rounded-full"
 																			onClick={(ev) => {
@@ -1021,7 +951,6 @@ function Html(props) {
 																				};
 																				item.values.splice(i, 1);
 																				var rulesX = [...rules];
-
 																				rulesX[groupIndex]["args"][index][
 																					"value"
 																				] = item.values;
@@ -1035,18 +964,15 @@ function Html(props) {
 														</div>
 													</>
 												)}
-
-
 												{id == "postTypes" && (
 													<>
 														<PGDropdown
 															position="bottom right"
 															variant="secondary"
-															buttonTitle={"Choose Post Types"}
+															buttonTitle={__("Choose Post Types", "combo-blocks")}
 															options={postTypes}
 															onChange={(option, optionIndex) => {
 																var rulesX = [...rules];
-
 																rulesX[groupIndex]["args"][index][
 																	"values"
 																].push(option.value);
@@ -1060,7 +986,6 @@ function Html(props) {
 																		{postTypes != null && (
 																			<span>{postTypes[x]?.label}</span>
 																		)}
-
 																		<span
 																			className="bg-red-500 text-white p-1 cursor-pointer hover:"
 																			onClick={(ev) => {
@@ -1069,7 +994,6 @@ function Html(props) {
 																				};
 																				item.values.splice(i, 1);
 																				var rulesX = [...rules];
-
 																				rulesX[groupIndex]["args"][index][
 																					"value"
 																				] = item.values;
@@ -1088,11 +1012,10 @@ function Html(props) {
 														<PGDropdown
 															position="bottom right"
 															variant="secondary"
-															buttonTitle={"Choose Page Types"}
+															buttonTitle={__("Choose Page Types", "combo-blocks")}
 															options={pageTypes}
 															onChange={(option, optionIndex) => {
 																var rulesX = [...rules];
-
 																rulesX[groupIndex]["args"][index][
 																	"values"
 																].push(option.value);
@@ -1112,7 +1035,6 @@ function Html(props) {
 																				};
 																				item.values.splice(i, 1);
 																				var rulesX = [...rules];
-
 																				rulesX[groupIndex]["args"][index][
 																					"value"
 																				] = item.values;
@@ -1137,20 +1059,17 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGPopupVisible extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const {
 			position,
@@ -1164,7 +1083,6 @@ class PGPopupVisible extends Component {
 			values,
 			value,
 		} = this.props;
-
 		return (
 			<div>
 				<Html
@@ -1183,5 +1101,4 @@ class PGPopupVisible extends Component {
 		);
 	}
 }
-
 export default PGPopupVisible;

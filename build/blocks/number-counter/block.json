@@ -1,0 +1,249 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/number-counter",
+  "title": "Number Counter",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-number-counter"
+        },
+        "styles": {
+          "display": {},
+          "backgroundColor": {
+            "Desktop": "#000000"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "padding": {
+            "Desktop": "20px 50px 20px 50px"
+          },
+          "textAlign": {
+            "Desktop": "center"
+          },
+          "transition": {
+            "Desktop": "all .4s ease 0s"
+          },
+          "width": {
+            "Desktop": "max-content"
+          }
+        },
+        "hover": {
+          "backgroundColor": {
+            "Desktop": "#0bab9b"
+          }
+        }
+      },
+      "numberCount": {
+        "options": {
+          "tag": "div",
+          "start": "0",
+          "end": "1000",
+          "duration": "1000",
+          "class": "number-count",
+          "onScroll": true,
+          "source": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "fontSize": {
+            "Desktop": "26px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "display": [],
+          "backgroundColor": [],
+          "letterSpacing": {
+            "Desktop": "1px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check",
+          "position": "beforePrefix",
+          "class": "number-count-icon"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "margin": {
+            "Desktop": "0px 0px 10px 0px"
+          },
+          "fontSize": {
+            "Desktop": "30px"
+          },
+          "display": {
+            "Desktop": "block"
+          },
+          "textAlign": []
+        }
+      },
+      "prefix": {
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 0px"
+          }
+        },
+        "options": {
+          "text": "",
+          "class": "prefix"
+        }
+      },
+      "postfix": {
+        "styles": {
+          "color": {
+            "Desktop": "#fafafa !important"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "300"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "display": {
+            "Desktop": "block"
+          },
+          "width": []
+        },
+        "options": {
+          "text": "Checked ",
+          "class": "postfix"
+        }
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-number-counter"
+        },
+        "styles": {}
+      }
+    },
+    "numberCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "start": 0,
+          "end": 0,
+          "duration": 1000,
+          "source": "",
+          "key": "",
+          "class": "number-count"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "far fa-calendar-alt",
+          "position": "",
+          "class": "number-count-icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "number counter",
+    "number counter block",
+    "Counter Up block",
+    "Counter Number",
+    "Progress",
+    "number counter for wordpress",
+    "number counter block for wordpress"
+  ],
+  "description": "The number counter block is a visual element used to display numerical values or statistics in an animated, engaging manner."
+}

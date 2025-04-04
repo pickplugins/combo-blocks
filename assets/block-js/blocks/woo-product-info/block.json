@@ -1,0 +1,193 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/woo-product-info",
+  "title": "Product Info",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-woo",
+  "providesContext": {
+    "combo-blocks/productInfo": "itemInfo",
+    "combo-blocks/wordpressORG": "blockId"
+  },
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "ul",
+          "class": "pg-woo-product-info"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "icon",
+          "position": "beforePrefix"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "itemInfo": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "productData": ""
+        },
+        "styles": {}
+      }
+    },
+    "items": {
+      "type": "object",
+      "default": {
+        "options": {
+          "linkTarget": "_blank",
+          "showIcon": false,
+          "iconPosition": "beforePrefix",
+          "tag": "li"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "gap": {
+            "Desktop": "1em"
+          }
+        },
+        "elements": [
+          {
+            "id": "weight",
+            "label": "Weight",
+            "prefix": "Weight: ",
+            "postfix": "",
+            "value": "10kg",
+            "siteIcon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": ""
+            },
+            "options": {},
+            "styles": {}
+          },
+          {
+            "id": "length",
+            "label": "Length",
+            "prefix": "Length: ",
+            "postfix": "",
+            "value": "10cm",
+            "siteIcon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": ""
+            },
+            "options": {},
+            "styles": {}
+          },
+          {
+            "id": "width",
+            "label": "Width",
+            "prefix": "Width: ",
+            "postfix": "",
+            "value": "10cm",
+            "siteIcon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": ""
+            },
+            "options": {},
+            "styles": {}
+          },
+          {
+            "id": "height",
+            "label": "Height",
+            "prefix": "Height: ",
+            "postfix": "",
+            "value": "10cm",
+            "siteIcon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": ""
+            },
+            "options": {},
+            "styles": {}
+          },
+          {
+            "id": "dimensions",
+            "label": "Dimensions",
+            "prefix": "Dimensions: ",
+            "postfix": "",
+            "value": "10cm X 10cm X 10cm",
+            "siteIcon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": ""
+            },
+            "options": {},
+            "styles": {}
+          }
+        ]
+      }
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "product info",
+    "product additional info",
+    "product info block",
+    "product info for woocommerce",
+    "product info block for woocommerce"
+  ],
+  "description": "A product info block displays various details and information about a product."
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/form-field-hcaptcha",
+  "title": "Form Field - hCAPTCHA",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/form-wrap"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "version": "2",
+          "class": "pg-form-field-text-area"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "label",
+          "for": "label",
+          "enable": true,
+          "text": "Are You Human?",
+          "class": "pg-form-field-label"
+        },
+        "styles": {}
+      }
+    },
+    "input": {
+      "type": "object",
+      "default": {
+        "options": {
+          "type": "text",
+          "placeholder": "Write your name",
+          "value": "",
+          "name": "",
+          "required": false,
+          "disabled": false,
+          "minLength": null,
+          "maxLength": null,
+          "readonly": false,
+          "cols": null,
+          "rows": 3,
+          "autocomplete": false,
+          "autofocus": false,
+          "wrap": false,
+          "spellcheck": false,
+          "autocorrect": false,
+          "id": "",
+          "class": "",
+          "position": "afterLabel"
+        },
+        "styles": {}
+      }
+    },
+    "inputWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        }
+      }
+    },
+    "labelWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "errorWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "form block for wordpress",
+    "form block",
+    "form builder",
+    "form maker",
+    "dynamic form",
+    "Contact Form Plugin",
+    "opt-in form",
+    "login form",
+    "register form",
+    "custom form",
+    "wordpress form",
+    "wordpress form plugin",
+    "Subscription form",
+    "contact form block"
+  ],
+  "description": "The Google recaptcha field."
+}

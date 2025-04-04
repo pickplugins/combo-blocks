@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/form-step",
+  "title": "form-step",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "parent": [
+    "combo-blocks/form-wrap"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-form-step",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

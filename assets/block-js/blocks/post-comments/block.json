@@ -1,0 +1,180 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-comments",
+  "title": "Post Comments",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-post-comments"
+        },
+        "styles": {}
+      }
+    },
+    "commentsTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comments-title"
+        },
+        "styles": {}
+      }
+    },
+    "commentsTemplate": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comment-template"
+        },
+        "styles": {}
+      }
+    },
+    "commentsItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "avatar": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-avatar"
+        },
+        "styles": {}
+      }
+    },
+    "userName": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comment-author-name"
+        },
+        "styles": {}
+      }
+    },
+    "commentDate": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comment-date"
+        },
+        "styles": {}
+      }
+    },
+    "editButton": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comment-edit-link"
+        },
+        "styles": {}
+      }
+    },
+    "commentContent": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comment-content"
+        },
+        "styles": {}
+      }
+    },
+    "replyButton": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "wp-block-comment-reply-link"
+        },
+        "styles": {}
+      }
+    },
+    "commentForm": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "comment-respond"
+        },
+        "styles": {}
+      }
+    },
+    "replyTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "comment-reply-title"
+        },
+        "styles": {}
+      }
+    },
+    "textarea": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "comment-form textarea"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "comment-form label"
+        },
+        "styles": {}
+      }
+    },
+    "input": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "comment-form input"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "Woo breadcrumb",
+    "woocommerce breadcrumb",
+    "woocommerce breadcrumbs"
+  ],
+  "description": "woocommerce breadcrumbs block ."
+}

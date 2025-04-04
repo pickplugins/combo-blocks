@@ -7,6 +7,4 @@ const colorsPresets = [
   { name: '3AB0FF', color: '#3AB0FF' },
   { name: '51557E', color: '#51557E' },
 ];
-
-
 export default colorsPresets;

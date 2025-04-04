@@ -1,0 +1,1285 @@
+
+
+= 2.2.92 =
+- 2024-09-08 - fix - Js error issue fixed for blocks.
+
+
+= 2.2.91 =
+- 2024-09-01 - fix - Form block user meta field security issue fixed.
+- 2024-09-01 - update - Dashboard Block Settings added.
+- 2024-08-22 - added - New block Team Showcase added
+- 2024-08-21 - added - New block Team Members Field added
+- 2024-08-21 - added - New block Team Members added
+- 2024-09-04 - added - New block Testimonial Showcase added
+- 2024-08-21 - added - New block Testimonials Item added
+- 2024-08-21 - added - New block Testimonials added
+
+
+= 2.2.90 =
+- 2024-08-20 - security - XSS in the list block issue fixed
+- 2024-08-20 - update - More translation support added.
+- 2024-08-17 - update - Date Countdown Block update.
+- 2024-08-15 - added - Block variation picker added on Flip Box block.
+- 2024-08-15 - added - Block variation picker added on Back to Top block.
+- 2024-08-15 - added - Block variation picker added on Star Rate block.
+- 2024-08-15 - added - Block variation picker added on Social Share or Links block.
+- 2024-08-15 - added - Block variation picker added on Social Wordpress-org block.
+
+= 2.2.89 =
+- 2024-08-13 - update - More translation support added.
+- 2024-08-13 - update - Image block update and lazy load fixed.
+- 2024-08-13 - update - wordpress.org block updated
+- 2024-08-13 - update - info-box child block added block updated
+- 2024-08-13 - update - flip-box child block added block updated
+- 2024-08-13 - update - shortcode based post grid nonce issue fixed
+- 2024-08-13 - fix - dashboard doc, demo link issue fixed.
+
+= 2.2.88 =
+- 2024-08-12 - update - Blocks translation support added
+- 2024-08-12 - update - List block updated
+- 2024-08-12 - update - Security issue fixed.
+
+= 2.2.87 =
+- 2024-08-02 - fix - Security issue fixed.
+- 2024-08-02 - add - New block Gallery images added
+- 2024-08-02 - fix - New block Gallery images field
+- 2024-08-02 - fix - New block Info box item
+- 2024-08-02 - fix - New block Flip box front
+- 2024-08-02 - fix - New block Flip box back
+- 2024-08-02 - update - Breadcrumb block updated
+
+= 2.2.86 =
+- 2024-07-17 - update - Update Form Field Checkbox Block.
+- 2024-07-17 - fix - Google reCaptcha issue fixed.
+- 2024-07-17 - update - Update Form Field Radio Block.
+- 2024-07-17 - update - Update Form Field Select Block.
+- 2024-07-17 - update - Update Form Field Textarea Block.
+- 2024-07-16 - update - Update Breadcrumb Block.
+- 2024-07-14 - update - Update Number Counter Block.
+- 2024-07-13 - update - Update Form Wrap Block.
+- 2024-07-11 - update - New block -  Business hours Block added.
+
+= 2.2.85 =
+- 2024-07-09 - update - Update Accordion Block.
+- 2024-07-09 - update - Update Progress Bar Block.
+- 2024-07-09 - update - Update Image Block.
+- 2024-07-09 - update - Update List Block.
+- 2024-07-08 - update - Update Text Block.
+- 2024-07-08 - update - Update Featured Image Block.
+- 2024-07-08 - update - Update List Nested Block.
+- 2024-07-08 - update - Update Add to Cart Block.
+- 2024-07-08 - update - Update Total Sale Block.
+- 2024-07-08 - update - Update In Sale Block.
+- 2024-07-08 - update - Update On Sale Block.
+- 2024-07-08 - update - Update Product Price Block.
+- 2024-07-08 - update - Update Product SKU Block.
+- 2024-07-08 - update - Update Star Rate Block.
+- 2024-07-08 - update - Update Stock Quantity Block.
+- 2024-07-08 - update - Update Woo Product Tabs Block.
+- 2024-07-08 - update - Update Woo My Account Block.
+- 2024-07-07 - update - Update Post Author Field Block.
+- 2024-07-07 - update - Update Post Author Block.
+- 2024-07-07 - update - Update Post Date Block.
+- 2024-07-07 - update - Update Image Galley Block.
+- 2024-07-06 - update - Update Number Counter Block.
+- 2024-07-06 - update - Update Post Title Block.
+- 2024-07-06 - update - Update Block Variation Component.
+- 2024-07-06 - update - Update Variation Picker Component.
+- 2024-07-06 - update - New block -  Flip Info Box Item Block added.
+- 2024-07-06 - update - New block -  Flip Box Back Block added.
+- 2024-07-06 - update - New block -  Flip Box Front Block added.
+- 2024-07-04 - update - Update Back to Top Block.
+- 2024-07-03 - update - Update Masonry Block.
+- 2024-07-03 - update - Update WordPress org Block.
+- 2024-07-03 - update - Update WordPress org Item Block.
+- 2024-07-03 - update - Update Form Field Textarea Block.
+- 2024-07-03 - update - Update Form Maker Block.
+- 2024-07-02 - update - Update Terms Query Item Block.
+- 2024-07-01 - update - Update Content Slider Block.
+- 2024-06-29 - update - Update Image Block.
+- 2024-06-26 - update - Update Table Row Block.
+- 2024-06-26 - update - New block - Form field hCaptcha added.
+- 2024-06-26 - update - New block - Flip Box added.
+- 2024-06-25 - update - Update Post Meta Block.
+- 2024-06-25 - update - Update Date Countdown Block.
+- 2024-06-24 - update - Update Form Field Input Block.
+- 2024-06-23 - update - Update Dashboard Component.
+- 2024-06-23 - update - Update Popup Block.
+
+= 2.2.84 =
+- 2024-06-22 - update - New block - Form field reCaptcha added.
+- 2024-06-22 - update - REST API security issue fixed.
+
+= 2.2.83 =
+- 2024-06-12 - update - Update WordPress org Item Block.
+- 2024-06-12 - update - Update Date Countdown Block.
+- 2024-06-11 - update - Update Dashboard Component.
+- 2024-06-10 - create - Create Popup Visible component.
+- 2024-06-10 - update - Update Menu Wrap Item Block.
+- 2024-06-09 - update - Update Content Slider Block.
+- 2024-06-09 - update - Update Popup Block.
+- 2024-06-06 - update - Update Dropdown Component.
+- 2024-06-06 - update - Update Post Meta Block.
+- 2024-06-05 - update - Update Post Title Block.
+- 2024-06-04 - update - Update Social Share Block.
+- 2024-06-03 - create - Create Back to Top Block.
+- 2024-06-03 - update - Update Color Component.
+- 2024-06-03 - update - Update Background Color Component.
+- 2024-06-03 - update - Update Opacity Component.
+- 2024-06-02 - update - Update Form Maker Block.
+- 2024-06-02 - update - Update Post Term Block.
+- 2024-06-02 - update - Update Post Author Field Block.
+- 2024-06-02 - update - Update Sidebar Component.
+- 2024-06-02 - update - Update Post Tag Block.
+- 2024-06-02 - update - Update Table Block.
+- 2024-05-30 - added - Added API Keys Component.
+
+
+= 2.2.82 =
+- 2024-05-29 - update - Post Grid Block - Saved layout not loading issue fixed.
+- 2024-05-29 - update - Update Dashboard component.
+- 2024-05-26 - update - Update functions-rest.php file.
+- 2024-05-26 - update - Update Sidebar component.
+- 2024-05-25 - update - Update Style component.
+- 2024-05-20 - added - Added Table block.
+- 2024-05-25 - added - Added Table td block.
+- 2024-05-25 - added - Added Table tr block.
+- 2024-05-21 - added - Added Empty Cells component.
+- 2024-05-22 - added - Added Border Collapse component.
+- 2024-05-21 - added - Added Table Layout component.
+- 2024-05-21 - added - Added Caption Side component.
+- 2024-05-21 - update - Update Icon/Button/Link block.
+- 2024-05-20 - update - Update Form block.
+- 2024-05-20 - update - Update WordPress-org block.
+- 2024-05-18 - update - Update WordPress-org-item block.
+- 2024-05-15 - update - Update Text-Shadow component.
+- 2024-05-14 - update - Update Font-Family component.
+- 2024-05-11 - added - Added visibility to all blocks.
+- 2024-05-11 - added - Elementor support added.
+
+
+
+= 2.2.81 =
+- 2024-05-10 - fix - Fixed security issue Cross-Site Scripting via Block Attribute
+- 2024-05-10 - fix - Fixed Authenticated (Contributor+) Stored Cross-Site Scripting
+- 2024-05-10 - fix - Link To "None" added for post title, post date
+- 2024-05-10 - fix - Menu Wrap Item label not saving issue fixed.
+- 2024-05-10 - fix - New block added Post Comments
+- 2024-05-10 - fix - Block variation added for Form Field Input
+
+
+
+
+= 2.2.80 =
+- 2024-04-28 - fix - Minor security issue fixed for custom wrapper tag output.
+- 2024-04-28 - fix - Post grid block - No post found issue fixed.
+- 2024-04-28 - add - Added more social share site on Social Share Block.
+- 2024-04-25 - update - Update Text Shadow Component.
+- 2024-04-25 - update - Update Box Shadow Component.
+- 2024-04-03 - update - Variation library component update.
+
+= 2.2.79 =
+- 2024-04-20 - update - Nonce issue in rest API issue fixed.
+- 2024-04-20 - update - CSS library taking screenshot issue fixed
+- 2024-04-03 - update - Variation library component update.
+- 2024-03-04 - add - Block variation added on Form Field Input Block.
+- 2024-03-04 - add - Post Meta Block added 3rd party integration for PODS Block.
+- 2024-03-06 - fix - Accordion Block fix CSS generation.
+- 2024-03-18 - add - CSS Library added on Layers Block.
+- 2024-03-18 - update - Dashboard Component update.
+- 2024-03-20 - update - OverView Page update.
+
+= 2.2.78 =
+- 2024-04-01 - update - Overview Menu page update.
+- 2024-03-31 - update - Product Info block update.
+- 2024-03-31 - add - Product Info Item block update as a child block of Product Info block.
+- 2024-03-30 - fix - Sidebar Component fixed.
+- 2024-03-30 - update - Update Post Types Component.
+- 2024-03-30 - update - Update Page Styles Component.
+- 2024-03-30 - update - Update Global Styles Component.
+- 2024-03-28 - update - Update function.php file.
+- 2024-03-21 - fix - List Nested Item block fix wrapper tag.
+- 2024-03-21 - fix - Terms Field block display meta value fixed.
+- 2024-03-20 - update - Archive Title block update.
+- 2024-03-20 - update - Archive Description block update.
+- 2024-03-20 - update - Post Author block update.
+- 2024-03-20 - add - Post Author Field block update as a child block of Post Author block.
+- 2024-03-19 - fix - Social Share Block style issue fixed.
+- 2024-03-18 - update - Post Query Block update.
+- 2024-03-17 - update - Terms List Block update.
+- 2024-03-17 - fix - Breadcrumb Block style issue fixed.
+- 2024-03-16 - fix - Post Grid Block nth item style issue fixed.
+- 2024-03-16 - fix - Post Grid Filterable Block nth item style issue fixed.
+- 2024-03-16 - support - Post Grid Block to Post Grid Filterable Block transform support.
+- 2024-03-16 - add - Added some CSS properties (place-items, grid-auto-column, grid-auto-flow).
+- 2024-03-11 - add - Added wordpress-org-item block as a child block of wordpress-org block.
+- 2024-03-10 - update - Terms Field Block update.
+
+
+
+
+= 2.2.80 =
+- 2024-04-28 - add - Added more social share site on Social Share Block.
+- 2024-04-25 - update - Update Text Shadow Component.
+- 2024-04-25 - update - Update Box Shadow Component.
+- 2024-04-03 - update - Variation library component update.
+- 2024-04-21 - add - Added -webkit-text-fill-color component.
+
+
+= 2.2.79 =
+- 2024-04-20 - update - Nonce issue in rest API issue fixed.
+- 2024-04-20 - update - CSS library taking screenshot issue fixed
+- 2024-04-03 - update - Variation library component update.
+- 2024-03-04 - add - Block variation added on Form Field Input Block.
+- 2024-03-04 - add - Post Meta Block added 3rd party integration for PODS Block.
+- 2024-03-06 - fix - Accordion Block fix CSS generation.
+- 2024-03-18 - add - CSS Library added on Layers Block.
+- 2024-03-18 - update - Dashboard Component update.
+- 2024-03-20 - update - OverView Page update.
+
+= 2.2.78 =
+- 2024-04-01 - update - Overview Menu page update.
+- 2024-03-31 - update - Product Info block update.
+- 2024-03-31 - add - Product Info Item block update as a child block of Product Info block.
+- 2024-03-30 - fix - Sidebar Component fixed.
+- 2024-03-30 - update - Update Post Types Component.
+- 2024-03-30 - update - Update Page Styles Component.
+- 2024-03-30 - update - Update Global Styles Component.
+- 2024-03-28 - update - Update function.php file.
+- 2024-03-21 - fix - List Nested Item block fix wrapper tag.
+- 2024-03-21 - fix - Terms Field block display meta value fixed.
+- 2024-03-20 - update - Archive Title block update.
+- 2024-03-20 - update - Archive Description block update.
+- 2024-03-20 - update - Post Author block update.
+- 2024-03-20 - add - Post Author Field block update as a child block of Post Author block.
+- 2024-03-19 - fix - Social Share Block style issue fixed.
+- 2024-03-18 - update - Post Query Block update.
+- 2024-03-17 - update - Terms List Block update.
+- 2024-03-17 - fix - Breadcrumb Block style issue fixed.
+- 2024-03-16 - fix - Post Grid Block nth item style issue fixed.
+- 2024-03-16 - fix - Post Grid Filterable Block nth item style issue fixed.
+- 2024-03-16 - support - Post Grid Block to Post Grid Filterable Block transform support.
+- 2024-03-16 - add - Added some CSS properties (place-items, grid-auto-column, grid-auto-flow).
+- 2024-03-11 - add - Added wordpress-org-item block as a child block of wordpress-org block.
+- 2024-03-10 - update - Terms Field Block update.
+
+= 2.2.77 =
+- 2024-03-01 - fix - Post Title block postfix and prefix position issue fixed.
+- 2024-03-01 - fix - Post Title block transfer break issue fixed.
+- 2024-03-01 - fix - Global style php error issue fixed.
+
+= 2.2.76 =
+- 2024-02-24 - add - Minor php security issue fixed.
+- 2024-02-19 - add - Add dashboard page for block editor.
+- 2024-02-19 - add - Block editor container width option added
+- 2024-02-19 - add - Block editor width option added
+- 2024-02-19 - add - Custom color added for block editor
+- 2024-02-19 - add - Dashboard - Export/Import options added.
+
+= 2.2.75 =
+
+- 2024-02-19 - fix - Style component reset style issue fixed for all blocks
+- 2024-02-19 - fix - Form field checkbox, radio, select parameter source issue fixed
+
+
+= 2.2.74 =
+- 2024-02-10 - Fix - Style component reset issue fixed.
+- 2024-02-10 - Fix - Style component remove CSS issue fixed
+- 2024-02-10 - Fix - Post author fields postfix and prefix position issue fixed.
+
+
+= 2.2.73 =
+- 2024-02-04 - Fix - List to List Nested block transform.
+- 2024-02-04 - add - Terms List Block added
+- 2024-02-04 - add - Terms Query List Block added
+- 2024-02-04 - fix - Google font loading issue fixed.
+
+
+= 2.2.72 =
+- 2024-01-31 - Fix - Google font loading issue fixed for blcoks.
+- 2024-01-31 - Fix - Post layout pro marke issue fixed
+- 2024-01-31 - Fix - Breadcrumb block extra span removed.
+- 2024-01-31 - add - Form Input Checkbox, Form Input Radio, Form Input Select - Dynamic value srouce added
+
+
+= 2.2.71 =
+- 2024-01-27 - Fix - Tabs Blocks skip variation issue fized
+- 2024-01-27 - Fix - Post Grid Block Nth item style issue fixed.
+- 2024-01-27 - Fix - Form Maker block - input pramater source issue fixed
+- 2024-01-27 - Fix - SHortcode based import layout broken issue fixed.
+
+= 2.2.70 =
+- 2024-01-21 - Fix - Broken blocks panel style issue fixed
+
+= 2.2.69 =
+- 2024-01-20 - update - Block Dynamic class parsing update.
+- 2024-01-20 - update - Block postfix and prefix dynamic tags parsing update.
+- 2024-01-20 - update - Woo In Stock block updated.
+
+= 2.2.68 =
+- 2024-01-16 - fix - Settings page broken issue fixed.
+- 2024-01-16 - fix - shortcode based Layouts library broken issue fixed.
+- 2024-01-16 - fix - Block Transform Support added for default blocks.
+- 2024-01-16 - fix - Block variation picker updated.
+- 2024-01-16 - fix - Term list block updated.
+
+
+= 2.2.67 =
+- 2023-12-28 - update - Plugin name update Post Grid Combo to Combo Blocks
+- 2023-12-28 - fix - Block icons updated.
+- 2023-12-28 - fix - Post Query Block - Layout fetch issue fixed.
+- 2023-12-28 - fix - List Nested Block - Frontend output issue fixed
+- 2023-12-28 - fix - Post Categories Block - Term link added
+
+
+= 2.2.66 =
+
+- 2023-12-20 - update - Breadcrumb Block - Dynamic Style for individual item.
+- 2023-12-20 - update - Post Grid Block - Dynamic Style for individual item.
+- 2023-12-20 - update - Post Categories Block - Post Count style section.
+- 2023-12-20 - update - Star Rate Block - Dynamic rating and reviews.
+- 2023-12-20 - update - Global Color Library update.
+- 2023-12-20 - update - Global Font Library update.
+- 2023-12-20 - added - Post Grid Block - Variation Picker added.
+- 2023-12-20 - added - Post Grid Filterable Block - Variation Picker added.
+- 2023-12-20 - added - Post Title Block - A/B Test added.
+- 2023-12-20 - fix - Accordion Nested Block - Frontend issue fixed.
+- 2023-12-20 - fix - Icon Button Link Block - Text disable issue fixed.
+- 2023-12-20 - fix - Icon Button Link Block - Link issue fixed.
+- 2023-12-20 - fix - Shortcdoe Block - Attribute duplicate issue fixed.
+- 2023-12-20 - fix - Product Rating Block - Summary type issue fixed.
+- 2023-12-20 - fix - Opacity Component - Opacity value update issue fixed.
+- 2023-12-20 - removed - Shortcdoe Block - Block variation removed.
+
+
+= 2.2.65=
+
+- 2023-12-15 – fix – Remove access to Admin menus to non admins
+
+= 2.2.64 =
+
+- 2023-11-16 - fix - block duplicate issue fixed.
+- 2023-11-16 - fix - Image light-box issue fixed.
+- 2023-11-16 - added - Block variation added.
+- 2023-11-16 - added - Masonry block added.
+- 2023-11-16 - added - Post Query block added.
+- 2023-11-16 - added - Post Query Pagination block added.
+- 2023-11-16 - added - CSS class picker added.
+- 2023-11-16 - added - Add item button on Flex Maker, Grid Wrap, Image Gallery block.
+- 2023-11-16 - update - Accordion Item Block - copy style feature update.
+- 2023-11-21 - fix - Menu block updated
+- 2023-11-21 - fix - Tabs Nested dupilcate issue fixed
+- 2023-11-21 - fix - Post Grid block rewrite
+- 2023-11-21 - fix - Unnecessary component deleted.
+
+= 2.2.63 =
+
+- 2023-10-25 - fix - accordion block - schema data issue fixed.
+- 2023-10-25 - fix - block title issue fixed.
+
+= 2.2.62 =
+
+- 2023-10-24 - fix - block duplicate id issue fixed
+- 2023-10-24 - added - Block variations component added for post title block.
+- 2023-10-24 - added - Dynamic css class added for post title block.
+- 2023-10-24 - added - block.json keyword updated.
+
+= 2.2.61 =
+
+- 2023-10-17 - update - Text Block - Limit by word and character count added.
+- 2023-10-17 - update - Block.json Metadata file updated for all blocks.
+- 2023-10-17 - fix - Accordion Block - label icon style icon fix.
+
+= 2.2.60 =
+
+- 2023-10-14 - update - Block.json Metadata file updated for text block.
+
+= 2.2.59 =
+
+- 2023-10-14 - update - Metadata file updated.
+
+= 2.2.58 =
+
+- 2023-10-14 - update - Added block.json files.
+- 2023-10-14 - update - Update attributes.js for blocks.
+
+= 2.2.57 =
+
+- 2023-10-13 - fix - Missing block build files added.
+
+= 2.2.56 =
+
+- 2023-10-12 - add - New block added - Date countdown
+- 2023-10-12 - fix - Woo Price Block - Group product price issue fixed.
+- 2023-10-12 - fix - Image Block - Lightbox toggle issue fixed
+- 2023-10-12 - fix - Accordion Block - Icon, Label icon update issue fixed.
+
+= 2.2.54 =
+
+- 2023-09-16 - fix - Post Categories Block - Undefined issue fixed.
+- 2023-09-18 - add - WooCommerce Price Block Added
+- 2023-09-18 - add - WooCommerce Product SKU Block Added
+- 2023-09-18 - add - WooCommerce Total Sale Block Added
+- 2023-09-18 - add - WooCommerce Stock Quantity Block Added
+- 2023-09-18 - add - WooCommerce Product Info Block Added
+- 2023-09-18 - add - WooCommerce On Sale Block Added
+- 2023-09-18 - add - WooCommerce In Stock Badge Block Added
+- 2023-09-18 - add - WooCommerce Ratting Block Added
+- 2023-09-18 - add - WooCommerce Add to Cart Block Added
+
+= 2.2.54 =
+
+- 2023-08-31 - fix - Style Component - Class duplicate issue fixed.
+- 2023-08-31 - fix - Social Share block - Default style issue fixed
+- 2023-08-31 - fix - Image block - Double image issue fixed for source image url
+
+= 2.2.52 =
+
+- 2023-07-30 - fix - Style Component - Background Position issue fixed
+- 2023-07-30 - fix - Style Component - IMPORTANT issue fixed
+- 2023-08-16 - fix - Style Component - Color inherit, initial value added
+- 2023-08-16 - fix - Style Component - Background Color inherit, initial value added
+- 2023-08-16 - fix - Style Component - Background size multi, custom value support added
+- 2023-08-16 - fix - Style Component - Transform empty value broken issue solved.
+- 2023-08-16 - fix - Style Component - Box Shadow negetive number support adde
+- 2023-08-16 - fix - Style Component - Background size negetive number support adde
+- 2023-08-16 - fix - Shortcode based layout - thumbnail, thambnail with link alt text issue fixed.
+- 2023-08-16 - fix - Accordion nested block - update icons issue, active color issue.
+- 2023-08-16 - fix - Number Counter block - Floating point number support added
+
+= 2.2.51 =
+
+- 2023-07-30 - fix - Style Component - Margin undefined issue fixed
+- 2023-07-30 - fix - Style Component - Padding undefined issue fixed
+- 2023-07-30 - fix - Style Component - Aspect Ratio undefined issue fixed
+- 2023-07-30 - fix - Style Component - Filter js error issue Fixed
+- 2023-07-30 - add - Style Component - Transform unit selector added
+- 2023-07-30 - add - Style Component - Flex-flow added
+- 2023-07-30 - add - Style Component - Grid Template Columns add issue fixed
+- 2023-07-30 - add - Style Component - Grid Template Rows add issue fixed
+- 2023-07-30 - add - Style Component - Icon/Button/Link Icon picker toggle issue fixed.
+- 2023-07-30 - add - Style Component - text align justify added
+- 2023-07-30 - add - List Block - Add button click issue fixed
+- 2023-07-30 - add - Content Slider Block - Multiple slider issue fixed.
+- 2023-07-30 - add - WordPress.org Block - Missing field values display issue fixed
+- 2023-07-30 - add - Block Insert - Change Combo Blocks category position
+- 2023-07-30 - add - REST API - Permission updated.
+
+= 2.2.50 =
+
+- 2023-07-30 - fix - Style Component - Background Image gradient issue fixed.
+- 2023-07-30 - fix - Style Component - Empty font family php error issue fixed.
+- 2023-07-30 - add - Style Component - Border image url field added.
+
+= 2.2.49 =
+
+- 2023-07-29 - add - Style Component - Font Family Added
+- 2023-07-29 - add - Style Component - !Important value added for few CSS attributes
+
+= 2.2.48 =
+
+- 2023-07-22 - fix - wp autop function conflict issue fixed
+- 2023-07-22 - fix - Icon block default text enable issue fixed
+
+= 2.2.47 =
+
+- 2023-06-28 - fix - Text block class issue fixed.
+- 2023-06-28 - update - Form blocks variation updated.
+- 2023-06-28 - update - Form blocks variation updated.
+
+= 2.2.46 =
+
+- 2023-06-19 - add - New Block Popup added.
+- 2023-06-19 - add - New Block Form added.
+- 2023-06-19 - add - New Block Progress Bar added.
+- 2023-06-19 - add - New Block List Nested added.
+
+= 2.2.45 =
+
+- 2023-05-19 - fix - Post Grid Filterable Block broken issue fixed on editor.
+
+= 2.2.44 =
+
+- 2023-05-16 - add - New Block content slider added
+- 2023-05-16 - add - New Block number counter added
+
+= 2.2.43 =
+
+- 2023-04-26 - add - Shcema markup for breadcrumb block added.
+- 2023-04-26 - add - Shcema markup for accordion block added.
+- 2023-04-26 - add - New Block Image Gallery added
+
+= 2.2.42 =
+
+- 2023-04-18 - fix - PHP error issue fixed
+
+= 2.2.41 =
+
+- 2023-04-17 - fix - Block Responsive picker issue fixed.
+- 2023-04-17 - fix - CSS library submission screenshot generate issue fixed.
+- 2023-04-17 - fix - Post date block - date style issue fixed.
+- 2023-04-17 - add - New block Grid wrap added.
+- 2023-04-17 - add - New block Grid wrap item added.
+- 2023-04-17 - fix - Post Grid Block - Next - Previuos issue fixed when no post on the loop
+- 2023-04-17 - add - Margin top, right, bottom, left added to style component
+
+= 2.2.40 =
+
+- 2023-04-15 - add - New block Flex Maker added.
+- 2023-04-15 - add - New block flex item wrap added.
+- 2023-04-15 - add - New block accordion wrap added.
+- 2023-04-15 - add - New block accordion item wrap added.
+- 2023-04-15 - add - New block tabs wrap added.
+- 2023-04-15 - add - New block tabs item wrap added.
+- 2023-04-15 - add - Post meta block - Improved initial UI.
+- 2023-04-15 - add - Post terms block - Improved initial UI.
+- 2023-04-15 - add - More CSS attributes added on style component
+- 2023-04-15 - fix - Js undefined issue fixed.
+- 2023-04-15 - update - Block icons updated
+- 2023-04-15 - fix - List block duplicate issue fixed.
+- 2023-04-15 - fix - Post grid block post layout broken style fixed.
+
+= 2.2.39 =
+
+- 2023-03-25 - fix - Default pagination ajax issue fixed.
+
+= 2.2.38 =
+
+- 2023-03-22 - fix - Social share block - Icon issue fixed on add
+- 2023-03-22 - fix - Featured Image Block - Undefined issue fixed.
+- 2023-03-22 - fix - Ajax pagination on search result issue fixed.
+
+= 2.2.37 =
+
+- 2023-03-19 - fix - Query not resetting if no posts found
+- 2023-03-19 - fix - Image Block - Auto height issue fixed.
+
+= 2.2.36 =
+
+- 2023-03-14 - add - Block editor section templates added.
+- 2023-03-14 - removed - devider block removed.
+- 2023-03-15 - add - Style component transform unit added.
+- 2023-03-15 - add - Image Block - Title attribute added
+- 2023-03-15 - add - Featured Image Block - Title attribute added
+
+= 2.2.34 =
+
+- 2023-02-28 - fix - layout css messedup issue fixed
+
+= 2.2.33 =
+
+- 2023-02-28 - update - CSS Library added to more block elements
+- 2023-02-28 - fix - CSS component outline issue fixed.
+- 2023-02-28 - fix - CSS component background origin issue fixed.
+
+= 2.2.32 =
+
+- 2023-02-26 - update - CSS Library added to more blocks.
+- 2023-02-26 - update - Dropdown component updated.
+- 2023-02-26 - update - Old layout editor expand UI updated.
+
+= 2.2.31 =
+
+- 2023-02-23 - add - Introduce CSS Library.
+- 2023-02-23 - add - Background-Image component udpated.
+
+= 2.2.30 =
+
+- 2023-02-18 - add - New view types "Tiles" added
+
+= 2.2.29 =
+
+- 2023-02-16 - fix - View Type selection issue fixed.
+
+= 2.2.28 =
+
+- 2023-02-16 - add - Justified grid added on shortcode based post grid.
+
+= 2.2.27 =
+
+- 2023-02-15 - fix - View type masonry issue fixed.
+
+= 2.2.26 =
+
+- 2023-02-15 - add - New view type masonry added.
+- 2023-02-15 - add - Masonry gutter option added.
+
+= 2.2.25 =
+
+- 2023-02-14 - fix - Styles component property add, remove issue fixed.
+
+= 2.2.24 =
+
+- 2023-01-12 - fix - Debug text issue fixed.
+- 2023-01-14 - update - Styles component updated.
+
+= 2.2.23 =
+
+- 2023-01-12 - add - Style component added to post author field block.
+- 2023-01-12 - fix - Old layout element post excerpt css issue fixed.
+- 2023-01-12 - update - Color component update.
+- 2023-01-12 - update - Background Color component update.
+- 2023-01-12 - fix - Post Tags Block - CSS conflict between items and front-text.
+- 2023-01-12 - fix - Post-Taxonomies block An extra ‘seperator’ HTML markup was generated.
+- 2023-01-12 - fix - Post-Taxonomies block Style conflict between items and front-text.
+- 2023-01-12 - fix - Post Title Block – Typography section font family not changing and extra hello word found.
+- 2023-01-12 - fix - Breadcrumb Block Under Icon, color and background color isn’t working.
+- 2023-01-12 - fix - Breadcrumb Block Separator HTML markup issue.
+
+= 2.2.22 =
+
+- 2022-12-28 - fix - Post Title Block - Post title link to custom URL error fixed.
+
+= 2.2.21 =
+
+- 2022-12-28 - fix - Post Grid Block - Post types multi select issue fixed.
+- 2022-12-28 - fix - Post Grid Block - Orderby multi select issue fixed.
+- 2022-12-28 - fix - Post Grid Shortcode - Taxonomy terms first group keep expanded
+
+= 2.2.20 =
+
+- 2022-12-26 - fix - Old layout wrapper issue fixed.
+
+= 2.2.19 =
+
+- 2022-12-25 - add - added new block - Archive Title
+- 2022-12-25 - add - added new block - Archive Descriptions
+- 2022-12-25 - add - added new block - Post Comment Count
+- 2022-12-25 - fix - added more elements for breadcrumb block.
+- 2022-12-25 - fix - ol post layout - post title link css issue fixed.
+
+= 2.2.18 =
+
+- 2022-12-23 - fix - added more elements for breadcrumb block.
+
+= 2.2.17 =
+
+- 2022-12-22 - fix - Old layout style issue fixed.
+- 2022-12-22 - add - New block breadcrumb added.
+
+= 2.2.16 =
+
+- 2022-12-21 - fix - Post date icon issue fixed.
+- 2022-12-20 - fix - Old layout post title html supprot added.
+
+= 2.2.15 =
+
+- 2022-12-20 - add - New block social share added.
+- 2022-12-20 - fix - Post Grid Filterable - Multiilter issue fixed.
+- 2022-12-20 - fix -On 'Post Categories, Post Tags, Post taxonomies' block, the item color isn't generating both the front and back end.
+- 2022-12-20 - fix - On the feature image block & Image, default width:100% and height:auto isn't working on the first block initiate.
+- 2022-12-20 - fix - 'Post Date' block, icon issue fixed.
+- 2022-12-20 - fix - 'Post Title' block, font size breaking issue fixed.
+- 2022-12-20 - fix - 'post grid' block loop item border or box-shadow empty breaking issue fixed.
+
+= 2.2.14 =
+
+- 2022-12-11 - add - New block shortcode added.
+
+= 2.2.13 =
+
+- 2022-12-11 - Fix - Post Grid Block - Post Query by author in, author not in, Tag in, tag and, tag not in, ta slug in, tag slug and, category and, category no in, category in, post parent in, post parent no in, post in, post not in, post name in
+- 2022-12-11 - Fix - Post Grid Block - Tutorials link updated
+- 2022-12-11 - Fix - Post Grid Filterable Block - Tutorials link updated
+- 2022-12-11 - Fix - Icon Block - New icon position before link and after link added.
+- 2022-12-11 - Fix - Post Grid Block - Typo issue fixed.
+
+= 2.2.12 =
+
+- 2022-12-10 - Add - Terms List Block added
+
+= 2.2.10 =
+
+- 2022-12-06 - fix - post grid blok - Loop item typography issue fixed.
+
+= 2.2.9 =
+
+- 2022-12-06 - fix - purchase link issue fixed.
+
+= 2.2.8 =
+
+- 2022-12-05 - fix - Warning: Invalid argument supplied for foreach() fixed
+
+= 2.2.7 =
+
+- 2022-12-03 - fix - PHP fatal error fixed for block categories.
+
+= 2.2.6 =
+
+- 2022-12-01 - fix - Old - Post Title link color issue fixed
+- 2022-12-01 - fix - Old - Container text align issue fixed.
+
+= 2.2.5 =
+
+- 2022-12-01 - fix - Post Grid Filterbale - Pagination issue fixed.
+- 2022-12-01 - fix - Post Grid Shortcode - default style missing issue fixed.
+
+= 2.2.4 =
+
+- 2022-12-01 - fix - Older Layout element css issue fixed.
+
+= 2.2.3 =
+
+- 2022-11-30 - fix - PHP fatal error fixed for block categories.
+
+= 2.2.2 =
+
+- 2022-11-30 - fix - Fatured image block - Fatured image default size issue fixed.
+- 2022-11-30 - fix - Image block - Fatured image default size issue fixed.
+- 2022-11-30 - fix - Post Grid Filterable - Post per page number issue fixed.
+- 2022-11-30 - fix - Post Grid Filterable - All navs issue fixed.
+
+= 2.2.1 =
+
+- 2022-11-30 - fix - PHP fatal error fixed for block categories.
+
+= 2.2.0 =
+
+- 2022-08-13 - update - Rebanding the plugin name "Post Grid" to "Combo Blocks"
+- 2022-08-13 - add - Added sevral Gutenberg blocks
+- 2022-08-13 - add - "Post Title" block added.
+- 2022-08-13 - add - "Post Excerpt" block added.
+- 2022-08-13 - add - "Read More" block added.
+- 2022-08-13 - add - "Advance Text" block added.
+- 2022-11-17 - add - "Post Author" block added.
+- 2022-11-17 - add - "Post Author Fields" block added.
+- 2022-11-17 - add - "Featured Image" block added.
+- 2022-11-17 - add - "Image" block added.
+- 2022-11-17 - add - "Post Categories" block added.
+- 2022-11-17 - add - "Post Tags" block added.
+- 2022-11-17 - add - "Post Terms" block added.
+- 2022-11-17 - add - "Post Date" block added.
+- 2022-11-17 - add - "Read More" block added.
+- 2022-11-17 - add - "Advance Text" block added.
+- 2022-11-17 - add - "Post Grid" block added.
+- 2022-11-17 - add - "List Items" block added.
+- 2022-11-17 - add - "Icons" block added.
+- 2022-11-17 - add - "Layers" block added.
+- 2022-11-17 - add - "Accordion" block added.
+- 2022-11-17 - add - "Tabs" block added.
+- 2022-11-17 - add - "Post Grid - Filterable" block added.
+
+= 2.1.24 =
+
+- 2022-07-24 - fix - Custom CSS character issue fixed.
+
+= 2.1.23 =
+
+- 2022-04-23 - fix - Custom scripts & CSS field issue fixed.
+
+= 2.1.22 =
+
+- 2022-04-07 - fix - Ajax search result filter by "Include by post ID" issue fixed.
+
+= 2.1.21 =
+
+- 2022-04-03 - fix - CSS escape issue fixed.
+
+= 2.1.20 =
+
+- 2022-03-16 - fix - More HTML string output for Search icon, loading icon, media html, no text found.
+
+= 2.1.19 =
+
+- 2022-03-16 - fix - HTML string output for category, tags, content, share button issue fixed.
+
+= 2.1.18 =
+
+- 2022-03-15 - fix - HTML string output issue fixed.
+
+= 2.1.17 =
+
+- 2022-03-08 - fix - More Escaping issue fixed.
+
+= 2.1.16 =
+
+- 2022-03-05 - fix - Escaping issue fixed.
+
+= 2.1.15 =
+
+- 2022-03-04 - fix - Fixed minor security issue.
+
+= 2.1.14 =
+
+- 2021-12-24 - add - Shortcdoe support for layout elements custom classes.
+
+= 2.1.13 =
+
+- 2021-12-15 - fix - SQL security issue fixed.
+
+= 2.1.12 =
+
+- 2021-12-09 fix - PHP warning issue fixed.
+
+= 2.1.11 =
+
+- 2021-08-06 add - search method added ajax and on form submit. ajax method pagination may not work properly, use on form submit instead.
+
+= 2.1.10 =
+
+- 2021-07-31 add - featured image improved for responsive load.
+
+= 2.1.9 =
+
+- 2021-07-31 add - security on search result.
+- 2021-07-31 remove - remove ajax search result for fixing pagination issue.
+- 2021-07-31 add - added submit button on search form
+
+= 2.1.8 =
+
+- 2021-06-27 fix - escaping issue fixed.
+
+= 2.1.7 =
+
+- 2021-06-20 fix - column width % value issue fixed.
+
+= 2.1.6 =
+
+- 2021-06-19 add - column number added for grid
+
+= 2.1.5 =
+
+- 2021-05-05 fix - php error issue fixed for old layouts users.
+
+= 2.1.4 =
+
+- 2021-05-03 fix - escaping issue fixed.
+
+= 2.1.3 =
+
+- 2021-04-14 remove - unnecessary css library file removed
+- 2021-04-14 fix - security issue updated.
+
+= 2.1.2 =
+
+- 2021-04-13 fix - security issue updated.
+
+= 2.1.1 =
+
+- 2021-02-22 add - lazy load issue fixed.
+- 2021-02-22 add - lazy load image alt text added
+
+= 2.1.0 =
+
+- 2021-02-19 remove - remove old layout editor
+
+= 2.0.76 =
+
+- 2021-02-15 add - lazy load image alt text added
+
+= 2.0.75 =
+
+- 2021-01-23 add - taxonomy parameter for archive page for pro version integration.
+
+= 2.0.74 =
+
+- 2020-11-19 add - filter hook combo_blocks_link_to_args added
+- 2020-11-19 add - filter hook combo_blocks_author_link_to_args added
+
+= 2.0.73 =
+
+- 2020-09-17 fix - unnecessary function removed
+
+= 2.0.72 =
+
+- 2020-09-17 fix - security issue fixed.
+
+= 2.0.71 =
+
+- 2020-08-17 fix - post grid elements action hook order issue fixed.
+
+= 2.0.70 =
+
+- 2020-08-08 fix - layout editor lazy load issue fixed.
+
+= 2.0.69 =
+
+- 2020-07-05 fix - Layouts editor saving issue fixed.
+
+= 2.0.68 =
+
+- 2020-07-04 add - Layouts library added.
+
+= 2.0.67 =
+
+- 2020-06-16 remove - remove request popup for reviews.
+
+= 2.0.66 =
+
+- 2020-06-16 fix - undefined index issue fixed. functions.php line 85
+- 2020-06-16 fix - undefined function excerpt_remove_blocks issue fixed.
+- 2020-06-16 remove - remove popup for reviews.
+
+= 2.0.65 =
+
+- 2020-06-04 add - Ignore paged/page variable from query to display same posts on paginated page.
+
+= 2.0.64 =
+
+- 2020-06-04 fix - layout import skip added.
+
+= 2.0.63 =
+
+- 2020-06-03 fix - remove bootstrap from front-end
+
+= 2.0.62 =
+
+- 2020-06-03 fix - elements wrapper custom css class issue fixed.
+- 2020-06-03 add - Element added for "Site Reviews" plugin
+
+= 2.0.61 =
+
+- 2020-05-29 add - reviews request popup box added.
+- 2020-05-30 add - duplicate/clone post grid and post grid layout added.
+- 2020-05-30 add - addon "Loop ads" added
+
+= 2.0.60 =
+
+- 2020-05-24 add - addon "Search & Filter" added
+- 2020-05-24 add - addon "Post/Page Templates" added
+- 2020-05-29 add - import layouts notice added.
+
+= 2.0.59 =
+
+- 2020-05-21 add - Elements added for "WCK - Custom Fields and Custom Post Types Creator" plugin
+- 2020-05-21 add - Elements added for "WP Job Manager" plugin
+- 2020-05-21 add - Elements added for "Simple Job Board" plugin
+- 2020-05-21 add - Element "Categories" link target option added
+- 2020-05-21 add - Element "Tags" link target option added
+
+= 2.0.58 =
+
+- 2020-05-19 add - Element added for "Like Button Rating" plugin
+- 2020-05-19 add - Element added for "WP-PostViews" plugin
+- 2020-05-19 add - Element added for "Post Views Counter" plugin
+- 2020-05-19 add - Element added for "Page Views Count" plugin
+- 2020-05-19 add - Element added for "Page Visit Counter" plugin
+
+= 2.0.57 =
+
+- 2020-05-15 fix - masonry center align issue fixed.
+- 2020-05-15 add - media link target option added.
+- 2020-05-15 fix - rate-my-post missing issue fixed.
+
+= 2.0.56 =
+
+- 2020-05-15 fix - Excerpt element output issue fixed.
+
+= 2.0.55 =
+
+- 2020-05-4 fix - remove empty read more text to avoid conflict old layout.
+- 2020-05-15 add - Element added for "kk Star Ratings" plugin
+- 2020-05-15 add - Element added for "Multi Rating" plugin
+- 2020-05-15 add - Element added for "Rate my Post" plugin
+- 2020-05-15 add - Element added for "Rating-Widget" plugin
+- 2020-05-15 add - Element added for "WP-PostRatings" plugin
+- 2020-05-15 add - Elements visitor votes, overall rating added for "Yasr – Yet Another Stars Rating" plugin
+- 2020-05-15 add - Element added for "YITH - Add to Wishlist" plugin
+
+= 2.0.54 =
+
+- 2020-05-4 optimize - optimize layout element CSS generate
+- 2020-05-4 fix - grid item text align issue fixed.
+- 2020-05-4 fix - element author and author link issue fixed.
+
+= 2.0.53 =
+
+- 2020-05-04 fix - //var_dump issue fixed for excerpt.
+  - 2020-05-04 add - query post by ids added.
+
+= 2.0.52 =
+
+- 2020-05-01 fix - lazy load issue fixed.
+- 2020-05-04 fix - exclude by post ids issue fixed.
+- 2020-05-04 fix - layout css issue fixed.
+- 2020-05-04 add - prefix text for post date element
+- 2020-05-04 add - prefix text for post author element
+
+= 2.0.51 =
+
+- 2020-05-01 fix - pagination displaying issue fixed
+- 2020-05-01 add - action hook post*grid_pagination*{type} added
+
+= 2.0.50 =
+
+- 2020-04-30 fix - media link issue fixed.
+
+= 2.0.49 =
+
+- 2020-04-30 fix - post title link issue fixed.
+
+= 2.0.48 =
+
+- 2020-04-29 fix - new layout media image source issue fixed.
+- 2020-04-29 add - default layout xml file added and ready to import.
+- 2020-04-30 add - added new media source "SiteOrigin first image"
+
+= 2.0.47 =
+
+- 2020-04-29 add - No post found custom input field added
+- 2020-04-29 fix - Media height issue fixed.
+- 2020-04-29 fix - masonry issue fixed.
+
+= 2.0.46 =
+
+- 2020-04-21 update - Layout builder re-designed.
+- 2020-04-21 update - Remove unnecessary CSS and JS files.
+- 2020-04-21 update - Optimize CSS and JS file loading.
+
+= 2.0.45 =
+
+- 2020-04-14 remove - remove unnecessary scripts and css files.
+
+= 2.0.44 =
+
+- 2020-02-06 fix - tag links issue fixed.
+
+= 2.0.43 =
+
+- 17/11/2019 fix - exclude current post when post grid display on single post/custom post types
+
+= 2.0.42 =
+
+- 15/11/2019 fix - broken html issue when no post found
+
+= 2.0.41 =
+
+- 07/10/2019 fix - select2 js issue fixed
+
+= 2.0.40 =
+
+- 07/10/2019 removed - removed font-awesome-5 from front-end.
+- 07/10/2019 fix - post grid meta box style broken issue fixed.
+
+= 2.0.39 =
+
+- 22/08/2019 fix - Offset issue with pagination conflict issue fixed.
+
+= 2.0.38 =
+
+- 18/07/2019 update - Search input field loading icon changed.
+- 18/07/2019 update - Default layout element title replaced by title with linked and thumbnail linked with post url
+- 18/07/2019 update - Ajax taxonomies and terms loading on change post types.
+- 18/07/2019 update - Placeholder text added for some input fields.
+- 18/07/2019 update - Featured image size default "large" set and linked to post url
+
+= 2.0.37 =
+
+- 05/07/2019 fix - query_orderby array to string issue fix
+- 05/07/2019 fix - remove some unnecessary function.
+- 05/07/2019 fix - remove some unnecessary css from file.
+
+= 2.0.36 =
+
+- 22/06/2019 fix - select2 js script error issue fixed.
+
+= 2.0.35 =
+
+- 26/05/2019 fix - js script error issue fixed.
+- 26/05/2019 add - Some video tutorials added.
+
+= 2.0.34 =
+
+- 15/05/2019 fix - Custom CSS & JS saveing issue fixed
+- 15/05/2019 fix - select2 issue fixed
+
+= 2.0.33 =
+
+- 08/05/2019 add - terms relation AND added.
+- 08/05/2019 add - share buttons added in layout editor.
+- 08/05/2019 add - Horizontal line added in layout editor.
+
+= 2.0.32 =
+
+- 05/05/2019 remove - removed some unnecessary script and css files.
+
+= 2.0.31 =
+
+- 21/01/2019 update - update admin settings
+
+= 2.0.30 =
+
+- 21/01/2019 fix - Pagination bug fixed.
+
+= 2.0.29 =
+
+- 07/09/2018 remove - Removed masonry.js file form plugin used default WP jquery-masonry
+- 07/09/2018 update - Remove some js & css file loaded globaly, only loaded under post grid edit page.
+
+= 2.0.28 =
+
+- 18/08/2018 fix - pagination issue fixed.
+
+= 2.0.27 =
+
+- 24/05/2018 fix - Grid items responsive height issue fixed, set auto height for mobile and tablets
+- 24/05/2018 fix - Grid items media responsive height issue fixed, set auto height for mobile and tablets
+
+= 2.0.26 =
+
+- 21/03/2018 add - Post grid search for individual grid on same page
+- 21/03/2018 add - Press enter to reset search result.
+
+= 2.0.25 =
+
+- 15/02/2018 fix - Offset issue fixed.
+
+= 2.0.24 =
+
+- 12/02/2018 fix - Default search keyword fatching, added an option to disable.
+
+= 2.0.23 =
+
+- 31/01/2018 removed - Removed social share button on help page.
+
+= 2.0.22 =
+
+- 27/01/2018 fix - security issue fixed.
+
+= 2.0.21 =
+
+- 20/01/2017 add - Croatian translation added.
+
+= 2.0.20 =
+
+- 13/01/2017 fix - translation issue fixed.
+
+= 2.0.19 =
+
+- 11/01/2017 add - added Bulgarian translation.
+
+= 2.0.18 =
+
+- 11/01/2017 fix - excerpt display issue.
+
+= 2.0.17 =
+
+- 31/12/2016 update - update font-awesome.
+
+= 2.0.16 =
+
+- 16/12/2016 fix - flip-y & flip-y skin mobile device issue fixed.
+
+= 2.0.15 =
+
+- 12/12/2016 add - Taxonomy query added.
+
+= 2.0.14 =
+
+- 03/12/2016 fix - Color Picker class issue fixed.
+
+= 2.0.13 =
+
+- 03/10/2016 fix - Fix some security issues.
+
+= 2.0.12 =
+
+- 03/10/2016 removed - Import Content Layouts removed for temporary.
+
+= 2.0.11 =
+
+- 24/08/2016 fix - php error issue fixed.
+
+= 2.0.10 =
+
+- 27/07/2016 add - Lazy Load.
+- 27/07/2016 add - Featured Image linked to post.
+- 27/07/2016 add - Grid Items Height.
+- 27/07/2016 add - Create New layout on Layout Editor.
+- 27/07/2016 add - Settigns - Export Content Layouts.
+- 27/07/2016 add - Settigns - Import Content Layouts.
+- 27/07/2016 add - Settigns - Remove Content Layouts.
+
+= 2.0.9 =
+
+- 24/06/2016 fix - minor php issue fixed.
+
+= 2.0.8 =
+
+- 14/06/2016 fix - owl.carousel conflict issue fixed.
+
+= 2.0.7 =
+
+- 23/04/2016 fix - social share button(Incrementing) issue fixed.
+
+= 2.0.6 =
+
+- 21/04/2016 add - display alt text for featured images.
+- 21/04/2016 add - display alt text for gallery images.
+- 21/04/2016 add - Export Content Layouts.
+- 21/04/2016 add - delete option for exported files.
+- 21/04/2016 add - translation added.
+
+= 2.0.5 =
+
+- 17/01/2016 - fix - read more link issue fixed.
+- 17/01/2016 - fix - empty content issue fixed.
+
+= 2.0.4 =
+
+- 13/01/2016 - add - layout overwrite issue fixed.
+
+= 2.0.3 =
+
+- 03/01/2016 - add - post tags linked.
+
+= 2.0.2 =
+
+- 11/12/2015 - fix - shortcode issue fixed.
+
+= 2.0.1 =
+
+- 25/11/2015 add - added two item for layout editor post with link and thumb with link.
+
+= 2.0.0 =
+
+- 21/10/2015 update - Recoded & Redesign plugin.
+
+= 1.9 =
+
+- 05/11/2015 setting UI update.
+
+= 1.8 =
+
+- 01/10/2015 add- added soem premium features.
+
+= 1.7 =
+
+- 13/05/2015 fix- license issue fixed.
+
+= 1.6 =
+
+- 13/05/2015 add- Custom CSS box.
+- 13/05/2015 edit- Improved Grid Builder.
+- 13/05/2015 add- hover animation for hover items.
+- 13/05/2015 add- display thumbnail via External Featured Image(meta key).
+
+= 1.5 =
+
+- 13/05/2015 fix- flter content.
+- 13/05/2015 fix- social icons hover.
+
+= 1.4 =
+
+- 05/03/2015 add- Post link to title.
+- 05/03/2015 add- Post link to thumbnail.
+
+= 1.3 =
+
+- 05/03/2015 fix- pagination at home page issue fixed.
+
+= 1.2 =
+
+- 05/03/2015 remove- removed some options.
+- 05/03/2015 add- grid layout builder.
+
+= 1.1 =
+
+- 03/03/2015 add- option for display/hide social share buttons.
+- 03/03/2015 remove- Thumbnail width.
+- 03/03/2015 add- Masonry grid enable for any theme.
+- 03/03/2015 remove- Masonry grid theme.
+
+= 1.0 =
+
+- 06/02/2015 Initial release.

@@ -1,0 +1,26 @@
+.ComboBlocksPostGrid-lazyload {
+    text-align: center;
+    padding: 20px 0;
+}
+.ComboBlocksPostGrid-pagination.next_previous {
+    display: flex;
+    justify-content: space-between;
+}
+.ComboBlocksPostGrid-pagination.loadmore .page-numbers {
+    cursor: pointer;
+}
+.ComboBlocksPostGrid-pagination.loadmore .loademore-icon {
+    margin: 0 10px;
+}
+.ComboBlocksPostGrid-pagination .infinite-loader {
+    display: none;
+}
+.ComboBlocksPostGrid-pagination .infinite-loader.visible {
+    display: block;
+}
+.loop-loading {
+    text-align: center;
+}
+.loop-loading .loademore-icon {
+    margin: 0 10px;
+}

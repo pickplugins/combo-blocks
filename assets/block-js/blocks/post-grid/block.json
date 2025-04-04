@@ -1,0 +1,280 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-grid",
+  "title": "Post Grid",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "providesContext": {
+    "combo-blocks/postGridId": "blockId",
+    "combo-blocks/queryArgs": "queryArgs",
+    "combo-blocks/layout": "layout",
+    "combo-blocks/pagination": "pagination",
+    "combo-blocks/paginationItem": "paginationItem",
+    "combo-blocks/paginationItemActive": "paginationItemActive"
+  },
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center",
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "lazyLoad": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "lazyLoad",
+          "enable": "no",
+          "srcUrl": "",
+          "srcId": "",
+          "icon": {
+            "library": "",
+            "srcType": "class",
+            "iconSrc": ""
+          }
+        },
+        "styles": {}
+      }
+    },
+    "search": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "search",
+          "enable": "no",
+          "type": "",
+          "placeholder": "",
+          "icon": "",
+          "busyIcon": ""
+        },
+        "styles": {}
+      }
+    },
+    "container": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "itemsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "items-loop"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "grid"
+          },
+          "gridTemplateColumns": {
+            "Desktop": "1fr 1fr 1fr"
+          },
+          "gap": {
+            "Desktop": "2em"
+          }
+        }
+      }
+    },
+    "itemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "item"
+        },
+        "styles": {}
+      }
+    },
+    "noPostsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "no-posts text-center"
+        },
+        "styles": {}
+      }
+    },
+    "spinnerWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "spinner"
+        },
+        "styles": {}
+      }
+    },
+    "grid": {
+      "type": "object",
+      "default": {
+        "options": {
+          "itemCss": {}
+        },
+        "styles": {}
+      }
+    },
+    "nthItemStyle": {
+      "type": "array",
+      "default": [
+        {
+          "styles": {}
+        }
+      ]
+    },
+    "pagination": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pagination ",
+          "type": "normal",
+          "maxPageNum": "",
+          "prevText": "Previous",
+          "nextText": "Next",
+          "loadMoreText": "Load More",
+          "noMorePosts": "No More Posts",
+          "loadingText": "Loading...",
+          "loadingIcon": {
+            "library": "",
+            "srcType": "class",
+            "iconSrc": ""
+          }
+        },
+        "styles": {
+          "margin": {
+            "Desktop": "20px 0px 20px 0px"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "justifyContent": {
+            "Desktop": "center"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "gap": {
+            "Desktop": "1em"
+          }
+        }
+      }
+    },
+    "paginationItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers inline-block"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "padding": {
+            "Desktop": "5px 15px 5px 15px"
+          },
+          "backgroundColor": {
+            "Desktop": "#2445ffab"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          }
+        }
+      }
+    },
+    "paginationItemActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "layout": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "srcServer": "library",
+        "data": [],
+        "rawData": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "queryArgs": {
+      "type": "object",
+      "default": {
+        "items": [
+          {
+            "val": [
+              "post"
+            ],
+            "id": "postType"
+          },
+          {
+            "val": [
+              "publish"
+            ],
+            "id": "postStatus"
+          },
+          {
+            "val": "DESC",
+            "id": "order"
+          },
+          {
+            "val": [
+              "date"
+            ],
+            "id": "orderby"
+          },
+          {
+            "val": 3,
+            "id": "postsPerPage"
+          },
+          {
+            "val": 1,
+            "id": "paged"
+          }
+        ]
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post grid",
+    "content grid",
+    "grid archive",
+    "post query",
+    "grid layout",
+    "advanced post grid",
+    "custom post grid",
+    "custom post type grid",
+    "post grid",
+    "post grid",
+    "post grid block",
+    "post grid for wordpress",
+    "post grid block for wordpress"
+  ],
+  "description": "The post grid block arranges blog posts in a grid format, making it easy for users to browse and access content efficiently."
+}

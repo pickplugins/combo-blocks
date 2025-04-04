@@ -1,0 +1,143 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/star-rate",
+  "title": "Star Rate",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "userData",
+    "userId",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-star-rate",
+          "attr": []
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-star",
+          "class": "text-icon",
+          "text": "",
+          "isLink": true,
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": "",
+          "linkAttr": []
+        },
+        "styles": {}
+      }
+    },
+    "iconsIdle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "iconsFilled": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "default": {
+        "options": {
+          "type": "",
+          "rating_count": 0,
+          "avg_rating": 4.25,
+          "typeCustom": "",
+          "linkTo": "reviews",
+          "source": "",
+          "customFieldKey": "",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "linkAttr": {
+      "type": "array",
+      "default": []
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "star rate",
+    "star rates",
+    "star rating",
+    "star ratings",
+    "advanced star rate",
+    "star rate block",
+    "star rate for wordpress",
+    "star rating for wordpress",
+    "star rate block for wordpress"
+  ],
+  "description": "A star rate block displays a rating using icons, indicating the level of approval or satisfaction."
+}

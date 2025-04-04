@@ -1,0 +1,63 @@
+{
+  "name": "combo-blocks",
+  "version": "2.2.24",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js",
+    "format": "wp-scripts format",
+    "build:frontscripts": "wp-scripts build includes/blocks/block-scripts.js  --output-path=assets/block-js",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "assets",
+    "addons",
+    "build/blocks",
+    "build/images",
+    "build/index.css",
+    "build/index.js",
+    "includes",
+    "languages",
+    "sample-data",
+    "templates",
+    "dist",
+    "combo-blocks.php"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@wordpress/babel-preset-default": "^7.12.0",
+    "@wordpress/scripts": "^27.0.0",
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "@vis.gl/react-google-maps": "^1.1.2",
+    "@wordpress/api-fetch": "^6.6.0",
+    "@wordpress/core-data": "^6.7.0",
+    "@wordpress/element": "^5.5.0",
+    "@wordpress/hooks": "^3.23.0",
+    "@wordpress/icons": "^9.19.0",
+    "@wordpress/keycodes": "^3.24.0",
+    "animate.css": "^4.1.1",
+    "classnames": "^2.3.1",
+    "fslightbox": "^3.4.1",
+    "html-to-image": "^1.11.11",
+    "imagesloaded": "^5.0.0",
+    "masonry-layout": "^4.2.2",
+    "openai": "^4.71.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-google-map-wrapper": "^1.0.5",
+    "react-sortablejs": "^6.1.4",
+    "sortablejs": "^1.15.0"
+  }
+}

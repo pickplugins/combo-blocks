@@ -1,0 +1,131 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/read-more",
+  "title": "Read More",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-read-more"
+        },
+        "styles": {}
+      }
+    },
+    "readMore": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Read More",
+          "linkTo": "postUrl",
+          "linkTarget": "_blank",
+          "customUrl": "",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkAttr": [],
+          "class": ""
+        },
+        "styles": {
+          "textDecoration": {
+            "Desktop": "none #000000 solid 0px !important"
+          }
+        }
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "readmore-icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "linkAttr": {
+      "type": "array",
+      "default": []
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "read more",
+    "read more link",
+    "read more custom link",
+    "read more custom text",
+    "read more text",
+    "see more link",
+    "view more",
+    "advanced read more",
+    "read more block",
+    "read more for wordpress",
+    "read more block for wordpress"
+  ],
+  "description": "A read more link or button navigates to a specific webpage or resource for more detailed information when clicked."
+}

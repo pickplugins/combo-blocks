@@ -21,5 +21,4 @@ const breakPoints = {
 		max: 1280,
 	},
 };
-
 export default breakPoints;

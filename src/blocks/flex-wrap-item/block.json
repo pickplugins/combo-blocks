@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "post-grid/flex-wrap-item",
+  "name": "combo-blocks/flex-wrap-item",
   "title": "Flex Maker Item",
-  "textdomain": "post-grid",
-  "category": "post-grid-tools",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
   "parent": [
-    "post-grid/flex-wrap"
+    "combo-blocks/flex-wrap"
   ],
   "usesContext": [
     "postId",
@@ -34,17 +34,7 @@
           "linkTarget": "_blank",
           "customUrl": ""
         },
-        "styles": {
-          "backgroundColor": {
-            "Desktop": ""
-          },
-          "flexBasis": {
-            "Desktop": "0"
-          },
-          "flexGrow": {
-            "Desktop": "1"
-          }
-        }
+        "styles": {}
       }
     },
     "visible": {
@@ -62,7 +52,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "combo_blocks_scripts",
   "keywords": [
     "flex wrapper",
     "flex layout",

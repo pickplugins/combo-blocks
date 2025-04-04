@@ -1,0 +1,802 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/date-countdown",
+  "title": "Date Countdown",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-date-countdown"
+        },
+        "styles": {}
+      },
+      "dateCountdown": {
+        "options": {
+          "tag": "div",
+          "class": "",
+          "type": "fixed",
+          "endDate": "2023-11-23T13:17",
+          "startDate": "2023-11-01T15:26",
+          "endDateSrc": "",
+          "startDateSrc": "",
+          "everGreenTime": {
+            "day": "1",
+            "hour": "1",
+            "minute": "10",
+            "second": ""
+          },
+          "scheduleTime": [
+            {
+              "startTime": "",
+              "endTime": "",
+              "weekdays": []
+            }
+          ],
+          "durationMinute": "10"
+        }
+      },
+      "scheduleTime": [
+        {
+          "startTime": "05:11",
+          "endTime": "20:58",
+          "weekdays": {
+            "value": 3,
+            "values": [
+              0,
+              4
+            ],
+            "compare": "="
+          },
+          "chosen": false,
+          "selected": false
+        }
+      ],
+      "countdownWrapper": {
+        "styles": {
+          "backgroundColor": {},
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "justifyContent": {
+            "Desktop": "center"
+          },
+          "width": {
+            "Desktop": "max-content"
+          },
+          "borderRadius": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "padding": {
+            "Desktop": "60px 60px 60px 60px"
+          },
+          "gap": {
+            "Desktop": "20px"
+          },
+          "marginRight": {
+            "Desktop": "auto"
+          },
+          "marginLeft": {
+            "Desktop": "auto"
+          },
+          "backgroundImage": {
+            "Desktop": "linear-gradient(135deg,rgb(47,110,211) 0%,rgb(80,149,228) 30%,rgb(80,149,228) 63%,rgb(47,110,211) 100%)"
+          }
+        }
+      },
+      "items": {
+        "options": {
+          "tag": "div",
+          "class": "items",
+          "secondEnable": true,
+          "minuteEnable": true,
+          "hourEnable": true,
+          "dayEnable": true
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px !important"
+          },
+          "fontSize": {
+            "Desktop": "30px"
+          },
+          "fontWeight": {
+            "Desktop": "600"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          }
+        }
+      },
+      "secondWrap": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "second-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      },
+      "second": {
+        "styles": {
+          "color": {
+            "Desktop": "#d9eaf2"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffffff40"
+          },
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px"
+          },
+          "transition": {
+            "Desktop": "all 0.4s ease 0s"
+          },
+          "fontSize": {
+            "Desktop": "5rem"
+          },
+          "fontWeight": {
+            "Desktop": "700"
+          },
+          "textShadow": {
+            "Desktop": "5px 5px 0px #4d4d4d"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "flexDirection": {
+            "Desktop": "column"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "borderRadius": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "boxShadow": {
+            "Desktop": "0px 8px 32px 0px #0326874f"
+          },
+          "border": {
+            "Desktop": "1px solid #ffffff2e"
+          }
+        },
+        "options": {
+          "tag": "div",
+          "class": "second-countdown",
+          "label": "Seconds",
+          "prefix": "",
+          "postfix": "",
+          "enable": true
+        }
+      },
+      "minuteWrap": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "minute-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      },
+      "minute": {
+        "styles": {
+          "color": {
+            "Desktop": "#d9eaf2"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffffff40"
+          },
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px"
+          },
+          "transition": {
+            "Desktop": "all 0.4s ease 0s"
+          },
+          "fontSize": {
+            "Desktop": "5rem"
+          },
+          "fontWeight": {
+            "Desktop": "700"
+          },
+          "textShadow": {
+            "Desktop": "5px 5px 0px #4d4d4d"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "flexDirection": {
+            "Desktop": "column"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "borderRadius": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "border": {
+            "Desktop": "1px solid #ffffff2e"
+          },
+          "boxShadow": {
+            "Desktop": "0px 8px 32px 0px #1f26875e"
+          },
+          "backdropFilter": {
+            "Desktop": "blur(4undefined) "
+          }
+        },
+        "options": {
+          "tag": "div",
+          "class": "minute-countdown",
+          "label": "Minutes",
+          "prefix": "",
+          "postfix": "",
+          "enable": true
+        }
+      },
+      "hourWrap": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "hour-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      },
+      "hour": {
+        "styles": {
+          "color": {
+            "Desktop": "#d9eaf2"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffffff40"
+          },
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px"
+          },
+          "transition": {
+            "Desktop": "all 0.4s ease 0s"
+          },
+          "fontSize": {
+            "Desktop": "5rem"
+          },
+          "fontWeight": {
+            "Desktop": "700"
+          },
+          "textShadow": {
+            "Desktop": "5px 5px 0px #4d4d4d"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "flexDirection": {
+            "Desktop": "column"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "borderRadius": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "border": {
+            "Desktop": "1px solid #ffffff2e"
+          },
+          "boxShadow": {
+            "Desktop": "0px 8px 32px 0px #1f26875e"
+          }
+        },
+        "options": {
+          "tag": "div",
+          "class": "hour-countdown",
+          "label": "Hours",
+          "prefix": "",
+          "postfix": "",
+          "enable": true
+        }
+      },
+      "dayWrap": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "day-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      },
+      "day": {
+        "styles": {
+          "color": {
+            "Desktop": "#d9eaf2"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffffff2e"
+          },
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px"
+          },
+          "transition": {
+            "Desktop": "all 0.4s ease 0s"
+          },
+          "fontSize": {
+            "Desktop": "5rem"
+          },
+          "fontWeight": {
+            "Desktop": "700"
+          },
+          "textShadow": {
+            "Desktop": "5px 5px 0px #4d4d4d"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "flexDirection": {
+            "Desktop": "column"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "borderRadius": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "border": {
+            "Desktop": "1px solid #ffffff2e"
+          },
+          "boxShadow": {
+            "Desktop": "0px 8px 32px 5px #1f26875e"
+          }
+        },
+        "options": {
+          "tag": "div",
+          "class": "day-countdown",
+          "label": "Days",
+          "prefix": "",
+          "postfix": "",
+          "enable": true
+        }
+      },
+      "separator": {
+        "options": {
+          "text": ":",
+          "class": "separator",
+          "position": "afterEachItems"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#d9eaf2"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px"
+          },
+          "transition": {
+            "Desktop": "all 0.4s ease 0s"
+          },
+          "fontSize": {
+            "Desktop": "5rem"
+          },
+          "fontWeight": {
+            "Desktop": "700"
+          },
+          "textShadow": {
+            "Desktop": "5px 5px 0px #4d4d4d"
+          }
+        }
+      },
+      "label": {
+        "options": {
+          "enable": false,
+          "text": "",
+          "class": "label",
+          "position": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          }
+        }
+      },
+      "prefix": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 0px"
+          }
+        }
+      },
+      "postfix": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 10px"
+          }
+        }
+      },
+      "expiredArg": {}
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/text",
+        "attributes": {
+          "text": {
+            "options": {
+              "content": "<strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry.",
+              "src": "",
+              "tag": "div",
+              "class": "pg-text",
+              "id": "",
+              "limitBy": "",
+              "limitCount": 99
+            },
+            "styles": {
+              "fontSize": {
+                "Desktop": "20px"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-date-countdown"
+        },
+        "styles": {}
+      }
+    },
+    "dateCountdown": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "",
+          "type": "",
+          "startDate": "",
+          "endDate": "",
+          "startDateSrc": "",
+          "endDateSrc": "",
+          "everGreenTime": {
+            "day": "",
+            "hour": "",
+            "minute": "",
+            "second": ""
+          }
+        }
+      }
+    },
+    "scheduleTime": {
+      "type": "array",
+      "default": [
+        {
+          "startTime": "",
+          "endTime": "",
+          "weekdays": {
+            "value": "0",
+            "values": [],
+            "compare": "="
+          }
+        }
+      ]
+    },
+    "countdownWrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "inner": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "items": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "items",
+          "secondEnable": true,
+          "minuteEnable": true,
+          "hourEnable": true,
+          "dayEnable": true
+        },
+        "styles": {}
+      }
+    },
+    "count": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "text": "",
+          "class": "count",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "secondWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "second-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "second": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "second-countdown",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "minuteWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "minute-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "minute": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "minute-countdown",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "hourWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "hour-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "hour": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "hour-countdown",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "dayWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "day-wrapper",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "day": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "div",
+          "class": "day-countdown",
+          "label": "",
+          "prefix": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "far fa-calendar-alt",
+          "position": "",
+          "class": "date-countdown-icon"
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "text": ":",
+          "class": "separator",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "text": "",
+          "class": "label",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false,
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false,
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "editMode": {
+      "type": "boolean",
+      "default": true
+    },
+    "expiredArg": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "countdown",
+    "countdown block",
+    "date countdown",
+    "timer countdown",
+    "timer block",
+    "Countdown Timer"
+  ],
+  "description": "Highlight upcoming events with date countdown block."
+}

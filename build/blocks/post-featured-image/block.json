@@ -1,0 +1,118 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-featured-image",
+  "title": "Featured Image",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-post-featured-image"
+        },
+        "styles": {}
+      }
+    },
+    "featuredImage": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "",
+          "linkTo": "",
+          "customUrl": "",
+          "lazy": true,
+          "lazySrc": "",
+          "lazySrcId": "",
+          "lazySrcType": "media",
+          "linkToMetaKey": "",
+          "altTextSrc": "imgAltText",
+          "altTextCustom": "",
+          "altTextMetaKey": "",
+          "titleTextSrc": "imgTitle",
+          "titleTextCustom": "",
+          "titleTextMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "class": "",
+          "size": {
+            "Desktop": "full",
+            "Tablet": "full",
+            "Mobile": "full"
+          }
+        },
+        "styles": {}
+      }
+    },
+    "lightbox": {
+      "type": "object",
+      "default": {
+        "options": {
+          "thumbSize": "full",
+          "enable": false
+        }
+      }
+    },
+    "lazyLoad": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "lazySrc": "",
+        "lazySrcId": "",
+        "lazySrcType": "media"
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "featured image",
+    "post featured image",
+    "post thumbnail image",
+    "featured image block",
+    "featured image for wordpress",
+    "featured image block for wordpress"
+  ],
+  "description": "The featured image block is a container for displaying the featured image within a webpage."
+}

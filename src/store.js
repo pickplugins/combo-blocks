@@ -1,23 +1,16 @@
 import apiFetch from "@wordpress/api-fetch";
-import { createReduxStore, register, subscribe, select } from "@wordpress/data";
-import { useSelect } from "@wordpress/data";
-
+import { createReduxStore, register, subscribe } from "@wordpress/data";
 const { __experimentalSetPreviewDeviceType: setPreviewDeviceType } =
 	wp.data.dispatch("core/edit-post");
-
 // if (wp.data.dispatch('core/edit-post') != null) {
 //   const {
 //     __experimentalSetPreviewDeviceType: setPreviewDeviceType,
-
 //   } = wp.data.dispatch('core/edit-post')
-
 // } else {
 //   const {
 //     __experimentalSetPreviewDeviceType: setPreviewDeviceType,
-
 //   } = wp.data.dispatch('core/edit-widgets')
 // }
-
 const DEFAULT_STATE = {
 	breakPoint: "Desktop",
 	clientdata: {},
@@ -25,34 +18,27 @@ const DEFAULT_STATE = {
 	blockCss: "",
 	stylesClipboard: null,
 };
-
 var selectors = {
 	getBreakPoint(state) {
 		const { breakPoint } = state;
-
 		return breakPoint;
 	},
 	getclientdata(state) {
 		const { clientdata } = state;
 		return clientdata;
 	},
-
 	getLicense(state) {
 		const { license } = state;
 		return license;
 	},
-
 	getStylesClipboard(state) {
 		const { stylesClipboard } = state;
 		return stylesClipboard;
 	},
-
 	parseCustomTags(state, str, tags) {
 		if (str !== undefined) {
 			var strArr = str?.split(" ");
-
 			if (str?.length == 0) return;
-
 			var newStr = strArr.map((item) => {
 				if (item.indexOf("currentYear") >= 0) {
 					return tags.currentYear.value;
@@ -136,14 +122,11 @@ var selectors = {
 					return item;
 				}
 			});
-
 			return newStr.join(" ");
 		}
 	},
-
 	cssAttrParse(state, key) {
 		var cssProp = "";
-
 		if (key == "alignContent") {
 			cssProp = "align-content";
 		} else if (key == "alignItems") {
@@ -388,20 +371,186 @@ var selectors = {
 		}
 		return cssProp;
 	},
-
 	onAddStyleItem(state, sudoScource, key, obj) {
 		const { breakPoint } = state;
-
 		var path = [sudoScource, key, breakPoint];
-
-		let objX = Object.assign({}, obj);
+		let objX = { ...obj };
 		const object = selectors.addPropertyDeep(state, objX, path, "");
-
 		return object;
 	},
+	onAddStyleElement(state, sudoScource, key, obj, attributeName, setAttributes) {
+		const { breakPoint } = state;
+		var path = [sudoScource, key, breakPoint];
+		let objX = { ...obj };
+		const object = selectors.addPropertyDeep(state, objX, path, "");
+		setAttributes({ [attributeName]: object });
+
+		//return object;
+
+	},
+	onResetElement(state, sudoSources, obj, attributeName, objSelector, blockCssY, setAttributes) {
+		const { breakPoint } = state;
+		let objX = { ...obj }
+		Object.entries(sudoSources).map((args) => {
+			var sudoScource = args[0];
+			if (objX[sudoScource] == undefined) {
+			} else {
+				objX[sudoScource] = {};
+				var elementSelector = selectors.getElementSelector(state.
+					sudoScource,
+					objSelector
+				);
+				var cssObject = selectors.deletePropertyDeep(state, blockCssY.items, [
+					elementSelector,
+				]);
+				setAttributes({ ["blockCssY"]: { items: cssObject } });
+			}
+		});
+		setAttributes({ [attributeName]: objX });
+
+	},
+	onBulkAddStyleElement(state, sudoScource, cssObj, obj, attributeName, objSelector, blockCssY, setAttributes) {
+
+		const { breakPoint } = state;
+		let objX = { ...obj };
+		objX[sudoScource] = cssObj;
+		setAttributes({ [attributeName]: objX });
+		var selector = selectors.getElementSelector(state, sudoScource, objSelector);
+		var stylesObj = {};
+		Object.entries(cssObj).map((args) => {
+			var attr = args[0];
+			var cssPropty = selectors.cssAttrParse(state, attr);
+			if (stylesObj[selector] == undefined) {
+				stylesObj[selector] = {};
+			}
+			if (stylesObj[selector][cssPropty] == undefined) {
+				stylesObj[selector][cssPropty] = {};
+			}
+			stylesObj[selector][cssPropty] = args[1];
+		});
+		var cssItems = { ...blockCssY.items };
+		var cssItemsX = { ...cssItems, ...stylesObj };
+		setAttributes({ ["blockCssY"]: { items: cssItemsX } });
+
+		Object.entries(cssItemsX).map((args) => {
+			var cssHandle = args[0]
+			var cssValues = args[1]
+			window.blocksCssArr[cssHandle] = cssValues
+		})
+
+	},
+
+
+
+
+
+
+
+
+
+
+
+	onChangeStyleElement(state, sudoScource, newVal, attr, obj, attributeName, objSelector, blockCssY, setAttributes) {
+		const { breakPoint } = state;
+
+		var path = [sudoScource, attr, breakPoint];
+		let objX = { ...obj };
+		const object = selectors.updatePropertyDeep(state, objX, path, newVal);
+		setAttributes({ [attributeName]: object });
+
+		var elementSelector = selectors.getElementSelector(state,
+			sudoScource,
+			objSelector
+		);
+
+		//console.log(elementSelector);
+
+
+		var cssPropty = selectors.cssAttrParse(state, attr);
+		let itemsX = { ...blockCssY.items };
+		if (itemsX[elementSelector] == undefined) {
+			itemsX[elementSelector] = {};
+		}
+		var cssPath = [elementSelector, cssPropty, breakPoint];
+		const cssItems = selectors.updatePropertyDeep(state, itemsX, cssPath, newVal);
+
+
+		Object.entries(cssItems).map((args) => {
+			var cssHandle = args[0]
+			var cssValues = args[1]
+			window.blocksCssArr[cssHandle] = cssValues
+		})
+
+		//console.log(window.blocksCssArr);
+
+
+		setAttributes({ ["blockCssY"]: { items: cssItems } });
+
+	},
+
+
+	onRemoveStyleElement(state, sudoScource, key, obj, attributeName, objSelector, blockCssY, setAttributes) {
+		const { breakPoint } = state;
+		let objX = { ...obj };
+		var object = selectors.deletePropertyDeep(state, objX, [
+			sudoScource,
+			key,
+			breakPoint,
+		]);
+		var isEmpty =
+			Object.entries(object[sudoScource][key]).length == 0 ? true : false;
+		var objectX = isEmpty
+			? selectors.deletePropertyDeep(state, object, [sudoScource, key])
+			: object;
+		setAttributes({ [attributeName]: objectX });
+
+
+		var elementSelector = selectors.getElementSelector(state,
+			sudoScource,
+			objSelector
+		);
+		var cssPropty = selectors.cssAttrParse(state, key);
+		var cssObject = selectors.deletePropertyDeep(state, blockCssY.items, [
+			elementSelector,
+			cssPropty,
+			breakPoint,
+		]);
+		var isEmptyX = cssObject[cssPropty] == undefined ? false : true;
+		var cssObjectX = isEmptyX ? selectors.deletePropertyDeep(state, cssObject, [cssPropty]) : cssObject;
+
+		console.log(cssObjectX);
+
+
+		Object.entries(cssObjectX).map((args) => {
+			var cssHandle = args[0]
+			var cssValues = args[1]
+			window.blocksCssArr[cssHandle] = cssValues
+		})
+
+		console.log(window.blocksCssArr);
+
+
+		setAttributes({ ["blockCssY"]: { items: cssObjectX } });
+
+		//return object;
+
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	addPropertyDeep(state, obj, path, value) {
 		const [head, ...rest] = path;
-
 		return {
 			...obj,
 			[head]: rest.length
@@ -409,21 +558,20 @@ var selectors = {
 				: value,
 		};
 	},
-
 	updatePropertyDeep(state, obj, path, value) {
 		const [head, ...rest] = path;
+
+		var headX = (obj[head] == undefined) ? "" : obj[head];
 
 		return {
 			...obj,
 			[head]: rest.length
-				? selectors.updatePropertyDeep(state, obj[head], rest, value)
+				? selectors.updatePropertyDeep(state, headX, rest, value)
 				: value,
 		};
 	},
-
 	setPropertyDeep(state, obj, path, value) {
 		const [head, ...rest] = path.split(".");
-
 		return {
 			...obj,
 			[head]: rest.length
@@ -431,17 +579,13 @@ var selectors = {
 				: value,
 		};
 	},
-
 	deletePropertyDeep(state, object, path) {
 		var last = path.pop();
 		delete path.reduce((o, k) => o[k] || {}, object)[last];
-
 		return object;
 	},
-
 	getElementSelector(state, sudoScource, mainSelector) {
 		var elementSelector = mainSelector;
-
 		if (sudoScource == "styles") {
 			elementSelector = mainSelector;
 		} else if (sudoScource == "hover") {
@@ -465,13 +609,10 @@ var selectors = {
 		} else {
 			elementSelector = mainSelector + ":" + sudoScource;
 		}
-
 		return elementSelector;
 	},
-
 	// generateElementCss(state, obj, elementSelector) {
 	// 	var cssObj = {};
-
 	// 	Object.entries(obj).map((args) => {
 	// 		var sudoSrc = args[0];
 	// 		var sudoArgs = args[1];
@@ -484,25 +625,20 @@ var selectors = {
 	// 			Object.entries(args[1]).map((x) => {
 	// 				var attr = x[0];
 	// 				var cssPropty = selectors.cssAttrParse(state, attr);
-
 	// 				if (cssObj[selector] == undefined) {
 	// 					cssObj[selector] = {};
 	// 				}
-
 	// 				if (cssObj[selector][cssPropty] == undefined) {
 	// 					cssObj[selector][cssPropty] = {};
 	// 				}
-
 	// 				cssObj[selector][cssPropty] = x[1];
 	// 			});
 	// 		}
 	// 	});
-
 	// 	return cssObj;
 	// },
 	generateElementCss(state, obj, elementSelector) {
 		var cssObj = {};
-
 		Object.entries(obj).map((args) => {
 			var sudoSrc = args[0];
 			var sudoArgs = args[1];
@@ -520,7 +656,6 @@ var selectors = {
 						(a, [k, v]) => (v ? ((a[k] = v), a) : a),
 						{}
 					);
-
 					if (Object.keys(found).length > 0) {
 						if (cssObj[selector] == undefined) {
 							cssObj[selector] = {};
@@ -528,45 +663,35 @@ var selectors = {
 						if (cssObj[selector][cssPropty] == undefined) {
 							cssObj[selector][cssPropty] = {};
 						}
-
 						cssObj[selector][cssPropty] = x[1];
 					}
 				});
 			}
 		});
-
 		return cssObj;
 	},
-
 	// getBlockCssRules(state, blockCssObj) {
 	// 	var blockCssRules = {};
-
 	// 	Object.entries(blockCssObj).map((args) => {
 	// 		var elementSelector = args[0];
 	// 		var elementObj = args[1];
-
 	// 		var elementCss = selectors.generateElementCss(
 	// 			state,
 	// 			elementObj,
 	// 			elementSelector
 	// 		);
-
 	// 		if (elementCss[elementSelector] == undefined) {
 	// 		} else {
 	// 			blockCssRules[elementSelector] = elementCss[elementSelector];
 	// 		}
 	// 	});
-
 	// 	return blockCssRules;
 	// },
-
 	getBlockCssRules(state, blockCssObj) {
 		var blockCssRules = {};
-
 		Object.entries(blockCssObj).map((args) => {
 			var elementSelector = args[0];
 			var elementObj = args[1];
-
 			var elementCss = selectors.generateElementCss(
 				state,
 				elementObj,
@@ -578,39 +703,33 @@ var selectors = {
 				blockCssRules[sudoSelector] = sudoVal;
 			});
 		});
-
 		return blockCssRules;
 	},
-
 	generateCssFromElementObject(state, obj, selector) {
 		var reponsiveCssGroups = {};
 	},
-
+	// generateBlockCss(state, items, blockId) {
+	// 	return "";
+	// },
 	generateBlockCss(state, items, blockId) {
+
 		const { blockCss } = state;
 		var reponsiveCssGroups = {};
-
 		for (var selector in items) {
 			var attrs = items[selector];
-
 			for (var attr in attrs) {
 				var breakpoints = attrs[attr];
-
 				for (var device in breakpoints) {
 					var attrValue = breakpoints[device];
-
 					if (reponsiveCssGroups[device] == undefined) {
 						reponsiveCssGroups[device] = [];
 					}
-
 					if (reponsiveCssGroups[device] == undefined) {
 						reponsiveCssGroups[device] = [];
 					}
-
 					if (reponsiveCssGroups[device][selector] == undefined) {
 						reponsiveCssGroups[device][selector] = [];
 					}
-
 					if (typeof attrValue == "string") {
 						attrValue = attrValue.replaceAll("u0022", '"');
 						reponsiveCssGroups[device][selector].push({
@@ -621,13 +740,10 @@ var selectors = {
 				}
 			}
 		}
-
 		var reponsiveCssDesktop = "";
-
 		if (reponsiveCssGroups["Desktop"] != undefined) {
 			for (var selector in reponsiveCssGroups["Desktop"]) {
 				var attrs = reponsiveCssGroups["Desktop"][selector];
-
 				reponsiveCssDesktop += selector + "{";
 				for (var index in attrs) {
 					var attr = attrs[index];
@@ -638,15 +754,11 @@ var selectors = {
 				reponsiveCssDesktop += "}";
 			}
 		}
-
 		var reponsiveCssTablet = "";
-
 		if (reponsiveCssGroups["Tablet"] != undefined) {
 			reponsiveCssTablet += "@media(max-width: 991px){";
-
 			for (var selector in reponsiveCssGroups["Tablet"]) {
 				var attrs = reponsiveCssGroups["Tablet"][selector];
-
 				reponsiveCssTablet += selector + "{";
 				for (var index in attrs) {
 					var attr = attrs[index];
@@ -656,18 +768,13 @@ var selectors = {
 				}
 				reponsiveCssTablet += "}";
 			}
-
 			reponsiveCssTablet += "}";
 		}
-
 		var reponsiveCssMobile = "";
-
 		if (reponsiveCssGroups["Mobile"] != undefined) {
 			reponsiveCssMobile += "@media(max-width:767px){";
-
 			for (var selector in reponsiveCssGroups["Mobile"]) {
 				var attrs = reponsiveCssGroups["Mobile"][selector];
-
 				reponsiveCssMobile += selector + "{";
 				for (var index in attrs) {
 					var attr = attrs[index];
@@ -679,74 +786,171 @@ var selectors = {
 			}
 			reponsiveCssMobile += "}";
 		}
-
-		var reponsiveCss =
-			reponsiveCssDesktop + reponsiveCssTablet + reponsiveCssMobile;
-
+		var reponsiveCss = reponsiveCssDesktop + reponsiveCssTablet + reponsiveCssMobile;
+		window.blocksStylesArr[blockId] = reponsiveCss
 		var iframe = document.querySelectorAll('[name="editor-canvas"]')[0];
-
 		if (iframe) {
 			setTimeout(() => {
 				var iframeDocument = iframe.contentDocument;
 				var body = iframeDocument.body;
 				var divWrap = iframeDocument.getElementById("css-block-" + blockId);
-
 				if (divWrap != undefined) {
 					iframeDocument.getElementById("css-block-" + blockId).outerHTML = "";
 				}
-
 				if (blockId.length == 0) return;
-
 				var divWrap = '<style id="css-block-' + blockId + '"></style>';
 				body.insertAdjacentHTML("beforeend", divWrap);
-
 				var csswrappg = iframeDocument.getElementById("css-block-" + blockId);
 				var str = "" + reponsiveCss + "";
-
 				csswrappg.insertAdjacentHTML("beforeend", str);
 			}, 200);
 		} else {
 			var wpfooter = document.getElementById("wpfooter");
 			var divWrap = document.getElementById("css-block-" + blockId);
-
 			if (divWrap != undefined) {
 				document.getElementById("css-block-" + blockId).outerHTML = "";
 			}
 			if (blockId.length == 0) return;
-
 			var divWrap = '<style id="css-block-' + blockId + '"></style>';
 			wpfooter.insertAdjacentHTML("beforeend", divWrap);
-
 			var csswrappg = document.getElementById("css-block-" + blockId);
 			var str = "" + reponsiveCss + "";
-
 			csswrappg.insertAdjacentHTML("beforeend", str);
 		}
-
 		return blockCss;
 	},
-};
+	generateCss(state, items) {
 
-var resolvers = {
-	*getLicense() {
-		const path = "/post-grid/v2/get_license";
-		const res = yield actions.fetchLicense(path);
+		const { blockCss } = state;
+		var reponsiveCssGroups = {};
+		for (var selector in items) {
+			var attrs = items[selector];
+			for (var attr in attrs) {
+				var breakpoints = attrs[attr];
+				for (var device in breakpoints) {
+					var attrValue = breakpoints[device];
+					if (reponsiveCssGroups[device] == undefined) {
+						reponsiveCssGroups[device] = [];
+					}
+					if (reponsiveCssGroups[device] == undefined) {
+						reponsiveCssGroups[device] = [];
+					}
+					if (reponsiveCssGroups[device][selector] == undefined) {
+						reponsiveCssGroups[device][selector] = [];
+					}
+					if (typeof attrValue == "string") {
+						attrValue = attrValue.replaceAll("u0022", '"');
+						reponsiveCssGroups[device][selector].push({
+							attr: attr,
+							val: attrValue,
+						});
+					}
+				}
+			}
+		}
+		var reponsiveCssDesktop = "";
+		if (reponsiveCssGroups["Desktop"] != undefined) {
+			for (var selector in reponsiveCssGroups["Desktop"]) {
+				var attrs = reponsiveCssGroups["Desktop"][selector];
+				reponsiveCssDesktop += selector + "{";
+				for (var index in attrs) {
+					var attr = attrs[index];
+					var attrName = attr.attr;
+					var attrValue = attr.val;
+					reponsiveCssDesktop += attrName + ":" + attrValue + ";";
+				}
+				reponsiveCssDesktop += "}";
+			}
+		}
+		var reponsiveCssTablet = "";
+		if (reponsiveCssGroups["Tablet"] != undefined) {
+			reponsiveCssTablet += "@media(max-width: 991px){";
+			for (var selector in reponsiveCssGroups["Tablet"]) {
+				var attrs = reponsiveCssGroups["Tablet"][selector];
+				reponsiveCssTablet += selector + "{";
+				for (var index in attrs) {
+					var attr = attrs[index];
+					var attrName = attr.attr;
+					var attrValue = attr.val;
+					reponsiveCssTablet += attrName + ":" + attrValue + ";";
+				}
+				reponsiveCssTablet += "}";
+			}
+			reponsiveCssTablet += "}";
+		}
+		var reponsiveCssMobile = "";
+		if (reponsiveCssGroups["Mobile"] != undefined) {
+			reponsiveCssMobile += "@media(max-width:767px){";
+			for (var selector in reponsiveCssGroups["Mobile"]) {
+				var attrs = reponsiveCssGroups["Mobile"][selector];
+				reponsiveCssMobile += selector + "{";
+				for (var index in attrs) {
+					var attr = attrs[index];
+					var attrName = attr.attr;
+					var attrValue = attr.val;
+					reponsiveCssMobile += attrName + ":" + attrValue + ";";
+				}
+				reponsiveCssMobile += "}";
+			}
+			reponsiveCssMobile += "}";
+		}
+		var reponsiveCss = reponsiveCssDesktop + reponsiveCssTablet + reponsiveCssMobile;
 
-		return actions.setLicense(res);
+		var iframe = document.querySelectorAll('[name="editor-canvas"]')[0];
+		if (iframe) {
+			setTimeout(() => {
+				var iframeDocument = iframe.contentDocument;
+				var body = iframeDocument.body;
+				var divWrap = iframeDocument.getElementById("combo-blocks-css");
+				if (divWrap != undefined) {
+					iframeDocument.getElementById("combo-blocks-css").outerHTML = "";
+				}
+
+				var divWrap = '<style id="combo-blocks-css"></style>';
+				body.insertAdjacentHTML("beforeend", divWrap);
+				var csswrappg = iframeDocument.getElementById("combo-blocks-css");
+				csswrappg.insertAdjacentHTML("beforeend", reponsiveCss);
+			}, 200);
+		} else {
+			var wpfooter = document.getElementById("wpfooter");
+			var divWrap = document.getElementById("combo-blocks-css");
+			if (divWrap != undefined) {
+				document.getElementById("combo-blocks-css").outerHTML = "";
+			}
+
+			var divWrap = '<style id="combo-blocks-css"></style>';
+			wpfooter.insertAdjacentHTML("beforeend", divWrap);
+			var csswrappg = document.getElementById("combo-blocks-css");
+			csswrappg.insertAdjacentHTML("beforeend", reponsiveCss);
+		}
+		return blockCss;
 	},
 
-	*getclientdata() {
-		const path = "/post-grid/v2/get_site_details";
-		const res = yield actions.fetchclientdata(path);
 
+
+
+
+
+
+
+
+
+};
+var resolvers = {
+	*getLicense() {
+		const path = "/combo-blocks/v2/get_license";
+		const res = yield actions.fetchLicense(path);
+		return actions.setLicense(res);
+	},
+	*getclientdata() {
+		const path = "/combo-blocks/v2/get_site_details";
+		const res = yield actions.fetchclientdata(path);
 		return actions.setclientdata(res);
 	},
 };
-
 const actions = {
 	setBreakPoint(breakpoint) {
 		setPreviewDeviceType(breakpoint);
-
 		return {
 			type: "SET_BREAKPOINT",
 			breakpoint,
@@ -758,7 +962,6 @@ const actions = {
 			clientdata,
 		};
 	},
-
 	setLicense(license) {
 		return {
 			type: "SET_LICENSE",
@@ -771,7 +974,6 @@ const actions = {
 			stylesClipboard,
 		};
 	},
-
 	fetchLicense(path) {
 		return {
 			type: "FETCH_LICENSE_FROM_API",
@@ -785,22 +987,18 @@ const actions = {
 		};
 	},
 };
-
 var controls = {
 	FETCH_LICENSE_FROM_API(action) {
 		return apiFetch({ path: action.path, method: "POST", data: {} });
 	},
-
 	FETCH_CLIENTDATA_FROM_API(action) {
 		return apiFetch({ path: action.path, method: "POST", data: {} });
 	},
-
 	FETCH_PRO_INFO_FROM_API(action) {
 		return apiFetch({ path: action.path, method: "POST", data: {} });
 	},
 };
-
-const store = createReduxStore("postgrid-shop", {
+const store = createReduxStore("ComboBlocksStore", {
 	reducer(state = DEFAULT_STATE, action) {
 		switch (action.type) {
 			case "SET_BREAKPOINT":
@@ -808,37 +1006,30 @@ const store = createReduxStore("postgrid-shop", {
 					...state,
 					breakPoint: action.breakpoint,
 				};
-
 			case "SET_CLIENTDATA":
 				return {
 					...state,
 					clientdata: action.clientdata,
 				};
-
 			case "SET_LICENSE":
 				return {
 					...state,
 					license: action.license,
 				};
-
 			case "SET_CLIPBOARD":
 				return {
 					...state,
 					stylesClipboard: action.stylesClipboard,
 				};
 		}
-
 		return state;
 	},
-
 	actions,
 	selectors,
 	controls,
 	resolvers,
 });
-
 register(store);
-
-subscribe(() => {});
-
+subscribe(() => { });
 export { store };
+

@@ -1,4 +1,5 @@
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown } from "@wordpress/components";
 import {
 	createElement,
@@ -14,52 +15,41 @@ import {
 	ColorPalette,
 } from "@wordpress/components";
 import { Icon, close } from "@wordpress/icons";
-
 import PGColorPicker from "../../components/input-color-picker";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	//var valParts = ['1fr', '1fr', '1fr'];
 	var valParts =
 		props.val == undefined || props.val == null || props.val.length == 0
 			? ["1fr"]
 			: props.val.split(" ");
-
 	var unitArgs = {
 		fr: { label: "FR", value: "fr" },
-
 		px: { label: "PX", value: "px" },
 		em: { label: "EM", value: "em" },
 		rem: { label: "REM", value: "rem" },
 		"%": { label: "%", value: "%" },
-
 		cm: { label: "CM", value: "cm" },
 		mm: { label: "MM", value: "mm" },
 		in: { label: "IN", value: "in" },
 		pt: { label: "PT", value: "pt" },
 		pc: { label: "PC", value: "pc" },
 		ex: { label: "EX", value: "ex" },
-
 		ch: { label: "CH", value: "ch" },
 		vw: { label: "VW", value: "vw" },
 		vh: { label: "VH", value: "vh" },
 		vmin: { label: "VMIN", value: "vmin" },
 		vmax: { label: "VMAX", value: "vmax" },
-
 		// none: { "label": "none", "value": "none" },
 		// inherit: { "label": "inherit", "value": "inherit" },
 		// initial: { "label": "initial", "value": "initial" },
 		// revert: { "label": "revert", "value": "revert" },
 		// unset: { "label": "unset", "value": "unset" },
 	};
-
 	const [valArgs, setvalArgs] = useState(valParts);
-
 	useEffect(() => { }, [props.val]);
-
 	return (
 		<div>
 			<div
@@ -67,12 +57,10 @@ function Html(props) {
 				onClick={(ev) => {
 					var valArgsX = valArgs.concat("1fr");
 					setvalArgs(valArgsX);
-
 					props.onChange(valArgsX.join(" "), "gridTemplateRows");
 				}}>
-				Add
+				{__("Add", "combo-blocks")}
 			</div>
-
 			{valArgs.map((part, index) => {
 				var valNumber =
 					part.match(/-?\d+/g) != null ? part.match(/-?\d+/g)[0] : 1;
@@ -80,7 +68,6 @@ function Html(props) {
 					part.match(/[a-zA-Z%]+/g) != null
 						? part.match(/[a-zA-Z%]+/g)[0]
 						: "fr";
-
 				return (
 					<div className="my-2">
 						<div className="flex justify-between items-center">
@@ -88,13 +75,11 @@ function Html(props) {
 								className="bg-red-500  inline-block hover:bg-red-400 mx-3 p-1 cursor-pointer"
 								onClick={(ev) => {
 									valArgs.splice(index, 1);
-
 									setvalArgs(valArgs);
 									props.onChange(valArgs.join(" "), "gridTemplateRows");
 								}}>
 								<Icon fill="#fff" icon={close} />
 							</span>
-
 							<InputControl
 								value={valNumber}
 								type="number"
@@ -102,7 +87,6 @@ function Html(props) {
 									var valIndex = newVal + valUnit;
 									valArgs[index] = valIndex;
 									setvalArgs(valArgs);
-
 									props.onChange(valArgs.join(" "), "gridTemplateRows");
 								}}
 							/>
@@ -114,7 +98,7 @@ function Html(props) {
 											<div className=" ">
 												{valUnit != undefined
 													? unitArgs[valUnit].label
-													: "Select..."}
+													: __("Select...", "combo-blocks")}
 											</div>
 										</Button>
 									)}
@@ -129,14 +113,10 @@ function Html(props) {
 															"px-3 py-1 border-b block hover:bg-gray-400 cursor-pointer"
 														}
 														onClick={(ev) => {
-
-
 															//props.onChange(valNumber + x.value, 'border');
-
 															var valIndex = valNumber + x.value;
 															valArgs[index] = valIndex;
 															setvalArgs(valArgs);
-
 															props.onChange(
 																valArgs.join(" "),
 																"gridTemplateRows"
@@ -157,23 +137,19 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGcssGridTemplateRows extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const { val, onChange } = this.props;
-
 		return (
 			<div>
 				<Html val={val} onChange={onChange} warn={this.state.showWarning} />
@@ -181,5 +157,4 @@ class PGcssGridTemplateRows extends Component {
 		);
 	}
 }
-
 export default PGcssGridTemplateRows;

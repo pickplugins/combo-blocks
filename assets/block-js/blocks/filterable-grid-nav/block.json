@@ -1,0 +1,310 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/",
+  "title": "Filterable Grid - Nav",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/filterable-grid"
+  ],
+  "usesContext": [
+    "combo-blocks/postGridId",
+    "combo-blocks/pagination",
+    "combo-blocks/paginationItem",
+    "combo-blocks/paginationItemActive",
+    "combo-blocks/activeFilter",
+    "combo-blocks/filterGroupWrap",
+    "combo-blocks/filterGroup",
+    "combo-blocks/filterable"
+  ],
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center",
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "lazyLoad": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "lazyLoad",
+          "enable": "no",
+          "srcUrl": "",
+          "srcId": "",
+          "icon": {
+            "library": "",
+            "srcType": "class",
+            "iconSrc": ""
+          }
+        },
+        "styles": {}
+      }
+    },
+    "search": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "search",
+          "enable": "no",
+          "type": "",
+          "placeholder": "",
+          "icon": "",
+          "busyIcon": ""
+        },
+        "styles": {}
+      }
+    },
+    "filterable": {
+      "type": "object",
+      "default": {
+        "options": {
+          "filters": [],
+          "allText": "All",
+          "logicWithinGroup": "",
+          "logicBetweenGroups": "",
+          "multifilter": false,
+          "showSort": "",
+          "filterToggle": "no",
+          "showRandom": "",
+          "showAll": "yes",
+          "showClear": "",
+          "activeFilter": "",
+          "perPage": 6
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "padding": {
+            "Desktop": "8px 10px 8px 10px"
+          },
+          "margin": {
+            "Desktop": "10px 10px 10px 10px"
+          },
+          "display": {
+            "Desktop": "inline-block"
+          },
+          "cursor": {
+            "Desktop": "pointer"
+          },
+          "border": {
+            "Desktop": "1px solid #bebebe"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontWeight": {
+            "Desktop": "500"
+          }
+        }
+      }
+    },
+    "activeFilter": {
+      "type": "object",
+      "default": {
+        "options": {
+          "slug": "all"
+        },
+        "styles": {
+          "backgroundColor": {
+            "Desktop": "#7d7d7d"
+          }
+        }
+      }
+    },
+    "filterGroupWrap": {
+      "type": "object",
+      "default": {
+        "options": {},
+        "styles": {}
+      }
+    },
+    "filterGroup": {
+      "type": "object",
+      "default": {
+        "options": {},
+        "styles": {
+          "color": {
+            "Desktop": "#18978F"
+          },
+          "margin": {
+            "Desktop": "0px 0px 10px 0px"
+          },
+          "display": {
+            "Desktop": "inline-block"
+          }
+        }
+      }
+    },
+    "container": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "itemsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "items-loop"
+        },
+        "styles": {}
+      }
+    },
+    "itemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "item"
+        },
+        "styles": {}
+      }
+    },
+    "noPostsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "no-posts text-center"
+        },
+        "styles": {}
+      }
+    },
+    "spinnerWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "spinner"
+        },
+        "styles": {}
+      }
+    },
+    "grid": {
+      "type": "object",
+      "default": {
+        "options": {
+          "itemCss": {}
+        },
+        "styles": {}
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pagination ",
+          "type": "filterable",
+          "maxPageNum": "",
+          "prevText": "Previous",
+          "nextText": "Next",
+          "loadMoreText": "Load More",
+          "noMorePosts": "No More Posts",
+          "loadingText": "Loading...",
+          "loadingIcon": {
+            "library": "",
+            "srcType": "class",
+            "iconSrc": ""
+          }
+        },
+        "styles": {}
+      }
+    },
+    "paginationItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "paginationItemActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "layout": {
+      "type": "object",
+      "default": {
+        "id": "",
+        "srcServer": "library",
+        "data": [],
+        "rawData": ""
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "queryArgs": {
+      "type": "object",
+      "default": {
+        "items": [
+          {
+            "val": [
+              "post"
+            ],
+            "id": "postType"
+          },
+          {
+            "val": [
+              "publish"
+            ],
+            "id": "postStatus"
+          },
+          {
+            "val": "DESC",
+            "id": "order"
+          },
+          {
+            "val": [
+              "date"
+            ],
+            "id": "orderby"
+          },
+          {
+            "val": 3,
+            "id": "postsPerPage"
+          },
+          {
+            "val": 1,
+            "id": "paged"
+          }
+        ]
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post grid filterable",
+    "post filterable block",
+    "filterable grid block",
+    "filterable grid for wordpress",
+    "post grid filterable block",
+    "post grid filterable for wordpress",
+    "post filterable block for wordpress"
+  ],
+  "description": "The post grid filterable block is a dynamic element that organizes and displays blog posts in a grid format, allowing users to filter and sort posts by categories."
+}

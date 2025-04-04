@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/popup",
+  "title": "Popup",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "providesContext": {
+    "combo-blocks/popupId": "blockId"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-popup"
+        },
+        "styles": {}
+      }
+    },
+    "inner": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "closeWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "span",
+          "class": "",
+          "animation": "",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "triggerName": "",
+          "iconSrc": "fas fa-chevron-right"
+        },
+        "styles": {}
+      }
+    },
+    "entranceWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "span",
+          "class": "",
+          "animation": "fadeIn",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-right"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "trigger": {
+      "type": "object",
+      "default": {}
+    },
+    "closeTrigger": {
+      "type": "object",
+      "default": {
+        "rules": []
+      }
+    },
+    "editMode": {
+      "type": "boolean",
+      "default": true
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "editorStyle": "pgpopup-animate",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "popup",
+    "popup form",
+    "Popups",
+    "Popup Builder",
+    "Popup Maker",
+    "Popup Maker",
+    "Lead Generation",
+    "Optins",
+    "Video PopUp",
+    "Popup Anything",
+    "popup block",
+    "popup for wordpress",
+    "popup block for wordpress"
+  ],
+  "description": "The popup block is a user-triggered element that displays additional content or information in an overlay, often used for alerts, messages, or interactive features on a webpage."
+}

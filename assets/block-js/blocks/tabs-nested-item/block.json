@@ -1,0 +1,121 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/tabs-nested-item",
+  "title": "Tabs Nested Item",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/tabs-nested"
+  ],
+  "usesContext": [
+    "combo-blocks/tabsNestedIcon",
+    "combo-blocks/tabsNestedIconToggle",
+    "activeTab"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "navItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "viewType": "horizontal",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "activeNavItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "viewType": "horizontal",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "navLabel": {
+      "type": "object",
+      "default": {
+        "options": {
+          "viewType": "horizontal",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-down",
+          "position": "before",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "iconToggle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-down",
+          "position": "before",
+          "class": "icon-toggle"
+        },
+        "styles": {}
+      }
+    },
+    "panelWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "viewType": "horizontal",
+          "position": "left",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "uid": {
+      "type": "string",
+      "default": ""
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "nested tabs",
+    "multi level tabs",
+    "advanced tabs",
+    "tab content",
+    "jquery tabs",
+    "tabs block",
+    "tabs for wordpress",
+    "tabs block for wordpress"
+  ],
+  "description": "This block is the inner block of nested tabs block"
+}

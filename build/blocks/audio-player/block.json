@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/audio-player",
+  "title": "Audio Player",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-audio-player",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "audio": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-audio",
+          "controls": true,
+          "autoplay": true,
+          "muted": true,
+          "loop": true,
+          "sources": []
+        },
+        "styles": {}
+      }
+    },
+    "triggersPlay": {
+      "type": "object",
+      "default": {}
+    },
+    "triggersPause": {
+      "type": "object",
+      "default": {}
+    },
+    "triggersStop": {
+      "type": "object",
+      "default": {}
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

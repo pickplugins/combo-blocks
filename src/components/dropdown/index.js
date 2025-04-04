@@ -1,5 +1,6 @@
 import { Button, PanelRow, Dropdown, Popover } from "@wordpress/components";
 import { __experimentalInputControl as InputControl } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
 import {
 	createElement,
 	useCallback,
@@ -9,50 +10,34 @@ import {
 	useEffect,
 	Component,
 	RawHTML,
-
-
 	useRef,
-
-
 } from "@wordpress/element";
-
 import { DOWN, ENTER } from "@wordpress/keycodes";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	const [pickerOpen, setPickerOpen] = useState(false);
 	const [keyword, setKeyword] = useState("");
-
 	const [filteredOptions, setfilteredOptions] = useState([]);
-
 	var position = props.position;
 	var variant = props.variant;
 	var btnClass = props.btnClass;
-
 	var options = props.options;
 	var buttonTitle = props.buttonTitle;
 	var value = props.value == undefined ? "" : props.value;
 	var onChange = props.onChange;
-
 	//
 	const firstElementRef = useRef(null);
-
 	useEffect(() => {
 		if (pickerOpen && firstElementRef.current) {
 			firstElementRef.current.focus();
 		}
 	}, [pickerOpen]);
-
 	const handleKeyDown = (event) => {
 		if (!props.warn) return;
-
 		const focusableElements = document.querySelectorAll(".focusable");
-
 		const inputControl = document.querySelector(".pgDropdownSearch");
-
 		switch (event.key) {
 			case "ArrowDown":
 				// case "ArrowRight":
@@ -89,7 +74,6 @@ function Html(props) {
 				break;
 		}
 	};
-
 	// Handle focusing on the first element
 	// useEffect(() => {
 	// 	if (props.warn && firstElementRef.current) {
@@ -97,11 +81,9 @@ function Html(props) {
 	// 	}
 	// }, [props.warn]);
 	//
-
 	function isNumeric(n) {
 		return !isNaN(parseFloat(n)) && isFinite(n);
 	}
-
 	return (
 		<div className="relative">
 			<div
@@ -109,26 +91,23 @@ function Html(props) {
 				onClick={(ev) => {
 					setPickerOpen((prev) => !prev);
 				}}>
-
 				{typeof value == "string" && (
 					<Button
-						className={`${btnClass} pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-indigo-400 !text-white font-medium !rounded hover:!bg-indigo-500 hover:text-white focus:outline-none focus:bg-indigo-500`}
+						className={`${btnClass} pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-gray-700 !text-white font-medium !rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-600`}
 					// variant={variant}
 					>
 						{options[value] != undefined ? options[value]?.label : buttonTitle}
 					</Button>
 				)}
-
 				{typeof value != "string" && (
 					<Button
-						className={`${btnClass} pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-indigo-400 !text-white font-medium !rounded hover:!bg-indigo-500 hover:text-white focus:outline-none focus:bg-indigo-500`}
+						className={`${btnClass} pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-gray-700 !text-white font-medium !rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-600`}
 					// variant={variant}
 					>
 						{buttonTitle}
 					</Button>
 				)}
 			</div>
-
 			{pickerOpen && (
 				<Popover position={position}>
 					<div
@@ -142,7 +121,6 @@ function Html(props) {
 							<span className="text-[20px] text-white ">&times;</span>
 						</span>
 						<div className="flex flex-col w-full ">
-
 							<InputControl
 								autoComplete="off"
 								className="p-3 w-full pgDropdownSearch"
@@ -157,15 +135,12 @@ function Html(props) {
 									if (newValX.length > 0) {
 										setKeyword(newValX);
 									}
-
 									if (typeof options == "object") {
 										setfilteredOptions({});
 										var newOptions = {};
-
 										Object.entries(options).map((args) => {
 											var index = args[0];
 											var x = args[1];
-
 											let position = x.label
 												.toLowerCase()
 												.search(newValX.toLowerCase());
@@ -174,15 +149,12 @@ function Html(props) {
 											} else {
 												x.exclude = false;
 											}
-
 											newOptions[index] = x;
 										});
-
 										setfilteredOptions(newOptions);
 									} else {
 										setfilteredOptions([]);
 										var newOptions = [];
-
 										options.map((x, index) => {
 											let position = x.label
 												.toLowerCase()
@@ -192,10 +164,8 @@ function Html(props) {
 											} else {
 												x.exclude = false;
 											}
-
 											//newOptions.push(x);
 										});
-
 										setfilteredOptions(newOptions);
 									}
 								}}
@@ -209,19 +179,15 @@ function Html(props) {
 								to access by keyboard.
 							</p>
 						</div>
-
 						<div>
 							{keyword.length == 0 &&
 								typeof options == "object" &&
 								Object.entries(options).map((args) => {
 									var index = args[0];
 									var x = args[1];
-
 									return (
 										<button
-
 											ref={firstElementRef}
-
 											className={[
 												typeof value == "object" &&
 													value.includes(
@@ -234,7 +200,6 @@ function Html(props) {
 												if (x.isPro == true) {
 													alert("Sorry this feature only available in pro");
 												}
-
 												else if (x.isComming == true) {
 													ev.preventDefault();
 													alert("Sorry this feature is comming soon");
@@ -257,27 +222,22 @@ function Html(props) {
 													<span className=" text-left">{x.label}</span>
 												</div>
 												{x.isPro && (
-
 													<a
 														target="_blank"
 														href={
-															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 															x.label
 														}
 														className=" no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</a>
 												)}
-
 												{x.isComming && (
 													<span
-
 														className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Coming Soon
+														{__("Coming Soon", "combo-blocks")}
 													</span>
 												)}
-
-
 											</div>
 											{x.description != undefined &&
 												x.description.length > 0 && (
@@ -288,15 +248,12 @@ function Html(props) {
 										</button>
 									);
 								})}
-
 							{keyword.length == 0 &&
 								typeof options == "array" &&
 								options.map((x, index) => {
 									return (
 										<button
-
 											ref={firstElementRef}
-
 											className={[
 												typeof value == "object" &&
 													value.includes(
@@ -306,7 +263,6 @@ function Html(props) {
 													: "border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:!border-b-0 min-h-[40px] ",
 											]}
 											onClick={(ev) => {
-
 												if (x.isPro == true) {
 													alert("Sorry this feature only available in pro");
 												} else {
@@ -331,28 +287,20 @@ function Html(props) {
 													<a
 														target="_blank"
 														href={
-															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 															x.label
 														}
 														className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</a>
 												)}
-
-
-
 												{x.isComming && (
 													<span
-
 														className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Coming Soon
+														{__("Coming Soon", "combo-blocks")}
 													</span>
 												)}
-
-
-
 											</div>
-
 											{x.description != undefined &&
 												x.description.length > 0 && (
 													<div className="text-xs text-slate-400 text-left">
@@ -362,29 +310,23 @@ function Html(props) {
 										</button>
 									);
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "object" &&
 								Object.entries(filteredOptions).map((args) => {
 									var index = args[0];
 									var x = args[1];
-
 									if (x.exclude == false) {
 										return (
 											<button
-
 												ref={firstElementRef}
-
 												className="w-full focusable !border-b !border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent !border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:!border-b-0 min-h-[40px] "
 												onClick={(ev) => {
 													//onChange(x, index)
-
 													if (x.isPro == true) {
 														ev.preventDefault();
 														alert("Sorry this feature only available in pro");
 														return;
 													}
-
 													else if (x.isComming == true) {
 														ev.preventDefault();
 														alert("Sorry this feature is comming soon");
@@ -412,11 +354,11 @@ function Html(props) {
 														<a
 															target="_blank"
 															href={
-																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 																x.label
 															}
 															className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Pro
+															{__("Pro", "combo-blocks")}
 														</a>
 													)}
 												</div>
@@ -430,20 +372,16 @@ function Html(props) {
 										);
 									}
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "array" &&
 								filteredOptions.map((x, index) => {
 									if (x.exclude == false) {
 										return (
 											<button
-
 												ref={firstElementRef}
-
 												className="w-full focusable !border-b !border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent !border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:!border-b-0 min-h-[40px] "
 												onClick={(ev) => {
 													//onChange(x, index)
-
 													if (x.isPro == true) {
 														alert("Sorry this feature only available in pro");
 													}
@@ -452,7 +390,6 @@ function Html(props) {
 														alert("Sorry this feature is comming soon");
 														return;
 													}
-
 													else {
 														onChange(x, index);
 													}
@@ -475,22 +412,19 @@ function Html(props) {
 														<a
 															target="_blank"
 															href={
-																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 																x.label
 															}
 															className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Pro
+															{__("Pro", "combo-blocks")}
 														</a>
 													)}
-
 													{x.isComming && (
 														<span
-
 															className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Coming Soon
+															{__("Coming Soon", "combo-blocks")}
 														</span>
 													)}
-
 												</div>
 												{x.description != undefined &&
 													x.description.length > 0 && (
@@ -502,18 +436,16 @@ function Html(props) {
 										);
 									}
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "object" &&
 								Object.entries(filteredOptions).length == 0 && (
 									<div className="text-center p-2 text-red-500 ">
-										No options found.
+										{__("No options found.", "combo-blocks")}
 									</div>
 								)}
-
 							{keyword.length > 0 && filteredOptions.length == 0 && (
 								<div className="text-center p-2 text-red-500 ">
-									No options found.
+									{__("No options found.", "combo-blocks")}
 								</div>
 							)}
 						</div>
@@ -524,20 +456,17 @@ function Html(props) {
 		</div >
 	);
 }
-
 class PGDropdown extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const {
 			position,
@@ -550,7 +479,6 @@ class PGDropdown extends Component {
 			values,
 			value,
 		} = this.props;
-
 		return (
 			<div>
 				<Html
@@ -569,5 +497,4 @@ class PGDropdown extends Component {
 		);
 	}
 }
-
 export default PGDropdown;

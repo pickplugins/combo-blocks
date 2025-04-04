@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/embeds",
+  "title": "embeds",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-embeds",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "iframe": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "iframe",
+          "src": "",
+          "allowfullscreen": false,
+          "provider": "",
+          "providerPrams": {},
+          "title": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

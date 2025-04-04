@@ -1,6 +1,6 @@
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown } from "@wordpress/components";
-
 class IconToggle extends Component {
 	render() {
 		const {
@@ -12,7 +12,6 @@ class IconToggle extends Component {
 			activeIcon,
 			value,
 		} = this.props;
-
 		return (
 			<div>
 				<Dropdown
@@ -43,7 +42,6 @@ class IconToggle extends Component {
 												<span className="icon-close"></span>
 											</div>
 										)}
-
 										{x.value && <RawHTML>{x.icon}</RawHTML>}
 									</div>
 								);
@@ -55,5 +53,4 @@ class IconToggle extends Component {
 		);
 	}
 }
-
 export default IconToggle;

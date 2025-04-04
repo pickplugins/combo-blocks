@@ -1,0 +1,155 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/wordpress-org-item",
+  "title": "wordpress-org-item",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/flex-wrap-item",
+    "combo-blocks/grid-wrap-item",
+    "combo-blocks/list-nested-item",
+    "combo-blocks/layers",
+    "combo-blocks/layer",
+    "combo-blocks/wordpress-org"
+  ],
+  "usesContext": [
+    "combo-blocks/WPObject",
+    "combo-blocks/wordpressORG",
+    "combo-blocks/WPIcon"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "elements": {
+      "type": "object",
+      "default": {
+        "items": [
+          {
+            "id": "name",
+            "label": "Plugin Name",
+            "prefix": "Plugin Name: "
+          },
+          {
+            "id": "version",
+            "label": "Version",
+            "prefix": "Version: "
+          }
+        ]
+      }
+    },
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "field": "name",
+          "prefix": "",
+          "isLink": "",
+          "thumbSize": "high",
+          "dateFormat": "Y-M-d",
+          "linkToPlug": "false",
+          "linkText": "",
+          "urlPrefix": "",
+          "limit": "1",
+          "enableAvatar": "",
+          "enableName": "true",
+          "class": "pg-wordpress-org-item"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "far fa-calendar-alt",
+          "position": "",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "item",
+          "tag": "li"
+        },
+        "styles": {}
+      }
+    },
+    "itemsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "item",
+          "tag": "ul"
+        },
+        "styles": {}
+      }
+    },
+    "itemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "item",
+          "tag": "li"
+        },
+        "styles": {}
+      }
+    },
+    "thumb": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "thumb"
+        },
+        "styles": {}
+      }
+    },
+    "object": {
+      "type": "object",
+      "default": {
+        "options": {
+          "type": "plugin",
+          "data": {},
+          "slug": "combo-blocks"
+        }
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "wordpress.org",
+    "plugin information",
+    "plugin info",
+    "theme information",
+    "theme info",
+    "wordpress plugin info block",
+    "plugin info block"
+  ],
+  "description": "The wordpress-org block shows the details of wordpress themes and plugins, such as - name, version, author, etc."
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/woo-price",
+  "title": "Product Price",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-woo",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-woo-price"
+        },
+        "styles": {}
+      }
+    },
+    "currency": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "",
+          "symbole": "$",
+          "position": "",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "discounted": {
+      "type": "object",
+      "default": {
+        "options": {
+          "value": 123,
+          "tag": "span",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "regular": {
+      "type": "object",
+      "default": {
+        "options": {
+          "value": 123,
+          "tag": "span",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "-",
+          "tag": "span",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "product price",
+    "woocommerce price block",
+    "woocommerce price",
+    "woocommerce product price",
+    "custom price",
+    "price button",
+    "price block",
+    "product price block",
+    "product price for woocommerce",
+    "product price block for woocommerce"
+  ],
+  "description": "The product price block displays the cost or value of a product or service on WooCommerce product page."
+}

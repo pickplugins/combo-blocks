@@ -1,0 +1,192 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/woo-star-rate",
+  "title": "Product Ratings",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-woo",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-woo-star-rate"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "gap": {
+            "Desktop": "10px"
+          }
+        }
+      }
+    },
+    "iconsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeSku",
+          "class": ""
+        },
+        "styles": {
+          "display": {
+            "Desktop": "inline-block"
+          },
+          "fontSize": {
+            "Desktop": "30px"
+          },
+          "fontWeight": {
+            "Desktop": "700"
+          }
+        }
+      }
+    },
+    "iconsIdle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#fde68a"
+          },
+          "position": {
+            "Desktop": "relative"
+          },
+          "display": {
+            "Desktop": "flex"
+          }
+        }
+      }
+    },
+    "iconsFilled": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#f59e0b"
+          },
+          "display": {
+            "Desktop": "flex"
+          },
+          "position": {
+            "Desktop": "absolute"
+          },
+          "overflow": {
+            "Desktop": "hidden"
+          },
+          "top": {
+            "Desktop": "0px"
+          },
+          "left": {
+            "Desktop": "0px"
+          },
+          "width": {
+            "Desktop": "75%"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "default": {
+        "options": {
+          "type": "",
+          "typeCustom": "",
+          "linkTo": "reviews",
+          "class": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          }
+        }
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "star rate",
+    "product star rate",
+    "star rates",
+    "star rating",
+    "star ratings",
+    "advanced star rate",
+    "star rate block",
+    "star rate for woocommerce",
+    "star rating for woocommerce",
+    "star rate block for woocommerce"
+  ],
+  "description": "The star rate block shows the average rating or user reviews of a product."
+}

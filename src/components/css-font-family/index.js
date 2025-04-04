@@ -1,25 +1,19 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown, Spinner } from "@wordpress/components";
 import { useState, useEffect } from "@wordpress/element";
 import { Icon, close, settings, cloud, plus } from "@wordpress/icons";
 import { ReactSortable } from "react-sortablejs";
-
 import apiFetch from "@wordpress/api-fetch";
-
 import {
 	__experimentalInputControl as InputControl,
 	ColorPalette,
 } from "@wordpress/components";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var isLoaded = props.isLoaded;
-
-
-
 	var fontsLibrary = [
 		"ABeeZee",
 		"Abel",
@@ -1587,12 +1581,10 @@ function Html(props) {
 		"Zilla Slab",
 		"Zilla Slab Highlight",
 	];
-
 	var valZ =
 		props.val == null || props.val == undefined || props.val.length == 0
 			? ""
 			: props.val;
-
 	const [fonts, setfonts] = useState(
 		props.val == null || props.val == undefined || props.val.length == 0
 			? []
@@ -1602,29 +1594,20 @@ function Html(props) {
 	const [fontsFiltered, setfontsFiltered] = useState([]);
 	const [customFonts, setCustomFonts] = useState([]);
 	const [fontFaceCSS, setFontFaceCSS] = useState("");
-
 	useEffect(() => {
-		apiFetch({
-			path: "/post-grid/v2/get_options",
-			method: "POST",
-			data: { option: "post_grid_block_editor" },
-		}).then((res) => {
-			if (res.customFonts !== undefined && res.customFonts.length != 0) {
-				setCustomFonts(res.customFonts);
-			}
-		});
-	}, []);
+		if (window.comboBlocksEditor.customFonts !== undefined && window.comboBlocksEditor.customFonts.length != 0) {
+			setCustomFonts(window.comboBlocksEditor.customFonts);
+		}
+	}, [window.comboBlocksEditor]);
 
 	useEffect(() => {
 		var str = "";
-
 		{
 			customFonts.length != 0 &&
 				customFonts.map((font, index) => {
 					var fontFamily = font.family;
 					var src = font.src[0]?.url;
 					var fontWeight = font.weight;
-
 					str += `@font-face {
     font-family: '${fontFamily}';
     src: url('${src}');
@@ -1632,25 +1615,18 @@ function Html(props) {
   }`;
 				});
 		}
-
 		setFontFaceCSS(str);
-
 		var wpfooter = document.getElementById("wpfooter");
 		var divWrap = document.getElementById("pg-font-face");
-
 		if (divWrap != undefined) {
 			document.getElementById("pg-font-face").outerHTML = "";
 		}
-
 		var divWrap = '<div id="pg-font-face"></div>';
 		wpfooter.insertAdjacentHTML("beforeend", divWrap);
-
 		var csswrappg = document.getElementById("pg-font-face");
 		var fontFace = "<style>" + str + "</style>";
-
 		csswrappg.insertAdjacentHTML("beforeend", fontFace);
 	}, [customFonts]);
-
 	return (
 		<div className=" mt-4">
 			{!isLoaded && (
@@ -1658,35 +1634,12 @@ function Html(props) {
 					<Spinner />
 				</div>
 			)}
-
 			{isLoaded && (
 				<>
-					{/* <div className=''>
-            {fonts.map((font, i) => {
-
-              return (
-                <div className='flex my-3 items-center' >
-                  <span className='bg-red-500 p-1 mr-2 cursor-pointer ' onClick={ev => {
-
-                    fonts.splice(i, 1)
-                    setfonts(fonts);
-
-                    props.onChange(fonts.toString(), 'fontFamily');
-
-                  }}><Icon fill="#fff" icon={close} /></span>
-                  {font}</div>
-              )
-
-            })}
-          </div> */}
-
 					<ReactSortable
 						list={fonts}
 						setList={(item) => {
-
-
 							setfonts(item);
-
 							props.onChange(item.toString(), "fontFamily");
 						}}>
 						{fonts.map((font, i) => {
@@ -1700,19 +1653,17 @@ function Html(props) {
 											onClick={(ev) => {
 												fonts.splice(i, 1);
 												setfonts(fonts);
-
 												props.onChange(fonts.toString(), "fontFamily");
 											}}>
 											<Icon fill="#fff" icon={close} />
 										</span>
 										<span style={{ fontFamily: font }}>{font}</span>
 									</div>
-									{i == 0 && <div className="bg-yellow-500 p-1">Primary</div>}
+									{i == 0 && <div className="bg-yellow-500 p-1">{__("Primary", "combo-blocks")}</div>}
 								</div>
 							);
 						})}
 					</ReactSortable>
-
 					<div className="flex justify-between">
 						<InputControl
 							value={keyword}
@@ -1721,41 +1672,31 @@ function Html(props) {
 							onChange={(newVal) => {
 								setkeyword(newVal);
 								var newValX = newVal.replace(/[^a-zA-Z ]/g, "");
-
 								var newOptions = [];
-
 								fontsLibrary.map((font) => {
 									let position = font
 										.toLowerCase()
 										.search(newValX.toLowerCase());
-
 									if (position < 0) {
 									} else {
 										newOptions.push(font);
 									}
 								});
-
-
-
 								setfontsFiltered(newOptions);
 							}}
 						/>
-
 						<div
 							className="bg-gray-400 text-white p-1 px-2 cursor-pointer"
 							onClick={(ev) => {
 								fonts.unshift(keyword);
 								var fontsY = fonts.slice(0, 3);
 								setfonts(fontsY);
-
 								//setfonts(fonts);
-
 								props.onChange(fontsY.toString(), "fontFamily");
 							}}>
-							Add
+							{__("Add", "combo-blocks")}
 						</div>
 					</div>
-
 					<div className="my-3 h-60 overflow-y-scroll">
 						{keyword.length == 0 && (
 							<>
@@ -1768,11 +1709,8 @@ function Html(props) {
 												onClick={(ev) => {
 													var fontsX = fonts.unshift(font.family);
 													var fontsY = fonts.slice(0, 3);
-
-
 													// var fontsY = fonts.slice(0, 3);
 													setfonts(fontsY);
-
 													props.onChange(fontsY.toString(), "fontFamily");
 												}}>
 												<Icon icon={plus} />
@@ -1787,11 +1725,8 @@ function Html(props) {
 											style={{ fontFamily: font }}
 											onClick={(ev) => {
 												var fontsX = fonts.unshift(font);
-
 												var fontsY = fonts.slice(0, 3);
 												setfonts(fontsY);
-
-
 												props.onChange(fontsY.toString(), "fontFamily");
 											}}>
 											<Icon icon={plus} />
@@ -1801,7 +1736,6 @@ function Html(props) {
 								})}
 							</>
 						)}
-
 						{keyword.length > 0 && (
 							<>
 								{fontsFiltered.map((font) => {
@@ -1814,7 +1748,6 @@ function Html(props) {
 												var fontsY = fonts.slice(0, 3);
 												setfonts(fontsY);
 												//setfonts(fonts);
-
 												props.onChange(fonts.toString(), "fontFamily");
 											}}>
 											<Icon icon={plus} />
@@ -1827,19 +1760,16 @@ function Html(props) {
 					</div>
 				</>
 			)}
-
 			<div></div>
 		</div>
 	);
 }
-
 class PGcssFontFamily extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true, isLoaded: false };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	componentDidMount() {
 		setTimeout(() => {
 			this.setState((state) => ({
@@ -1847,16 +1777,13 @@ class PGcssFontFamily extends Component {
 			}));
 		}, 1000);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { val, onChange } = this.props;
-
 		return (
 			<Html
 				val={val}
@@ -1867,7 +1794,4 @@ class PGcssFontFamily extends Component {
 		);
 	}
 }
-
 export default PGcssFontFamily;
-
-

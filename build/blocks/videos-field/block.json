@@ -1,0 +1,130 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/videos-field",
+  "title": "Videos Field",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/images",
+    "combo-blocks/flex-wrap-item",
+    "combo-blocks/flip-box-back",
+    "combo-blocks/flip-box-front",
+    "combo-blocks/layers",
+    "combo-blocks/layer"
+  ],
+  "usesContext": [
+    "blockId",
+    "imageData",
+    "loopIndex",
+    "imageId",
+    "lightbox",
+    "categories",
+    "combo-blocks/galleryId",
+    "combo-blocks/lightbox"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "images-field",
+          "tag": "div"
+        },
+        "styles": {}
+      }
+    },
+    "field": {
+      "type": "object",
+      "default": {
+        "options": {
+          "linkTo": "userLink",
+          "customField": "",
+          "linkToMeta": "",
+          "linkTarget": "",
+          "avatarSize": "",
+          "dateFormat": "",
+          "customUrl": "",
+          "prefix": "",
+          "postfix": "",
+          "linkAttr": []
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforePostDate",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "metaKey": {
+      "type": "string",
+      "default": "image"
+    },
+    "frontText": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "images-field"
+  ],
+  "description": ""
+}

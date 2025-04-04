@@ -1,10 +1,10 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "post-grid/grid-wrap",
+  "name": "combo-blocks/grid-wrap",
   "title": "Grid Maker",
-  "textdomain": "post-grid",
-  "category": "post-grid-tools",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
   "usesContext": [
     "postId",
     "loopIndex",
@@ -15,6 +15,128 @@
     "align": [
       "wide",
       "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-grid-wrap"
+        },
+        "styles": {
+          "gridTemplateColumns": {
+            "Desktop": "1fr 1fr",
+            "Mobile": "1fr"
+          },
+          "gap": {
+            "Desktop": "1em"
+          },
+          "display": {
+            "Desktop": "grid"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/grid-wrap-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": "pg-grid-wrap-item"
+            },
+            "styles": {
+              "gridRowStart": {
+                "Desktop": "1",
+                "Mobile": "1"
+              },
+              "gridRowEnd": {
+                "Desktop": "3",
+                "Mobile": "2"
+              }
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "\u003cstrong\u003eLorem Ipsum\u003c/strong\u003e is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "src": "",
+                  "tag": "div",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "fontSize": {
+                    "Desktop": "20px"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "combo-blocks/grid-wrap-item",
+        "attributes": {},
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "\u003cstrong\u003eLorem Ipsum\u003c/strong\u003e is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "src": "",
+                  "tag": "div",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "fontSize": {
+                    "Desktop": "20px"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "combo-blocks/grid-wrap-item",
+        "attributes": {},
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "\u003cstrong\u003eLorem Ipsum\u003c/strong\u003e is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "src": "",
+                  "tag": "div",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "fontSize": {
+                    "Desktop": "20px"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
     ]
   },
   "attributes": {
@@ -71,7 +193,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "combo_blocks_scripts",
   "keywords": [
     "grid builder",
     "grid css",

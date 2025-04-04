@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-comment-count",
+  "title": "Post Comment Count",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-post-comment-count"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "gap": {
+            "Desktop": "1em"
+          }
+        }
+      }
+    },
+    "commentCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "status": "approved",
+          "customLabel": "Count: %s",
+          "linkTo": "",
+          "linkToUrl": "",
+          "linkToMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "customUrl": "",
+          "class": "commentCount"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-comment",
+          "position": "beforeCommentCount",
+          "class": "commentCount-icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post comment",
+    "post total comment count",
+    "total comment count",
+    "post comment count",
+    "post comment count block",
+    "post comment count for wordpress",
+    "post comment count block for wordpress"
+  ],
+  "description": "The post comment count block shows how many comments a blog post has received."
+}

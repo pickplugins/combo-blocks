@@ -1,0 +1,223 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/form-field-radio",
+  "title": "Form Field - Radio",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/form-wrap",
+    "combo-blocks/flex-wrap-item"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-form-field-radio"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "tag": "label",
+          "for": "label",
+          "text": "Your Name",
+          "class": "pg-form-field-label"
+        },
+        "styles": {}
+      }
+    },
+    "inputWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        }
+      }
+    },
+    "inputItemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        }
+      }
+    },
+    "radio": {
+      "type": "object",
+      "default": {
+        "options": {
+          "value": null,
+          "valueSource": "",
+          "name": "",
+          "required": false,
+          "disabled": false,
+          "multiple": false,
+          "autofocus": null,
+          "readonly": false,
+          "labelSrc": "img",
+          "objMap": "",
+          "args": [
+            {
+              "label": "Option 1",
+              "img": {
+                "src": "",
+                "alt": ""
+              },
+              "value": "option1"
+            },
+            {
+              "label": "Option 2",
+              "img": {
+                "src": "",
+                "alt": ""
+              },
+              "value": "option2"
+            },
+            {
+              "label": "Option 3",
+              "img": {
+                "src": "",
+                "alt": ""
+              },
+              "value": "option3"
+            }
+          ],
+          "argsSrc": {
+            "src": "",
+            "srcPrams": {}
+          },
+          "id": "",
+          "class": "pg-form-field-radio",
+          "position": "afterLabel"
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "itemLabel": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "labelWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check-circle",
+          "position": "beforeText",
+          "class": "text-icon"
+        },
+        "styles": {}
+      }
+    },
+    "errorWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "requiredWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "span",
+          "enable": true,
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "form block for wordpress",
+    "form block",
+    "form builder",
+    "form maker",
+    "dynamic form",
+    "Contact Form Plugin",
+    "opt-in form",
+    "login form",
+    "register form",
+    "custom form",
+    "wordpress form",
+    "wordpress form plugin",
+    "Subscription form",
+    "contact form block"
+  ],
+  "description": "The radio field block is a component in web forms that lets users choose a single option from a list using radio buttons."
+}

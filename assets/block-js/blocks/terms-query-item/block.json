@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/terms-query-item",
+  "title": "Term Field",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-archive",
+  "parent": [
+    "combo-blocks/terms-query",
+    "combo-blocks/layers",
+    "combo-blocks/layer",
+    "combo-blocks/grid-wrap-item",
+    "combo-blocks/flex-wrap-item"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "term_id",
+    "taxonomy",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-terms-query-item"
+        },
+        "styles": {}
+      }
+    },
+    "thumb": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "img",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "termField": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "",
+          "field": "name",
+          "metaKey": "thumbnail_id",
+          "metaKeyType": "ID",
+          "isLink": true,
+          "linkTo": "termUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "customUrl": "",
+          "class": "field"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix",
+          "position": "beforebegin "
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix",
+          "position": "afterend"
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post title",
+    "post title html",
+    "page title",
+    "post title limit",
+    "post title count",
+    "post title year",
+    "post title slug",
+    "custom post title",
+    "advanced post title",
+    "post title block",
+    "post title for wordpress",
+    "post title block for wordpress"
+  ],
+  "description": "The post title block showcases the main title or headline of a blog post."
+}

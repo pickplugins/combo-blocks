@@ -1,0 +1,150 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-query",
+  "title": "Post Query",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/post-grid",
+    "combo-blocks/filterable-grid",
+    "combo-blocks/content-slider",
+    "combo-blocks/masonry-wrap",
+    "combo-blocks/grid-wrap"
+  ],
+  "providesContext": {
+    "combo-blocks/liveMode": "liveMode"
+  },
+  "usesContext": [
+    "combo-blocks/queryArgs",
+    "combo-blocks/layout",
+    "combo-blocks/postGridId"
+  ],
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center",
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "noPostsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "no-posts text-center"
+        },
+        "styles": {}
+      }
+    },
+    "itemsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "excludedWrapper": ""
+        },
+        "styles": {}
+      }
+    },
+    "itemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "excludedWrapper": "",
+          "class": "item",
+          "counterClass": true,
+          "termsClass": true,
+          "oddEvenClass": true
+        },
+        "styles": {}
+      }
+    },
+    "spinnerWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "spinner"
+        },
+        "styles": {}
+      }
+    },
+    "queryArgs": {
+      "type": "object",
+      "default": {
+        "overideGET": true,
+        "items": [
+          {
+            "val": [
+              "post"
+            ],
+            "id": "postType"
+          },
+          {
+            "val": [
+              "publish"
+            ],
+            "id": "postStatus"
+          },
+          {
+            "val": "DESC",
+            "id": "order"
+          },
+          {
+            "val": [
+              "date"
+            ],
+            "id": "orderby"
+          },
+          {
+            "val": 3,
+            "id": "postsPerPage"
+          },
+          {
+            "val": 1,
+            "id": "paged"
+          }
+        ]
+      }
+    },
+    "editMode": {
+      "type": "boolean",
+      "default": false
+    },
+    "liveMode": {
+      "type": "boolean",
+      "default": false
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": []
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post grid",
+    "content grid",
+    "grid archive",
+    "post query",
+    "grid layout",
+    "advanced post grid",
+    "custom post grid",
+    "custom post type grid",
+    "post grid",
+    "post grid",
+    "post grid block",
+    "post grid for wordpress",
+    "post grid block for wordpress"
+  ],
+  "description": "The post grid block arranges blog posts in a grid format, making it easy for users to browse and access content efficiently."
+}

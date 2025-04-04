@@ -1,4 +1,5 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Button,
 	Dropdown,
@@ -6,14 +7,12 @@ import {
 	SelectControl,
 	Spinner,
 } from "@wordpress/components";
-
 import {
 	__experimentalInputControl as InputControl,
 	ColorPalette,
 	RangeControl,
 	Popover,
 } from "@wordpress/components";
-
 import { memo, useMemo, useState, useEffect } from "@wordpress/element";
 import { applyFilters } from "@wordpress/hooks";
 import PGtabs from "../../components/tabs";
@@ -30,31 +29,25 @@ import {
 	replace,
 	download,
 } from "@wordpress/icons";
-
 import * as htmlToImage from "html-to-image";
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 import apiFetch from "@wordpress/api-fetch";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	const [queryCss, setQueryCss] = useState({
 		keyword: "",
 		page: 1,
 		category: "",
 		isReset: true,
 	});
-
 	var [cssLibrary, setCssLibrary] = useState({ items: [] });
 	var [cssLibraryCats, setCssLibraryCats] = useState([]);
 	var [isLoading, setIsLoading] = useState(false);
 	var [debounce, setDebounce] = useState(null); // Using the hook.
 	var [sudoPicker, setsudoPicker] = useState(null); // Using the hook.
-
 	let isProFeature = applyFilters("isProFeature", true);
-
 	var [cssSubmission, setCssSubmission] = useState({
 		enable: false,
 		title: "",
@@ -67,17 +60,14 @@ function Html(props) {
 		failedMessage: "Submission was failed!",
 		idleMessage: "Submit to CSS Library",
 		message: "",
-
 		timeout: 2,
 	});
-
 	useEffect(() => {
 		fetchCss();
 	}, [queryCss]);
-
 	useEffect(() => {
 		apiFetch({
-			path: "/post-grid/v2/get_site_details",
+			path: "/combo-blocks/v2/get_site_details",
 			method: "POST",
 			data: {},
 		}).then((res) => {
@@ -86,18 +76,15 @@ function Html(props) {
 			setCssSubmission({ ...cssSubmission, email: res.email });
 		});
 	}, []);
-
 	function fetchCss() {
 		setIsLoading(true);
-
 		var postData = {
 			keyword: queryCss.keyword,
 			page: queryCss.page,
 			category: queryCss.category,
 		};
 		postData = JSON.stringify(postData);
-
-		fetch("https://comboblocks.com/server/wp-json/post-grid/v2/get_post_css", {
+		fetch("https://comboblocks.com/server/wp-json/combo-blocks/v2/get_post_css", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
@@ -114,10 +101,8 @@ function Html(props) {
 							res.posts.map((item) => {
 								cssLibrary.items.push(item);
 							});
-
 							var items = cssLibrary.items;
 						}
-
 						setCssLibrary({ items: items });
 						setCssLibraryCats(res.terms);
 						setIsLoading(false);
@@ -129,7 +114,6 @@ function Html(props) {
 				// handle the error
 			});
 	}
-
 	const htmlToImageCapt = () => {
 		// setloading(true);
 		var stylesheet = document.getElementById("pg-google-fonts-css");
@@ -137,32 +121,26 @@ function Html(props) {
 			stylesheet.setAttribute("disabled", "disabled");
 			//setDisabled(true);
 		}
-
 		const eleementToCapture = document.querySelector("." + props.blockId);
-
 		htmlToImage.toPng(eleementToCapture).then(function (dataUrl) {
 			setCssSubmission({ ...cssSubmission, thumb: dataUrl });
-
 			setTimeout(() => {
 				if (stylesheet && stylesheet.hasAttribute("disabled")) {
 					stylesheet.removeAttribute("disabled");
 				}
 			}, 500);
-
 			//download(dataUrl, 'my-node.png');
 		});
 	};
-
 	const [isHovered, setIsHovered] = useState(false);
 	const [hoverValue, setHoverValue] = useState("");
-
 	return (
 		<div className=" mt-4">
 			<PGtabs
 				activeTab="cssItems"
 				orientation="horizontal"
 				activeClass="active-tab"
-				onSelect={(tabName) => {}}
+				onSelect={(tabName) => { }}
 				tabs={[
 					{
 						name: "cssItems",
@@ -193,7 +171,6 @@ function Html(props) {
 										isReset: true,
 									});
 								}, 1000);
-
 								//fetchLayouts();
 							}}
 						/>
@@ -214,11 +191,9 @@ function Html(props) {
 							}}
 						/>
 					</PanelRow>
-
 					<div className="items">
 						{cssLibrary.items.map((x, index) => {
 							var objCss = JSON.parse(x.post_content);
-
 							return (
 								<div
 									className={`item-${index} border border-solid relative border-slate-400 rounded-md shadow-md py-2 my-3 `}
@@ -238,7 +213,6 @@ function Html(props) {
 												// var objCss = {
 												//   styles: { "backgroundColor": { "Desktop": "#9DD6DF" }, "textAlign": { "Desktop": "center" }, "border": { "Desktop": "5px dashed #000000" } }, hover: { "border": { "Desktop": "2px dashed #A084CF" } }
 												// }
-
 												props.onChange(objCss);
 											}}
 										/>
@@ -246,29 +220,28 @@ function Html(props) {
 											<div className="absolute top-0 right-2">
 												{!x.is_pro && (
 													<span className=" bg-lime-600 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Free
+														{__("Free", "combo-blocks")}
 													</span>
 												)}
 												{x.is_pro && (
 													<span className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</span>
 												)}
 											</div>
 										)}
 									</div>
-
 									<div className="my-2 mb-0 w-full bg-slate-400 bg-opacity-30 flex items-center justify-center flex-wrap gap-2 opacity-100 visible h-[max-content]">
 										{x.is_pro && isProFeature && (
 											<div className="">
 												<a
 													href={
-														"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+														"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 														x.post_title
 													}
 													className="px-3 py-2 bg-amber-500 rounded-sm text-white outline-none focus:ring-4 shadow-lg transform active:scale-75 transition-transform  flex items-center gap-2 justify-center ">
 													<Icon fill="#fff" icon={link} />
-													<span>Subscribe to Import</span>
+													<span>{__("Subscribe to Import", "combo-blocks")}</span>
 												</a>
 											</div>
 										)}
@@ -297,7 +270,7 @@ function Html(props) {
 																height="186px"
 																viewBox="0 -6 16 16"
 																version="1.1">
-																<title>Apply Style</title>
+																<title>{__("Apply Style", "combo-blocks")}</title>
 																<defs>
 																	<linearGradient
 																		id="gradient1"
@@ -354,7 +327,7 @@ function Html(props) {
 													<Popover position="bottom left">
 														<div
 															className="w-40 p-2"
-															// className="w-32 p-2 border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 block last-of-type:border-b-0 min-h-[40px] "
+														// className="w-32 p-2 border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 block last-of-type:border-b-0 min-h-[40px] "
 														>
 															<div
 																className="p-2 border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:pg-text-color hover:bg-slate-200 block last-of-type:border-b-0 last-of-type:hover:border-b min-h-[40px] "
@@ -362,22 +335,18 @@ function Html(props) {
 																onClick={(ev) => {
 																	props.onChange(objCss);
 																}}>
-																Apply All
+																{__("Apply All", "combo-blocks")}
 															</div>
-
 															{Object.entries(objCss).map((item) => {
 																var sudoIndex = item[0];
 																var sudoArgs = item[1];
-
 																return (
 																	<div
 																		className="p-2 border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 block last-of-type:border-b-0 min-h-[40px] "
 																		// className="p-2 cursor-pointer hover:bg-slate-300"
 																		onClick={(ev) => {
 																			var css = {};
-
 																			css[sudoIndex] = objCss[sudoIndex];
-
 																			props.onChange(css);
 																		}}>
 																		{sudoIndex}
@@ -394,9 +363,8 @@ function Html(props) {
 							);
 						})}
 					</div>
-
 					<div
-						className="w-full rounded-sm  py-2 bg-indigo-300 hover:bg-indigo-500 text-[14px] font-bold text-white cursor-pointer my-3 text-center"
+						className="w-full rounded-sm  py-2 bg-gray-700 hover:bg-gray-600 text-[14px] font-bold text-white cursor-pointer my-3 text-center"
 						onClick={(_ev) => {
 							var page = queryCss.page + 1;
 							setQueryCss({
@@ -411,12 +379,12 @@ function Html(props) {
 								<Spinner />
 							</span>
 						)}
-						Load More
+						{__("Load More", "combo-blocks")}
 					</div>
 				</PGtab>
 				<PGtab name="submit">
 					<div>
-						<label htmlFor="">Item Title</label>
+						<label htmlFor="">{__("Item Title", "combo-blocks")}</label>
 						<InputControl
 							className="w-full"
 							value={cssSubmission.title}
@@ -427,10 +395,8 @@ function Html(props) {
 							}}
 						/>
 					</div>
-
 					<PanelRow>
-						<label htmlFor="">Choose category</label>
-
+						<label htmlFor="">{__("Choose category", "combo-blocks")}</label>
 						<SelectControl
 							className="w-full"
 							style={{ margin: 0 }}
@@ -442,9 +408,8 @@ function Html(props) {
 							}}
 						/>
 					</PanelRow>
-
 					<div>
-						<label htmlFor="">Add Some Tags</label>
+						<label htmlFor="">{__("Add Some Tags", "combo-blocks")}</label>
 						<InputControl
 							className="w-full"
 							value={cssSubmission.tags}
@@ -455,20 +420,17 @@ function Html(props) {
 							}}
 						/>
 					</div>
-
 					<div className="my-4">
 						<div
 							onClick={htmlToImageCapt}
 							className="bg-green-700 text-white p-3 px-5 cursor-pointer">
-							Take Screenshot
+							{__("Take Screenshot", "combo-blocks")}
 						</div>
-
-						<label htmlFor="">Preview Thumbnail</label>
+						<label htmlFor="">{__("Preview Thumbnail", "combo-blocks")}</label>
 						<img src={cssSubmission.thumb} />
 					</div>
-
 					<div>
-						<label htmlFor="">Your Email</label>
+						<label htmlFor="">{__("Your Email", "combo-blocks")}</label>
 						<InputControl
 							className="w-full"
 							value={cssSubmission.email}
@@ -478,20 +440,15 @@ function Html(props) {
 							}}
 						/>
 					</div>
-
 					<div
-						className="bg-indigo-300 hover:bg-indigo-500 my-5 px-10 py-3 text-white cursor-pointer text-center rounded-sm mb-5"
+						className="bg-gray-700 hover:bg-gray-600 my-5 px-10 py-3 text-white cursor-pointer text-center rounded-sm mb-5"
 						onClick={(ev) => {
 							setIsLoading(true);
-
 							setCssSubmission({ ...cssSubmission, status: "busy" });
-
 							var objX = Object.assign({}, props.obj);
-
 							if (objX.options != undefined) {
 								delete objX.options;
 							}
-
 							var postData = {
 								title: cssSubmission.title,
 								content: objX,
@@ -500,9 +457,8 @@ function Html(props) {
 								tags: cssSubmission.tags,
 							};
 							postData = JSON.stringify(postData);
-
 							fetch(
-								"https://comboblocks.com/server/wp-json/post-grid/v2/submit_css",
+								"https://comboblocks.com/server/wp-json/combo-blocks/v2/submit_css",
 								{
 									method: "POST",
 									headers: {
@@ -520,7 +476,6 @@ function Html(props) {
 													status: "success",
 													message: res.message,
 												});
-
 												setTimeout(() => {
 													setCssSubmission({
 														...cssSubmission,
@@ -534,7 +489,6 @@ function Html(props) {
 													status: "falied",
 													message: res.message,
 												});
-
 												setTimeout(() => {
 													setCssSubmission({
 														...cssSubmission,
@@ -551,26 +505,23 @@ function Html(props) {
 									// handle the error
 								});
 						}}>
-						Submit to CSS Library
+						{__("Submit to CSS Library", "combo-blocks")}
 						{cssSubmission.status == "busy" && (
 							<span className="text-center">
 								<Spinner />
 							</span>
 						)}
 					</div>
-
 					{cssSubmission.status == "success" && (
 						<div className=" font-bold text-green-700">
 							{cssSubmission.successMessage}
 						</div>
 					)}
-
 					{cssSubmission.status == "falied" && (
 						<div>
 							<div className=" font-bold text-red-500">
 								{cssSubmission.failedMessage}
 							</div>
-
 							<p>{cssSubmission.message}</p>
 						</div>
 					)}
@@ -579,23 +530,19 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGCssLibrary extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { blockId, obj, onChange } = this.props;
-
 		return (
 			<Html
 				blockId={blockId}
@@ -606,5 +553,4 @@ class PGCssLibrary extends Component {
 		);
 	}
 }
-
 export default PGCssLibrary;

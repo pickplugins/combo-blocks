@@ -1,0 +1,95 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/do-actions",
+  "title": "Do Actions",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-layers",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-layer"
+        },
+        "styles": {}
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "animateOn": {
+      "type": "object",
+      "default": {}
+    },
+    "tilt": {
+      "type": "object",
+      "default": {}
+    },
+    "tooltip": {
+      "type": "object",
+      "default": {}
+    },
+    "typingText": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

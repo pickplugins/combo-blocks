@@ -1,22 +1,19 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown, ToggleControl } from "@wordpress/components";
 import { useState } from "@wordpress/element";
-
 import {
 	__experimentalInputControl as InputControl,
 	ColorPalette,
 } from "@wordpress/components";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var unitArgs = {
 		px: { label: "PX", value: "px" },
 		em: { label: "EM", value: "em" },
 		rem: { label: "REM", value: "rem" },
-
 		cm: { label: "CM", value: "cm" },
 		mm: { label: "MM", value: "mm" },
 		in: { label: "IN", value: "in" },
@@ -29,12 +26,10 @@ function Html(props) {
 		vmin: { label: "VMIN", value: "vmin" },
 		vmax: { label: "VMAX", value: "vmax" },
 	};
-
 	var valZ =
 		props.val == null || props.val == undefined || props.val.length == 0
 			? "0px"
 			: props.val;
-
 	var widthValX =
 		valZ == undefined || valZ.match(/-?\d+/g) == null
 			? 0
@@ -43,14 +38,11 @@ function Html(props) {
 		valZ == undefined || valZ.match(/[a-zA-Z%]+/g) == null
 			? "px"
 			: valZ.match(/[a-zA-Z%]+/g)[0];
-
 	const [widthVal, setwidthVal] = useState(widthValX);
 	const [widthUnit, setwidthUnit] = useState(widthUnitX);
-
 	const [isImportant, setImportant] = useState(
 		valZ.includes(" !important") ? true : false
 	);
-
 	return (
 		<div className="flex mt-4">
 			<InputControl
@@ -60,7 +52,6 @@ function Html(props) {
 					setwidthVal(newVal);
 					if (widthUnit == "auto") {
 						// props.onChange(widthUnit, 'width');
-
 						if (isImportant) {
 							props.onChange(widthUnit + " !important", "perspective");
 						} else {
@@ -68,7 +59,6 @@ function Html(props) {
 						}
 					} else {
 						//props.onChange(newVal + widthUnit, 'width');
-
 						if (isImportant) {
 							props.onChange(newVal + widthUnit + " !important", "perspective");
 						} else {
@@ -83,7 +73,9 @@ function Html(props) {
 					renderToggle={({ isOpen, onToggle }) => (
 						<Button title="" onClick={onToggle} aria-expanded={isOpen}>
 							<div className=" ">
-								{props.val ? unitArgs[widthUnit].label : "Select..."}
+								{props.val
+									? unitArgs[widthUnit].label
+									: __("Select...", "combo-blocks")}
 							</div>
 						</Button>
 					)}
@@ -127,14 +119,15 @@ function Html(props) {
 					)}
 				/>
 			</div>
-
 			<ToggleControl
-				help={isImportant ? "Important Enabled" : "Important?"}
+				help={
+					isImportant
+						? __("Important Enabled", "combo-blocks")
+						: __("Important?", "combo-blocks")
+				}
 				checked={isImportant}
 				onChange={(arg) => {
-
 					setImportant((isImportant) => !isImportant);
-
 					if (isImportant) {
 						if (widthUnit == "auto") {
 							props.onChange(widthUnit, "perspective");
@@ -156,25 +149,20 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGcssPerspective extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { val, onChange } = this.props;
-
 		return <Html val={val} onChange={onChange} warn={this.state.showWarning} />;
 	}
 }
-
 export default PGcssPerspective;

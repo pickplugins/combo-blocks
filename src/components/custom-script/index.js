@@ -1,4 +1,5 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown } from "@wordpress/components";
 import {
 	Icon,
@@ -20,7 +21,6 @@ import {
 } from "@wordpress/element";
 import apiFetch from "@wordpress/api-fetch";
 import { useSelect } from "@wordpress/data";
-
 import {
 	__experimentalInputControl as InputControl,
 	Popover,
@@ -34,18 +34,12 @@ import {
 } from "@wordpress/components";
 import PGStyles from "../styles";
 import PGDropdown from "../dropdown";
-
-var myStore = wp.data.select("postgrid-shop");
-
+var myStore = wp.data.select("ComboBlocksStore");
 const PGCustomScript = (props) => {
 	const [customScript, setCustomScript] = useState(props.args);
-
-
-
 	useEffect(() => {
 		props.onChange(customScript);
 	}, [customScript]);
-
 	var RemoveVisibleGroup = function ({ title, index }) {
 		return (
 			<>
@@ -62,7 +56,6 @@ const PGCustomScript = (props) => {
 			</>
 		);
 	};
-
 	const fieldArgs = [
 		{
 			param: "post_type",
@@ -82,30 +75,26 @@ const PGCustomScript = (props) => {
 				title="Custom Script"
 				initialOpen={true}> */}
 			<div
-				className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize  bg-indigo-400 text-white font-medium rounded hover:bg-indigo-500 hover:text-white focus:outline-none focus:bg-gray-700"
+				className="pg-font flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize  bg-gray-700 text-white font-medium rounded hover:bg-gray-600 hover:text-white focus:outline-none focus:bg-gray-700"
 				onClick={(ev) => {
 					var visibleX = [...customScript];
-
 					var index = Object.entries(visibleX).length;
-
 					visibleX[index] = { relation: "OR", title: "", args: [], script: "" };
-
 					setCustomScript(visibleX);
 				}}>
-				Add Group
+				{__("Add Group", "combo-blocks")}
 			</div>
 			<div className="my-4">
 				{Object.entries(customScript).map((group, groupIndex) => {
 					var groupId = group[0];
 					var groupData = group[1];
-
 					return (
 						<PanelBody
 							title={<RemoveVisibleGroup title={groupIndex} index={groupId} />}
 							initialOpen={false}>
 							<PanelRow className="my-3 justify-start gap-5">
 								<div>
-									<label htmlFor="">Group Title</label>
+									<label htmlFor="">{__("Group Title", "combo-blocks")}</label>
 									<input type="text" value={customScript[groupIndex].title} onChange={(ev) => {
 										var visibleX = [...customScript];
 										visibleX[groupIndex].title = ev.target.value;
@@ -113,19 +102,18 @@ const PGCustomScript = (props) => {
 									}} />
 								</div>
 								<div
-									className="pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-indigo-400 !text-white font-medium !rounded hover:!bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700"
+									className="pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-gray-700 !text-white font-medium !rounded hover:!bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700"
 									onClick={(option, index) => {
 										var visibleX = [...customScript];
-
 										visibleX[groupId]["args"].push(fieldArgs);
 										setCustomScript(visibleX);
 									}}>
-									Add Condition
+									{__("Add Condition", "combo-blocks")}
 								</div>
 							</PanelRow>
 							{customScript[groupId]["args"] != undefined &&
 								customScript[groupId]["args"].length == 0 && (
-									<p>Add Condition to show script.</p>
+									<p>{__("Add Condition to show script.", "combo-blocks")}</p>
 								)}
 							{customScript[groupId]["args"] != undefined &&
 								customScript[groupId]["args"].map((item, index) => {
@@ -141,7 +129,6 @@ const PGCustomScript = (props) => {
 																index,
 																1
 															);
-
 															setCustomScript(updatedCustomScript);
 														}}>
 														<span className="text-[20px] text-white ">
@@ -149,16 +136,15 @@ const PGCustomScript = (props) => {
 														</span>
 													</div>
 													<div
-														className="pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-indigo-400 !text-white font-medium !rounded hover:!bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700"
+														className="pg-font flex gap-2 justify-center  cursor-pointer py-2 px-4 capitalize  !bg-gray-700 !text-white font-medium !rounded hover:!bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700"
 														onClick={(ev) => {
 															var visibleX = [...customScript];
-
 															visibleX[groupId]["args"][index].push(
 																fieldArgsValue
 															);
 															setCustomScript(visibleX);
 														}}>
-														Add new
+														{__("Add new", "combo-blocks")}
 													</div>
 													<div className="flex-1">
 														{customScript[groupId]["args"][index] !=
@@ -187,13 +173,13 @@ const PGCustomScript = (props) => {
 																					value="post_type"
 																					selected="selected"
 																					data-i="0">
-																					Post Type
+																					{__("Post Type", "combo-blocks")}
 																				</option>
 																				<option value="post_template">
-																					Post Template
+																					{__("Post Template", "combo-blocks")}
 																				</option>
 																				<option value="taxonomy">
-																					Taxonomy
+																					{__("Taxonomy", "combo-blocks")}
 																				</option>
 																			</select>
 																			<select
@@ -212,9 +198,9 @@ const PGCustomScript = (props) => {
 																					][i].operator = value;
 																					setCustomScript(updatedCustomScript);
 																				}}>
-																				<option value="==">is equal to</option>
+																				<option value="==">{__("is equal to", "combo-blocks")}</option>
 																				<option value="!=">
-																					is not equal to
+																					{__("is not equal to", "combo-blocks")}
 																				</option>
 																			</select>
 																			<select
@@ -237,49 +223,47 @@ const PGCustomScript = (props) => {
 																					value="post"
 																					selected="selected"
 																					data-i="0">
-																					Post
+																					{__("Post", "combo-blocks")}
 																				</option>
 																				<option value="page">Page</option>
 																				<option value="e-landing-page">
-																					Landing Page
+																					{__("Landing Page", "combo-blocks")}
 																				</option>
 																				<option value="elementor_library">
-																					Template
+																					{__("Template", "combo-blocks")}
 																				</option>
-																				<option value="post_grid">
-																					Post Grid
-																				</option>
+
 																				<option value="wfacp_checkout">
-																					Checkout
+																					{__("Checkout", "combo-blocks")}
 																				</option>
-																				<option value="product">Product</option>
+																				<option value="product">{__("Product", "combo-blocks")}</option>
 																				<option value="shop_order">
-																					Order
+																					{__("Order", "combo-blocks")}
 																				</option>
 																				<option value="shop_coupon">
-																					Coupon
+																					{__("Coupon", "combo-blocks")}
 																				</option>
 																				<option value="wffn_landing">
-																					Sales Page
+																					{__("Sales Page", "combo-blocks")}
 																				</option>
 																				<option value="wffn_ty">
-																					Thank You Page
+																					{__("Thank You Page", "combo-blocks")}
 																				</option>
 																				<option value="wffn_optin">
-																					Optin Page
+																					{__("Optin Page", "combo-blocks")}
 																				</option>
 																				<option value="wffn_oty">
-																					Optin Confirmation Page
+																					{__("Optin Confirmation Page", "combo-blocks")}
 																				</option>
-																				<option value="review">Review</option>
-																				<option value="post_grid_template">
-																					Saved Template
+																				<option value="review">{__("Review", "combo-blocks")}</option>
+																				<option value="combo_blocks_template">
+																					{__("Saved Template", "combo-blocks")}
 																				</option>
-																				<option value="post_grid_layout">
-																					Saved Layout
+																				<option value="combo_blocks_layout">
+																					{__("Saved Layout", "combo-blocks")}
 																				</option>
 																				<option value="stackable_temp_post">
-																					Default Block
+																					{__("Default Block", "combo-blocks")}
 																				</option>
 																			</select>
 																			<div
@@ -291,7 +275,6 @@ const PGCustomScript = (props) => {
 																					updatedCustomScript[groupId].args[
 																						index
 																					].splice(i, 1);
-
 																					setCustomScript(updatedCustomScript);
 																				}}>
 																				<span className="text-[20px] text-white ">
@@ -309,7 +292,7 @@ const PGCustomScript = (props) => {
 										</>
 									);
 								})}
-							<label htmlFor="">Custom Script</label>
+							<label htmlFor="">{__("Custom Script", "combo-blocks")}</label>
 							<textarea
 								name="script"
 								rows="4"
@@ -329,5 +312,4 @@ const PGCustomScript = (props) => {
 		</div>
 	);
 };
-
 export default PGCustomScript;

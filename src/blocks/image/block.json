@@ -1,0 +1,160 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/image",
+  "title": "Image",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId",
+    "combo-blocks/galleryId",
+    "combo-blocks/lightbox"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "image": {
+        "options": {
+          "imgSrcType": "media",
+          "imgSrcMetaKey": "",
+          "imgSrcMetaKeyType": "ID",
+          "imgSrcImgId": "",
+          "srcUrl": "https://images.unsplash.com/photo-1728131751556-3694189db906?q=80",
+          "srcsetEnable": true,
+          "lazy": false,
+          "lazySrc": "",
+          "lazySrcId": "",
+          "lazySrcType": "media",
+          "srcId": 61,
+          "linkTo": "",
+          "linkToMetaKey": "",
+          "linkTocustomUrl": "",
+          "altTextSrc": "imgAltText",
+          "altTextCustom": "",
+          "altTextMetaKey": "",
+          "titleTextSrc": "imgTitle",
+          "titleTextCustom": "",
+          "titleTextMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "class": "",
+          "size": {
+            "Desktop": "full",
+            "Tablet": "full",
+            "Mobile": "full"
+          }
+        },
+        "styles": []
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-image"
+        },
+        "styles": {}
+      }
+    },
+    "image": {
+      "type": "object",
+      "default": {
+        "options": {
+          "imgSrcType": "media",
+          "imgSrcMetaKey": "",
+          "imgSrcMetaKeyType": "ID",
+          "imgSrcImgId": "",
+          "srcUrl": "",
+          "srcsetEnable": true,
+          "lazy": false,
+          "lazySrc": "",
+          "lazySrcId": "",
+          "lazySrcType": "media",
+          "srcId": "",
+          "linkTo": "",
+          "linkToMetaKey": "",
+          "linkTocustomUrl": "",
+          "altTextSrc": "imgAltText",
+          "altTextCustom": "",
+          "altTextMetaKey": "",
+          "titleTextSrc": "imgTitle",
+          "titleTextCustom": "",
+          "titleTextMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "class": "",
+          "size": {
+            "Desktop": "full",
+            "Tablet": "full",
+            "Mobile": "full"
+          }
+        },
+        "styles": {}
+      }
+    },
+    "lightbox": {
+      "type": "object",
+      "default": {
+        "options": {
+          "thumbSize": "full",
+          "enable": false
+        }
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "lazyLoad": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "lazySrc": "",
+        "lazySrcId": "",
+        "lazySrcType": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "image",
+    "custom image block",
+    "image block",
+    "image for wordpress",
+    "image block for wordpress"
+  ],
+  "description": "The image block is a container for displaying image within a webpage, enhancing visual content."
+}

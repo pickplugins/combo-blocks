@@ -1,4 +1,5 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Button,
 	Dropdown,
@@ -7,7 +8,6 @@ import {
 	TextareaControl,
 } from "@wordpress/components";
 import { applyFilters } from "@wordpress/hooks";
-
 import { Icon, styles, settings, close, plusCircle } from "@wordpress/icons";
 import {
 	createElement,
@@ -21,40 +21,26 @@ import {
 	__experimentalInputControl as InputControl,
 	ColorPalette,
 } from "@wordpress/components";
-
 import customTags from "../../custom-tags";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	//var val = (typeof props.val == 'object') ? props.val : props.val.split(" ");
 	//const [valArgs, setValArgs] = useState(props.val == undefined ? [] : val);
 	const [search, setsearch] = useState({ enable: false, keyword: "" });
 	const [keyword, setKeyword] = useState("");
 	const [filteredOptions, setfilteredOptions] = useState([]);
-
-	var tags = applyFilters("postGridClassPickerFilter", customTags);
-
-
-
+	var tags = applyFilters("comboBlocksClassPickerFilter", customTags);
 	// useEffect(() => {
-
 	//   //props.onChange(valArgs.join(' '));
-
 	// }, [valArgs]);
-
 	useEffect(() => {
-
 		//var val = (typeof props.val == 'object') ? props.val : props.val.split(" ");
 		//setValArgs(val);
 	}, [props.val]);
-
 	useEffect(() => {
-
 	}, [search]);
-
 	return (
 		<div className=" p-1">
 			<div className="">
@@ -63,12 +49,12 @@ function Html(props) {
 						{props.label}
 					</h3>
 					<div
-						className="relative flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize tracking-wide bg-indigo-400	 text-white font-medium rounded hover:bg-indigo-500	 focus:outline-none focus:bg-indigo-500	"
+						className="relative flex gap-2 justify-center my-2 cursor-pointer py-2 px-4 capitalize tracking-wide bg-gray-700	 text-white font-medium rounded hover:bg-gray-600	 focus:outline-none focus:bg-gray-600	"
 						onClick={(ev) => {
 							setsearch({ ...search, enable: !search.enable });
 						}}>
 						<Icon fill="#fff" size="20" icon={plusCircle} />
-						<span className="text-[13px] ">Add</span>
+						<span className="text-[13px] ">{__("Add", "combo-blocks")}</span>
 					</div>
 				</div>
 				<div className="pg-setting-input-textarea">
@@ -82,7 +68,6 @@ function Html(props) {
 					/>
 				</div>
 			</div>
-
 			{search.enable && (
 				// <>
 				<Popover position="bottom left">
@@ -97,19 +82,15 @@ function Html(props) {
 							value={keyword}
 							onChange={(newVal) => {
 								var newValX = newVal.replace(/[^a-zA-Z ]/g, "");
-
 								if (newValX.length > 0) {
 									setKeyword(newValX);
 								}
-
 								if (typeof tags == "object") {
 									setfilteredOptions({});
 									var newOptions = {};
-
 									Object.entries(tags).map((args) => {
 										var index = args[0];
 										var x = args[1];
-
 										let position = x.label
 											.toLowerCase()
 											.search(newValX.toLowerCase());
@@ -118,15 +99,12 @@ function Html(props) {
 										} else {
 											x.exclude = false;
 										}
-
 										newOptions[index] = x;
 									});
-
 									setfilteredOptions(newOptions);
 								} else {
 									setfilteredOptions([]);
 									var newOptions = [];
-
 									tags.map((x, index) => {
 										let position = x.label
 											.toLowerCase()
@@ -136,15 +114,12 @@ function Html(props) {
 										} else {
 											x.exclude = false;
 										}
-
 										//newOptions.push(x);
 									});
-
 									setfilteredOptions(newOptions);
 								}
 							}}
 						/>
-
 						<div>
 							{keyword.length == 0 &&
 								typeof tags == "object" &&
@@ -153,7 +128,6 @@ function Html(props) {
 									var x = args[1];
 									var id = args[0];
 									var item = args[1];
-
 									return (
 										<div
 											className={[
@@ -169,7 +143,6 @@ function Html(props) {
 													alert("Sorry this feature only available in pro");
 												} else {
 													// onChange(x, index);
-
 													props.onChange(props.val + " " + item.id);
 												}
 											}}>
@@ -186,11 +159,11 @@ function Html(props) {
 													<a
 														target="_blank"
 														href={
-															"https://pickplugins.com/post-grid/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+															"https://pickplugins.com/combo-blocks/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 															x.label
 														}
 														className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</a>
 													// </span>
 												)}
@@ -204,7 +177,6 @@ function Html(props) {
 										</div>
 									);
 								})}
-
 							{keyword.length == 0 &&
 								typeof tags == "array" &&
 								tags.map((x, index) => {
@@ -220,7 +192,6 @@ function Html(props) {
 											]}
 											onClick={(ev) => {
 												//onChange(x, index)
-
 												if (x.isPro == true) {
 													alert("Sorry this feature only available in pro");
 												} else {
@@ -241,15 +212,14 @@ function Html(props) {
 													<a
 														target="_blank"
 														href={
-															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 															x.label
 														}
 														className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</a>
 												)}
 											</div>
-
 											{x.description != undefined &&
 												x.description.length > 0 && (
 													<div className="text-xs text-slate-400">
@@ -259,25 +229,22 @@ function Html(props) {
 										</div>
 									);
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "object" &&
 								Object.entries(filteredOptions).map((args) => {
 									var index = args[0];
 									var x = args[1];
-
 									if (x.exclude == false) {
 										return (
 											<div
 												className="border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:border-b-0 min-h-[40px] "
 												onClick={(ev) => {
 													//onChange(x, index)
-
 													if (x.isPro == true) {
 														alert("Sorry this feature only available in pro");
 													} else {
 														// onChange(x, index);
-														props.onChange(props.val + " " + item.id);
+														props.onChange(props.val + " " + x.id);
 													}
 												}}>
 												<div className="flex justify-between items-center">
@@ -293,11 +260,11 @@ function Html(props) {
 														<a
 															target="_blank"
 															href={
-																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 																x.label
 															}
 															className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Pro
+															{__("Pro", "combo-blocks")}
 														</a>
 													)}
 												</div>
@@ -311,7 +278,6 @@ function Html(props) {
 										);
 									}
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "array" &&
 								filteredOptions.map((x, index) => {
@@ -321,12 +287,11 @@ function Html(props) {
 												className="border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:border-b-0 min-h-[40px] "
 												onClick={(ev) => {
 													//onChange(x, index)
-
 													if (x.isPro == true) {
 														alert("Sorry this feature only available in pro");
 													} else {
 														// onChange(x, index);
-														props.onChange(props.val + " " + item.id);
+														props.onChange(props.val + " " + x.id);
 													}
 												}}>
 												<div className="flex justify-between items-center">
@@ -342,11 +307,11 @@ function Html(props) {
 														<a
 															target="_blank"
 															href={
-																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 																x.label
 															}
 															className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Pro
+															{__("Pro", "combo-blocks")}
 														</a>
 													)}
 												</div>
@@ -360,18 +325,16 @@ function Html(props) {
 										);
 									}
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "object" &&
 								Object.entries(filteredOptions).length == 0 && (
 									<div className="text-center p-2 text-red-500 ">
-										No tags found.
+										{__("No tags found.", "combo-blocks")}
 									</div>
 								)}
-
 							{keyword.length > 0 && filteredOptions.length == 0 && (
 								<div className="text-center p-2 text-red-500 ">
-									No tags found.
+									{__("No tags found.", "combo-blocks")}
 								</div>
 							)}
 						</div>
@@ -382,23 +345,19 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGcssClassPicker extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { value, placeholder, tags, label, onChange } = this.props;
-
 		return (
 			<Html
 				val={value}
@@ -411,14 +370,4 @@ class PGcssClassPicker extends Component {
 		);
 	}
 }
-
 export default PGcssClassPicker;
-
-
-
-
-
-
-
-
-

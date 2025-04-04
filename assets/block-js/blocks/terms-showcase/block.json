@@ -1,0 +1,113 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/terms-showcase",
+  "title": "Terms Showcase",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-terms-showcase"
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-terms-showcase-item"
+        },
+        "styles": {}
+      }
+    },
+    "nthItemStyle": {
+      "type": "array",
+      "default": []
+    },
+    "filterable": {
+      "type": "object",
+      "default": {
+        "options": {
+          "filters": [],
+          "allText": "All",
+          "logicWithinGroup": "",
+          "logicBetweenGroups": "",
+          "multifilter": false,
+          "showSort": "",
+          "filterToggle": "no",
+          "showRandom": "",
+          "showAll": "yes",
+          "showClear": "",
+          "activeFilter": "",
+          "perPage": 6
+        },
+        "styles": {}
+      }
+    },
+    "activeFilter": {
+      "type": "object",
+      "default": {
+        "options": {
+          "slug": "all"
+        },
+        "styles": {}
+      }
+    },
+    "filterGroupWrap": {
+      "type": "object",
+      "default": {
+        "options": {},
+        "styles": {}
+      }
+    },
+    "filterGroup": {
+      "type": "object",
+      "default": {
+        "options": {},
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "grid builder",
+    "grid css",
+    "grid content",
+    "Custom grid ",
+    "grid wrapper for wordpress",
+    "Custom grid block"
+  ],
+  "description": "A grid wrap block is a layout tool used to arrange content in a grid pattern, enhancing design and structure."
+}

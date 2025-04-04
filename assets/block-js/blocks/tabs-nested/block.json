@@ -1,0 +1,235 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/tabs-nested",
+  "title": "Tabs",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "providesContext": {
+    "combo-blocks/tabsNestedIcon": "icon",
+    "combo-blocks/tabsNestedIconToggle": "iconToggle",
+    "activeTab": "activeTab"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "isActive": false,
+          "headerText": "What is Lorem Ipsum?",
+          "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "icon": "fas fa-angle-right",
+          "iconToggle": "fas fa-angle-down",
+          "styles": {}
+        }
+      ]
+    },
+    "navsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "navItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "activeNavItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "navLabel": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "labelCounter": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-right",
+          "position": "before",
+          "class": "nav-icon nav-icon-idle"
+        },
+        "styles": {}
+      }
+    },
+    "iconToggle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-angle-down",
+          "position": "before",
+          "class": "nav-icon-toggle nav-icon"
+        },
+        "styles": {}
+      }
+    },
+    "panelWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "position": "left",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "progressWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "progress "
+        },
+        "styles": {}
+      }
+    },
+    "progressFill": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "progress-fill "
+        },
+        "styles": {}
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pagination ",
+          "type": "normal",
+          "prevText": "Previous",
+          "nextText": "Next"
+        },
+        "styles": {}
+      }
+    },
+    "paginationItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers "
+        },
+        "styles": {}
+      }
+    },
+    "next": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "next"
+        },
+        "styles": {}
+      }
+    },
+    "previous": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "previous"
+        },
+        "styles": {}
+      }
+    },
+    "tabs": {
+      "type": "array",
+      "default": []
+    },
+    "activeTab": {
+      "type": "string",
+      "default": ""
+    },
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-tabs"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "nested tabs",
+    "multi level tabs",
+    "advanced tabs",
+    "tab content",
+    "jquery tabs",
+    "tabs block",
+    "tabs for wordpress",
+    "tabs block for wordpress"
+  ],
+  "description": "Nested tabs block organizes content into multiple layers of tabbed sections, enhancing content organization and user experience."
+}

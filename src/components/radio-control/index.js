@@ -10,9 +10,6 @@ import {
 	Component,
 	RawHTML,
 } from "@wordpress/element";
-
-
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
@@ -20,10 +17,8 @@ function Html(props) {
 	var selected = props.selected;
 	var label = props.label;
 	var name = props.name;
-
 	var options = props.options;
 	var onChange = props.onChange;
-
 	return (
 		<div>
 			<span className="mb-3 font-bold ">{label}</span>
@@ -31,7 +26,7 @@ function Html(props) {
 				var index = args[0];
 				var x = args[1];
 				return (
-					<div className="flex items-center w-full my-1 post-grid ">
+					<div className="flex items-center w-full my-1 combo-blocks ">
 						<input
 							type="radio"
 							id={index}
@@ -59,7 +54,7 @@ function Html(props) {
 									onClick={(ev) => {
 										window.open("https://comboblocks.com/pricing/", "_blank");
 									}}>
-									Pro
+									{__("Pro", "combo-blocks")}
 								</span>
 							)}
 						</label>
@@ -69,22 +64,17 @@ function Html(props) {
 		</div>
 	);
 }
-
-
-
 class PGRadioControl extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const {
 			// position,
@@ -98,7 +88,6 @@ class PGRadioControl extends Component {
 			selected,
 			// value,
 		} = this.props;
-
 		return (
 			<div>
 				<Html
@@ -111,12 +100,10 @@ class PGRadioControl extends Component {
 					// searchPlaceholder={searchPlaceholder}
 					// btnClass={btnClass}
 					// variant={variant}
-
 					warn={this.state.showWarning}
 				/>
 			</div>
 		);
 	}
 }
-
 export default PGRadioControl;

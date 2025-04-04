@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/shortcode",
+  "title": "Shortcode",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-shortcode"
+        },
+        "styles": {}
+      }
+    },
+    "shortcodeClassic": {
+      "type": "string",
+      "default": ""
+    },
+    "shortcode": {
+      "type": "object",
+      "default": {
+        "options": {
+          "key": "",
+          "id": "",
+          "prefix": "",
+          "postfix": "",
+          "prams": []
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "advanced shortcode",
+    "custom shortcode",
+    "shortcode",
+    "shortcodes",
+    "shortcode block",
+    "shortcode for wordpress",
+    "shortcode block for wordpress"
+  ],
+  "description": "The shortcode block allows users to embed custom code or shortcuts into a webpage to enhance the functionality and design."
+}

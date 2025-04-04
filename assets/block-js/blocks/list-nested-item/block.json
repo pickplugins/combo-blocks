@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/list-nested-item",
+  "title": "List Nested item",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "combo-blocks/listNestedId",
+    "combo-blocks/listItemTag",
+    "combo-blocks/icon"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "parent": [
+    "combo-blocks/list-nested"
+  ],
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "li",
+          "class": "pg-list-nested-item"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-right",
+          "class": "icon",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "advanced nested list item",
+    "nested list item block",
+    "list",
+    "list maker",
+    "list block",
+    "list for wordpress",
+    "list block for wordpress"
+  ],
+  "description": "This block is the inner block of nested list block"
+}

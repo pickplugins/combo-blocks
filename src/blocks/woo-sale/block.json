@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/woo-sale",
+  "title": "On Sale",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-woo",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-woo-sale"
+        },
+        "styles": {}
+      }
+    },
+    "sale": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Sale",
+          "noSale": "No Sale",
+          "tag": "span",
+          "class": "sale"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "on sale",
+    "on sale badge",
+    "on sale badges",
+    "on sale mark",
+    "on sale button",
+    "on sale block",
+    "on sale for woocommerce",
+    "on sale block for woocommerce"
+  ],
+  "description": "The on-sale block highlights whether the product is on sale or not."
+}

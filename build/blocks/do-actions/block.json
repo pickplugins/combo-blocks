@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/do-actions",
+  "title": "do-actions",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-do-actions"
+        },
+        "styles": {}
+      }
+    },
+    "hook": {
+      "type": "object",
+      "default": {
+        "options": {
+          "key": "",
+          "id": "",
+          "prefix": "",
+          "postfix": "",
+          "prams": []
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "advanced do-actions",
+    "custom do-actions",
+    "do-actions",
+    "do-actionss",
+    "do-actions block",
+    "do-actions for wordpress",
+    "do-actions block for wordpress"
+  ],
+  "description": "The do-actions block allows users to embed custom code or shortcuts into a webpage to enhance the functionality and design."
+}

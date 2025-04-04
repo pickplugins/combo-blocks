@@ -1,4 +1,5 @@
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown } from "@wordpress/components";
 import {
 	createElement,
@@ -23,54 +24,41 @@ import PGColorPicker from "../../components/input-color-picker";
 import { __experimentalBoxControl as BoxControl } from "@wordpress/components";
 import { GradientPicker } from "@wordpress/components";
 import { Icon, close, arrowRight } from "@wordpress/icons";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
-
-
-
-
 	const ALLOWED_MEDIA_TYPES = ["image"];
-
 	var valZ =
 		props.val == undefined || props.val == null || props.val.length == 0
 			? "url(border.png)  1 1 1 1/  10px 10px 10px 10px /  0px 0px 0px 0px  round"
 			: props.val;
-
 	var source = valZ == undefined ? "" : valZ.split("  ")[0];
 	var slice = valZ == undefined ? 10 : valZ.split("  ")[1].replace("/", "");
 	var width = valZ == undefined ? 10 : valZ.split("  ")[2].replace("/", "");
 	var outset = valZ == undefined ? 10 : valZ.split("  ")[3];
 	var repeat = valZ == undefined ? "" : valZ.split("  ")[4];
-
 	slice = slice.replaceAll(" ", "px ");
 	slice = slice + "px";
-
 	var imageVal = source.replace('url("', "");
 	imageVal = imageVal.replace('")', "");
-
 	const [type, setType] = useState("linear");
 	const [linearGradientValue, setLinearGradientValue] = useState(
 		"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"
 	);
-
 	return (
 		<div>
 			<PanelRow>
-				<label htmlFor="">Source</label>
+				<label htmlFor="">{__("Source", "combo-blocks")}</label>
 			</PanelRow>
-
 			<div className="my-4">
 				<label htmlFor="" className="font-medium text-slate-900 pg-font ">
-					Select Source
+					{__("Select Source", "combo-blocks")}
 				</label>
 				<SelectControl
 					options={[
-						{ label: "Linear Gradient", value: "linear" },
-						{ label: "Image", value: "image" },
+						{ label: __("Linear Gradient", "combo-blocks"), value: "linear" },
+						{ label: __("Image", "combo-blocks"), value: "image" },
 					]}
 					values=""
 					onChange={(newVal) => {
@@ -82,7 +70,6 @@ function Html(props) {
 				<GradientPicker
 					value={linearGradientValue}
 					onChange={(currentGradient) => {
-
 						setLinearGradientValue(currentGradient);
 						var sliceX = slice.replaceAll("px", "");
 						props.onChange(
@@ -119,21 +106,18 @@ function Html(props) {
 					]}
 				/>
 			)}
-
 			{/* gradient end  */}
 			{type === "image" && (
 				<>
 					<div className="my-3">
 						<img src={imageVal} alt="" />
 					</div>
-
 					<InputControl
 						className="mr-2"
 						value={imageVal.replace("url(", "").replace(")", "")}
 						placeholder="Image URL"
 						onChange={(newVal) => {
 							var sliceX = slice.replaceAll("px", "");
-
 							props.onChange(
 								"url(" +
 								newVal +
@@ -149,15 +133,12 @@ function Html(props) {
 							);
 						}}
 					/>
-
 					<MediaUploadCheck>
 						<MediaUpload
-							className="bg-indigo-300 hover:bg-indigo-500"
+							className="bg-gray-700 hover:bg-gray-600"
 							onSelect={(media) => {
 								// media.id
-
 								var sliceX = slice.replaceAll("px", "");
-
 								props.onChange(
 									"url(" +
 									media.url +
@@ -176,21 +157,18 @@ function Html(props) {
 							allowedTypes={ALLOWED_MEDIA_TYPES}
 							render={({ open }) => (
 								<Button
-									className="my-3 bg-indigo-300 hover:bg-indigo-500 text-white border border-solid border-gray-300 text-center w-full"
+									className="my-3 bg-gray-700 hover:bg-gray-600 text-white border border-solid border-gray-300 text-center w-full"
 									onClick={open}>
-									Open Media Library
+									{__("Open Media Library", "combo-blocks")}
 								</Button>
 							)}
 						/>
 					</MediaUploadCheck>
 				</>
 			)}
-
 			{/* <GradientPicker
 				value={x == null || x == undefined ? null : x}
 				onChange={(currentGradient) => {
-					
-
 					if (currentGradient == undefined) {
 						valArgs.splice(index, 1);
 						var ssdsd = valArgs.concat([]);
@@ -201,9 +179,6 @@ function Html(props) {
 						setValArgs(valArgs);
 						var valString = valArgs.join(",  ");
 					}
-
-					
-
 					props.onChange(valString, "backgroundImage");
 				}}
 				gradients={[
@@ -227,11 +202,9 @@ function Html(props) {
 					},
 				]}
 			/> */}
-
 			<PanelRow>
-				<label htmlFor="">Slice</label>
+				<label htmlFor="">{__("Slice", "combo-blocks")}</label>
 			</PanelRow>
-
 			<BoxControl
 				label=""
 				values={{
@@ -245,9 +218,7 @@ function Html(props) {
 					var right = parseInt(nextValues.right);
 					var bottom = parseInt(nextValues.bottom);
 					var left = parseInt(nextValues.left);
-
 					var sliceX = top + " " + right + " " + bottom + " " + left;
-
 					props.onChange(
 						source +
 						"  " +
@@ -262,11 +233,9 @@ function Html(props) {
 					);
 				}}
 			/>
-
 			<PanelRow>
-				<label htmlFor="">Width</label>
+				<label htmlFor="">{__("Width", "combo-blocks")}</label>
 			</PanelRow>
-
 			<BoxControl
 				label=""
 				values={{
@@ -277,14 +246,11 @@ function Html(props) {
 				}}
 				onChange={(nextValues) => {
 					var sliceX = slice.replaceAll("px", "");
-
 					var top = nextValues.top;
 					var right = nextValues.right;
 					var bottom = nextValues.bottom;
 					var left = nextValues.left;
-
 					var widthX = top + " " + right + " " + bottom + " " + left;
-
 					props.onChange(
 						source +
 						"  " +
@@ -300,9 +266,8 @@ function Html(props) {
 				}}
 			/>
 			<PanelRow>
-				<label htmlFor="">Outset</label>
+				<label htmlFor="">{__("Outset", "combo-blocks")}</label>
 			</PanelRow>
-
 			<BoxControl
 				label=""
 				values={{
@@ -313,14 +278,11 @@ function Html(props) {
 				}}
 				onChange={(nextValues) => {
 					var sliceX = slice.replaceAll("px", "");
-
 					var top = nextValues.top;
 					var right = nextValues.right;
 					var bottom = nextValues.bottom;
 					var left = nextValues.left;
-
 					var outsetX = top + " " + right + " " + bottom + " " + left;
-
 					props.onChange(
 						source +
 						"  " +
@@ -335,23 +297,20 @@ function Html(props) {
 					);
 				}}
 			/>
-
 			<PanelRow>
-				<label htmlFor="">Repeat</label>
-
+				<label htmlFor="">{__("Repeat", "combo-blocks")}</label>
 				<SelectControl
 					label=""
 					value={repeat}
 					options={[
-						{ label: "Stretch", value: "stretch" },
-						{ label: "Repeat", value: "repeat" },
-						{ label: "Round", value: "round" },
-						{ label: "Space", value: "space" },
-						{ label: "Fill", value: "fill" },
+						{ label: __("Stretch", "combo-blocks"), value: "stretch" },
+						{ label: __("Repeat", "combo-blocks"), value: "repeat" },
+						{ label: __("Round", "combo-blocks"), value: "round" },
+						{ label: __("Space", "combo-blocks"), value: "space" },
+						{ label: __("Fill", "combo-blocks"), value: "fill" },
 					]}
 					onChange={(newVal) => {
 						var sliceX = slice.replaceAll("px", "");
-
 						props.onChange(
 							source +
 							"  " +
@@ -376,16 +335,13 @@ class PGcssBorderImage extends Component {
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const { val, onChange } = this.props;
-
 		return (
 			<div>
 				<Html val={val} onChange={onChange} warn={this.state.showWarning} />
@@ -393,5 +349,4 @@ class PGcssBorderImage extends Component {
 		);
 	}
 }
-
 export default PGcssBorderImage;

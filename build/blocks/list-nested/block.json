@@ -1,0 +1,415 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/list-nested",
+  "title": "List Nested",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "providesContext": {
+    "combo-blocks/listNestedId": "blockId",
+    "combo-blocks/listItemTag": "item",
+    "combo-blocks/icon": "icon"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "ol",
+          "class": "pg-list-nested"
+        },
+        "styles": {
+          "display": [],
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "padding": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "listStyle": []
+        }
+      },
+      "itemsX": {
+        "items": [
+          {
+            "text": "",
+            "icon": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-chevron-right"
+            },
+            "styles": []
+          }
+        ]
+      },
+      "item": {
+        "options": {
+          "text": "",
+          "tag": "li",
+          "counter": false,
+          "reversed": false,
+          "start": 1,
+          "type": "1",
+          "class": "item"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "display": [],
+          "justifyContent": [],
+          "alignItems": [],
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          },
+          "listStyle": {
+            "Desktop": "decimal inside url(u0022u0022)"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check",
+          "class": "icon",
+          "position": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 10px"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/list-nested-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "li",
+              "class": "pg-list-nested-item"
+            },
+            "styles": []
+          },
+          "icon": {
+            "options": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-check",
+              "class": "icon",
+              "position": ""
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "margin": {
+                "Desktop": "0px 10px 0px 10px"
+              }
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "HTML",
+                  "tag": "span",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "margin": {
+                    "Desktop": "0px 0px 0px 0px !important"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "combo-blocks/list-nested-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "li",
+              "class": "pg-list-nested-item"
+            },
+            "styles": []
+          },
+          "icon": {
+            "options": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-check",
+              "class": "icon",
+              "position": ""
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "margin": {
+                "Desktop": "0px 10px 0px 10px"
+              }
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "CSS",
+                  "tag": "span",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "margin": {
+                    "Desktop": "0px 0px 0px 0px !important"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "combo-blocks/list-nested-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "li",
+              "class": "pg-list-nested-item"
+            },
+            "styles": []
+          },
+          "icon": {
+            "options": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-check",
+              "class": "icon",
+              "position": ""
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "margin": {
+                "Desktop": "0px 10px 0px 10px"
+              }
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "JavaScript",
+                  "tag": "span",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "margin": {
+                    "Desktop": "0px 0px 0px 0px !important"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "combo-blocks/list-nested-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "li",
+              "class": "pg-list-nested-item"
+            },
+            "styles": []
+          },
+          "icon": {
+            "options": {
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-check",
+              "class": "icon",
+              "position": ""
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "margin": {
+                "Desktop": "0px 10px 0px 10px"
+              }
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "React JS",
+                  "tag": "span",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "margin": {
+                    "Desktop": "0px 0px 0px 0px !important"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "ul",
+          "class": "pg-list-nested"
+        },
+        "styles": {}
+      }
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "text": "",
+          "icon": {
+            "library": "fontAwesome",
+            "srcType": "class",
+            "iconSrc": "fas fa-chevron-right"
+          },
+          "styles": {}
+        }
+      ]
+    },
+    "itemsX": {
+      "type": "object",
+      "default": {
+        "items": []
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "tag": "li",
+          "counter": false,
+          "reversed": false,
+          "start": 1,
+          "type": "1",
+          "class": "item"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-right",
+          "class": "icon",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "advanced nested list",
+    "nested list block",
+    "list",
+    "list maker",
+    "list block",
+    "list for wordpress",
+    "list block for wordpress"
+  ],
+  "description": "The nested list block is a list within another list, allowing for hierarchical organization and categorization of content."
+}

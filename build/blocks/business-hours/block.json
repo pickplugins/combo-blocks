@@ -1,0 +1,513 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/business-hours",
+  "title": "Business Hours",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-business-hours",
+          "id": ""
+        },
+        "styles": {
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "boxShadow": {
+            "Desktop": ""
+          },
+          "backgroundColor": {
+            "Desktop": "#f2f2f2"
+          },
+          "position": {
+            "Desktop": "relative"
+          }
+        },
+        "after": {
+          "position": {
+            "Desktop": "absolute !important"
+          },
+          "content": {
+            "Desktop": "u0022  u0022"
+          },
+          "height": {
+            "Desktop": "400px"
+          },
+          "width": {
+            "Desktop": "2px"
+          },
+          "top": {
+            "Desktop": "10px"
+          },
+          "left": {
+            "Desktop": "50%"
+          },
+          "backgroundColor": {
+            "Desktop": "#e4e4e4"
+          },
+          "transform": {
+            "Desktop": "translateX(-50%) "
+          }
+        }
+      },
+      "items": {
+        "options": {
+          "tag": "div",
+          "class": "pg-business-hours"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "borderBottom": {
+            "Desktop": "0px solid #fafafa"
+          },
+          "padding": {
+            "Desktop": "11px 0px 10px 0px"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "justifyContent": {
+            "Desktop": "space-between"
+          },
+          "color": {
+            "Desktop": "#3b3b3b"
+          },
+          "fontSize": {
+            "Desktop": "20px"
+          },
+          "fontWeight": {
+            "Desktop": "500"
+          },
+          "fontStyle": {
+            "Desktop": "italic"
+          }
+        }
+      },
+      "label": {
+        "options": {
+          "tag": "div",
+          "class": "label",
+          "id": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#493e3e"
+          }
+        },
+        "before": []
+      },
+      "startTime": {
+        "options": {
+          "tag": "div",
+          "class": "start-time",
+          "id": "",
+          "start": "10:00"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "block"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffffff00"
+          },
+          "color": {
+            "Desktop": "#554e4e"
+          }
+        }
+      },
+      "endTime": {
+        "options": {
+          "tag": "div",
+          "class": "end-time",
+          "id": "",
+          "end": "17:00"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "block"
+          },
+          "backgroundColor": {
+            "Desktop": "#f2f8fa00"
+          },
+          "color": {
+            "Desktop": "#554e4e"
+          }
+        }
+      },
+      "separator": {
+        "options": {
+          "separator": "To",
+          "class": "separator",
+          "id": ""
+        },
+        "styles": {
+          "display": {
+            "Desktop": "block"
+          },
+          "backgroundColor": {
+            "Desktop": "#f2f8fa00"
+          },
+          "color": {
+            "Desktop": "#4e4a4a"
+          }
+        }
+      },
+      "closed": {
+        "options": {
+          "label": "div",
+          "class": "closed",
+          "id": "",
+          "closeText": "Closed"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#554e4e"
+          }
+        }
+      },
+      "elements": {
+        "options": {
+          "tag": "div",
+          "class": "item"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "borderBottom": {
+            "Desktop": "1px solid #fafafa"
+          },
+          "padding": {
+            "Desktop": "11px 0px 10px 0px"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "justifyContent": {
+            "Desktop": "space-between"
+          },
+          "color": {
+            "Desktop": "#3b3b3b"
+          },
+          "fontSize": {
+            "Desktop": "20px"
+          },
+          "fontWeight": {
+            "Desktop": "500"
+          }
+        },
+        "items": [
+          {
+            "id": "saturday",
+            "label": "Saturday",
+            "class": "business-hours-day",
+            "status": false,
+            "start": "10:00",
+            "end": "",
+            "closeText": "",
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "sunday",
+            "label": "Sunday",
+            "class": "business-hours-day",
+            "status": false,
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {
+              "color": {
+                "Desktop": "#fa2d2d"
+              }
+            },
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "monday",
+            "label": "Monday",
+            "class": "business-hours-day",
+            "status": false,
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "tuesday",
+            "label": "Tuesday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "wednesday",
+            "label": "Wednesday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "thursday",
+            "label": "Thursday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "friday",
+            "label": "Friday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": [],
+            "chosen": false,
+            "selected": false
+          }
+        ]
+      },
+      "visible": {
+        "rules": []
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-business-hours",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "items": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-business-hours"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "label",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "timesWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "times-wrap",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "startTime": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "start-time",
+          "id": "",
+          "start": "10:00"
+        },
+        "styles": {}
+      }
+    },
+    "endTime": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "end-time",
+          "id": "",
+          "end": "17:00"
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "separator": "-",
+          "class": "separator",
+          "id": ""
+        },
+        "styles": {}
+      }
+    },
+    "closed": {
+      "type": "object",
+      "default": {
+        "options": {
+          "label": "div",
+          "class": "closed",
+          "id": "",
+          "closeText": "Closed"
+        },
+        "styles": {}
+      }
+    },
+    "elements": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "item"
+        },
+        "styles": {},
+        "items": [
+          {
+            "id": "saturday",
+            "label": "Saturday",
+            "class": "business-hours-day",
+            "status": "true",
+            "start": "",
+            "end": "",
+            "closeText": "avc",
+            "styles": {}
+          },
+          {
+            "id": "sunday",
+            "label": "Sunday",
+            "class": "business-hours-day",
+            "status": "true",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {}
+          },
+          {
+            "id": "monday",
+            "label": "Monday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {}
+          },
+          {
+            "id": "tuesday",
+            "label": "Tuesday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {}
+          },
+          {
+            "id": "wednesday",
+            "label": "Wednesday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {}
+          },
+          {
+            "id": "thursday",
+            "label": "Thursday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {}
+          },
+          {
+            "id": "friday",
+            "label": "Friday",
+            "class": "business-hours-day",
+            "status": "",
+            "start": "",
+            "end": "",
+            "closeText": "",
+            "styles": {}
+          }
+        ]
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

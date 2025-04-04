@@ -1,0 +1,100 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/social-share",
+  "title": "Social Share or Links",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "type": "share",
+          "tag": "div",
+          "class": "pg-social-share"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "icon",
+          "position": "beforeLabel"
+        },
+        "styles": {}
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "count": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "elements": {
+      "type": "object",
+      "default": {
+        "options": {
+          "linkTarget": "_blank",
+          "showLabel": false,
+          "showCount": false,
+          "showIcon": true,
+          "iconPosition": "beforeLabel"
+        },
+        "styles": {},
+        "items": []
+      }
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "social share",
+    "social share button",
+    "social share link",
+    "social share count",
+    "social share block",
+    "social share for wordpress",
+    "social share block for wordpress"
+  ],
+  "description": "The social share block enables users to easily share content on various social media platforms, increasing its reach and engagement."
+}

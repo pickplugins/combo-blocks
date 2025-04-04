@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Combo Blocks
+Plugin Name: ComboBlocks
 Plugin URI: https://comboblocks.com/
-Description: Combo Blocks is extremely easy to use for creating grid-layout and post-layout. Also, we're offering many small blocks with extensive flexibility.
-Version: 1.0.3
+Description: ComboBlocks is a powerful WordPress plugin for Gutenberg, offering 70+ customizable blocks to create stunning websites, including sliders, galleries, forms, and more, enhancing flexibility, design, and functionality.
+Version: 1.0.8
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -23,56 +23,81 @@ if (!class_exists('ComboBlocks')) {
     {
 
 
-      add_action('plugins_loaded', [$this, 'init_plugin']);
-      define('combo_blocks_root_url', plugins_url('/', __FILE__));
-      define('combo_blocks_root_dir', plugin_dir_path(__FILE__));
-      define('combo_blocks_basename', plugin_basename(__FILE__));
+      define('combo_blocks_url', plugins_url('/', __FILE__));
+      define('combo_blocks_dir', plugin_dir_path(__FILE__));
+      define('combo_blocks_plugin_basename', plugin_basename(__FILE__));
       define('combo_blocks_plugin_name', 'Combo Blocks');
-      define('combo_blocks_version', '1.0.3');
+      define('combo_blocks_version', '1.0.8');
+      define('combo_blocks_server_url', 'https://pickplugins.com/demo/combo-blocks/');
 
 
 
 
 
-      $ComboBlocksCssY = [];
-      $ComboBlocksFonts = [];
+      $comboBlocksCss = [];
+      $comboBlocksScriptData = [];
+      $comboBlocksScriptData['siteUrl'] = get_bloginfo('url');
+
+      $comboBlocksFonts = [];
 
 
-      global $ComboBlocksCssY;
-      global $ComboBlocksFonts;
+      global $comboBlocksLdJson;
+      global $comboBlocksCss;
+      global $comboBlocksScriptData;
+      global $comboBlocksFonts;
 
+      global $comboBlocksVars;
 
+      $comboBlocksVars['siteUrl'] = get_bloginfo('url');
 
 
       $this->load_blocks();
 
+      require_once(combo_blocks_dir . 'addons/elementor/init.php');
 
 
-      include('includes/classes/class-functions.php');
+      include('includes/classes/class-post-types.php');
+      include('includes/classes/class-settings.php');
+
+
       include('includes/classes/class-admin-notices.php');
+
+
       include('includes/functions.php');
+      include('includes/data-update/data-update-1.0.4.php');
 
 
       add_action('wp_enqueue_scripts', array($this, '_scripts_front'));
       add_action('admin_enqueue_scripts', array($this, '_scripts_admin'));
       add_action('admin_enqueue_scripts', 'wp_enqueue_media');
+      add_action('admin_enqueue_scripts', 'wp_enqueue_media');
+      add_action('enqueue_block_editor_assets', [$this, 'register_block_editor_assets']);
+      add_filter('cron_schedules', array($this, 'cron_recurrence_interval'));
 
       add_action('plugins_loaded', array($this, '_textdomain'));
 
       register_activation_hook(__FILE__, array($this, '_activation'));
       register_deactivation_hook(__FILE__, array($this, '_deactivation'));
+
+
+      add_action('activated_plugin', array($this, 'redirect_welcome'));
+
+
+      // $args = array(
+      //     'post_types' => array('combo_blocks', 'combo_blocks_layout', 'combo_blocks_template'),
+      // );
+
+      // new PPduplicatePost($args);
     }
 
 
 
 
 
-    public function init_plugin()
-    {
-      $this->enqueue_scripts();
-    }
+
     public function load_blocks()
     {
+
 
 
       $combo_blocks_settings = get_option('combo_blocks_settings');
@@ -83,33 +108,375 @@ if (!class_exists('ComboBlocks')) {
 
 
 
-
-      require_once(combo_blocks_root_dir . 'includes/blocks/functions-blocks.php');
-      require_once(combo_blocks_root_dir . 'includes/blocks/functions-rest.php');
-
+      require_once(combo_blocks_dir . 'includes/blocks/functions-blocks.php');
+      require_once(combo_blocks_dir . 'includes/blocks/functions-rest.php');
 
 
 
 
 
-      if (!in_array('combo-blocks/flex-wrap', $disabled)) {
-        require_once(combo_blocks_root_dir . 'includes/blocks/flex-wrap/index.php');
+
+      if (!in_array('combo-blocks/text', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/text/index.php');
       }
-      if (!in_array('combo-blocks/flex-wrap-item', $disabled)) {
-        require_once(combo_blocks_root_dir . 'includes/blocks/flex-wrap-item/index.php');
+      if (!in_array('combo-blocks/icon', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/icon/index.php');
       }
-      if (!in_array('combo-blocks/grid-wrap', $disabled)) {
-        require_once(combo_blocks_root_dir . 'includes/blocks/grid-wrap/index.php');
+      if (!in_array('combo-blocks/post-grid', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-grid/index.php');
       }
-      if (!in_array('combo-blocks/grid-wrap-item', $disabled)) {
-        require_once(combo_blocks_root_dir . 'includes/blocks/grid-wrap-item/index.php');
+      if (!in_array('combo-blocks/post-query', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-query/index.php');
       }
-      if (!in_array('combo-blocks/layer', $disabled)) {
-        require_once(combo_blocks_root_dir . 'includes/blocks/layer/index.php');
+
+
+      if (!in_array('combo-blocks/post-query-pagination', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-query-pagination/index.php');
+      }
+      if (!in_array('combo-blocks/wordpress-org', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/wordpress-org/index.php');
+      }
+      if (!in_array('combo-blocks/wordpress-org-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/wordpress-org-item/index.php');
+      }
+      if (!in_array('combo-blocks/menu-wrap', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/menu-wrap/index.php');
+      }
+      if (!in_array('combo-blocks/menu-wrap-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/menu-wrap-item/index.php');
+      }
+      if (!in_array('combo-blocks/google-map', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/google-map/index.php');
+      }
+      if (!in_array('combo-blocks/custom-fields', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/custom-fields/index.php');
+      }
+
+
+      if (!in_array('combo-blocks/post-title', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-title/index.php');;
+      }
+      if (!in_array('combo-blocks/post-excerpt', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-excerpt/index.php');
+      }
+      if (!in_array('combo-blocks/read-more', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/read-more/index.php');
+      }
+      if (!in_array('combo-blocks/post-featured-image', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-featured-image/index.php');
+      }
+      if (!in_array('combo-blocks/post-categories', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-categories/index.php');
+      }
+      if (!in_array('combo-blocks/post-tags', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-tags/index.php');
+      }
+      if (!in_array('combo-blocks/post-author', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-author/index.php');
+      }
+      if (!in_array('combo-blocks/post-taxonomies', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-taxonomies/index.php');
+      }
+      if (!in_array('combo-blocks/post-author-fields', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-author-fields/index.php');
+      }
+      if (!in_array('combo-blocks/post-date', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-date/index.php');
+      }
+
+      if (!in_array('combo-blocks/tabs-nested', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/tabs-nested/index.php');
+      }
+      if (!in_array('combo-blocks/tabs-nested-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/tabs-nested-item/index.php');
+      }
+      if (!in_array('combo-blocks/terms-list', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/terms-list/index.php');
+      }
+      if (!in_array('combo-blocks/flip-box', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/flip-box/index.php');
+      }
+      if (!in_array('combo-blocks/flip-box-back', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/flip-box-back/index.php');
+      }
+      if (!in_array('combo-blocks/flip-box-front', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/flip-box-front/index.php');
+      }
+      if (!in_array('combo-blocks/user-query', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/user-query/index.php');
+      }
+      if (!in_array('combo-blocks/user-query-pagination', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/user-query-pagination/index.php');
+      }
+
+      if (!in_array('combo-blocks/user-fields', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/user-fields/index.php');
+      }
+
+
+
+      if (!in_array('combo-blocks/do-actions', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/do-actions/index.php');
       }
       if (!in_array('combo-blocks/layers', $disabled)) {
-        require_once(combo_blocks_root_dir . 'includes/blocks/layers/index.php');
+        require_once(combo_blocks_dir . 'includes/blocks/layers/index.php');
       }
+      if (!in_array('combo-blocks/layer', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/layer/index.php');
+      }
+      if (!in_array('combo-blocks/image', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/image/index.php');
+      }
+      if (!in_array('combo-blocks/list-nested', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/list-nested/index.php');
+      }
+      if (!in_array('combo-blocks/list-nested-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/list-nested-item/index.php');
+      }
+      if (!in_array('combo-blocks/number-counter', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/number-counter/index.php');
+      }
+      if (!in_array('combo-blocks/date-countdown', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/date-countdown/index.php');
+      }
+
+      if (!in_array('combo-blocks/popup', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/popup/index.php');
+      }
+      if (!in_array('combo-blocks/progress-bar', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/progress-bar/index.php');
+      }
+      if (!in_array('combo-blocks/list', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/list/index.php');
+      }
+      if (!in_array('combo-blocks/image-gallery', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/image-gallery/index.php');
+      }
+      if (!in_array('combo-blocks/image-gallery-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/image-gallery-item/index.php');
+      }
+      if (!in_array('combo-blocks/content-slider', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/content-slider/index.php');
+      }
+      if (!in_array('combo-blocks/content-slider-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/content-slider-item/index.php');
+      }
+      if (!in_array('combo-blocks/post-meta', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-meta/index.php');
+      }
+      if (!in_array('combo-blocks/filterable-grid', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/filterable-grid/index.php');
+      }
+      if (!in_array('combo-blocks/', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/filterable-grid-nav/index.php');
+      }
+      if (!in_array('combo-blocks/shortcode', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/shortcode/index.php');
+      }
+      if (!in_array('combo-blocks/social-share', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/social-share/index.php');
+      }
+      if (!in_array('combo-blocks/reactions', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/reactions/index.php');
+      }
+      if (!in_array('combo-blocks/breadcrumb', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/breadcrumb/index.php');
+      }
+      if (!in_array('combo-blocks/archive-title', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/archive-title/index.php');
+      }
+      if (!in_array('combo-blocks/archive-description', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/archive-description/index.php');
+      }
+      if (!in_array('combo-blocks/post-comment-count', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/post-comment-count/index.php');
+      }
+      if (!in_array('combo-blocks/star-rate', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/star-rate/index.php');
+      }
+      if (!in_array('combo-blocks/accordion-nested', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/accordion-nested/index.php');
+      }
+      if (!in_array('combo-blocks/accordion-nested-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/accordion-nested-item/index.php');
+      }
+      if (!in_array('combo-blocks/flex-wrap', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/flex-wrap/index.php');
+      }
+      if (!in_array('combo-blocks/flex-wrap-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/flex-wrap-item/index.php');
+      }
+      if (!in_array('combo-blocks/masonry-wrap', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/masonry-wrap/index.php');
+      }
+      if (!in_array('combo-blocks/masonry-wrap-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/masonry-wrap-item/index.php');
+      }
+      if (!in_array('combo-blocks/grid-wrap', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/grid-wrap/index.php');
+      }
+      if (!in_array('combo-blocks/grid-wrap-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/grid-wrap-item/index.php');
+      }
+      if (!in_array('combo-blocks/team-showcase', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/team-showcase/index.php');
+      }
+      if (!in_array('combo-blocks/terms-showcase', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/terms-showcase/index.php');
+      }
+      if (!in_array('combo-blocks/user-showcase', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/user-showcase/index.php');
+      }
+
+
+      if (!in_array('combo-blocks/team-members', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/team-members/index.php');
+      }
+      if (!in_array('combo-blocks/team-members-field', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/team-members-field/index.php');
+      }
+
+      if (!in_array('combo-blocks/testimonial-showcase', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/testimonial-showcase/index.php');
+      }
+
+
+      if (!in_array('combo-blocks/testimonials', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/testimonials/index.php');
+      }
+      if (!in_array('combo-blocks/testimonials-field', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/testimonials-field/index.php');
+      }
+
+      if (!in_array('combo-blocks/back-to-top', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/back-to-top/index.php');
+      }
+      if (!in_array('combo-blocks/form-wrap', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-wrap/index.php');
+      }
+      if (!in_array('combo-blocks/form-wrap', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-wrap/functions.php');
+      }
+
+
+
+
+      if (!in_array('combo-blocks/images', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/images/index.php');
+      }
+      if (!in_array('combo-blocks/images-field', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/images-field/index.php');
+      }
+
+
+      if (!in_array('combo-blocks/image-accordion', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/image-accordion/index.php');
+      }
+
+
+
+      if (!in_array('combo-blocks/form-field-simple-math', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-simple-math/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-input', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-input/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-file-multi', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-file-multi/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-file', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-file/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-submit', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-submit/index.php');
+      }
+
+      if (!in_array('combo-blocks/form-field-recaptcha', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-recaptcha/index.php');
+      }
+
+      if (!in_array('combo-blocks/form-field-hcaptcha', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-hcaptcha/index.php');
+      }
+
+      if (!in_array('combo-blocks/form-field-checkbox', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-checkbox/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-radio', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-radio/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-select', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-select/index.php');
+      }
+      if (!in_array('combo-blocks/form-field-textarea', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/form-field-textarea/index.php');
+      }
+
+      if (!in_array('combo-blocks/terms-query', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/terms-query/index.php');
+      }
+      if (!in_array('combo-blocks/terms-query-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/terms-query-item/index.php');
+      }
+
+      if (!in_array('combo-blocks/woo-sku', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-sku/index.php');
+      }
+      if (!in_array('combo-blocks/woo-total-sales', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-total-sales/index.php');
+      }
+      if (!in_array('combo-blocks/woo-stock-quantity', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-stock-quantity/index.php');
+      }
+      if (!in_array('combo-blocks/woo-product-info', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-product-info/index.php');
+      }
+      if (!in_array('combo-blocks/woo-product-info-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-product-info-item/index.php');
+      }
+      if (!in_array('combo-blocks/woo-price', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-price/index.php');
+      }
+      if (!in_array('combo-blocks/woo-add-to-cart', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-add-to-cart/index.php');
+      }
+      if (!in_array('combo-blocks/woo-star-rate', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-star-rate/index.php');
+      }
+      if (!in_array('combo-blocks/woo-sale', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-sale/index.php');
+      }
+      if (!in_array('combo-blocks/woo-stock', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/woo-stock/index.php');
+      }
+
+      if (!in_array('combo-blocks/info-box', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/info-box/index.php');
+      }
+      if (!in_array('combo-blocks/info-box-item', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/info-box-item/index.php');
+      }
+      if (!in_array('combo-blocks/table', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/table/index.php');
+      }
+      if (!in_array('combo-blocks/table-td', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/table-td/index.php');
+      }
+      if (!in_array('combo-blocks/table-tr', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/table-tr/index.php');
+      }
+
+      if (!in_array('combo-blocks/business-hours', $disabled)) {
+        require_once(combo_blocks_dir . 'includes/blocks/business-hours/index.php');
+      }
+
+      // if (!in_array('combo-blocks/do-actions', $disabled)) {
+      //   require_once(combo_blocks_dir . 'includes/blocks/do-actions/index.php');
+      // }
+
+      // if (!in_array('combo-blocks/videos', $disabled)) {
+      //   require_once(combo_blocks_dir . 'includes/blocks/videos/index.php');
+      // }
     }
 
 
@@ -117,7 +484,7 @@ if (!class_exists('ComboBlocks')) {
     {
 
       $locale = apply_filters('plugin_locale', get_locale(), 'combo-blocks');
-      load_textdomain('combo-blocks', WP_LANG_DIR . '/combo-blocks/combo-blocks-' . $locale . '.mo');
+      load_textdomain('combo-blocks', WP_LANG_DIR . '/combo-blocks/post-grid-' . $locale . '.mo');
 
       load_plugin_textdomain('combo-blocks', false, plugin_basename(dirname(__FILE__)) . '/languages/');
     }
@@ -127,7 +494,7 @@ if (!class_exists('ComboBlocks')) {
     {
 
 
-      if ($plugin == 'combo-blocks/combo-blocks.php') {
+      if ($plugin == 'combo-blocks/post-grid.php') {
         wp_safe_redirect(admin_url('admin.php?page=combo-blocks-overview'));
         exit;
       }
@@ -137,13 +504,24 @@ if (!class_exists('ComboBlocks')) {
     {
 
 
-      $ComboBlocksFunctions = new ComboBlocksFunctions();
+      //$class_combo_blocks_functions = new class_combo_blocks_functions();
 
 
+      // $combo_blocks_info = get_option('combo_blocks_info');
+      // $combo_blocks_info['current_version'] = combo_blocks_version;
+      // $combo_blocks_info['last_version'] = '2.2.13';
+      // $combo_blocks_info['data_update_status'] = isset($combo_blocks_info['data_update_status']) ? $combo_blocks_info['data_update_status'] : 'pending';
+      // update_option('combo_blocks_info', $combo_blocks_info);
 
+
+      // $class_combo_blocks_post_types = new class_combo_blocks_post_types();
+      //$class_combo_blocks_post_types->_posttype_combo_blocks_layout();
 
 
       //flush_rewrite_rules();
+
+      //wp_schedule_event(time(), 'once', 'combo_blocks_data_update');
+
 
       /*
        * Custom action hook for plugin activation.
@@ -173,33 +551,91 @@ if (!class_exists('ComboBlocks')) {
     }
 
 
+    function cron_recurrence_interval($schedules)
+    {
+
+      $schedules['1minute'] = array(
+        'interval' => 40,
+        'display' => __('1 Minute', 'team')
+      );
+
+
+
+      return $schedules;
+    }
+
     public function _scripts_front()
     {
+
 
 
       wp_enqueue_script('jquery');
 
       // Register Scripts & JS
+      wp_register_script('combo-blocks-shortcode-scripts', combo_blocks_url . 'assets/js/combo-blocks-shortcode-scripts.js', array('jquery'));
 
 
 
+      wp_register_script('justifiedGallery', combo_blocks_url . 'assets/js/jquery.justifiedGallery.min.js', array('jquery'));
 
 
+      wp_register_style('justifiedGallery', combo_blocks_url . 'assets/css/justifiedGallery.min.css');
 
       // Register CSS & Styles
+      wp_register_style('combo-blocks-shortcode-style', combo_blocks_url . 'assets/css/combo-blocks-shortcode-style.css');
 
-      wp_register_style('font-awesome-4', combo_blocks_root_url . 'assets/css/fontawesome-old/css/font-awesome-4.css');
-      wp_register_style('font-awesome-5', combo_blocks_root_url . 'assets/css/fontawesome-old/css/font-awesome-5.css');
+      wp_register_style('font-awesome-4', combo_blocks_url . 'assets/css/fontawesome-old/css/font-awesome-4.css');
+      wp_register_style('font-awesome-5', combo_blocks_url . 'assets/css/fontawesome-old/css/font-awesome-5.css');
 
-      wp_register_style('bootstrap-icons', combo_blocks_root_url . 'assets/css/bootstrap-icons/bootstrap-icons.css');
-      wp_register_style('fontawesome-icons', combo_blocks_root_url . 'assets/css/fontawesome/css/all.min.css');
-      wp_register_style('icofont-icons', combo_blocks_root_url . 'assets/css/icofont/icofont.min.css');
+      wp_register_style('bootstrap-icons', combo_blocks_url . 'assets/css/bootstrap-icons/bootstrap-icons.css');
+      wp_register_style('fontawesome-icons', combo_blocks_url . 'assets/css/fontawesome/css/all.min.css');
+      wp_register_style('icofont-icons', combo_blocks_url . 'assets/css/icofont/icofont.min.css');
+      wp_register_style('pgpopup_animate', combo_blocks_url . 'assets/css/animate.min.css');
+      wp_register_style('pgcontent_slider_splide_core', combo_blocks_url . 'assets/css/splide-core.min.css');
+
+
+      wp_register_script('imagesloaded', combo_blocks_url . 'assets/js/imagesloaded.pkgd.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+
+      wp_register_script('masonry', combo_blocks_url . 'assets/js/masonry.pkgd.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('masonry.min', combo_blocks_url . 'assets/js/masonry.pkgd.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('fslightbox', combo_blocks_url . 'assets/js/fslightbox.js', [], '', true);
+      wp_register_script('lazyLoad', combo_blocks_url . 'assets/js/lazy-load.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('splide.min', combo_blocks_url . 'assets/js/splide.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+
+      wp_register_script('combo_blocks_mixitup', combo_blocks_url . 'assets/js/mixitup.min.js', []);
+      wp_register_script('combo_blocks_mixitup_multifilter', combo_blocks_url . 'assets/js/mixitup-multifilter.js', []);
+      wp_register_script('combo_blocks_mixitup_pagination', combo_blocks_url . 'assets/js/mixitup-pagination.js', []);
+
+      wp_register_script('scrollto', combo_blocks_url . 'assets/js/jquery-scrollto.js', array('jquery'));
+
+      //wp_register_style('combo_blocks_styles', combo_blocks_url . 'assets/block-css/block-styles.min.css');
+      wp_register_style('combo_blocks_styles', combo_blocks_url . 'assets/block-css/block-styles.css');
+
+
+      wp_register_script('combo_blocks_scripts', combo_blocks_url . 'assets/block-js/block-scripts.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('tippy-bundle.min', combo_blocks_url . 'assets/js/tippy-bundle.umd.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('popper.min', combo_blocks_url . 'assets/js/popper.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('vanilla-tilt.min', combo_blocks_url . 'assets/js/vanilla-tilt.min.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+      wp_register_script('typed.umd', combo_blocks_url . 'assets/js/typed.umd.js', [], '', ['in_footer' => true, 'strategy' => 'defer']);
+
+      wp_register_script('hcaptcha-script', 'https://hcaptcha.com/1/api.js');
+
+
+
+      // if (is_singular()) {
+      //   $upload_dir = wp_upload_dir();
+
+
+      //   $post_id = get_the_ID();
+      //   $combo_blocks_css_file_id = get_post_meta($post_id, 'combo_blocks_css_file_id', true);
+      //   $combo_blocks_generate_css = get_post_meta($post_id, 'combo_blocks_generate_css', true);
+
+      //   if ($combo_blocks_generate_css) {
+      //     wp_enqueue_style('block-styles-' . $post_id, $upload_dir['baseurl'] . '/combo-blocks/block-styles-' . $post_id . '.css');
+      //   }
+      // }
     }
 
-    public function enqueue_scripts()
-    {
-      add_action('enqueue_block_editor_assets', [$this, 'register_block_editor_assets']);
-    }
 
     public function _scripts_admin()
     {
@@ -207,20 +643,58 @@ if (!class_exists('ComboBlocks')) {
       $screen = get_current_screen();
 
 
-      wp_register_style('font-awesome-4', combo_blocks_root_url . 'assets/css/fontawesome-old/css/font-awesome-4.css');
-      wp_register_style('font-awesome-5', combo_blocks_root_url . 'assets/css/fontawesome-old/css/font-awesome-5.css');
-      wp_register_style('pg-admin-g-fonts', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-      wp_enqueue_style('pg-admin-g-fonts');
+      wp_register_script('combo_blocks_admin_js', combo_blocks_url . 'assets/js/combo-blocks-admin.js', array('jquery'));
+
+      wp_register_script('select2', combo_blocks_url . 'assets/js/select2.full.js', array('jquery'));
+      wp_register_style('select2', combo_blocks_url . 'assets/css/select2.min.css');
+
+      wp_register_script('jquery.lazy', combo_blocks_url . 'assets/js/jquery.lazy.js', array('jquery'));
+
+
+
+      wp_register_style('jquery-ui', combo_blocks_url . 'assets/css/jquery-ui.css');
+      wp_register_style('font-awesome-4', combo_blocks_url . 'assets/css/fontawesome-old/css/font-awesome-4.css');
+      wp_register_style('font-awesome-5', combo_blocks_url . 'assets/css/fontawesome-old/css/font-awesome-5.css');
+
+
       wp_enqueue_style('font-awesome-5');
 
 
-      wp_register_style('icofont-icons', combo_blocks_root_url . 'assets/css/icofont/icofont.min.css');
+      wp_register_style('icofont-icons', combo_blocks_url . 'assets/css/icofont/icofont.min.css');
       wp_enqueue_style('icofont-icons');
 
-      wp_register_style('bootstrap-icons', combo_blocks_root_url . 'assets/css/bootstrap-icons/bootstrap-icons.css');
+      wp_register_style('bootstrap-icons', combo_blocks_url . 'assets/css/bootstrap-icons/bootstrap-icons.css');
 
       wp_enqueue_style('bootstrap-icons');
+
+
+
+
+
+
+
+
+
+
+
+      if ($screen->id == 'combo-blocks_page_combo-blocks-settings') {
+
+        wp_enqueue_script('combo_blocks_admin_js');
+        wp_localize_script('combo_blocks_admin_js', 'combo_blocks_ajax', array('combo_blocks_ajaxurl' => admin_url('admin-ajax.php')));
+        wp_enqueue_style('select2');
+        wp_enqueue_script('select2');
+
+
+
+        wp_enqueue_style(
+          'combo-blocks-editor',
+          combo_blocks_url . 'dist/output.css',
+          [],
+          time(),
+          'all'
+        );
+      }
     }
 
 
@@ -228,9 +702,19 @@ if (!class_exists('ComboBlocks')) {
     public function register_block_editor_assets()
     {
 
+
+      wp_enqueue_style(
+        'pgcontent_slider_splide_core',
+        combo_blocks_url . 'assets/css/splide-core.min.css',
+        [],
+        time(),
+        'all'
+      );
+
+
       wp_enqueue_style(
         'combo-blocks-editor',
-        combo_blocks_root_url . '/dist/output.css',
+        combo_blocks_url . 'dist/output.css',
         [],
         time(),
         'all'
@@ -247,17 +731,17 @@ if (!class_exists('ComboBlocks')) {
       );
 
 
-      wp_enqueue_style(
-        'font-awesome-5',
-        combo_blocks_root_url . '/assets/css/fontawesome-old/css/font-awesome-5.css',
-        [],
-        time(),
-        'all'
-      );
+      // wp_enqueue_style(
+      //   'font-awesome-5',
+      //   combo_blocks_url . '/assets/css/fontawesome-old/css/font-awesome-5.css',
+      //   [],
+      //   time(),
+      //   'all'
+      // );
 
       wp_enqueue_script(
         'combo-blocks-blocks',
-        combo_blocks_root_url . 'build/index.js',
+        combo_blocks_url . 'build/index.js',
         [
           'wp-blocks',
           'wp-editor',
@@ -280,17 +764,20 @@ if (!class_exists('ComboBlocks')) {
 
 
 
+      // $combo_blocks_settings = get_option('combo_blocks_settings');
+      // $disable_blocks = isset($combo_blocks_settings['disable_blocks']) ? $combo_blocks_settings['disable_blocks'] : [];
 
 
-      $combo_blocks_settings = get_option('combo_blocks_settings');
-      $blocks = isset($combo_blocks_settings['blocks']) ? $combo_blocks_settings['blocks'] : [];
-      $disabled = isset($blocks['disabled']) ? $blocks['disabled'] : [];
+      // $combo_blocks_settings = get_option('combo_blocks_settings');
+      // $blocks = isset($combo_blocks_settings['blocks']) ? $combo_blocks_settings['blocks'] : [];
+      // $disabled = isset($blocks['disabled']) ? $blocks['disabled'] : [];
+
+      // $disable_blocks = array_merge($disable_blocks, $disabled);
 
 
 
 
-
-      wp_localize_script('combo-blocks-blocks', 'comboBlocksDisabledBlocks', $disabled);
+      // wp_localize_script('combo-blocks-blocks', 'comboBlocksDisabledBlocks', $disable_blocks);
     }
   }
 }

@@ -1,4 +1,5 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Button,
 	Dropdown,
@@ -18,12 +19,10 @@ import {
 	useCallback,
 } from "@wordpress/element";
 import breakPoints from "../../breakpoints";
-
 function WarningBanner(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	return (
 		<div>
 			<Popover position="bottom right">
@@ -46,20 +45,17 @@ function WarningBanner(props) {
 		</div>
 	);
 }
-
 class PGDatePicker extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: false };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { label, date, onChange } = this.props;
 		function convertedDate() {
@@ -76,11 +72,8 @@ class PGDatePicker extends Component {
 							.getMinutes()
 							.toString()
 							.padStart(2, "0")} ${inputDate.getHours() >= 12 ? "PM" : "AM"}`;
-
-
 			return formattedDate;
 		}
-
 		return (
 			<div>
 				<div
@@ -103,9 +96,4 @@ class PGDatePicker extends Component {
 		);
 	}
 }
-
 export default PGDatePicker;
-
-
-
-

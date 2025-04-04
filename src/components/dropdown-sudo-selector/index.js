@@ -1,5 +1,7 @@
 import { Button, PanelRow, Dropdown, Popover } from "@wordpress/components";
 import { __experimentalInputControl as InputControl } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
+
 import {
 	createElement,
 	useCallback,
@@ -11,7 +13,6 @@ import {
 	RawHTML,
 } from "@wordpress/element";
 import { applyFilters } from "@wordpress/hooks";
-
 function Html(props) {
 	const position = props.position;
 	const obj = props.obj;
@@ -22,20 +23,15 @@ function Html(props) {
 	const values = props.values;
 	const value = props.value;
 	const sudoScourceUpdate = props.sudoScourceUpdate;
-
 	//var sudoScourceArgsLocal = localStorage.getItem('sudoScourceArgs');
 	//sudoScourceArgsLocal = (sudoScourceArgsLocal != null) ? JSON.parse(sudoScourceArgsLocal) : {};
-
 	const [pickerOpen, setPickerOpen] = useState(false);
 	const [keyword, setKeyword] = useState("");
-
 	const [filteredOptions, setfilteredOptions] = useState([]);
 	const [optionsX, setoptionsX] = useState(options);
-
 	useEffect(() => {
 		sudoScourceUpdate(optionsX);
 	}, [optionsX]);
-
 	return (
 		<div className="relative">
 			<div
@@ -44,13 +40,12 @@ function Html(props) {
 					setPickerOpen((prev) => !prev);
 				}}>
 				<Button
-					className="pg-font flex gap-2 justify-center cursor-pointer py-2 px-4 capitalize tracking-wide !bg-indigo-400 !text-white font-medium !rounded hover:!bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700"
+					className="pg-font flex gap-2 justify-center cursor-pointer py-2 px-4 capitalize tracking-wide !bg-gray-700 !text-white font-medium !rounded hover:!bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700"
 				// variant={variant}
 				>
 					{optionsX[value] != undefined ? optionsX[value].label : buttonTitle}
 				</Button>
 			</div>
-
 			{pickerOpen && (
 				<Popover position={position}>
 					<div className="p-2 w-[260px] pg-font pg-setting-input-text custom-scrollbar ">
@@ -63,15 +58,12 @@ function Html(props) {
 								if (newVal.length > 0) {
 									setKeyword(newVal);
 								}
-
 								if (typeof optionsX == "object") {
 									setfilteredOptions({});
 									var newOptions = {};
-
 									Object.entries(optionsX).map((args) => {
 										var index = args[0];
 										var x = args[1];
-
 										let position = x.label
 											.toLowerCase()
 											.search(newVal.toLowerCase());
@@ -80,15 +72,12 @@ function Html(props) {
 										} else {
 											x.exclude = false;
 										}
-
 										newOptions[index] = x;
 									});
-
 									setfilteredOptions(newOptions);
 								} else {
 									setfilteredOptions([]);
 									var newOptions = [];
-
 									optionsX.map((x, index) => {
 										let position = x.label
 											.toLowerCase()
@@ -98,22 +87,18 @@ function Html(props) {
 										} else {
 											x.exclude = false;
 										}
-
 										//newOptions.push(x);
 									});
-
 									setfilteredOptions(newOptions);
 								}
 							}}
 						/>
-
 						<div>
 							{keyword.length == 0 &&
 								typeof optionsX == "object" &&
 								Object.entries(optionsX).map((args) => {
 									var index = args[0];
 									var x = args[1];
-
 									return (
 										<div className="border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:border-b-0 min-h-[40px]">
 											<div
@@ -136,32 +121,22 @@ function Html(props) {
 															} else {
 																// var sudoScourceArgsLocal = localStorage.getItem('sudoScourceArgs');
 																//sudoScourceArgsLocal = (sudoScourceArgsLocal != null) ? JSON.parse(sudoScourceArgsLocal) : {};
-
 																var sudoId = x.value.replace(
 																	"(n)",
 																	"(" + x.arg + ")"
 																);
-
 																//sudoScourceArgsLocal[sudoId] = { label: sudoId, value: sudoId, }
-
 																//localStorage.setItem('sudoScourceArgs', JSON.stringify(sudoScourceArgsLocal));
-
 																// var sudoScourceArgsLocalX = localStorage.getItem('sudoScourceArgs');
-
-
 																//localStorage.clear();
-
 																//options = JSON.parse(sudoScourceArgsLocalX);
 																//setoptionsX(JSON.parse(sudoScourceArgsLocalX));
-
 																onChange(x, index);
 																optionsX[sudoId] = {
 																	label: x.label,
 																	value: sudoId,
 																};
-
 																setoptionsX(optionsX);
-
 																//sudoScourceUpdate();
 															}
 														}}>
@@ -174,7 +149,6 @@ function Html(props) {
 														)}
 													</div>
 												</div>
-
 												{x.arg != undefined && (
 													<div className="w-16">
 														<InputControl
@@ -186,17 +160,16 @@ function Html(props) {
 														/>
 													</div>
 												)}
-
 												{x.isPro && (
 													// <span className="bg-amber-400 rounded-sm px-3  text-white hover:text-white">
 													<a
 														target="_blank"
 														href={
-															"https://pickplugins.com/post-grid/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+															"https://pickplugins.com/combo-blocks/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 															x.label
 														}
 														className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</a>
 													// </span>
 												)}
@@ -210,7 +183,6 @@ function Html(props) {
 										</div>
 									);
 								})}
-
 							{keyword.length == 0 &&
 								typeof optionsX == "array" &&
 								optionsX.map((x, index) => {
@@ -219,7 +191,6 @@ function Html(props) {
 											className=" border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:border-b-0 min-h-[40px]"
 											onClick={(ev) => {
 												//onChange(x, index)
-
 												if (x.isPro == true) {
 													alert("Sorry this feature only available in pro");
 												} else {
@@ -247,15 +218,14 @@ function Html(props) {
 													<a
 														target="_blank"
 														href={
-															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+															"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 															x.label
 														}
 														className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-														Pro
+														{__("Pro", "combo-blocks")}
 													</a>
 												)}
 											</div>
-
 											{x.description != undefined &&
 												x.description.length > 0 && (
 													<div className="text-xs text-slate-400">
@@ -265,20 +235,17 @@ function Html(props) {
 										</div>
 									);
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "object" &&
 								Object.entries(filteredOptions).map((args) => {
 									var index = args[0];
 									var x = args[1];
-
 									if (x.exclude == false) {
 										return (
 											<div
 												className="border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:border-b-0 min-h-[40px]"
 												onClick={(ev) => {
 													//onChange(x, index)
-
 													if (x.isPro == true) {
 														alert("Sorry this feature only available in pro");
 													} else {
@@ -308,11 +275,11 @@ function Html(props) {
 														<a
 															target="_blank"
 															href={
-																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 																x.label
 															}
 															className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Pro
+															{__("Pro", "combo-blocks")}
 														</a>
 													)}
 												</div>
@@ -326,7 +293,6 @@ function Html(props) {
 										);
 									}
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "array" &&
 								filteredOptions.map((x, index) => {
@@ -336,7 +302,6 @@ function Html(props) {
 												className="border-b border-b-gray-800/20 hover:border-b-gray-800 transition-all duration-200 ease-in-out border-transparent border-solid cursor-pointer hover:bg-slate-200 p-2 block last-of-type:border-b-0 min-h-[40px]"
 												onClick={(ev) => {
 													//onChange(x, index)
-
 													if (x.isPro == true) {
 														alert("Sorry this feature only available in pro");
 													} else {
@@ -366,11 +331,11 @@ function Html(props) {
 														<a
 															target="_blank"
 															href={
-																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginPostGrid&utm_medium=" +
+																"https://comboblocks.com/pricing/?utm_source=dropdownComponent&utm_term=proFeature&utm_campaign=pluginComboBlocks&utm_medium=" +
 																x.label
 															}
 															className="no-underline  bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white">
-															Pro
+															{__("Pro", "combo-blocks")}
 														</a>
 													)}
 												</div>
@@ -384,18 +349,16 @@ function Html(props) {
 										);
 									}
 								})}
-
 							{keyword.length > 0 &&
 								typeof filteredOptions == "object" &&
 								Object.entries(filteredOptions).length == 0 && (
 									<div className="text-center p-2 text-red-500 ">
-										No options found.
+										{__("No options found.", "combo-blocks")}
 									</div>
 								)}
-
 							{keyword.length > 0 && filteredOptions.length == 0 && (
 								<div className="text-center p-2 text-red-500 ">
-									No options found.
+									{__("No options found.", "combo-blocks")}
 								</div>
 							)}
 						</div>
@@ -405,14 +368,12 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGDropdownSudoSelector extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
@@ -430,7 +391,6 @@ class PGDropdownSudoSelector extends Component {
 			value,
 			sudoScourceUpdate,
 		} = this.props;
-
 		return (
 			<div>
 				<Html
@@ -449,5 +409,4 @@ class PGDropdownSudoSelector extends Component {
 		);
 	}
 }
-
 export default PGDropdownSudoSelector;

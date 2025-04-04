@@ -1,0 +1,290 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/masonry-wrap",
+  "title": "Masonry Grid",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "providesContext": {
+    "combo-blocks/galleryId": "blockId",
+    "combo-blocks/lightbox": "lightbox"
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-masonry-wrap"
+        },
+        "styles": {}
+      },
+      "item": {
+        "options": {
+          "tag": "div",
+          "class": "pg-masonry-wrap-item"
+        },
+        "styles": {
+          "width": {
+            "Desktop": "calc((100% - 40px)/3)"
+          },
+          "marginBottom": {
+            "Desktop": "20px"
+          }
+        }
+      },
+      "masonryOptions": {
+        "gutter": 20,
+        "itemSelector": ".pg-masonry-wrap-item",
+        "numberOfColumns": 3,
+        "columnWidth": ".pg-masonry-wrap-item"
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/images",
+        "attributes": {
+          "itemWrap": {
+            "options": {
+              "tag": "div",
+              "class": " pg-image-accordion-item ",
+              "counterClass": false,
+              "termsClass": false,
+              "oddEvenClass": false
+            },
+            "styles": []
+          },
+          "galleryItems": [
+            {
+              "id": 146226,
+              "title": "# Golden Sunset Horizon",
+              "description": "A vibrant sunset over a tranquil beach with golden sands and calm waves.",
+              "url": "https://comboblocks.com/server/wp-content/uploads/2024/09/image-accordion-scene-5.png",
+              "link": "",
+              "categories": [],
+              "chosen": false,
+              "selected": false
+            },
+            {
+              "id": 146225,
+              "title": "# Turquoise Waters Paradise",
+              "url": "https://comboblocks.com/server/wp-content/uploads/2024/09/image-accordion-scene-4.png",
+              "link": "",
+              "categories": [],
+              "description": "Crystal-clear turquoise waters meet soft white sand, framed by distant palm trees.",
+              "chosen": false,
+              "selected": false
+            },
+            {
+              "id": 146224,
+              "title": "# Serene Morning Coastline",
+              "url": "https://comboblocks.com/server/wp-content/uploads/2024/09/image-accordion-scene-3.png",
+              "link": "",
+              "categories": [],
+              "description": "Early morning light illuminates an empty, peaceful beach with gentle waves lapping the shore.",
+              "chosen": false,
+              "selected": false
+            },
+            {
+              "id": 146223,
+              "title": "# Rocky Shoreline Charm",
+              "url": "https://comboblocks.com/server/wp-content/uploads/2024/09/image-accordion-scene-2.png",
+              "link": "",
+              "categories": [],
+              "description": "A rugged coastline with large rocks, tide pools, and crashing waves under a cloudy sky.",
+              "chosen": false,
+              "selected": false
+            },
+            {
+              "id": 146222,
+              "title": "# Seaside Palm Oasis",
+              "url": "https://comboblocks.com/server/wp-content/uploads/2024/09/image-accordion-scene-1.png",
+              "link": "",
+              "categories": [],
+              "description": "Palm trees line a tropical beach with soft sand and a gently swaying breeze.",
+              "chosen": false,
+              "selected": false
+            },
+            {
+              "id": 146221,
+              "title": "# Hidden Cove Escape",
+              "url": "https://comboblocks.com/server/wp-content/uploads/2024/09/image-accordion-scene-6.png",
+              "link": "",
+              "categories": [],
+              "description": "A secluded cove with pristine waters, surrounded by cliffs and lush greenery.",
+              "chosen": false,
+              "selected": false
+            }
+          ]
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/images-field",
+            "attributes": {
+              "wrapper": {
+                "options": {
+                  "class": "images-field",
+                  "tag": "div"
+                },
+                "styles": {
+                  "display": {
+                    "Desktop": "block"
+                  },
+                  "width": {
+                    "Desktop": "100%"
+                  },
+                  "height": {
+                    "Desktop": "100%"
+                  },
+                  "overflow": {
+                    "Desktop": "hidden"
+                  }
+                }
+              },
+              "field": {
+                "options": {
+                  "linkTo": "userLink",
+                  "customField": "",
+                  "linkToMeta": "",
+                  "linkTarget": "",
+                  "avatarSize": "",
+                  "dateFormat": "",
+                  "customUrl": "",
+                  "prefix": "",
+                  "postfix": "",
+                  "linkAttr": []
+                },
+                "styles": {
+                  "width": {
+                    "Desktop": "100%"
+                  },
+                  "height": {
+                    "Desktop": "100%"
+                  },
+                  "overflow": {
+                    "Desktop": "hidden"
+                  },
+                  "objectFit": {
+                    "Desktop": "cover"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "combo-blocks/layers",
+            "attributes": {
+              "wrapper": {
+                "options": {
+                  "tag": "div",
+                  "class": "pg-layers",
+                  "id": "",
+                  "linkTo": "postUrl",
+                  "linkToAuthorMeta": "",
+                  "linkToCustomMeta": "",
+                  "linkTarget": "_blank",
+                  "customUrl": ""
+                },
+                "styles": {
+                  "backgroundColor": {
+                    "Desktop": "#ffffff"
+                  },
+                  "padding": {
+                    "Desktop": "20px 20px 20px 20px"
+                  },
+                  "position": {
+                    "Desktop": "absolute"
+                  },
+                  "left": {
+                    "Desktop": "30px"
+                  },
+                  "transition": {
+                    "Desktop": "all 1s ease 0s"
+                  },
+                  "width": {
+                    "Desktop": "80%"
+                  },
+                  "top": {
+                    "Desktop": "-200%"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-masonry-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-masonry-wrap-item"
+        },
+        "styles": {}
+      }
+    },
+    "masonryOptions": {
+      "type": "object",
+      "default": {
+        "gutter": 20,
+        "numberOfColumns": 4,
+        "itemSelector": ".pg-masonry-wrap-item",
+        "columnWidth": ".pg-masonry-wrap-item"
+      }
+    },
+    "lightbox": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false
+        }
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "masonry wrapper",
+    "masonry layout",
+    "masonry wordpress",
+    "masonry block for wordpress"
+  ],
+  "description": "The masonry wrapper provides dynamic control over content organization within a responsive layout."
+}

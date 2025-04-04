@@ -1,0 +1,162 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/user-query-pagination",
+  "title": "User Query - Pagination",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/layers",
+    "combo-blocks/user-showcase"
+  ],
+  "usesContext": [
+    "combo-blocks/postGridId",
+    "combo-blocks/pagination",
+    "combo-blocks/paginationItem",
+    "combo-blocks/paginationItemActive"
+  ],
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center",
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "attributes": {
+    "pagination": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pagination pg-user-query-pagination",
+          "type": "normal",
+          "maxPageNum": "5",
+          "prevText": "Previous",
+          "nextText": "Next",
+          "loadMoreText": "Load More",
+          "noMorePosts": "No More Posts",
+          "loadingText": "Loading...",
+          "loadingIcon": {
+            "loadingPosition": "beforeText",
+            "library": "fontAwesome",
+            "srcType": "class",
+            "iconSrc": "",
+            "class": "load-more"
+          },
+          "loadMoreIcon": {
+            "library": "fontAwesome",
+            "srcType": "class",
+            "iconSrc": "",
+            "position": "beforeText",
+            "class": "load-more"
+          }
+        },
+        "styles": {}
+      }
+    },
+    "paginationItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers "
+        },
+        "styles": {}
+      }
+    },
+    "paginationItemActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "page-numbers "
+        },
+        "styles": {}
+      }
+    },
+    "next": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "next"
+        },
+        "styles": {}
+      }
+    },
+    "previous": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "previous"
+        },
+        "styles": {}
+      }
+    },
+    "start": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "start"
+        },
+        "styles": {}
+      }
+    },
+    "end": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "end"
+        },
+        "styles": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post grid",
+    "content grid",
+    "grid archive",
+    "post query",
+    "grid layout",
+    "advanced post grid",
+    "custom post grid",
+    "custom post type grid",
+    "post grid",
+    "post grid",
+    "post grid block",
+    "post grid for wordpress",
+    "post grid block for wordpress"
+  ],
+  "description": "The post grid block arranges blog posts in a grid format, making it easy for users to browse and access content efficiently."
+}

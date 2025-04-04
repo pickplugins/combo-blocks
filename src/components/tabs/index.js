@@ -1,44 +1,36 @@
 const { Component, RawHTML, useState } = wp.element;
+import { __ } from "@wordpress/i18n";
 import { Button, Dropdown } from "@wordpress/components";
 import { Icon, chevronDown, chevronLeft, chevronRight } from "@wordpress/icons";
-
 function MyFunction(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var orientation = props.orientation; // vertical, horizontal
 	var contentClass = (props.contentClass == undefined) ? "py-3" : props.contentClass;
-	var navItemClass = (props.navItemClass == undefined) ? "bg-indigo-300 last:border-r-0 border-0 border-r border-solid border-indigo-200" : props.navItemClass;
-	var navItemSelectedClass = (props.navItemSelectedClass == undefined) ? "!bg-indigo-500 " : props.navItemSelectedClass;
-
+	var navItemClass = (props.navItemClass == undefined) ? "bg-gray-500 last:border-r-0 border-0 border-r border-solid border-gray-500" : props.navItemClass;
+	var navItemSelectedClass = (props.navItemSelectedClass == undefined) ? "!bg-gray-700 " : props.navItemSelectedClass;
 	const [selected, setSelected] = useState(props.activeTab);
 	const [scrollTo, setscrollTo] = useState(200);
 	var content;
-
 	// useEffect(() => {
 	// }, [keyword]);
-
 	props.children.map((child) => {
 		if (selected == child.props.name) {
 			content = child.props.children;
 		}
 	});
-
 	function scrollPrev() {
 		const tabsNavs = document.querySelector(".tabsNavs");
 		if (tabsNavs == null) return;
-
 		tabsNavs.scrollBy({
 			left: -scrollTo,
 			behavior: "smooth",
 		});
 	}
-
 	function scrollNext() {
 		const tabsNavs = document.querySelector(".tabsNavs");
 		if (tabsNavs == null) return;
-
 		tabsNavs.scrollBy({
 			left: scrollTo,
 			behavior: "smooth",
@@ -47,15 +39,12 @@ function MyFunction(props) {
 	function onWheel(ev) {
 		// ev.preventDefault();
 		ev.stopPropagation();
-
 		const tabsNavs = document.querySelector(".tabsNavs");
-
 		tabsNavs?.scrollBy({
 			left: ev.deltaY,
 			behavior: "smooth",
 		});
 	}
-
 	return (
 		<div className={
 			orientation == "vertical"
@@ -63,7 +52,6 @@ function MyFunction(props) {
 				: "relative tabsWrapper"
 		}>
 			<div
-
 				className="relative"
 			>
 				<div
@@ -72,14 +60,11 @@ function MyFunction(props) {
 							? "block w-[200px] "
 							: "flex overflow-hidden  tabsNavs cursor-move "
 					}
-
-
-
 					onWheel={onWheel}>
 					{props.tabs.map((tab) => {
 						return (
 							<div
-								className={`${navItemClass} ${tab.hidden != null && tab.hidden ? "hidden" : ""}  text-white flex justify-between flex-none    items-center grow     p-2 cursor-pointer hover:bg-indigo-500 ${tab.name == selected ? navItemSelectedClass : navItemClass
+								className={`${navItemClass} ${tab.hidden != null && tab.hidden ? "hidden" : ""}  text-white flex justify-between flex-none    items-center grow     p-2 cursor-pointer hover:bg-gray-600 ${tab.name == selected ? navItemSelectedClass : navItemClass
 									} ${orientation == "vertical" ? "       " : "flex-col"}`}
 								onClick={(ev) => {
 									props.onSelect(tab);
@@ -97,21 +82,19 @@ function MyFunction(props) {
 									/>
 									<span className="text-sm	">{tab.title}</span>
 								</div>
-
 								{tab.isPro != null && tab.isPro && (
 									<span
 										className="bg-amber-500 px-2 py-1  no-underline rounded-sm  cursor-pointer text-white "
 										onClick={(ev) => {
 											window.open("https://comboblocks.com/pricing/", "_blank");
 										}}>
-										Pro
+										{__("Pro", "combo-blocks")}
 									</span>
 								)}
 							</div>
 						);
 					})}
 				</div>
-
 				{orientation != "vertical" && (
 					<></>
 					// <div className="navs absolute w-full top-1/2 -translate-y-1/2 ">
@@ -127,27 +110,22 @@ function MyFunction(props) {
 					// 	</div>
 					// </div>
 				)}
-
 			</div>
-
 			<div className={`tabContent  ${contentClass}`}>{content}</div>
 		</div>
 	);
 }
-
 class PGtabs extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		const {
 			activeTab,
@@ -160,7 +138,6 @@ class PGtabs extends Component {
 			tabs,
 			children,
 		} = this.props;
-
 		return (
 			<div>
 				<MyFunction
@@ -178,7 +155,4 @@ class PGtabs extends Component {
 		);
 	}
 }
-
 export default PGtabs;
-
-

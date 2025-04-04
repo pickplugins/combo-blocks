@@ -1,10 +1,10 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "post-grid/layers",
+  "name": "combo-blocks/layers",
   "title": "Layers",
-  "textdomain": "post-grid",
-  "category": "post-grid-tools",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
   "usesContext": [
     "postId",
     "loopIndex",
@@ -40,17 +40,32 @@
         "options": {
           "class": "pg-layer"
         },
-        "styles": {
-          "display": {
-            "Desktop": "block"
-          },
-          "backgroundColor": {
-            "Desktop": "#F1F7F9"
-          }
-        }
+        "styles": {}
+      }
+    },
+    "conditions": {
+      "type": "object",
+      "default": {
+        "rules": []
       }
     },
     "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "animateOn": {
+      "type": "object",
+      "default": {}
+    },
+    "tilt": {
+      "type": "object",
+      "default": {}
+    },
+    "tooltip": {
+      "type": "object",
+      "default": {}
+    },
+    "typingText": {
       "type": "object",
       "default": {}
     },
@@ -65,7 +80,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "combo_blocks_scripts",
   "keywords": [
     "layer",
     "html element",

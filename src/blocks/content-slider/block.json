@@ -1,0 +1,288 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/content-slider",
+  "title": "Content Slider",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "providesContext": {
+    "parentBlock": ""
+  },
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-content-slider"
+        },
+        "styles": {}
+      }
+    },
+    "itemsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-content-slider-item"
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-content-slider-item"
+        },
+        "styles": {}
+      }
+    },
+    "navsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "nav-wrap"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "width": {
+            "Desktop": "100%"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "position": {
+            "Desktop": "absolute !important"
+          },
+          "top": {
+            "Desktop": "10px"
+          },
+          "left": {
+            "Desktop": "20px"
+          },
+          "gap": {
+            "Desktop": "20px"
+          }
+        }
+      }
+    },
+    "prev": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Prev",
+          "class": ""
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "textAlign": {
+            "Desktop": "left"
+          },
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "backgroundColor": {
+            "Desktop": "#1F2E45"
+          },
+          "borderRadius": {
+            "Desktop": "50px"
+          },
+          "padding": {
+            "Desktop": "5px 20px 5px 20px"
+          }
+        }
+      }
+    },
+    "prevIcon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "position": "before",
+          "class": "",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-left"
+        },
+        "styles": {
+          "padding": {
+            "Desktop": "0px 10px 0px 0px"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          }
+        }
+      }
+    },
+    "next": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Next",
+          "class": ""
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "textAlign": {
+            "Desktop": "right"
+          },
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "backgroundColor": {
+            "Desktop": "#1F2E45"
+          },
+          "borderRadius": {
+            "Desktop": "50px"
+          },
+          "padding": {
+            "Desktop": "5px 20px 5px 20px"
+          }
+        }
+      }
+    },
+    "nextIcon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "position": "after",
+          "class": "",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-right"
+        },
+        "styles": {
+          "padding": {
+            "Desktop": "0px 0px 0px 10px"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          }
+        }
+      }
+    },
+    "paginationWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "ul",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "span",
+          "class": ""
+        },
+        "styles": {
+          "border": {
+            "Desktop": "1px solid #1f2e45"
+          },
+          "backgroundColor": {
+            "Desktop": "#f1f7f9"
+          },
+          "height": {
+            "Desktop": "15px"
+          },
+          "width": {
+            "Desktop": "15px"
+          },
+          "borderRadius": {
+            "Desktop": "50%"
+          }
+        }
+      }
+    },
+    "paginationActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {
+          "backgroundColor": {
+            "Desktop": "#1f2e45"
+          }
+        }
+      }
+    },
+    "sliderOptions": {
+      "type": "object",
+      "default": {
+        "perPage": "3",
+        "perMove": "1",
+        "autoplay": "1",
+        "gap": "1em",
+        "pagination": "1",
+        "drag": "1",
+        "arrows": "1",
+        "pauseOnHover": "1",
+        "speed": "400"
+      }
+    },
+    "sliderOptionsRes": {
+      "type": "object",
+      "default": {}
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "editorStyle": "pgcontent-slider-splide-core",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "Content slider",
+    "Image slider",
+    "Video slider",
+    "Slider block",
+    "Carousel block",
+    "Carousel slider",
+    "Custom content slider"
+  ],
+  "description": "Content slider is a powerful block to display content in a slider."
+}

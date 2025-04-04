@@ -1,0 +1,211 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/info-box",
+  "title": "Info Box",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-info-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {
+          "display": {
+            "Desktop": "grid"
+          },
+          "gridTemplateColumns": {
+            "Desktop": "1fr 1fr 1fr",
+            "Tablet": "1fr 1fr",
+            "Mobile": "1fr"
+          },
+          "gap": {
+            "Desktop": "4em",
+            "Tablet": "2em",
+            "Mobile": "1em"
+          },
+          "backgroundColor": {
+            "Desktop": "#ffffff"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          }
+        }
+      },
+      "item": {
+        "options": {
+          "class": "pg-info-box-item"
+        },
+        "styles": {
+          "textAlign": {
+            "Desktop": "center"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/info-box-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": "pg-info-box-item"
+            }
+          }
+        },
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/icon",
+            "attributes": {
+              "text": {
+                "options": {
+                  "enable": false,
+                  "text": "",
+                  "src": "",
+                  "linkTo": "",
+                  "linkToAuthorMeta": "",
+                  "linkToCustomMeta": "",
+                  "linkTarget": "_blank",
+                  "customUrl": "",
+                  "linkAttr": [],
+                  "triggerName": "",
+                  "triggerType": "",
+                  "class": ""
+                },
+                "styles": []
+              },
+              "icon": {
+                "options": {
+                  "enable": true,
+                  "library": "fontAwesome",
+                  "srcType": "class",
+                  "iconSrc": "far fa-hand-pointer",
+                  "position": "beforeText",
+                  "class": "text-icon"
+                },
+                "styles": {
+                  "fontSize": {
+                    "Desktop": "40px"
+                  },
+                  "color": {
+                    "Desktop": "#1e1e1e"
+                  },
+                  "margin": {
+                    "Desktop": "0px 0px 0px 0px"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "Brand communication",
+                  "src": "",
+                  "tag": "h3",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "color": {
+                    "Desktop": "#000000 !important"
+                  },
+                  "fontSize": {
+                    "Desktop": "26px !important"
+                  },
+                  "fontStyle": {
+                    "Desktop": "normal !important"
+                  },
+                  "fontWeight": {
+                    "Desktop": "600 !important"
+                  },
+                  "margin": {
+                    "Desktop": "10px 0px 15px 0px !important"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-info-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {}
+      }
+    },
+    "item": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-info-box-item"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

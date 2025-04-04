@@ -1,0 +1,170 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/form-field-simple-math",
+  "title": "Form Field - Simple Math",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/form-wrap",
+    "combo-blocks/flex-wrap",
+    "combo-blocks/flex-wrap-item",
+    "combo-blocks/grid-wrap",
+    "combo-blocks/grid-wrap-item",
+    "core/columns",
+    "combo-blocks/tabs-nested-item",
+    "combo-blocks/accordion-nested-item"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-form-field-text"
+        }
+      }
+    },
+    "labelWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        }
+      }
+    },
+    "label": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "label",
+          "for": "label",
+          "enable": true,
+          "text": "Your Name",
+          "class": "pg-form-field-label"
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "default": {
+        "options": {
+          "type": "text",
+          "placeholder": "Write your name",
+          "value": "",
+          "valueSource": "",
+          "name": "",
+          "required": false,
+          "disabled": false,
+          "objMap": "",
+          "size": false,
+          "minLength": null,
+          "maxLength": null,
+          "readonly": false,
+          "step": null,
+          "pattern": null,
+          "patternCustom": "",
+          "includeMailBody": true,
+          "max": null,
+          "min": null,
+          "mathType": "sum",
+          "mathCalc": "x+y",
+          "mathResult": "",
+          "checked": false,
+          "autocomplete": false,
+          "id": "",
+          "class": "pg-form-field-simple-math",
+          "position": "afterLabel"
+        }
+      }
+    },
+    "inputWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "class": ""
+        }
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check-circle",
+          "position": "beforeText",
+          "class": "text-icon"
+        },
+        "styles": {}
+      }
+    },
+    "errorWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "enable": true,
+          "text": "",
+          "position": "afterInput",
+          "class": ""
+        }
+      }
+    },
+    "requiredWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "span",
+          "enable": true,
+          "class": ""
+        }
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "form block for wordpress",
+    "form block",
+    "form builder",
+    "form maker",
+    "dynamic form",
+    "Contact Form Plugin",
+    "opt-in form",
+    "login form",
+    "register form",
+    "custom form",
+    "wordpress form",
+    "wordpress form plugin",
+    "Subscription form",
+    "contact form block"
+  ],
+  "description": "The form-input field is a blank space used in online forms for users to submit text or data, such as names and email addresses."
+}

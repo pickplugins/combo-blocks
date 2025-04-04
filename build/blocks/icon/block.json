@@ -1,0 +1,212 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/icon",
+  "title": "Icon/Button/Link",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "iconLink",
+    "iconText",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-icon",
+          "attr": []
+        },
+        "styles": {
+          "border": [],
+          "margin": [],
+          "width": [],
+          "padding": [],
+          "textAlign": [],
+          "display": []
+        }
+      },
+      "text": {
+        "options": {
+          "enable": true,
+          "text": "BUTTON",
+          "src": "",
+          "linkTo": "customUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": "",
+          "linkAttr": [],
+          "linkAppend": [],
+          "appendURLPrams": false,
+          "class": ""
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontWeight": {
+            "Desktop": "500"
+          },
+          "color": {
+            "Desktop": "#ffffff"
+          },
+          "padding": {
+            "Desktop": "8px 20px 8px 20px"
+          },
+          "display": {
+            "Desktop": "inline-block"
+          },
+          "borderRadius": {
+            "Desktop": "5px 5px 5px 5px"
+          },
+          "backgroundColor": {
+            "Desktop": "#367bf5"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px !important"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check-circle",
+          "position": "",
+          "class": "text-icon"
+        },
+        "styles": []
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-icon",
+          "attr": []
+        },
+        "styles": {}
+      }
+    },
+    "text": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "text": "Custom Text",
+          "src": "",
+          "linkTo": "",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": "",
+          "linkAttr": [],
+          "triggerName": "",
+          "triggerType": "",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeText",
+          "class": "text-icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "linkAttr": {
+      "type": "array",
+      "default": []
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "editorStyle": "font-awesome-5",
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "icon",
+    "icons",
+    "button",
+    "buttons",
+    "link",
+    "icon block",
+    "button block",
+    "icon button link",
+    "link block",
+    "icon block for wordpress",
+    "button block for wordpress",
+    "icon button link block for wordpress",
+    "multi-functional button",
+    "call-to-action button",
+    "button"
+  ],
+  "description": "The icon/button/link block is a clickable element that typically contains an icon or text, serving as a visual cue for actions like navigation, downloads, or interactions on a website."
+}

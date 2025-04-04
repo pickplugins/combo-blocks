@@ -1,0 +1,43 @@
+import { setupAccordion } from "./accordion-nested/front-scripts";
+import { setupBackToTop } from "./back-to-top/front-scripts";
+import { setupContentSlider } from "./content-slider/front-scripts";
+import { setupDateCountdown } from "./date-countdown/front-scripts";
+import { setupForm } from "./form-wrap/front-scripts";
+import { setupIcon } from "./icon/front-scripts";
+import { setupMasonry } from "./masonry-wrap/front-scripts";
+import { setupMenu } from "./menu-wrap/front-scripts";
+import { setupNumberCounter } from "./number-counter/front-scripts";
+import { setupPopup } from "./popup/front-scripts";
+import { setupPostGrid } from "./post-grid/front-scripts";
+// import { setupPostGridFilterable } from "./filterable-grid/front-scripts";
+import { setupFilterableGridNav } from "./filterable-grid-nav/front-scripts";
+import { setupProgressBar } from "./progress-bar/front-scripts";
+import { setupTabs } from "./tabs-nested/front-scripts";
+import { setupText } from "./text/front-scripts";
+import { setupReactions } from "./reactions/front-scripts";
+import { setupWooAddToCart } from "./woo-add-to-cart/front-scripts";
+import { setupGoogleMap } from "./google-map/front-scripts";
+
+// import { setupGlobal } from "./global-js";
+setupAccordion();
+setupBackToTop();
+setupContentSlider();
+setupDateCountdown();
+setupForm();
+setupIcon();
+setupMasonry();
+setupMenu();
+setupNumberCounter();
+setupPopup();
+setupPostGrid();
+setupProgressBar();
+setupTabs();
+setupText();
+setupReactions();
+setupWooAddToCart();
+setupFilterableGridNav();
+setupGoogleMap();
+
+// setupGlobal();
+// setupPostGridFilterable();
+

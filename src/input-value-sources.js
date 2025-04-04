@@ -1,13 +1,10 @@
-import { applyFilters } from "@wordpress/hooks";
 import { __ } from "@wordpress/i18n";
-
-var inputValueSourcesBasic = {
-	none: { label: "Choose...", value: "", isPro: true },
+var inputValueSourcesPrams = {
 	// postFields: { label: "### Post Fields ###", value: "", disabled: true },
 	postID: { label: "Post ID", value: "postID", isPro: true },
 	postSlug: { label: "Post Slug", value: "postSlug", isPro: true },
 	postTitle: {
-		label: __("Post title", "post-grid"),
+		label: __("Post title", "combo-blocks"),
 		value: "postTitle",
 		isPro: true,
 	},
@@ -84,26 +81,21 @@ var inputValueSourcesBasic = {
 	termSlug: { label: "Term Slug", value: "termSlug", isPro: true },
 	// metaFields: { label: "### Meta Fields ###", value: "", disabled: true },
 	postMeta: {
-		label: __("Post meta", "post-grid"),
+		label: __("Post meta", "combo-blocks"),
 		value: "postMeta",
 		isPro: true,
 	},
 	termMeta: { label: "Term Meta", value: "termMeta", isPro: true },
 	userMeta: { label: "User Meta", value: "userMeta", isPro: true },
 	// global: { label: "### Global ###", value: "", disabled: true },
-	GET: { label: "GET", value: "GET", isPro: true },
+	GET: { label: "GET", value: "GET" },
 };
 
-let inputValueSources = applyFilters(
-	"postGridInputValueSources",
-	inputValueSourcesBasic
-);
-
-var objectMapOptionsBasic = {
+var objectMapOptionsPrams = {
 	none: { label: "None", value: "", isPro: true },
 	postTerm: { label: "Post Term", value: "postTerm", isPro: true },
 	postMeta: {
-		label: __("Post meta", "post-grid"),
+		label: __("Post meta", "combo-blocks"),
 		value: "postMeta",
 		isPro: true,
 	},
@@ -112,9 +104,4 @@ var objectMapOptionsBasic = {
 	userMeta: { label: "User Meta", value: "userMeta", isPro: true },
 };
 
-export let objectMapOptions = applyFilters(
-	"postGridObjectMapOptions",
-	objectMapOptionsBasic
-);
-
-export default inputValueSources;
+export { inputValueSourcesPrams, objectMapOptionsPrams };

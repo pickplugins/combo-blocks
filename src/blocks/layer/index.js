@@ -1,76 +1,28 @@
-import { registerBlockType, createBlock } from "@wordpress/blocks";
-import { __ } from "@wordpress/i18n";
-import { doAction } from "@wordpress/hooks";
-import { useSelect, select, useDispatch, dispatch } from "@wordpress/data";
-import { useEntityRecord } from "@wordpress/core-data";
 import {
-	createElement,
-	useCallback,
-	memo,
-	useMemo,
-	useState,
-	useEffect,
-} from "@wordpress/element";
-import {
-	PanelBody,
-	RangeControl,
-	Button,
-	Panel,
-	PanelRow,
-	Dropdown,
-	DropdownMenu,
-	SelectControl,
-	ColorPicker,
-	ColorPalette,
-	ToolsPanelItem,
-	ComboboxControl,
-	ToggleControl,
-	MenuGroup,
-	MenuItem,
-	TextareaControl,
-	Popover,
-	Spinner,
-} from "@wordpress/components";
-import { __experimentalBoxControl as BoxControl } from "@wordpress/components";
-import { useEntityProp } from "@wordpress/core-data";
-import apiFetch from "@wordpress/api-fetch";
-
-import {
-	InspectorControls,
-	BlockControls,
-	AlignmentToolbar,
-	RichText,
-	__experimentalLinkControl as LinkControl,
 	InnerBlocks,
+	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import { __experimentalInputControl as InputControl } from "@wordpress/components";
-
-const { RawHTML } = wp.element;
-import { store } from "../../store";
+import { registerBlockType } from "@wordpress/blocks";
 import {
-	Icon,
-	styles,
-	settings,
-	link,
-	linkOff,
-	brush,
-	mediaAndText,
-} from "@wordpress/icons";
-
-import PGtabs from "../../components/tabs";
-import PGtab from "../../components/tab";
-import PGStyles from "../../components/styles";
-import metadata from "./block.json";
-import PGLibraryBlockVariations from "../../components/library-block-variations";
+	__experimentalInputControl as InputControl,
+	PanelRow,
+	SelectControl,
+} from "@wordpress/components";
+import { useEffect, useState } from "@wordpress/element";
+import { __ } from "@wordpress/i18n";
+import { brush, settings } from "@wordpress/icons";
 import PGcssClassPicker from "../../components/css-class-picker";
-import customTags from "../../custom-tags";
-
+import PGStyles from "../../components/styles";
+import PGtab from "../../components/tab";
+import PGtabs from "../../components/tabs";
 import PGtoggle from "../../components/toggle";
+import PGVisible from "../../components/visible";
+import customTags from "../../custom-tags";
+import metadata from "./block.json";
 
-var myStore = wp.data.select("postgrid-shop");
-
+var myStore = wp.data.select("ComboBlocksStore");
 registerBlockType(metadata, {
 	icon: {
 		// Specifying a background color to appear with the icon e.g.: in the inserter.
@@ -188,7 +140,6 @@ registerBlockType(metadata, {
 			</svg>
 		),
 	},
-
 	edit: function (props) {
 		var attributes = props.attributes;
 		var setAttributes = props.setAttributes;
@@ -196,193 +147,57 @@ registerBlockType(metadata, {
 		var clientId = props.clientId;
 		var blockName = props.name;
 		var blockNameLast = blockName.split("/")[1];
-
 		var blockId = attributes.blockId;
-
 		var blockIdX = attributes.blockId
 			? attributes.blockId
 			: "pg" + clientId.split("-").pop();
 		var blockClass = "." + blockIdX;
-
 		var wrapper = attributes.wrapper;
-
 		var visible = attributes.visible;
-
 		var blockCssY = attributes.blockCssY;
-
 		var postId = context["postId"];
 		var postType = context["postType"];
-
 		var breakPointX = myStore.getBreakPoint();
-
 		const [isLoading, setisLoading] = useState(false);
-
 		// Wrapper CSS Class Selectors
 		var wrapperSelector = blockClass;
-
 		useEffect(() => {
 			var blockIdX = "pg" + clientId.split("-").pop();
-
 			setAttributes({ blockId: blockIdX });
 			myStore.generateBlockCss(blockCssY.items, blockId);
 		}, [clientId]);
-
 		useEffect(() => {
 			var blockCssObj = {};
-
 			blockCssObj[wrapperSelector] = wrapper;
-
 			var blockCssRules = myStore.getBlockCssRules(blockCssObj);
-
 			var items = blockCssRules;
 			setAttributes({ blockCssY: { items: items } });
 		}, [blockId]);
-
 		function handleLinkClick(ev) {
 			ev.stopPropagation();
 			ev.preventDefault();
 			return false;
 		}
 
-		function onChangeStyleWrapper(sudoScource, newVal, attr) {
-			var path = [sudoScource, attr, breakPointX];
-			let obj = Object.assign({}, wrapper);
-			const object = myStore.updatePropertyDeep(obj, path, newVal);
-
-			setAttributes({ wrapper: object });
-
-			var elementSelector = myStore.getElementSelector(
-				sudoScource,
-				wrapperSelector
-			);
-			var cssPropty = myStore.cssAttrParse(attr);
-
-			let itemsX = Object.assign({}, blockCssY.items);
-
-			if (itemsX[elementSelector] == undefined) {
-				itemsX[elementSelector] = {};
-			}
-
-			var cssPath = [elementSelector, cssPropty, breakPointX];
-			const cssItems = myStore.updatePropertyDeep(itemsX, cssPath, newVal);
-
-			setAttributes({ blockCssY: { items: cssItems } });
-		}
-
-		function onRemoveStyleWrapper(sudoScource, key) {
-			let obj = { ...wrapper };
-			var object = myStore.deletePropertyDeep(obj, [
-				sudoScource,
-				key,
-				breakPointX,
-			]);
-			var isEmpty =
-				Object.entries(object[sudoScource][key]).length == 0 ? true : false;
-			var objectX = isEmpty
-				? myStore.deletePropertyDeep(object, [sudoScource, key])
-				: object;
-			setAttributes({ wrapper: objectX });
-
-			var elementSelector = myStore.getElementSelector(
-				sudoScource,
-				wrapperSelector
-			);
-			var cssPropty = myStore.cssAttrParse(key);
-			var cssObject = myStore.deletePropertyDeep(blockCssY.items, [
-				elementSelector,
-				cssPropty,
-				breakPointX,
-			]);
-			var isEmptyX = cssObject[cssPropty] == undefined ? false : true;
-			var cssObjectX = isEmptyX
-				? myStore.deletePropertyDeep(cssObject, [cssPropty])
-				: cssObject;
-			setAttributes({ blockCssY: { items: cssObjectX } });
-		}
-
-		function onResetWrapper(sudoSources) {
-			let obj = Object.assign({}, wrapper);
-
-			Object.entries(sudoSources).map((args) => {
-				var sudoScource = args[0];
-				if (obj[sudoScource] == undefined) {
-				} else {
-					obj[sudoScource] = {};
-					var elementSelector = myStore.getElementSelector(
-						sudoScource,
-						wrapperSelector
-					);
-
-					var cssObject = myStore.deletePropertyDeep(blockCssY.items, [
-						elementSelector,
-					]);
-					setAttributes({ blockCssY: { items: cssObject } });
-				}
-			});
-
-			setAttributes({ wrapper: obj });
-		}
-
-		function onAddStyleWrapper(sudoScource, key) {
-			var path = [sudoScource, key, breakPointX];
-			let obj = Object.assign({}, wrapper);
-			const object = myStore.addPropertyDeep(obj, path, "");
-			setAttributes({ wrapper: object });
-		}
-
-		function onBulkAddWrapper(sudoScource, cssObj) {
-			let obj = Object.assign({}, wrapper);
-			obj[sudoScource] = cssObj;
-
-			setAttributes({ wrapper: obj });
-
-			var selector = myStore.getElementSelector(sudoScource, wrapperSelector);
-			var stylesObj = {};
-
-			Object.entries(cssObj).map((args) => {
-				var attr = args[0];
-				var cssPropty = myStore.cssAttrParse(attr);
-
-				if (stylesObj[selector] == undefined) {
-					stylesObj[selector] = {};
-				}
-
-				if (stylesObj[selector][cssPropty] == undefined) {
-					stylesObj[selector][cssPropty] = {};
-				}
-
-				stylesObj[selector][cssPropty] = args[1];
-			});
-
-			var cssItems = { ...blockCssY.items };
-			var cssItemsX = { ...cssItems, ...stylesObj };
-
-			setAttributes({ blockCssY: { items: cssItemsX } });
-		}
-
 		useEffect(() => {
 			myStore.generateBlockCss(blockCssY.items, blockId);
 		}, [blockCssY]);
-
 		const MY_TEMPLATE = [["core/paragraph", {}]];
-
 		const blockProps = useBlockProps({
 			className: ` ${blockId} pg-layer`,
 		});
-
 		const innerBlocksProps = useInnerBlocksProps(blockProps, {
 			directInsert: true,
 			templateInsertUpdatesSelection: true,
 			//renderAppender: InnerBlocks.ButtonBlockAppender
 		});
-
 		return (
 			<>
 				<InspectorControls>
 					<div className="pg-setting-input-text">
 						<PGtoggle
 							className="font-medium text-slate-900 "
-							title={__("Wrapper", "post-grid")}
+							title={__("Wrapper", "combo-blocks")}
 							initialOpen={false}>
 							<PGtabs
 								activeTab="options"
@@ -416,10 +231,9 @@ registerBlockType(metadata, {
 											});
 										}}
 									/>
-
 									<PanelRow>
 										<label htmlFor="" className="font-medium text-slate-900 ">
-											{__("Block ID", "post-grid")}
+											{__("Block ID", "combo-blocks")}
 										</label>
 										<InputControl
 											value={blockId}
@@ -433,14 +247,27 @@ registerBlockType(metadata, {
 									</PanelRow>
 									<PanelRow>
 										<label htmlFor="" className="font-medium text-slate-900 ">
-											{__("Wrapper Tag", "post-grid")}
+											{__("CSS ID", "combo-blocks")}
 										</label>
-
+										<InputControl
+											value={wrapper.options.id}
+											onChange={(newVal) => {
+												var options = { ...wrapper.options, id: newVal };
+												setAttributes({
+													wrapper: { ...wrapper, options: options },
+												});
+											}}
+										/>
+									</PanelRow>
+									<PanelRow>
+										<label htmlFor="" className="font-medium text-slate-900 ">
+											{__("Wrapper Tag", "combo-blocks")}
+										</label>
 										<SelectControl
 											label=""
 											value={wrapper.options.tag}
 											options={[
-												{ label: __("Choose", "post-grid"), value: "" },
+												{ label: __("Choose", "combo-blocks"), value: "" },
 												{ label: "H1", value: "h1" },
 												{ label: "H2", value: "h2" },
 												{ label: "H3", value: "h3" },
@@ -463,30 +290,85 @@ registerBlockType(metadata, {
 								<PGtab name="styles">
 									<PGStyles
 										obj={wrapper}
-										onChange={onChangeStyleWrapper}
-										onAdd={onAddStyleWrapper}
-										onRemove={onRemoveStyleWrapper}
-										onBulkAdd={onBulkAddWrapper}
-										onReset={onResetWrapper}
+										onChange={(sudoScource, newVal, attr) => {
+											myStore.onChangeStyleElement(
+												sudoScource,
+												newVal,
+												attr,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onAdd={(sudoScource, key) => {
+											myStore.onAddStyleElement(
+												sudoScource,
+												key,
+												wrapper,
+												"wrapper",
+												setAttributes
+											);
+										}}
+										onRemove={(sudoScource, key) => {
+											myStore.onRemoveStyleElement(
+												sudoScource,
+												key,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onBulkAdd={(sudoScource, cssObj) => {
+											myStore.onBulkAddStyleElement(
+												sudoScource,
+												cssObj,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
+										onReset={(sudoSources) => {
+											myStore.onResetElement(
+												sudoSources,
+												wrapper,
+												"wrapper",
+												wrapperSelector,
+												blockCssY,
+												setAttributes
+											);
+										}}
 									/>
 								</PGtab>
 							</PGtabs>
 						</PGtoggle>
 
 
-
+						<PGtoggle
+							className="font-medium text-slate-900 "
+							title={__("Visibility", "combo-blocks")}
+							initialOpen={false}>
+							<PGVisible
+								visible={visible}
+								onChange={(prams) => {
+									setAttributes({ visible: prams });
+								}}
+							/>
+						</PGtoggle>
 					</div>
 				</InspectorControls>
-
 				<div {...innerBlocksProps}>{innerBlocksProps.children}</div>
 			</>
 		);
 	},
 	save: function (props) {
 		// to make a truly dynamic block, we're handling front end by render_callback under index.php file
-
 		var attributes = props.attributes;
-
 		return <InnerBlocks.Content />;
 	},
 });

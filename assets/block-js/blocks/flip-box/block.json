@@ -1,0 +1,247 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/flip-box",
+  "title": "Flip Box",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flip-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {
+          "position": {
+            "Desktop": "relative"
+          },
+          "width": {
+            "Desktop": "300px !important"
+          },
+          "height": {
+            "Desktop": "200px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 20px"
+          },
+          "perspective": {
+            "Desktop": "1000px"
+          },
+          "overflow": {
+            "Desktop": "hidden"
+          }
+        },
+        "hover div:nth-child(1)": [],
+        "hover div:nth-child(2)": {
+          "transform": {
+            "Desktop": "translateY(100%) "
+          }
+        }
+      },
+      "front": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flip-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {
+          "position": {
+            "Desktop": "absolute"
+          },
+          "transition": {
+            "Desktop": "transform .5s ease-in-out"
+          },
+          "left": {
+            "Desktop": "0px"
+          },
+          "top": {
+            "Desktop": "0px"
+          },
+          "transform": {
+            "Desktop": "scale(-1,1) "
+          }
+        }
+      },
+      "back": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flip-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {
+          "position": {
+            "Desktop": "absolute"
+          },
+          "left": {
+            "Desktop": "0px"
+          },
+          "top": {
+            "Desktop": "0px"
+          }
+        }
+      },
+      "visible": {
+        "rules": []
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/flip-box-back",
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "<strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "src": "",
+                  "tag": "div",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "fontSize": {
+                    "Desktop": "20px"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "combo-blocks/flip-box-front",
+        "innerBlocks": [
+          {
+            "name": "combo-blocks/text",
+            "attributes": {
+              "text": {
+                "options": {
+                  "content": "<strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "src": "",
+                  "tag": "div",
+                  "class": "pg-text",
+                  "id": "",
+                  "limitBy": "",
+                  "limitCount": 99
+                },
+                "styles": {
+                  "fontSize": {
+                    "Desktop": "20px"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flip-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {}
+      }
+    },
+    "front": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flip-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {}
+      }
+    },
+    "back": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-flip-box",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-title",
+  "title": "Post Title",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "example": {},
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-post-title"
+        },
+        "styles": {}
+      }
+    },
+    "abTest": {
+      "type": "array",
+      "default": []
+    },
+    "postTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "span",
+          "limitBy": "",
+          "limitCount": 99,
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "customUrl": "",
+          "class": "post-title"
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "30px"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 solid 0px !important"
+          }
+        }
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix",
+          "position": "beforebegin "
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix",
+          "position": "afterend"
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post title",
+    "post title html",
+    "page title",
+    "post title limit",
+    "post title count",
+    "post title year",
+    "post title slug",
+    "custom post title",
+    "advanced post title",
+    "post title block",
+    "post title for wordpress",
+    "post title block for wordpress"
+  ],
+  "description": "The post title block showcases the main title or headline of a blog post."
+}

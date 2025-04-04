@@ -1,0 +1,146 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/progress-bar",
+  "title": "Progress Bar",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-progress-bar"
+        },
+        "styles": {}
+      }
+    },
+    "progressData": {
+      "type": "object",
+      "default": {
+        "type": "",
+        "animate": "",
+        "animateDuration": 1,
+        "animateIteration": 2,
+        "animateDelay": 2,
+        "source": "normal",
+        "fill": 75
+      }
+    },
+    "progressInfo": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "position": "beforeBar"
+        },
+        "styles": {}
+      }
+    },
+    "progressBar": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "progressFill": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "progressCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "position": "afterLabel",
+          "prefix": "",
+          "postfix": "",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "circleOverlay": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "circleMask": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "progressLabel": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Digital Marketing",
+          "position": "",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "position": "beforeprogressCount",
+          "srcType": "class",
+          "iconSrc": "far fa-calendar-alt",
+          "class": "number-count-icon"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "progress bar",
+    "progress bars",
+    "progress",
+    "circular progress bar",
+    "progress bar block",
+    "progress bar for wordpress",
+    "progress bar block for wordpress"
+  ],
+  "description": "The progress bar block visually represents the completion or progress of a task, process, or goal."
+}

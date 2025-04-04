@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/form-steps",
+  "title": "Form Steps",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/form-wrap"
+  ],
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-form-steps"
+        },
+        "styles": {}
+      }
+    },
+    "navsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-form-steps"
+        },
+        "styles": {}
+      }
+    },
+    "navItem": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-form-steps"
+        },
+        "styles": {}
+      }
+    },
+    "next": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-form-steps"
+        },
+        "styles": {}
+      }
+    },
+    "prev": {
+      "type": "object",
+      "default": {
+        "options": {
+          "content": "",
+          "tag": "div",
+          "class": "pg-form-steps"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "form-steps"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

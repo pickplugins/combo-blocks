@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/content-slider-item",
+  "title": "Content Slider Item",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "parent": [
+    "combo-blocks/content-slider"
+  ],
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": " pg-content-slider-item"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {
+          "height": {
+            "Desktop": "300px"
+          }
+        }
+      }
+    }
+  },
+  "editorStyle": "pgcontent-slider-splide-core",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "Content slider",
+    "Image slider",
+    "Video slider",
+    "Slider block",
+    "Carousel block",
+    "Carousel slider",
+    "Custom content slider"
+  ],
+  "description": "This block is the inner block of content slider block"
+}

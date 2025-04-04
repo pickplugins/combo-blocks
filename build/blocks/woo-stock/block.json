@@ -1,0 +1,137 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/woo-stock",
+  "title": "In Stock",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-woo",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-woo-stock"
+        },
+        "styles": {}
+      }
+    },
+    "stock": {
+      "type": "object",
+      "default": {
+        "options": {
+          "inStock": "Stock",
+          "outOfStock": "Out of Stock",
+          "backOrder": "Backorder Enabled",
+          "tag": "span",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "stock"
+        },
+        "styles": {}
+      }
+    },
+    "outOfStock": {
+      "type": "object",
+      "default": {
+        "options": {
+          "outOfStock": "Out of Stock",
+          "tag": "span",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "out-of-stock"
+        },
+        "styles": {}
+      }
+    },
+    "backOrder": {
+      "type": "object",
+      "default": {
+        "options": {
+          "backOrder": "Backorder Enabled",
+          "tag": "span",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "backorder"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "stock count",
+    "stock status",
+    "stock block",
+    "stock for woocommerce",
+    "stock block for woocommerce"
+  ],
+  "description": "The stock block provides information about the availability of a product, helping customers know if it's in stock."
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/menu-wrap-item",
+  "title": "Menu Maker Item",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "parent": [
+    "combo-blocks/menu-wrap"
+  ],
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "li",
+          "class": "pg-menu-wrap-item",
+          "isActive": false,
+          "isMainMenuItem": false
+        },
+        "styles": {}
+      }
+    },
+    "link": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-menu-link",
+          "text": "Label",
+          "url": ""
+        },
+        "styles": {}
+      }
+    },
+    "subMenuWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-sub-menu",
+          "type": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": true,
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-check-circle",
+          "position": "beforeText",
+          "class": "pg-menu-icon"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "editorStyle": "pgmenu_wrap_editor_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "menu",
+    "menu block",
+    "navigation block",
+    "menu for wordpress",
+    "menu block for wordpress"
+  ],
+  "description": "This block is the inner block of menu wrap block"
+}

@@ -1,0 +1,435 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-author",
+  "title": "Post Author",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "providesContext": {
+    "combo-blocks/postElement": "elements"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-post-author"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "block"
+          },
+          "borderLeft": {
+            "Desktop": "4px solid #000000",
+            "Mobile": "0px solid #000000"
+          },
+          "paddingLeft": [],
+          "backgroundColor": {
+            "Desktop": "#dedede6b"
+          },
+          "padding": {
+            "Desktop": "20px 10px 20px 20px"
+          },
+          "maxWidth": {
+            "Desktop": "900px !important"
+          },
+          "borderTop": {
+            "Mobile": "4px solid #000000"
+          }
+        },
+        "after": {
+          "content": {
+            "Desktop": "u0022 u0022"
+          },
+          "display": {
+            "Desktop": "block"
+          },
+          "clear": {
+            "Desktop": "both"
+          }
+        }
+      },
+      "elements": {
+        "items": [
+          {
+            "id": "name",
+            "label": "Name",
+            "chosen": false,
+            "selected": false
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "chosen": false,
+            "selected": false
+          }
+        ],
+        "data": {
+          "id": 1,
+          "url": "https://comboblocks.com/server",
+          "registered": "2022-10-05 06:24:55",
+          "display_name": "Nur Hasan",
+          "first_name": "Nur",
+          "last_name": "Hasan",
+          "description": "",
+          "avatar_url": "https://secure.gravatar.com/avatar/b6e75caf7388bb6978612a75487bdc1e?s=96&d=mm&r=g",
+          "posts_url": "https://comboblocks.com/server/author/getpostgrid/"
+        }
+      },
+      "avatar": {
+        "options": {
+          "class": "avatar",
+          "size": "96",
+          "default": ""
+        },
+        "styles": {
+          "display": {
+            "Desktop": "block"
+          },
+          "backgroundColor": [],
+          "overflow": {
+            "Desktop": "hidden"
+          },
+          "margin": {
+            "Desktop": "0px 20px 10px 0px"
+          },
+          "borderRadius": [],
+          "float": {
+            "Desktop": "left",
+            "Mobile": "none"
+          },
+          "width": {
+            "Desktop": "90px"
+          },
+          "height": {
+            "Desktop": "100%"
+          },
+          "marginLeft": {
+            "Mobile": "auto"
+          },
+          "marginRight": {
+            "Mobile": "auto"
+          }
+        }
+      },
+      "name": {
+        "options": {
+          "class": "name",
+          "prefix": "",
+          "postfix": "",
+          "linkTo": "",
+          "linkToMeta": "",
+          "customUrl": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "22px"
+          },
+          "fontStyle": [],
+          "fontWeight": {
+            "Desktop": "700"
+          },
+          "float": {
+            "Mobile": "none"
+          },
+          "clear": [],
+          "position": {
+            "Mobile": "static"
+          },
+          "top": [],
+          "textAlign": {
+            "Mobile": "center"
+          },
+          "marginBottom": {
+            "Mobile": "10px",
+            "Desktop": "5px"
+          }
+        }
+      },
+      "description": {
+        "options": {
+          "class": "description",
+          "prefix": "",
+          "postfix": ""
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "16px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "clear": [],
+          "lineHeight": {
+            "Desktop": "28px"
+          },
+          "textAlign": {
+            "Mobile": "center"
+          },
+          "float": [],
+          "marginTop": [],
+          "position": [],
+          "top": [],
+          "maxWidth": []
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/post-author-fields",
+        "attributes": {
+          "field": {
+            "options": {
+              "linkTo": "postUrl",
+              "linkToMeta": "",
+              "linkTarget": "",
+              "avatarSize": "",
+              "dateFormat": "",
+              "customUrl": "",
+              "prefix": "",
+              "postfix": "",
+              "linkAttr": []
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "22px"
+              },
+              "fontStyle": [],
+              "fontWeight": {
+                "Desktop": "700"
+              },
+              "float": {
+                "Mobile": "none"
+              },
+              "clear": [],
+              "position": {
+                "Mobile": "static"
+              },
+              "top": [],
+              "textAlign": {
+                "Mobile": "center",
+                "Desktop": ""
+              },
+              "marginBottom": {
+                "Mobile": "10px",
+                "Desktop": "5px"
+              },
+              "textDecoration": {
+                "Desktop": "none #000000 wavy 1px !important"
+              }
+            }
+          },
+          "frontText": {
+            "options": {
+              "text": "",
+              "class": "inline-block"
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "fontStyle": {
+                "Desktop": "normal"
+              },
+              "fontWeight": {
+                "Desktop": "400"
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "combo-blocks/post-author-fields",
+        "attributes": {
+          "field": {
+            "options": {
+              "linkTo": "postUrl",
+              "linkToMeta": "",
+              "linkTarget": "",
+              "avatarSize": "",
+              "dateFormat": "",
+              "customUrl": "",
+              "prefix": "",
+              "postfix": "",
+              "linkAttr": []
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "fontStyle": [],
+              "fontWeight": {
+                "Desktop": "700"
+              },
+              "float": {
+                "Mobile": "none"
+              },
+              "clear": [],
+              "position": {
+                "Mobile": "static"
+              },
+              "top": [],
+              "textAlign": {
+                "Mobile": "center",
+                "Desktop": ""
+              },
+              "marginBottom": {
+                "Mobile": "10px",
+                "Desktop": "5px"
+              },
+              "textDecoration": {
+                "Desktop": "none #000000 wavy 1px !important"
+              }
+            }
+          },
+          "metaKey": "description",
+          "frontText": {
+            "options": {
+              "text": "",
+              "class": "inline-block"
+            },
+            "styles": {
+              "color": {
+                "Desktop": "#000000"
+              },
+              "fontSize": {
+                "Desktop": "18px"
+              },
+              "fontStyle": {
+                "Desktop": "normal"
+              },
+              "fontWeight": {
+                "Desktop": "400"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-post-author"
+        },
+        "styles": {}
+      }
+    },
+    "elements": {
+      "type": "object",
+      "default": {
+        "items": [
+          {
+            "id": "display_name",
+            "label": "Name"
+          }
+        ]
+      }
+    },
+    "avatar": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "avatar",
+          "size": "96",
+          "default": ""
+        },
+        "styles": {}
+      }
+    },
+    "name": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "name",
+          "prefix": "",
+          "postfix": "",
+          "linkTo": "",
+          "linkToMeta": "",
+          "customUrl": ""
+        },
+        "styles": {}
+      }
+    },
+    "description": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "description",
+          "prefix": "",
+          "postfix": ""
+        },
+        "styles": {}
+      }
+    },
+    "linkAttr": {
+      "type": "array",
+      "default": []
+    },
+    "blockCss": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "post author",
+    "author profile",
+    "author bio",
+    "author links",
+    "post author block",
+    "post author for wordpress",
+    "post author block for wordpress"
+  ],
+  "description": "The post author block provides information about the author of a blog post."
+}

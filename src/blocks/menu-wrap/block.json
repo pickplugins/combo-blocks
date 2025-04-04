@@ -1,0 +1,378 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/menu-wrap",
+  "title": "Menu Maker",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "wrapper": {
+        "options": {
+          "tag": "div",
+          "class": "pg-menu-wrap"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "justifyContent": {
+            "Desktop": "space-between"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          }
+        }
+      },
+      "menuWrap": {
+        "options": {
+          "tag": "ul",
+          "class": "pg-menu"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex",
+            "Tablet": "block"
+          },
+          "gap": {
+            "Desktop": "2em"
+          },
+          "listStyle": {
+            "Desktop": "none inside url(u0022u0022)"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          }
+        }
+      },
+      "subMenuWrap": {
+        "options": {
+          "class": "pg-sub-menu",
+          "type": ""
+        },
+        "styles": {
+          "width": {
+            "Desktop": "250px"
+          },
+          "padding": {
+            "Desktop": "20px 20px 20px 20px"
+          },
+          "margin": {
+            "Desktop": "0px 0px 0px 0px"
+          }
+        }
+      },
+      "link": {
+        "options": {
+          "class": "pg-menu-link"
+        },
+        "styles": {
+          "display": {
+            "Desktop": "flex"
+          },
+          "alignItems": {
+            "Desktop": "center"
+          },
+          "justifyContent": {
+            "Desktop": "start"
+          },
+          "flexWrap": {
+            "Desktop": "nowrap"
+          },
+          "width": {
+            "Desktop": "100%"
+          },
+          "gap": {
+            "Desktop": "0em"
+          },
+          "textDecoration": {
+            "Desktop": "none #000000 wavy 1px !important"
+          }
+        }
+      },
+      "icon": {
+        "options": {
+          "class": "pg-menu-icon",
+          "srcType": "class",
+          "library": "fontAwesome",
+          "iconSrc": "fas fa-align-justify"
+        },
+        "styles": {
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 0px"
+          }
+        }
+      }
+    },
+    "innerBlocks": [
+      {
+        "name": "combo-blocks/menu-wrap-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": "flex-item-wrap",
+              "isActive": false
+            },
+            "styles": {
+              "flexBasis": {
+                "Desktop": "0"
+              },
+              "flexGrow": {
+                "Desktop": "1"
+              }
+            }
+          },
+          "link": {
+            "options": {
+              "class": "pg-menu-link",
+              "text": "Home",
+              "url": ""
+            },
+            "styles": {
+              "backgroundColor": {
+                "Desktop": ""
+              }
+            }
+          },
+          "icon": {
+            "options": {
+              "enable": true,
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-home",
+              "position": "beforeLabel",
+              "class": "pg-menu-icon"
+            },
+            "styles": []
+          }
+        }
+      },
+      {
+        "name": "combo-blocks/menu-wrap-item",
+        "attributes": {
+          "wrapper": {
+            "options": {
+              "tag": "div",
+              "class": "flex-item-wrap",
+              "isActive": false
+            },
+            "styles": {
+              "flexBasis": {
+                "Desktop": "0"
+              },
+              "flexGrow": {
+                "Desktop": "1"
+              }
+            }
+          },
+          "link": {
+            "options": {
+              "class": "pg-menu-link",
+              "text": "Contact",
+              "url": ""
+            },
+            "styles": {
+              "backgroundColor": {
+                "Desktop": ""
+              }
+            }
+          },
+          "icon": {
+            "options": {
+              "enable": true,
+              "library": "fontAwesome",
+              "srcType": "class",
+              "iconSrc": "fas fa-comment-alt",
+              "position": "beforeLabel",
+              "class": "pg-menu-icon"
+            },
+            "styles": []
+          }
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-menu-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "mobileMenuWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "mobile-menu-wrap"
+        },
+        "styles": {}
+      }
+    },
+    "mobileMenuWrapActive": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "mobile-menu-wrap-active"
+        },
+        "styles": {}
+      }
+    },
+    "mainMenuWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-main-menu"
+        },
+        "styles": {}
+      }
+    },
+    "mainMenuItemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-main-menu-item"
+        },
+        "styles": {}
+      }
+    },
+    "mainMenuItemLink": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "menuWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "ul",
+          "class": "pg-menu"
+        },
+        "styles": {}
+      }
+    },
+    "subMenuWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-sub-menu",
+          "type": ""
+        },
+        "styles": {}
+      }
+    },
+    "subMenuItemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "type": ""
+        },
+        "styles": {}
+      }
+    },
+    "subMenuItemLink": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "type": ""
+        },
+        "styles": {}
+      }
+    },
+    "link": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-menu-link"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-menu-icon"
+        },
+        "styles": {}
+      }
+    },
+    "mobileMenuToggle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "mobile-menu-toggle",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-right",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "mobileMenuClose": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "mobile-menu-close",
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "fas fa-chevron-right",
+          "position": ""
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "editorStyle": "pgmenu_wrap_editor_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "menu",
+    "menu block",
+    "navigation block",
+    "menu for wordpress",
+    "menu block for wordpress"
+  ],
+  "description": "The menu wrap block is a container for structuring and presenting navigation menus or lists of items on a webpage, enhancing user accessibility."
+}

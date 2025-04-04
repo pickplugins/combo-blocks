@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "post-grid/grid-wrap-item",
+  "name": "combo-blocks/grid-wrap-item",
   "title": "Grid Maker Item",
-  "textdomain": "post-grid",
-  "category": "post-grid-tools",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
   "parent": [
-    "post-grid/grid-wrap"
+    "combo-blocks/grid-wrap"
   ],
   "usesContext": [
     "postId",
@@ -46,7 +46,7 @@
       }
     }
   },
-  "script": "front_script",
+  "script": "combo_blocks_scripts",
   "keywords": [
     "grid builder",
     "grid css",

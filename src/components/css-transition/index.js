@@ -1,4 +1,5 @@
 const { Component } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Button,
 	Dropdown,
@@ -7,7 +8,6 @@ import {
 	RangeControl,
 } from "@wordpress/components";
 import { useState, useEffect } from "@wordpress/element";
-
 import {
 	__experimentalInputControl as InputControl,
 	ColorPalette,
@@ -15,16 +15,12 @@ import {
 import PGDropdown from "../../components/dropdown";
 import { Icon, close } from "@wordpress/icons";
 import { applyFilters } from "@wordpress/hooks";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var valParts = props.val != undefined ? props.val.split(",") : [];
-
 	const [valArgs, setvalArgs] = useState([]);
-
 	var timingFunctionargs = [
 		{ label: "ease", value: "ease" },
 		{ label: "linear", value: "linear" },
@@ -34,10 +30,8 @@ function Html(props) {
 		{ label: "step-start", value: "step-start" },
 		{ label: "step-end", value: "step-end" },
 	];
-
 	var transitionPropertiesBasic = {
 		all: { value: "all ", label: "All " },
-
 		"background-color": {
 			value: "background-color",
 			label: "Background Color",
@@ -194,15 +188,12 @@ function Html(props) {
 			isPro: true,
 		},
 	};
-
 	let transitionProperties = applyFilters(
 		"transitionProperties",
 		transitionPropertiesBasic
 	);
-
 	useEffect(() => {
 		var filtered = valParts.filter(Boolean);
-
 		var res = filtered.map((x) => {
 			if (x.length != 0) {
 				var items = x.split(" ");
@@ -210,7 +201,6 @@ function Html(props) {
 				var duration = items[1];
 				var timingFunction = items[2];
 				var delay = items[3];
-
 				return {
 					property: property,
 					duration: duration,
@@ -219,10 +209,8 @@ function Html(props) {
 				};
 			}
 		});
-
 		setvalArgs(res);
 	}, [props.val]);
-
 	return (
 		<div className="mt-4">
 			<div className="flex mb-3">
@@ -230,7 +218,7 @@ function Html(props) {
 					position="bottom right"
 					variant="secondary"
 					options={transitionProperties}
-					buttonTitle="Choose"
+					buttonTitle={__("Choose", "combo-blocks")}
 					onChange={(option, index) => {
 						valArgs.push({
 							property: option.value,
@@ -238,7 +226,6 @@ function Html(props) {
 							timingFunction: "ease",
 							delay: "0s",
 						});
-
 						var str = "";
 						valArgs.map((x, i) => {
 							str +=
@@ -251,33 +238,29 @@ function Html(props) {
 								x.delay;
 							str += ",";
 						});
-
 						var strX = str.slice(0, -1);
-
 						props.onChange(strX, "transition");
 					}}></PGDropdown>
 			</div>
-
 			{valArgs != undefined &&
 				valArgs.map((arg, i) => {
 					return (
 						<PanelBody
 							title={
 								arg.property != null &&
-								transitionProperties[arg.property] != undefined
+									transitionProperties[arg.property] != undefined
 									? transitionProperties[arg.property].label
 									: "property"
 							}
 							initialOpen={false}>
 							<PanelRow>
-								<label htmlFor="">Duration</label>
+								<label htmlFor="">{__("Duration", "combo-blocks")}</label>
 								<InputControl
 									value={arg.duration.slice(0, -1)}
 									type="number"
 									autocomplete="off"
 									onChange={(newVal) => {
 										valArgs[i].duration = newVal;
-
 										var str = "";
 										valArgs.map((x, j) => {
 											if (i == j) {
@@ -307,10 +290,8 @@ function Html(props) {
 									}}
 								/>
 							</PanelRow>
-
 							<PanelRow>
-								<label htmlFor="">Timing Function</label>
-
+								<label htmlFor="">{__("Timing Function", "combo-blocks")}</label>
 								<PGDropdown
 									position="bottom right"
 									variant="secondary"
@@ -320,7 +301,6 @@ function Html(props) {
 									}
 									onChange={(option, index) => {
 										valArgs[i].timingFunction = option.value;
-
 										var str = "";
 										valArgs.map((x, j) => {
 											if (i == j) {
@@ -349,16 +329,14 @@ function Html(props) {
 										props.onChange(strX, "transition");
 									}}></PGDropdown>
 							</PanelRow>
-
 							<PanelRow>
-								<label htmlFor="">Delay</label>
+								<label htmlFor="">{__("Delay", "combo-blocks")}</label>
 								<InputControl
 									value={arg.delay.slice(0, -1)}
 									type="number"
 									autocomplete="off"
 									onChange={(newVal) => {
 										valArgs[i].delay = newVal;
-
 										var str = "";
 										valArgs.map((x, j) => {
 											if (i == j) {
@@ -389,15 +367,12 @@ function Html(props) {
 									}}
 								/>
 							</PanelRow>
-
 							<div className="flex">
 								<span
 									className="hover:bg-red-500 bg-red-400 text-white ml-1 inline-block p-1 cursor-pointer"
 									onClick={(ev) => {
 										var hellox = valArgs.splice(i, 1);
-
 										setvalArgs(valArgs);
-
 										var str = "";
 										valArgs.map((x, j) => {
 											str +=
@@ -422,26 +397,20 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGcssTransition extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { val, onChange } = this.props;
-
 		return <Html val={val} onChange={onChange} warn={this.state.showWarning} />;
 	}
 }
-
 export default PGcssTransition;
-

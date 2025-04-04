@@ -1,0 +1,155 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/woo-add-to-cart",
+  "title": "Add To Cart",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-woo",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-woo-sku"
+        },
+        "styles": {}
+      }
+    },
+    "viewCart": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "cartBtn": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "productId": "",
+          "sku": "",
+          "ajax": true,
+          "text": "Add to cart",
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "quantityWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false,
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "quantityInput": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "quantity": ""
+        },
+        "styles": {}
+      }
+    },
+    "quantityIncrease": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "quantityDecrease": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": ""
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeSku",
+          "class": "sku-icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": " ",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "postfix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "style": "front_style",
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "add to cart",
+    "wc add to cart",
+    "add to cart button",
+    "add to cart link",
+    "woocommerce add to cart",
+    "woocommerce cart button",
+    "add to cart block",
+    "add to cart for woocommerce",
+    "add to cart block for woocommerce"
+  ],
+  "description": "The add to cart block allows users to place items into their online shopping cart for purchase in e-commerce websites."
+}

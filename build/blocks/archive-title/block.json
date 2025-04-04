@@ -1,0 +1,167 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/archive-title",
+  "title": "Archive title",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-archive",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "example": {
+    "attributes": {
+      "archiveTitle": {
+        "options": {
+          "tag": "div",
+          "archiveType": "auto",
+          "customLabel": "Archive Title",
+          "dateFormat": "",
+          "linkTo": "",
+          "linkToUrl": "",
+          "linkToMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "customUrl": "",
+          "class": "archiveTitle"
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000 !important"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "position": {
+            "Desktop": "relative"
+          }
+        },
+        "after": {
+          "position": {
+            "Desktop": "absolute !important"
+          },
+          "content": {
+            "Desktop": "u0022 u0022"
+          },
+          "height": {
+            "Desktop": "2px"
+          },
+          "width": {
+            "Desktop": "150px"
+          },
+          "left": {
+            "Desktop": "0px"
+          },
+          "top": {
+            "Desktop": "28px"
+          },
+          "backgroundColor": {
+            "Desktop": "#000000"
+          }
+        }
+      }
+    }
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-archive-title"
+        },
+        "styles": {}
+      }
+    },
+    "archiveTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "archiveType": "",
+          "customLabel": "Archive: %s",
+          "dateFormat": "",
+          "linkTo": "",
+          "linkToUrl": "",
+          "linkToMetaKey": "",
+          "linkTarget": "_blank",
+          "linkAttr": [],
+          "customUrl": "",
+          "class": "archiveTitle"
+        },
+        "styles": {}
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "far fa-calendar-alt",
+          "position": "beforeArchiveTitle",
+          "class": "postdate-icon"
+        },
+        "styles": {}
+      }
+    },
+    "prefix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "postfix": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "",
+          "class": "prefix"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "Taxonomy title",
+    "Terms title",
+    "Category title",
+    "Tags title",
+    "archive title",
+    "archive block"
+  ],
+  "description": "Display archive title for category, tags, taxonomy terms or archive pages."
+}

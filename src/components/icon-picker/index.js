@@ -1,4 +1,5 @@
 const { Component, RawHTML } = wp.element;
+import { __ } from "@wordpress/i18n";
 import {
 	Panel,
 	PanelRow,
@@ -16,28 +17,21 @@ import {
 	useState,
 	useEffect,
 } from "@wordpress/element";
-
 import { __experimentalInputControl as InputControl } from "@wordpress/components";
 import { link, linkOff } from "@wordpress/icons";
-
 import fontawesomeClasses from "./fontawesome-classes";
 import iconfontClasses from "./iconfont-classes";
 import bootstrapIcons from "./bootstrap-icons";
-
 function Html(props) {
 	if (!props.warn) {
 		return null;
 	}
-
 	var library = props.library;
 	var srcType = props.srcType;
 	var iconSrc = props.iconSrc;
 	var isPro = props.isPro;
-
 	const [isVisible, setIsVisible] = useState(false);
-
 	const [iconsArr, setIconsArr] = useState(fontawesomeClasses);
-
 	const [pickerOpen, setPickerOpen] = useState(false);
 	const [iconData, setIconData] = useState({
 		keyword: "",
@@ -45,12 +39,10 @@ function Html(props) {
 		filtered: [],
 	});
 	const [filteredIcons, setFilteredIcons] = useState([]);
-
 	useEffect(() => {
 		if (iconData.library == "fontAwesome") {
 			setIconsArr(fontawesomeClasses);
 		}
-
 		if (iconData.library == "iconFont") {
 			setIconsArr(iconfontClasses);
 		}
@@ -58,7 +50,6 @@ function Html(props) {
 			setIconsArr(bootstrapIcons);
 		}
 	}, [iconData]);
-
 	return (
 		<div className="relative">
 			<div
@@ -82,7 +73,6 @@ function Html(props) {
 					// className="w-8 h-8 text-lg border cursor-pointer hover:bg-gray-200 border-gray-500 text-center"
 					></Button>
 				)}
-
 				{iconSrc?.length > 0 && (
 					<div
 						className="w-8  text-lg  text-center"
@@ -92,19 +82,16 @@ function Html(props) {
 					</div>
 				)}
 			</div>
-
 			{isPro && isVisible && (
-				// <div className="absolute bottom-2 right-0 bg-indigo-300 text-white no-underline px-2 rounded-sm py-1 ">
+				// <div className="absolute bottom-2 right-0 bg-gray-700 text-white no-underline px-2 rounded-sm py-1 ">
 				<a
 					href="https://comboblocks.com/pricing/"
 					target="_blank"
-					className="absolute top-full right-0 bg-indigo-300 text-white hover:text-white no-underline px-2 rounded-sm py-1 whitespace-nowrap ">
-					Subscribe to use
+					className="absolute top-full right-0 bg-gray-700 text-white hover:text-white no-underline px-2 rounded-sm py-1 whitespace-nowrap ">
+					{__("Subscribe to use", "combo-blocks")}
 				</a>
-
 				// </div>
 			)}
-
 			{pickerOpen && (
 				<Popover position="bottom right">
 					<div className="w-72 p-2 pg-setting-input-text  custom-scrollbar relative ">
@@ -129,23 +116,18 @@ function Html(props) {
 										});
 									}}
 								/>
-
 								<InputControl
 									placeholder="Search for icons"
 									value={iconData.keyword}
 									onChange={(newVal) => {
 										setIconData({ ...iconData, keyword: newVal });
-
 										setFilteredIcons([]);
-
 										var icons = [];
-
 										iconsArr.map((icon) => {
 											if (icon.indexOf(newVal) > 0) {
 												icons.push(icon);
 											}
 										});
-
 										setFilteredIcons(icons);
 									}}
 								/>
@@ -168,7 +150,6 @@ function Html(props) {
 										</div>
 									);
 								})}
-
 							{iconData.keyword.length > 0 &&
 								filteredIcons.map((icon) => {
 									return (
@@ -185,10 +166,9 @@ function Html(props) {
 										</div>
 									);
 								})}
-
 							{filteredIcons.length == 0 && (
 								<div className="text-center p-2 text-red-500 ">
-									No icons found.
+									{__("No icons found.", "combo-blocks")}
 								</div>
 							)}
 						</div>
@@ -198,23 +178,19 @@ function Html(props) {
 		</div>
 	);
 }
-
 class PGIconPicker extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showWarning: true };
 		this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
-
 	handleToggleClick() {
 		this.setState((state) => ({
 			showWarning: !state.showWarning,
 		}));
 	}
-
 	render() {
 		var { library, srcType, iconSrc, isPro, onChange } = this.props;
-
 		return (
 			<div>
 				<Html
@@ -229,5 +205,4 @@ class PGIconPicker extends Component {
 		);
 	}
 }
-
 export default PGIconPicker;

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/google-map",
+  "title": "Google Map",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "usesContext": [
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-google-map",
+          "id": "",
+          "linkTo": "postUrl",
+          "linkToAuthorMeta": "",
+          "linkToCustomMeta": "",
+          "linkTarget": "_blank",
+          "customUrl": ""
+        },
+        "styles": {
+          "height": {
+            "Desktop": "300px"
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "default": []
+    },
+    "addresses": {
+      "type": "array",
+      "default": []
+    },
+    "mapSettings": {
+      "type": "object",
+      "default": {
+        "mapId": "",
+        "zoom": 3,
+        "zoomControl": true,
+        "minZoom": 1,
+        "maxZoom": 16,
+        "lat": "53.54992",
+        "lng": "10.00678",
+        "tilt": 45,
+        "heading": "",
+        "name": "",
+        "titleSize": "",
+        "alt": "",
+        "mapTypeId": "roadmap",
+        "streetViewControl": true,
+        "colorScheme": "LIGHT",
+        "infoWindow": {
+          "titleTag": "h2",
+          "descriptionTag": "p"
+        },
+        "layers": {
+          "trafficLayer": false,
+          "bikeLayer": false,
+          "transitLayer ": false
+        },
+        "markerType": "default",
+        "marker": {
+          "image": {
+            "id": "",
+            "src": "",
+            "width": "",
+            "height": ""
+          },
+          "pin": {
+            "background": "",
+            "borderColor": "",
+            "glyphColor": ""
+          }
+        }
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "layer",
+    "html element",
+    "div element",
+    "div",
+    "html tag",
+    "layer block",
+    "layer for wordpress",
+    "layer block for wordpress"
+  ],
+  "description": "The layer block is an HTML element that can be styled and positioned on a webpage to structure and organize content."
+}

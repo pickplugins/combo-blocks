@@ -1,0 +1,159 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/post-taxonomies",
+  "title": "Post Terms",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-post",
+  "usesContext": [
+    "combo-blocks/liveMode",
+    "postId",
+    "loopIndex",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-post-terms",
+          "tag": "div"
+        },
+        "styles": {}
+      }
+    },
+    "taxonomies": {
+      "type": "object",
+      "default": {
+        "options": {
+          "taxName": ""
+        }
+      }
+    },
+    "items": {
+      "type": "object",
+      "default": {
+        "options": {
+          "prefix": "",
+          "postfix": "",
+          "linkTo": "termUrl",
+          "linkToCustomMeta": "",
+          "linkToAuthorMeta": "",
+          "customUrl": "",
+          "maxCount": 99,
+          "postCount": false,
+          "class": " item",
+          "linkTarget": "",
+          "linkAttr": []
+        },
+        "styles": {
+          "textDecoration": {
+            "Desktop": "none #000000 solid 0px !important"
+          }
+        }
+      }
+    },
+    "icon": {
+      "type": "object",
+      "default": {
+        "options": {
+          "library": "fontAwesome",
+          "srcType": "class",
+          "iconSrc": "",
+          "position": "beforeFronttext",
+          "class": "icon"
+        },
+        "styles": {}
+      }
+    },
+    "separator": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "inline-block",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "frontText": {
+      "type": "object",
+      "default": {
+        "options": {
+          "text": "Tags: ",
+          "class": "inline-block"
+        },
+        "styles": {}
+      }
+    },
+    "postCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "termTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {}
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
+      }
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "taxonomy",
+    "terms",
+    "post taxonomy",
+    "custom taxonomy",
+    "post terms",
+    "post term",
+    "terms block",
+    "post terms",
+    "post terms block",
+    "post taxonomy block",
+    "post taxonomy for wordpress",
+    "post taxonomy block for wordpress"
+  ],
+  "description": "A post terms block is used to categorize and organize blog posts by displaying associated tags, categories, or other classification elements."
+}

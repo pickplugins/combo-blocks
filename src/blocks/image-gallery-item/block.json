@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/image-gallery-item",
+  "title": "Image Gallery Item",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-tools",
+  "parent": [
+    "combo-blocks/image-gallery"
+  ],
+  "usesContext": [
+    "combo-blocks/galleryId",
+    "combo-blocks/lightbox"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "pg-image-gallery-item"
+        },
+        "styles": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "image gallery",
+    "image gallery block",
+    "video gallery block",
+    "gallery block",
+    "image lightbox block",
+    "lightbox block",
+    "image gallery for wordpress",
+    "image gallery block for wordpress"
+  ],
+  "description": "This block is the inner block of image gallery block"
+}

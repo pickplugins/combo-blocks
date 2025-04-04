@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "combo-blocks/videos",
+  "title": "Videos",
+  "textdomain": "combo-blocks",
+  "category": "combo-blocks-archive",
+  "usesContext": [
+    "combo-blocks/galleryId",
+    "combo-blocks/lightbox",
+    "parentBlock"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "wrapper": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "pg-videos",
+          "mediaSource": "media",
+          "queryPrams": []
+        },
+        "styles": {}
+      }
+    },
+    "itemsWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "excludedWrapper": true
+        },
+        "styles": {}
+      }
+    },
+    "itemWrap": {
+      "type": "object",
+      "default": {
+        "options": {
+          "tag": "div",
+          "class": "",
+          "counterClass": false,
+          "termsClass": false,
+          "oddEvenClass": false
+        },
+        "styles": {}
+      }
+    },
+    "galleryItems": {
+      "type": "array",
+      "default": []
+    },
+    "categories": {
+      "type": "array",
+      "default": []
+    },
+    "lightbox": {
+      "type": "object",
+      "default": {
+        "options": {
+          "enable": false
+        }
+      }
+    },
+    "lazyLoad": {
+      "type": "object",
+      "default": {
+        "options": {
+          "lazy": true,
+          "lazySrc": "",
+          "lazySrcId": "",
+          "lazySrcType": "media"
+        }
+      }
+    },
+    "blockCssY": {
+      "type": "object",
+      "default": {
+        "items": {}
+      }
+    },
+    "visible": {
+      "type": "object",
+      "default": {}
+    },
+    "blockId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "script": "combo_blocks_scripts",
+  "keywords": [
+    "terms list",
+    "term list",
+    "taxonomy term list",
+    "category list",
+    "categories list",
+    "tag list",
+    "tags list",
+    "taxonomy list",
+    "taxonomies list",
+    "terms list block",
+    "terms list for wordpress",
+    "terms list block for wordpress"
+  ],
+  "description": "The terms list block displays a list of specific terms, providing a quick reference for readers."
+}
